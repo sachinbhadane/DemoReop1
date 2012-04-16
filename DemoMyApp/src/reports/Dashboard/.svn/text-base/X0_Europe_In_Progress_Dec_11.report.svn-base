@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>ACCOUNT_ID</field>
+    </columns>
+    <columns>
+        <field>Opportunity.Last_Log_In1__c</field>
+    </columns>
+    <columns>
+        <field>Opportunity.In_Progress_Date__c</field>
+    </columns>
+    <columns>
+        <field>Opportunity.Percent_Complete__c</field>
+    </columns>
+    <columns>
+        <field>CREATED_DATE</field>
+    </columns>
+    <columns>
+        <field>Opportunity.Application_Substage__c</field>
+    </columns>
+    <columns>
+        <field>Opportunity.Application_Fee_Complete__c</field>
+    </columns>
+    <columns>
+        <field>Opportunity.Contact__c</field>
+    </columns>
+    <columns>
+        <field>PHONE1</field>
+    </columns>
+    <columns>
+        <field>CON.PHONE</field>
+    </columns>
+    <columns>
+        <field>Opportunity.Applicant_Email__c</field>
+    </columns>
+    <columns>
+        <field>ACCOUNT_NAME</field>
+    </columns>
+    <columns>
+        <field>Opportunity.Country_Of_Residence__c</field>
+    </columns>
+    <columns>
+        <field>CON.ADDRESS2_CITY</field>
+    </columns>
+    <columns>
+        <field>CON.ADDRESS2_ZIP</field>
+    </columns>
+    <columns>
+        <field>LEAD_SOURCE</field>
+    </columns>
+    <columns>
+        <field>STAGE_NAME</field>
+    </columns>
+    <currency>USD</currency>
+    <description>For Dashboard by Last Login</description>
+    <filter>
+        <booleanFilter>((((1 OR 2 OR 3 OR 4 OR 7) AND 5 AND 6)) AND (8 OR 9))</booleanFilter>
+        <criteriaItems>
+            <column>FULL_NAME</column>
+            <operator>equals</operator>
+            <value>David Dand,German Fernandez,Inga Jasulaityte,Heather Mancini,Adriana Lloan,Lina Rojdmark,Jose Bort</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>FULL_NAME</column>
+            <operator>equals</operator>
+            <value>Tate Jones,Chris Smart,Tom Glasberg,Alice Munoz</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>FULL_NAME</column>
+            <operator>equals</operator>
+            <value>Par Ekstrom,Annie Romero,Lavinia Yang,Greta Rossi,Katja Gomer,Antonije Radovic,Amy Cullen,Oxana Fedorova,Graeme Tong</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>FULL_NAME</column>
+            <operator>equals</operator>
+            <value>Andrea Barsk,Susie Buczko,Peter Mangel,Veronica De Armas,Matthieu Poupard</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Opportunity.Start_Term__c</column>
+            <operator>equals</operator>
+            <value>January 2012,September 2012,January 2013</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>STAGE_NAME</column>
+            <operator>equals</operator>
+            <value>Qualified Lead,In Progress</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>FULL_NAME</column>
+            <operator>equals</operator>
+            <value>Danny Goh,Valeria Droge,Asija Safigulina</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Opportunity.Last_Log_In1__c</column>
+            <operator>greaterThan</operator>
+            <value>12/1/2011 12:00 AM</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Opportunity.In_Progress_Date__c</column>
+            <operator>greaterThan</operator>
+            <value>12/1/2011</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>FULL_NAME</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>0-Europe In Progress+ Dec 11 DASHBOARD</name>
+    <params>
+        <name>open</name>
+        <value>all</value>
+    </params>
+    <params>
+        <name>probability</name>
+        <value>&gt;0</value>
+    </params>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Opportunity</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>CREATED_DATE</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

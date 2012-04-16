@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ReportFolder xmlns="http://soap.sforce.com/2006/04/metadata">
+    <accessType>Shared</accessType>
+    <name>GoEd</name>
+    <publicFolderAccess>ReadOnly</publicFolderAccess>
+    <sharedTo>
+        <rolesAndSubordinates>Finance Manager</rolesAndSubordinates>
+        <rolesAndSubordinates>Finance User</rolesAndSubordinates>
+        <rolesAndSubordinates>System Administrator</rolesAndSubordinates>
+    </sharedTo>
+</ReportFolder>

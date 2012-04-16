@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ReportFolder xmlns="http://soap.sforce.com/2006/04/metadata">
+    <accessType>Shared</accessType>
+    <name>BIBA Global Reports</name>
+    <publicFolderAccess>ReadOnly</publicFolderAccess>
+    <sharedTo>
+        <roles>Asia Product Head - Biba</roles>
+        <roles>CEO/Pres, COO, Dean, CIO, CFO</roles>
+        <roles>EU Product Head - BIBA (UG)</roles>
+        <roles>Global Product Head - BIBA (UG)</roles>
+        <roles>MEA Product Head - BIBA (UG)</roles>
+        <roles>NA/LATINAM Product Head - BIBA(UG)</roles>
+    </sharedTo>
+</ReportFolder>

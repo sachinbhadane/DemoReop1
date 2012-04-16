@@ -1,0 +1,2221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>Age_Range__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Age Range from GMASS list</inlineHelpText>
+        <label>Age Range</label>
+        <picklist>
+            <picklistValues>
+                <fullName>18-22</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>23-25</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>26-28</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>29-35</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>36+</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>BLCC__Exclude_from_Calendar__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Exclude from Calendar</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Campaign_Sub_Type__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>A sub type related to the overal type of campaign.</inlineHelpText>
+        <label>Campaign Sub Type</label>
+        <picklist>
+            <controllingField>Type</controllingField>
+            <picklistValues>
+                <fullName>Deadline Reminder</fullName>
+                <controllingFieldValues>Email</controllingFieldValues>
+                <controllingFieldValues>Telesales</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Email Invitations</fullName>
+                <controllingFieldValues>Email</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Executive Speaker</fullName>
+                <controllingFieldValues>Agents</controllingFieldValues>
+                <controllingFieldValues>Events</controllingFieldValues>
+                <controllingFieldValues>Paid Online</controllingFieldValues>
+                <controllingFieldValues>Telesales</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Experience Session</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Facebook</fullName>
+                <controllingFieldValues>Other</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fairs</fullName>
+                <controllingFieldValues>Agents</controllingFieldValues>
+                <controllingFieldValues>Direct Mail</controllingFieldValues>
+                <controllingFieldValues>Email</controllingFieldValues>
+                <controllingFieldValues>Events</controllingFieldValues>
+                <controllingFieldValues>Telesales</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Global Announcement</fullName>
+                <controllingFieldValues>Direct Mail</controllingFieldValues>
+                <controllingFieldValues>Email</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Google AdWords</fullName>
+                <controllingFieldValues>Other</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Info Session</fullName>
+                <controllingFieldValues>Agents</controllingFieldValues>
+                <controllingFieldValues>Events</controllingFieldValues>
+                <controllingFieldValues>Paid Online</controllingFieldValues>
+                <controllingFieldValues>Telesales</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>LinkedIn</fullName>
+                <controllingFieldValues>Agents</controllingFieldValues>
+                <controllingFieldValues>Other</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Meet and Greet</fullName>
+                <controllingFieldValues>Agents</controllingFieldValues>
+                <controllingFieldValues>Events</controllingFieldValues>
+                <controllingFieldValues>Paid Online</controllingFieldValues>
+                <controllingFieldValues>Telesales</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Monthly Newsletter</fullName>
+                <controllingFieldValues>Direct Mail</controllingFieldValues>
+                <controllingFieldValues>Email</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Networking Event</fullName>
+                <controllingFieldValues>Events</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Open House</fullName>
+                <controllingFieldValues>Direct Mail</controllingFieldValues>
+                <controllingFieldValues>Events</controllingFieldValues>
+                <controllingFieldValues>Telesales</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other Email</fullName>
+                <controllingFieldValues>Email</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other Event</fullName>
+                <controllingFieldValues>Telesales</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other Paid Online</fullName>
+                <controllingFieldValues>Paid Online</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Partner Event</fullName>
+                <controllingFieldValues>Agents</controllingFieldValues>
+                <controllingFieldValues>Events</controllingFieldValues>
+                <controllingFieldValues>Telesales</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Scholarships</fullName>
+                <controllingFieldValues>Direct Mail</controllingFieldValues>
+                <controllingFieldValues>Email</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Seasonal Greeting</fullName>
+                <controllingFieldValues>Direct Mail</controllingFieldValues>
+                <controllingFieldValues>Email</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Street Marketing</fullName>
+                <controllingFieldValues>Direct Mail</controllingFieldValues>
+                <controllingFieldValues>Events</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Weekly Blast</fullName>
+                <controllingFieldValues>Email</controllingFieldValues>
+                <controllingFieldValues>Events</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>121</fullName>
+                <controllingFieldValues>Events</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Master class</fullName>
+                <controllingFieldValues>Events</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Infosession</fullName>
+                <controllingFieldValues>Events</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Round table meetings</fullName>
+                <controllingFieldValues>Events</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Experience Hult</fullName>
+                <controllingFieldValues>Events</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Education - International Trade Fair for Education</fullName>
+                <controllingFieldValues>Events</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>University Fair</fullName>
+                <controllingFieldValues>Events</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Studyrama International Education &amp; Career Fair</fullName>
+                <controllingFieldValues>Events</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Country__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Country related to the region for campaign segmentation</inlineHelpText>
+        <label>Country</label>
+        <referenceTo>Country__c</referenceTo>
+        <relationshipLabel>Campaigns</relationshipLabel>
+        <relationshipName>Campaigns</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Data_Quality_Description__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( Data_Quality_Score__c =100,&quot;All Campaign Details Captured&quot;, &quot;Missing: &quot;&amp;IF( LEN( Name)&lt;5,&quot;Meaningful Campaign Name, &quot;,&quot;&quot;)&amp;&quot;&quot;&amp;IF(ISPICKVAL( Type ,&quot;&quot;), &quot;Type, &quot;,&quot;&quot;)&amp;&quot;&quot;&amp;IF( ISPICKVAL( Status ,&quot;&quot;), &quot;Status, &quot;,&quot;&quot;)&amp;&quot;&quot;&amp;IF( LEN(TEXT(MONTH( StartDate )))=0, &quot;Start Date, &quot;,&quot;&quot;)&amp;&quot;&quot;&amp;IF( LEN(TEXT(MONTH( EndDate )))=0, &quot;End Date, &quot;,&quot;&quot;)&amp;&quot;&quot;&amp;IF(NumberOfContacts  +  NumberOfLeads = 0, &quot;No Associated Members, &quot;,&quot;&quot;)&amp;&quot;&quot;&amp;IF( LEN(TEXT( ExpectedRevenue ))=0, &quot;Expected Revenue&quot;,&quot;&quot;))</formula>
+        <label>Data Quality Description</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Data_Quality_Score__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(LEN(  Name  ) &lt; 5, 0,20) + IF(ISPICKVAL(  Type ,&quot;&quot; ), 0,20) + IF(ISPICKVAL( Status ,&quot;&quot; ), 0,20) + IF(LEN( TEXT(MONTH( StartDate )))= 0, 0,10) + IF( LEN(TEXT(MONTH( EndDate ))) = 0, 0,10) + IF(  NumberOfContacts  +  NumberOfLeads = 0, 0,10)  + IF( LEN( TEXT( ExpectedRevenue ) ) = 0, 0,10)</formula>
+        <label>Data Quality Score</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Degree_Objective__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Degree objective for determining MBA from EMBA</inlineHelpText>
+        <label>Degree Objective</label>
+        <length>60</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Five9__Five9CallNow__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Sets Five9 callNowMode to &apos;ANY&apos;</description>
+        <externalId>false</externalId>
+        <inlineHelpText>All new campaign members are added to Five9 list with &apos;call now mode&apos; set to &apos;ANY&apos;</inlineHelpText>
+        <label>Five9 Call Now</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Five9__Five9list__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Five9 dialing list name</description>
+        <externalId>false</externalId>
+        <label>Five9list</label>
+        <length>50</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>GMAT_Score__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Score or range from the GMASS list of the score.</inlineHelpText>
+        <label>GMAT Score</label>
+        <length>10</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>List_Expiration_Date__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>The date the rental list must be removed from the database (minus the converted applicants that have created an application on the web site).</inlineHelpText>
+        <label>List Expiration Date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>List_Name__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Name of the List Purchased</inlineHelpText>
+        <label>List Name</label>
+        <length>60</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Marketing_Source__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Marketing source name will be associated to a lead</inlineHelpText>
+        <label>Marketing Source</label>
+        <picklist>
+            <picklistValues>
+                <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Access &gt; MBA</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>AccessMBAprescheduled</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Agent</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>AIESEC</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Alumni</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>baidu.com</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cappex</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ChaseDream</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>contact</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>eBlast</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>eBlast Email</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>EconomistOnlineFair</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>EF</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>EFBlast</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>EF Blasts</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>e-fellows</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Experience Hult</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Facebook</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>fb?utm_source=Facebook</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>GETEX</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>GMASS</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>GMASS-EFAMS</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>GMAT_Masters</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Google</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>GRE</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Hult Brochure request</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>iChat</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Information Session</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Interview Event Registration</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Linkedin</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>LinkedIn?utm_source=LinkedIn</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Local_Websites</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mail merge</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>masterfair</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Masterstudies.com</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MBA Fair</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MBA Fair - Others</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Others - Family</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Others - Friend</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>QS-EFAMS</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>QS TopMBA Scorecard</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>QS World Grad School Tour</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>QS World MBA Tour</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Recruiting</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Register for Tour/Info-session</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Register your interest</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SAT</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>School visits</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Telephone</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>The MBA Tour</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>TopApply Application</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Tour India</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Undergraduate fair</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Unknown</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>USIEF</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Yahoo</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pagalguy</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Linden Tour</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>AUC - Annual Graduate Study</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CIS</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Education USA</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Arabian Campuses</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dubai FAQ</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Corporate Middle</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>EastAccess Masters</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>QS Connect</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>InterNations</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Organizer__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>This is related to Sub Type for Fairs</inlineHelpText>
+        <label>Organizer</label>
+        <picklist>
+            <controllingField>Campaign_Sub_Type__c</controllingField>
+            <picklistValues>
+                <fullName>QS</fullName>
+                <controllingFieldValues>121</controllingFieldValues>
+                <controllingFieldValues>Deadline Reminder</controllingFieldValues>
+                <controllingFieldValues>Email Invitations</controllingFieldValues>
+                <controllingFieldValues>Executive Speaker</controllingFieldValues>
+                <controllingFieldValues>Experience Session</controllingFieldValues>
+                <controllingFieldValues>Facebook</controllingFieldValues>
+                <controllingFieldValues>Fairs</controllingFieldValues>
+                <controllingFieldValues>Global Announcement</controllingFieldValues>
+                <controllingFieldValues>Google AdWords</controllingFieldValues>
+                <controllingFieldValues>Info Session</controllingFieldValues>
+                <controllingFieldValues>Infosession</controllingFieldValues>
+                <controllingFieldValues>LinkedIn</controllingFieldValues>
+                <controllingFieldValues>Master class</controllingFieldValues>
+                <controllingFieldValues>Meet and Greet</controllingFieldValues>
+                <controllingFieldValues>Monthly Newsletter</controllingFieldValues>
+                <controllingFieldValues>Networking Event</controllingFieldValues>
+                <controllingFieldValues>Open House</controllingFieldValues>
+                <controllingFieldValues>Other Email</controllingFieldValues>
+                <controllingFieldValues>Other Event</controllingFieldValues>
+                <controllingFieldValues>Other Paid Online</controllingFieldValues>
+                <controllingFieldValues>Partner Event</controllingFieldValues>
+                <controllingFieldValues>Round table meetings</controllingFieldValues>
+                <controllingFieldValues>Scholarships</controllingFieldValues>
+                <controllingFieldValues>Seasonal Greeting</controllingFieldValues>
+                <controllingFieldValues>Street Marketing</controllingFieldValues>
+                <controllingFieldValues>Weekly Blast</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Access</fullName>
+                <controllingFieldValues>121</controllingFieldValues>
+                <controllingFieldValues>Deadline Reminder</controllingFieldValues>
+                <controllingFieldValues>Email Invitations</controllingFieldValues>
+                <controllingFieldValues>Executive Speaker</controllingFieldValues>
+                <controllingFieldValues>Experience Session</controllingFieldValues>
+                <controllingFieldValues>Facebook</controllingFieldValues>
+                <controllingFieldValues>Fairs</controllingFieldValues>
+                <controllingFieldValues>Global Announcement</controllingFieldValues>
+                <controllingFieldValues>Google AdWords</controllingFieldValues>
+                <controllingFieldValues>Info Session</controllingFieldValues>
+                <controllingFieldValues>Infosession</controllingFieldValues>
+                <controllingFieldValues>LinkedIn</controllingFieldValues>
+                <controllingFieldValues>Master class</controllingFieldValues>
+                <controllingFieldValues>Meet and Greet</controllingFieldValues>
+                <controllingFieldValues>Monthly Newsletter</controllingFieldValues>
+                <controllingFieldValues>Networking Event</controllingFieldValues>
+                <controllingFieldValues>Open House</controllingFieldValues>
+                <controllingFieldValues>Other Email</controllingFieldValues>
+                <controllingFieldValues>Other Event</controllingFieldValues>
+                <controllingFieldValues>Other Paid Online</controllingFieldValues>
+                <controllingFieldValues>Partner Event</controllingFieldValues>
+                <controllingFieldValues>Round table meetings</controllingFieldValues>
+                <controllingFieldValues>Scholarships</controllingFieldValues>
+                <controllingFieldValues>Seasonal Greeting</controllingFieldValues>
+                <controllingFieldValues>Street Marketing</controllingFieldValues>
+                <controllingFieldValues>Weekly Blast</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MBA Tour</fullName>
+                <controllingFieldValues>Deadline Reminder</controllingFieldValues>
+                <controllingFieldValues>Email Invitations</controllingFieldValues>
+                <controllingFieldValues>Executive Speaker</controllingFieldValues>
+                <controllingFieldValues>Experience Session</controllingFieldValues>
+                <controllingFieldValues>Facebook</controllingFieldValues>
+                <controllingFieldValues>Fairs</controllingFieldValues>
+                <controllingFieldValues>Global Announcement</controllingFieldValues>
+                <controllingFieldValues>Google AdWords</controllingFieldValues>
+                <controllingFieldValues>Info Session</controllingFieldValues>
+                <controllingFieldValues>Infosession</controllingFieldValues>
+                <controllingFieldValues>LinkedIn</controllingFieldValues>
+                <controllingFieldValues>Master class</controllingFieldValues>
+                <controllingFieldValues>Meet and Greet</controllingFieldValues>
+                <controllingFieldValues>Monthly Newsletter</controllingFieldValues>
+                <controllingFieldValues>Networking Event</controllingFieldValues>
+                <controllingFieldValues>Open House</controllingFieldValues>
+                <controllingFieldValues>Other Email</controllingFieldValues>
+                <controllingFieldValues>Other Event</controllingFieldValues>
+                <controllingFieldValues>Other Paid Online</controllingFieldValues>
+                <controllingFieldValues>Partner Event</controllingFieldValues>
+                <controllingFieldValues>Round table meetings</controllingFieldValues>
+                <controllingFieldValues>Scholarships</controllingFieldValues>
+                <controllingFieldValues>Seasonal Greeting</controllingFieldValues>
+                <controllingFieldValues>Street Marketing</controllingFieldValues>
+                <controllingFieldValues>Weekly Blast</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other</fullName>
+                <controllingFieldValues>Deadline Reminder</controllingFieldValues>
+                <controllingFieldValues>Email Invitations</controllingFieldValues>
+                <controllingFieldValues>Executive Speaker</controllingFieldValues>
+                <controllingFieldValues>Experience Session</controllingFieldValues>
+                <controllingFieldValues>Facebook</controllingFieldValues>
+                <controllingFieldValues>Fairs</controllingFieldValues>
+                <controllingFieldValues>Global Announcement</controllingFieldValues>
+                <controllingFieldValues>Google AdWords</controllingFieldValues>
+                <controllingFieldValues>Info Session</controllingFieldValues>
+                <controllingFieldValues>Infosession</controllingFieldValues>
+                <controllingFieldValues>LinkedIn</controllingFieldValues>
+                <controllingFieldValues>Master class</controllingFieldValues>
+                <controllingFieldValues>Meet and Greet</controllingFieldValues>
+                <controllingFieldValues>Monthly Newsletter</controllingFieldValues>
+                <controllingFieldValues>Networking Event</controllingFieldValues>
+                <controllingFieldValues>Open House</controllingFieldValues>
+                <controllingFieldValues>Other Email</controllingFieldValues>
+                <controllingFieldValues>Other Event</controllingFieldValues>
+                <controllingFieldValues>Other Paid Online</controllingFieldValues>
+                <controllingFieldValues>Partner Event</controllingFieldValues>
+                <controllingFieldValues>Round table meetings</controllingFieldValues>
+                <controllingFieldValues>Scholarships</controllingFieldValues>
+                <controllingFieldValues>Seasonal Greeting</controllingFieldValues>
+                <controllingFieldValues>Street Marketing</controllingFieldValues>
+                <controllingFieldValues>Weekly Blast</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>a2 International Education Fairs</fullName>
+                <controllingFieldValues>Deadline Reminder</controllingFieldValues>
+                <controllingFieldValues>Email Invitations</controllingFieldValues>
+                <controllingFieldValues>Executive Speaker</controllingFieldValues>
+                <controllingFieldValues>Experience Session</controllingFieldValues>
+                <controllingFieldValues>Facebook</controllingFieldValues>
+                <controllingFieldValues>Fairs</controllingFieldValues>
+                <controllingFieldValues>Global Announcement</controllingFieldValues>
+                <controllingFieldValues>Google AdWords</controllingFieldValues>
+                <controllingFieldValues>Info Session</controllingFieldValues>
+                <controllingFieldValues>Infosession</controllingFieldValues>
+                <controllingFieldValues>LinkedIn</controllingFieldValues>
+                <controllingFieldValues>Master class</controllingFieldValues>
+                <controllingFieldValues>Meet and Greet</controllingFieldValues>
+                <controllingFieldValues>Monthly Newsletter</controllingFieldValues>
+                <controllingFieldValues>Networking Event</controllingFieldValues>
+                <controllingFieldValues>Open House</controllingFieldValues>
+                <controllingFieldValues>Other Email</controllingFieldValues>
+                <controllingFieldValues>Other Event</controllingFieldValues>
+                <controllingFieldValues>Other Paid Online</controllingFieldValues>
+                <controllingFieldValues>Partner Event</controllingFieldValues>
+                <controllingFieldValues>Round table meetings</controllingFieldValues>
+                <controllingFieldValues>Scholarships</controllingFieldValues>
+                <controllingFieldValues>Seasonal Greeting</controllingFieldValues>
+                <controllingFieldValues>Street Marketing</controllingFieldValues>
+                <controllingFieldValues>Weekly Blast</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>AMBA</fullName>
+                <controllingFieldValues>Deadline Reminder</controllingFieldValues>
+                <controllingFieldValues>Email Invitations</controllingFieldValues>
+                <controllingFieldValues>Executive Speaker</controllingFieldValues>
+                <controllingFieldValues>Experience Session</controllingFieldValues>
+                <controllingFieldValues>Facebook</controllingFieldValues>
+                <controllingFieldValues>Fairs</controllingFieldValues>
+                <controllingFieldValues>Global Announcement</controllingFieldValues>
+                <controllingFieldValues>Google AdWords</controllingFieldValues>
+                <controllingFieldValues>Info Session</controllingFieldValues>
+                <controllingFieldValues>Infosession</controllingFieldValues>
+                <controllingFieldValues>LinkedIn</controllingFieldValues>
+                <controllingFieldValues>Master class</controllingFieldValues>
+                <controllingFieldValues>Meet and Greet</controllingFieldValues>
+                <controllingFieldValues>Monthly Newsletter</controllingFieldValues>
+                <controllingFieldValues>Networking Event</controllingFieldValues>
+                <controllingFieldValues>Open House</controllingFieldValues>
+                <controllingFieldValues>Other Email</controllingFieldValues>
+                <controllingFieldValues>Other Event</controllingFieldValues>
+                <controllingFieldValues>Other Paid Online</controllingFieldValues>
+                <controllingFieldValues>Partner Event</controllingFieldValues>
+                <controllingFieldValues>Round table meetings</controllingFieldValues>
+                <controllingFieldValues>Scholarships</controllingFieldValues>
+                <controllingFieldValues>Seasonal Greeting</controllingFieldValues>
+                <controllingFieldValues>Street Marketing</controllingFieldValues>
+                <controllingFieldValues>Weekly Blast</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Begin</fullName>
+                <controllingFieldValues>Deadline Reminder</controllingFieldValues>
+                <controllingFieldValues>Email Invitations</controllingFieldValues>
+                <controllingFieldValues>Executive Speaker</controllingFieldValues>
+                <controllingFieldValues>Experience Session</controllingFieldValues>
+                <controllingFieldValues>Facebook</controllingFieldValues>
+                <controllingFieldValues>Fairs</controllingFieldValues>
+                <controllingFieldValues>Global Announcement</controllingFieldValues>
+                <controllingFieldValues>Google AdWords</controllingFieldValues>
+                <controllingFieldValues>Info Session</controllingFieldValues>
+                <controllingFieldValues>Infosession</controllingFieldValues>
+                <controllingFieldValues>LinkedIn</controllingFieldValues>
+                <controllingFieldValues>Master class</controllingFieldValues>
+                <controllingFieldValues>Meet and Greet</controllingFieldValues>
+                <controllingFieldValues>Monthly Newsletter</controllingFieldValues>
+                <controllingFieldValues>Networking Event</controllingFieldValues>
+                <controllingFieldValues>Open House</controllingFieldValues>
+                <controllingFieldValues>Other Email</controllingFieldValues>
+                <controllingFieldValues>Other Event</controllingFieldValues>
+                <controllingFieldValues>Other Paid Online</controllingFieldValues>
+                <controllingFieldValues>Partner Event</controllingFieldValues>
+                <controllingFieldValues>Round table meetings</controllingFieldValues>
+                <controllingFieldValues>Scholarships</controllingFieldValues>
+                <controllingFieldValues>Seasonal Greeting</controllingFieldValues>
+                <controllingFieldValues>Street Marketing</controllingFieldValues>
+                <controllingFieldValues>Weekly Blast</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Career Group</fullName>
+                <controllingFieldValues>Deadline Reminder</controllingFieldValues>
+                <controllingFieldValues>Email Invitations</controllingFieldValues>
+                <controllingFieldValues>Executive Speaker</controllingFieldValues>
+                <controllingFieldValues>Experience Session</controllingFieldValues>
+                <controllingFieldValues>Facebook</controllingFieldValues>
+                <controllingFieldValues>Fairs</controllingFieldValues>
+                <controllingFieldValues>Global Announcement</controllingFieldValues>
+                <controllingFieldValues>Google AdWords</controllingFieldValues>
+                <controllingFieldValues>Info Session</controllingFieldValues>
+                <controllingFieldValues>Infosession</controllingFieldValues>
+                <controllingFieldValues>LinkedIn</controllingFieldValues>
+                <controllingFieldValues>Master class</controllingFieldValues>
+                <controllingFieldValues>Meet and Greet</controllingFieldValues>
+                <controllingFieldValues>Monthly Newsletter</controllingFieldValues>
+                <controllingFieldValues>Networking Event</controllingFieldValues>
+                <controllingFieldValues>Open House</controllingFieldValues>
+                <controllingFieldValues>Other Email</controllingFieldValues>
+                <controllingFieldValues>Other Event</controllingFieldValues>
+                <controllingFieldValues>Other Paid Online</controllingFieldValues>
+                <controllingFieldValues>Partner Event</controllingFieldValues>
+                <controllingFieldValues>Round table meetings</controllingFieldValues>
+                <controllingFieldValues>Scholarships</controllingFieldValues>
+                <controllingFieldValues>Seasonal Greeting</controllingFieldValues>
+                <controllingFieldValues>Street Marketing</controllingFieldValues>
+                <controllingFieldValues>Weekly Blast</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Central European Study Abroad Fair</fullName>
+                <controllingFieldValues>Deadline Reminder</controllingFieldValues>
+                <controllingFieldValues>Email Invitations</controllingFieldValues>
+                <controllingFieldValues>Executive Speaker</controllingFieldValues>
+                <controllingFieldValues>Experience Session</controllingFieldValues>
+                <controllingFieldValues>Facebook</controllingFieldValues>
+                <controllingFieldValues>Fairs</controllingFieldValues>
+                <controllingFieldValues>Global Announcement</controllingFieldValues>
+                <controllingFieldValues>Google AdWords</controllingFieldValues>
+                <controllingFieldValues>Info Session</controllingFieldValues>
+                <controllingFieldValues>Infosession</controllingFieldValues>
+                <controllingFieldValues>LinkedIn</controllingFieldValues>
+                <controllingFieldValues>Master class</controllingFieldValues>
+                <controllingFieldValues>Meet and Greet</controllingFieldValues>
+                <controllingFieldValues>Monthly Newsletter</controllingFieldValues>
+                <controllingFieldValues>Networking Event</controllingFieldValues>
+                <controllingFieldValues>Open House</controllingFieldValues>
+                <controllingFieldValues>Other Email</controllingFieldValues>
+                <controllingFieldValues>Other Event</controllingFieldValues>
+                <controllingFieldValues>Other Paid Online</controllingFieldValues>
+                <controllingFieldValues>Partner Event</controllingFieldValues>
+                <controllingFieldValues>Round table meetings</controllingFieldValues>
+                <controllingFieldValues>Scholarships</controllingFieldValues>
+                <controllingFieldValues>Seasonal Greeting</controllingFieldValues>
+                <controllingFieldValues>Street Marketing</controllingFieldValues>
+                <controllingFieldValues>Weekly Blast</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>EAC</fullName>
+                <controllingFieldValues>Deadline Reminder</controllingFieldValues>
+                <controllingFieldValues>Email Invitations</controllingFieldValues>
+                <controllingFieldValues>Executive Speaker</controllingFieldValues>
+                <controllingFieldValues>Experience Session</controllingFieldValues>
+                <controllingFieldValues>Facebook</controllingFieldValues>
+                <controllingFieldValues>Fairs</controllingFieldValues>
+                <controllingFieldValues>Global Announcement</controllingFieldValues>
+                <controllingFieldValues>Google AdWords</controllingFieldValues>
+                <controllingFieldValues>Info Session</controllingFieldValues>
+                <controllingFieldValues>Infosession</controllingFieldValues>
+                <controllingFieldValues>LinkedIn</controllingFieldValues>
+                <controllingFieldValues>Master class</controllingFieldValues>
+                <controllingFieldValues>Meet and Greet</controllingFieldValues>
+                <controllingFieldValues>Monthly Newsletter</controllingFieldValues>
+                <controllingFieldValues>Networking Event</controllingFieldValues>
+                <controllingFieldValues>Open House</controllingFieldValues>
+                <controllingFieldValues>Other Email</controllingFieldValues>
+                <controllingFieldValues>Other Event</controllingFieldValues>
+                <controllingFieldValues>Other Paid Online</controllingFieldValues>
+                <controllingFieldValues>Partner Event</controllingFieldValues>
+                <controllingFieldValues>Round table meetings</controllingFieldValues>
+                <controllingFieldValues>Scholarships</controllingFieldValues>
+                <controllingFieldValues>Seasonal Greeting</controllingFieldValues>
+                <controllingFieldValues>Street Marketing</controllingFieldValues>
+                <controllingFieldValues>Weekly Blast</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>e-fellows</fullName>
+                <controllingFieldValues>Deadline Reminder</controllingFieldValues>
+                <controllingFieldValues>Email Invitations</controllingFieldValues>
+                <controllingFieldValues>Executive Speaker</controllingFieldValues>
+                <controllingFieldValues>Experience Session</controllingFieldValues>
+                <controllingFieldValues>Facebook</controllingFieldValues>
+                <controllingFieldValues>Fairs</controllingFieldValues>
+                <controllingFieldValues>Global Announcement</controllingFieldValues>
+                <controllingFieldValues>Google AdWords</controllingFieldValues>
+                <controllingFieldValues>Info Session</controllingFieldValues>
+                <controllingFieldValues>Infosession</controllingFieldValues>
+                <controllingFieldValues>LinkedIn</controllingFieldValues>
+                <controllingFieldValues>Master class</controllingFieldValues>
+                <controllingFieldValues>Meet and Greet</controllingFieldValues>
+                <controllingFieldValues>Monthly Newsletter</controllingFieldValues>
+                <controllingFieldValues>Networking Event</controllingFieldValues>
+                <controllingFieldValues>Open House</controllingFieldValues>
+                <controllingFieldValues>Other Email</controllingFieldValues>
+                <controllingFieldValues>Other Event</controllingFieldValues>
+                <controllingFieldValues>Other Paid Online</controllingFieldValues>
+                <controllingFieldValues>Partner Event</controllingFieldValues>
+                <controllingFieldValues>Round table meetings</controllingFieldValues>
+                <controllingFieldValues>Scholarships</controllingFieldValues>
+                <controllingFieldValues>Seasonal Greeting</controllingFieldValues>
+                <controllingFieldValues>Street Marketing</controllingFieldValues>
+                <controllingFieldValues>Weekly Blast</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>FIEP</fullName>
+                <controllingFieldValues>Deadline Reminder</controllingFieldValues>
+                <controllingFieldValues>Email Invitations</controllingFieldValues>
+                <controllingFieldValues>Executive Speaker</controllingFieldValues>
+                <controllingFieldValues>Experience Session</controllingFieldValues>
+                <controllingFieldValues>Facebook</controllingFieldValues>
+                <controllingFieldValues>Fairs</controllingFieldValues>
+                <controllingFieldValues>Global Announcement</controllingFieldValues>
+                <controllingFieldValues>Google AdWords</controllingFieldValues>
+                <controllingFieldValues>Info Session</controllingFieldValues>
+                <controllingFieldValues>Infosession</controllingFieldValues>
+                <controllingFieldValues>LinkedIn</controllingFieldValues>
+                <controllingFieldValues>Master class</controllingFieldValues>
+                <controllingFieldValues>Meet and Greet</controllingFieldValues>
+                <controllingFieldValues>Monthly Newsletter</controllingFieldValues>
+                <controllingFieldValues>Networking Event</controllingFieldValues>
+                <controllingFieldValues>Open House</controllingFieldValues>
+                <controllingFieldValues>Other Email</controllingFieldValues>
+                <controllingFieldValues>Other Event</controllingFieldValues>
+                <controllingFieldValues>Other Paid Online</controllingFieldValues>
+                <controllingFieldValues>Partner Event</controllingFieldValues>
+                <controllingFieldValues>Round table meetings</controllingFieldValues>
+                <controllingFieldValues>Scholarships</controllingFieldValues>
+                <controllingFieldValues>Seasonal Greeting</controllingFieldValues>
+                <controllingFieldValues>Street Marketing</controllingFieldValues>
+                <controllingFieldValues>Weekly Blast</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Hult</fullName>
+                <controllingFieldValues>121</controllingFieldValues>
+                <controllingFieldValues>Deadline Reminder</controllingFieldValues>
+                <controllingFieldValues>Email Invitations</controllingFieldValues>
+                <controllingFieldValues>Executive Speaker</controllingFieldValues>
+                <controllingFieldValues>Experience Session</controllingFieldValues>
+                <controllingFieldValues>Facebook</controllingFieldValues>
+                <controllingFieldValues>Fairs</controllingFieldValues>
+                <controllingFieldValues>Global Announcement</controllingFieldValues>
+                <controllingFieldValues>Google AdWords</controllingFieldValues>
+                <controllingFieldValues>Info Session</controllingFieldValues>
+                <controllingFieldValues>Infosession</controllingFieldValues>
+                <controllingFieldValues>LinkedIn</controllingFieldValues>
+                <controllingFieldValues>Master class</controllingFieldValues>
+                <controllingFieldValues>Meet and Greet</controllingFieldValues>
+                <controllingFieldValues>Monthly Newsletter</controllingFieldValues>
+                <controllingFieldValues>Networking Event</controllingFieldValues>
+                <controllingFieldValues>Open House</controllingFieldValues>
+                <controllingFieldValues>Other Email</controllingFieldValues>
+                <controllingFieldValues>Other Event</controllingFieldValues>
+                <controllingFieldValues>Other Paid Online</controllingFieldValues>
+                <controllingFieldValues>Partner Event</controllingFieldValues>
+                <controllingFieldValues>Round table meetings</controllingFieldValues>
+                <controllingFieldValues>Scholarships</controllingFieldValues>
+                <controllingFieldValues>Seasonal Greeting</controllingFieldValues>
+                <controllingFieldValues>Street Marketing</controllingFieldValues>
+                <controllingFieldValues>Weekly Blast</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>I&apos;Etudiant</fullName>
+                <controllingFieldValues>Deadline Reminder</controllingFieldValues>
+                <controllingFieldValues>Email Invitations</controllingFieldValues>
+                <controllingFieldValues>Executive Speaker</controllingFieldValues>
+                <controllingFieldValues>Experience Session</controllingFieldValues>
+                <controllingFieldValues>Facebook</controllingFieldValues>
+                <controllingFieldValues>Fairs</controllingFieldValues>
+                <controllingFieldValues>Global Announcement</controllingFieldValues>
+                <controllingFieldValues>Google AdWords</controllingFieldValues>
+                <controllingFieldValues>Info Session</controllingFieldValues>
+                <controllingFieldValues>Infosession</controllingFieldValues>
+                <controllingFieldValues>LinkedIn</controllingFieldValues>
+                <controllingFieldValues>Master class</controllingFieldValues>
+                <controllingFieldValues>Meet and Greet</controllingFieldValues>
+                <controllingFieldValues>Monthly Newsletter</controllingFieldValues>
+                <controllingFieldValues>Networking Event</controllingFieldValues>
+                <controllingFieldValues>Open House</controllingFieldValues>
+                <controllingFieldValues>Other Email</controllingFieldValues>
+                <controllingFieldValues>Other Event</controllingFieldValues>
+                <controllingFieldValues>Other Paid Online</controllingFieldValues>
+                <controllingFieldValues>Partner Event</controllingFieldValues>
+                <controllingFieldValues>Round table meetings</controllingFieldValues>
+                <controllingFieldValues>Scholarships</controllingFieldValues>
+                <controllingFieldValues>Seasonal Greeting</controllingFieldValues>
+                <controllingFieldValues>Street Marketing</controllingFieldValues>
+                <controllingFieldValues>Weekly Blast</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Informativa</fullName>
+                <controllingFieldValues>Deadline Reminder</controllingFieldValues>
+                <controllingFieldValues>Email Invitations</controllingFieldValues>
+                <controllingFieldValues>Executive Speaker</controllingFieldValues>
+                <controllingFieldValues>Experience Session</controllingFieldValues>
+                <controllingFieldValues>Facebook</controllingFieldValues>
+                <controllingFieldValues>Fairs</controllingFieldValues>
+                <controllingFieldValues>Global Announcement</controllingFieldValues>
+                <controllingFieldValues>Google AdWords</controllingFieldValues>
+                <controllingFieldValues>Info Session</controllingFieldValues>
+                <controllingFieldValues>Infosession</controllingFieldValues>
+                <controllingFieldValues>LinkedIn</controllingFieldValues>
+                <controllingFieldValues>Master class</controllingFieldValues>
+                <controllingFieldValues>Meet and Greet</controllingFieldValues>
+                <controllingFieldValues>Monthly Newsletter</controllingFieldValues>
+                <controllingFieldValues>Networking Event</controllingFieldValues>
+                <controllingFieldValues>Open House</controllingFieldValues>
+                <controllingFieldValues>Other Email</controllingFieldValues>
+                <controllingFieldValues>Other Event</controllingFieldValues>
+                <controllingFieldValues>Other Paid Online</controllingFieldValues>
+                <controllingFieldValues>Partner Event</controllingFieldValues>
+                <controllingFieldValues>Round table meetings</controllingFieldValues>
+                <controllingFieldValues>Scholarships</controllingFieldValues>
+                <controllingFieldValues>Seasonal Greeting</controllingFieldValues>
+                <controllingFieldValues>Street Marketing</controllingFieldValues>
+                <controllingFieldValues>Weekly Blast</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>International School of London</fullName>
+                <controllingFieldValues>Deadline Reminder</controllingFieldValues>
+                <controllingFieldValues>Email Invitations</controllingFieldValues>
+                <controllingFieldValues>Executive Speaker</controllingFieldValues>
+                <controllingFieldValues>Experience Session</controllingFieldValues>
+                <controllingFieldValues>Facebook</controllingFieldValues>
+                <controllingFieldValues>Fairs</controllingFieldValues>
+                <controllingFieldValues>Global Announcement</controllingFieldValues>
+                <controllingFieldValues>Google AdWords</controllingFieldValues>
+                <controllingFieldValues>Info Session</controllingFieldValues>
+                <controllingFieldValues>Infosession</controllingFieldValues>
+                <controllingFieldValues>LinkedIn</controllingFieldValues>
+                <controllingFieldValues>Master class</controllingFieldValues>
+                <controllingFieldValues>Meet and Greet</controllingFieldValues>
+                <controllingFieldValues>Monthly Newsletter</controllingFieldValues>
+                <controllingFieldValues>Networking Event</controllingFieldValues>
+                <controllingFieldValues>Open House</controllingFieldValues>
+                <controllingFieldValues>Other Email</controllingFieldValues>
+                <controllingFieldValues>Other Event</controllingFieldValues>
+                <controllingFieldValues>Other Paid Online</controllingFieldValues>
+                <controllingFieldValues>Partner Event</controllingFieldValues>
+                <controllingFieldValues>Round table meetings</controllingFieldValues>
+                <controllingFieldValues>Scholarships</controllingFieldValues>
+                <controllingFieldValues>Seasonal Greeting</controllingFieldValues>
+                <controllingFieldValues>Street Marketing</controllingFieldValues>
+                <controllingFieldValues>Weekly Blast</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mastermap</fullName>
+                <controllingFieldValues>Deadline Reminder</controllingFieldValues>
+                <controllingFieldValues>Email Invitations</controllingFieldValues>
+                <controllingFieldValues>Executive Speaker</controllingFieldValues>
+                <controllingFieldValues>Experience Session</controllingFieldValues>
+                <controllingFieldValues>Facebook</controllingFieldValues>
+                <controllingFieldValues>Fairs</controllingFieldValues>
+                <controllingFieldValues>Global Announcement</controllingFieldValues>
+                <controllingFieldValues>Google AdWords</controllingFieldValues>
+                <controllingFieldValues>Info Session</controllingFieldValues>
+                <controllingFieldValues>Infosession</controllingFieldValues>
+                <controllingFieldValues>LinkedIn</controllingFieldValues>
+                <controllingFieldValues>Master class</controllingFieldValues>
+                <controllingFieldValues>Meet and Greet</controllingFieldValues>
+                <controllingFieldValues>Monthly Newsletter</controllingFieldValues>
+                <controllingFieldValues>Networking Event</controllingFieldValues>
+                <controllingFieldValues>Open House</controllingFieldValues>
+                <controllingFieldValues>Other Email</controllingFieldValues>
+                <controllingFieldValues>Other Event</controllingFieldValues>
+                <controllingFieldValues>Other Paid Online</controllingFieldValues>
+                <controllingFieldValues>Partner Event</controllingFieldValues>
+                <controllingFieldValues>Round table meetings</controllingFieldValues>
+                <controllingFieldValues>Scholarships</controllingFieldValues>
+                <controllingFieldValues>Seasonal Greeting</controllingFieldValues>
+                <controllingFieldValues>Street Marketing</controllingFieldValues>
+                <controllingFieldValues>Weekly Blast</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Nova Pro</fullName>
+                <controllingFieldValues>Deadline Reminder</controllingFieldValues>
+                <controllingFieldValues>Email Invitations</controllingFieldValues>
+                <controllingFieldValues>Executive Speaker</controllingFieldValues>
+                <controllingFieldValues>Experience Session</controllingFieldValues>
+                <controllingFieldValues>Facebook</controllingFieldValues>
+                <controllingFieldValues>Fairs</controllingFieldValues>
+                <controllingFieldValues>Global Announcement</controllingFieldValues>
+                <controllingFieldValues>Google AdWords</controllingFieldValues>
+                <controllingFieldValues>Info Session</controllingFieldValues>
+                <controllingFieldValues>Infosession</controllingFieldValues>
+                <controllingFieldValues>LinkedIn</controllingFieldValues>
+                <controllingFieldValues>Master class</controllingFieldValues>
+                <controllingFieldValues>Meet and Greet</controllingFieldValues>
+                <controllingFieldValues>Monthly Newsletter</controllingFieldValues>
+                <controllingFieldValues>Networking Event</controllingFieldValues>
+                <controllingFieldValues>Open House</controllingFieldValues>
+                <controllingFieldValues>Other Email</controllingFieldValues>
+                <controllingFieldValues>Other Event</controllingFieldValues>
+                <controllingFieldValues>Other Paid Online</controllingFieldValues>
+                <controllingFieldValues>Partner Event</controllingFieldValues>
+                <controllingFieldValues>Round table meetings</controllingFieldValues>
+                <controllingFieldValues>Scholarships</controllingFieldValues>
+                <controllingFieldValues>Seasonal Greeting</controllingFieldValues>
+                <controllingFieldValues>Street Marketing</controllingFieldValues>
+                <controllingFieldValues>Weekly Blast</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Provent</fullName>
+                <controllingFieldValues>Deadline Reminder</controllingFieldValues>
+                <controllingFieldValues>Email Invitations</controllingFieldValues>
+                <controllingFieldValues>Executive Speaker</controllingFieldValues>
+                <controllingFieldValues>Experience Session</controllingFieldValues>
+                <controllingFieldValues>Facebook</controllingFieldValues>
+                <controllingFieldValues>Fairs</controllingFieldValues>
+                <controllingFieldValues>Global Announcement</controllingFieldValues>
+                <controllingFieldValues>Google AdWords</controllingFieldValues>
+                <controllingFieldValues>Info Session</controllingFieldValues>
+                <controllingFieldValues>Infosession</controllingFieldValues>
+                <controllingFieldValues>LinkedIn</controllingFieldValues>
+                <controllingFieldValues>Master class</controllingFieldValues>
+                <controllingFieldValues>Meet and Greet</controllingFieldValues>
+                <controllingFieldValues>Monthly Newsletter</controllingFieldValues>
+                <controllingFieldValues>Networking Event</controllingFieldValues>
+                <controllingFieldValues>Open House</controllingFieldValues>
+                <controllingFieldValues>Other Email</controllingFieldValues>
+                <controllingFieldValues>Other Event</controllingFieldValues>
+                <controllingFieldValues>Other Paid Online</controllingFieldValues>
+                <controllingFieldValues>Partner Event</controllingFieldValues>
+                <controllingFieldValues>Round table meetings</controllingFieldValues>
+                <controllingFieldValues>Scholarships</controllingFieldValues>
+                <controllingFieldValues>Seasonal Greeting</controllingFieldValues>
+                <controllingFieldValues>Street Marketing</controllingFieldValues>
+                <controllingFieldValues>Weekly Blast</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Student Recruitment Fair</fullName>
+                <controllingFieldValues>Deadline Reminder</controllingFieldValues>
+                <controllingFieldValues>Email Invitations</controllingFieldValues>
+                <controllingFieldValues>Executive Speaker</controllingFieldValues>
+                <controllingFieldValues>Experience Session</controllingFieldValues>
+                <controllingFieldValues>Facebook</controllingFieldValues>
+                <controllingFieldValues>Fairs</controllingFieldValues>
+                <controllingFieldValues>Global Announcement</controllingFieldValues>
+                <controllingFieldValues>Google AdWords</controllingFieldValues>
+                <controllingFieldValues>Info Session</controllingFieldValues>
+                <controllingFieldValues>Infosession</controllingFieldValues>
+                <controllingFieldValues>LinkedIn</controllingFieldValues>
+                <controllingFieldValues>Master class</controllingFieldValues>
+                <controllingFieldValues>Meet and Greet</controllingFieldValues>
+                <controllingFieldValues>Monthly Newsletter</controllingFieldValues>
+                <controllingFieldValues>Networking Event</controllingFieldValues>
+                <controllingFieldValues>Open House</controllingFieldValues>
+                <controllingFieldValues>Other Email</controllingFieldValues>
+                <controllingFieldValues>Other Event</controllingFieldValues>
+                <controllingFieldValues>Other Paid Online</controllingFieldValues>
+                <controllingFieldValues>Partner Event</controllingFieldValues>
+                <controllingFieldValues>Round table meetings</controllingFieldValues>
+                <controllingFieldValues>Scholarships</controllingFieldValues>
+                <controllingFieldValues>Seasonal Greeting</controllingFieldValues>
+                <controllingFieldValues>Street Marketing</controllingFieldValues>
+                <controllingFieldValues>Weekly Blast</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Study Central</fullName>
+                <controllingFieldValues>121</controllingFieldValues>
+                <controllingFieldValues>Deadline Reminder</controllingFieldValues>
+                <controllingFieldValues>Email Invitations</controllingFieldValues>
+                <controllingFieldValues>Executive Speaker</controllingFieldValues>
+                <controllingFieldValues>Experience Hult</controllingFieldValues>
+                <controllingFieldValues>Experience Session</controllingFieldValues>
+                <controllingFieldValues>Facebook</controllingFieldValues>
+                <controllingFieldValues>Fairs</controllingFieldValues>
+                <controllingFieldValues>Global Announcement</controllingFieldValues>
+                <controllingFieldValues>Google AdWords</controllingFieldValues>
+                <controllingFieldValues>Info Session</controllingFieldValues>
+                <controllingFieldValues>Infosession</controllingFieldValues>
+                <controllingFieldValues>LinkedIn</controllingFieldValues>
+                <controllingFieldValues>Master class</controllingFieldValues>
+                <controllingFieldValues>Meet and Greet</controllingFieldValues>
+                <controllingFieldValues>Monthly Newsletter</controllingFieldValues>
+                <controllingFieldValues>Networking Event</controllingFieldValues>
+                <controllingFieldValues>Open House</controllingFieldValues>
+                <controllingFieldValues>Other Email</controllingFieldValues>
+                <controllingFieldValues>Other Event</controllingFieldValues>
+                <controllingFieldValues>Other Paid Online</controllingFieldValues>
+                <controllingFieldValues>Partner Event</controllingFieldValues>
+                <controllingFieldValues>Round table meetings</controllingFieldValues>
+                <controllingFieldValues>Scholarships</controllingFieldValues>
+                <controllingFieldValues>Seasonal Greeting</controllingFieldValues>
+                <controllingFieldValues>Street Marketing</controllingFieldValues>
+                <controllingFieldValues>Weekly Blast</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Targetcourses</fullName>
+                <controllingFieldValues>121</controllingFieldValues>
+                <controllingFieldValues>Deadline Reminder</controllingFieldValues>
+                <controllingFieldValues>Email Invitations</controllingFieldValues>
+                <controllingFieldValues>Executive Speaker</controllingFieldValues>
+                <controllingFieldValues>Experience Hult</controllingFieldValues>
+                <controllingFieldValues>Experience Session</controllingFieldValues>
+                <controllingFieldValues>Facebook</controllingFieldValues>
+                <controllingFieldValues>Fairs</controllingFieldValues>
+                <controllingFieldValues>Global Announcement</controllingFieldValues>
+                <controllingFieldValues>Google AdWords</controllingFieldValues>
+                <controllingFieldValues>Info Session</controllingFieldValues>
+                <controllingFieldValues>Infosession</controllingFieldValues>
+                <controllingFieldValues>LinkedIn</controllingFieldValues>
+                <controllingFieldValues>Master class</controllingFieldValues>
+                <controllingFieldValues>Meet and Greet</controllingFieldValues>
+                <controllingFieldValues>Monthly Newsletter</controllingFieldValues>
+                <controllingFieldValues>Networking Event</controllingFieldValues>
+                <controllingFieldValues>Open House</controllingFieldValues>
+                <controllingFieldValues>Other Email</controllingFieldValues>
+                <controllingFieldValues>Other Event</controllingFieldValues>
+                <controllingFieldValues>Other Paid Online</controllingFieldValues>
+                <controllingFieldValues>Partner Event</controllingFieldValues>
+                <controllingFieldValues>Round table meetings</controllingFieldValues>
+                <controllingFieldValues>Scholarships</controllingFieldValues>
+                <controllingFieldValues>Seasonal Greeting</controllingFieldValues>
+                <controllingFieldValues>Street Marketing</controllingFieldValues>
+                <controllingFieldValues>Weekly Blast</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>UCAS</fullName>
+                <controllingFieldValues>121</controllingFieldValues>
+                <controllingFieldValues>Deadline Reminder</controllingFieldValues>
+                <controllingFieldValues>Email Invitations</controllingFieldValues>
+                <controllingFieldValues>Executive Speaker</controllingFieldValues>
+                <controllingFieldValues>Experience Hult</controllingFieldValues>
+                <controllingFieldValues>Experience Session</controllingFieldValues>
+                <controllingFieldValues>Facebook</controllingFieldValues>
+                <controllingFieldValues>Fairs</controllingFieldValues>
+                <controllingFieldValues>Global Announcement</controllingFieldValues>
+                <controllingFieldValues>Google AdWords</controllingFieldValues>
+                <controllingFieldValues>Info Session</controllingFieldValues>
+                <controllingFieldValues>Infosession</controllingFieldValues>
+                <controllingFieldValues>LinkedIn</controllingFieldValues>
+                <controllingFieldValues>Master class</controllingFieldValues>
+                <controllingFieldValues>Meet and Greet</controllingFieldValues>
+                <controllingFieldValues>Monthly Newsletter</controllingFieldValues>
+                <controllingFieldValues>Networking Event</controllingFieldValues>
+                <controllingFieldValues>Open House</controllingFieldValues>
+                <controllingFieldValues>Other Email</controllingFieldValues>
+                <controllingFieldValues>Other Event</controllingFieldValues>
+                <controllingFieldValues>Other Paid Online</controllingFieldValues>
+                <controllingFieldValues>Partner Event</controllingFieldValues>
+                <controllingFieldValues>Round table meetings</controllingFieldValues>
+                <controllingFieldValues>Scholarships</controllingFieldValues>
+                <controllingFieldValues>Seasonal Greeting</controllingFieldValues>
+                <controllingFieldValues>Street Marketing</controllingFieldValues>
+                <controllingFieldValues>Weekly Blast</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Caucasus school of Business</fullName>
+                <controllingFieldValues>121</controllingFieldValues>
+                <controllingFieldValues>Deadline Reminder</controllingFieldValues>
+                <controllingFieldValues>Email Invitations</controllingFieldValues>
+                <controllingFieldValues>Executive Speaker</controllingFieldValues>
+                <controllingFieldValues>Experience Hult</controllingFieldValues>
+                <controllingFieldValues>Experience Session</controllingFieldValues>
+                <controllingFieldValues>Facebook</controllingFieldValues>
+                <controllingFieldValues>Fairs</controllingFieldValues>
+                <controllingFieldValues>Global Announcement</controllingFieldValues>
+                <controllingFieldValues>Google AdWords</controllingFieldValues>
+                <controllingFieldValues>Info Session</controllingFieldValues>
+                <controllingFieldValues>Infosession</controllingFieldValues>
+                <controllingFieldValues>LinkedIn</controllingFieldValues>
+                <controllingFieldValues>Master class</controllingFieldValues>
+                <controllingFieldValues>Meet and Greet</controllingFieldValues>
+                <controllingFieldValues>Monthly Newsletter</controllingFieldValues>
+                <controllingFieldValues>Networking Event</controllingFieldValues>
+                <controllingFieldValues>Open House</controllingFieldValues>
+                <controllingFieldValues>Other Email</controllingFieldValues>
+                <controllingFieldValues>Other Event</controllingFieldValues>
+                <controllingFieldValues>Other Paid Online</controllingFieldValues>
+                <controllingFieldValues>Partner Event</controllingFieldValues>
+                <controllingFieldValues>Round table meetings</controllingFieldValues>
+                <controllingFieldValues>Scholarships</controllingFieldValues>
+                <controllingFieldValues>Seasonal Greeting</controllingFieldValues>
+                <controllingFieldValues>Street Marketing</controllingFieldValues>
+                <controllingFieldValues>Weekly Blast</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Georgian American University</fullName>
+                <controllingFieldValues>121</controllingFieldValues>
+                <controllingFieldValues>Deadline Reminder</controllingFieldValues>
+                <controllingFieldValues>Email Invitations</controllingFieldValues>
+                <controllingFieldValues>Executive Speaker</controllingFieldValues>
+                <controllingFieldValues>Experience Hult</controllingFieldValues>
+                <controllingFieldValues>Experience Session</controllingFieldValues>
+                <controllingFieldValues>Facebook</controllingFieldValues>
+                <controllingFieldValues>Fairs</controllingFieldValues>
+                <controllingFieldValues>Global Announcement</controllingFieldValues>
+                <controllingFieldValues>Google AdWords</controllingFieldValues>
+                <controllingFieldValues>Info Session</controllingFieldValues>
+                <controllingFieldValues>Infosession</controllingFieldValues>
+                <controllingFieldValues>LinkedIn</controllingFieldValues>
+                <controllingFieldValues>Master class</controllingFieldValues>
+                <controllingFieldValues>Meet and Greet</controllingFieldValues>
+                <controllingFieldValues>Monthly Newsletter</controllingFieldValues>
+                <controllingFieldValues>Networking Event</controllingFieldValues>
+                <controllingFieldValues>Open House</controllingFieldValues>
+                <controllingFieldValues>Other Email</controllingFieldValues>
+                <controllingFieldValues>Other Event</controllingFieldValues>
+                <controllingFieldValues>Other Paid Online</controllingFieldValues>
+                <controllingFieldValues>Partner Event</controllingFieldValues>
+                <controllingFieldValues>Round table meetings</controllingFieldValues>
+                <controllingFieldValues>Scholarships</controllingFieldValues>
+                <controllingFieldValues>Seasonal Greeting</controllingFieldValues>
+                <controllingFieldValues>Street Marketing</controllingFieldValues>
+                <controllingFieldValues>Weekly Blast</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>KIMEP</fullName>
+                <controllingFieldValues>121</controllingFieldValues>
+                <controllingFieldValues>Deadline Reminder</controllingFieldValues>
+                <controllingFieldValues>Email Invitations</controllingFieldValues>
+                <controllingFieldValues>Executive Speaker</controllingFieldValues>
+                <controllingFieldValues>Experience Hult</controllingFieldValues>
+                <controllingFieldValues>Experience Session</controllingFieldValues>
+                <controllingFieldValues>Facebook</controllingFieldValues>
+                <controllingFieldValues>Fairs</controllingFieldValues>
+                <controllingFieldValues>Global Announcement</controllingFieldValues>
+                <controllingFieldValues>Google AdWords</controllingFieldValues>
+                <controllingFieldValues>Info Session</controllingFieldValues>
+                <controllingFieldValues>Infosession</controllingFieldValues>
+                <controllingFieldValues>LinkedIn</controllingFieldValues>
+                <controllingFieldValues>Master class</controllingFieldValues>
+                <controllingFieldValues>Meet and Greet</controllingFieldValues>
+                <controllingFieldValues>Monthly Newsletter</controllingFieldValues>
+                <controllingFieldValues>Networking Event</controllingFieldValues>
+                <controllingFieldValues>Open House</controllingFieldValues>
+                <controllingFieldValues>Other Email</controllingFieldValues>
+                <controllingFieldValues>Other Event</controllingFieldValues>
+                <controllingFieldValues>Other Paid Online</controllingFieldValues>
+                <controllingFieldValues>Partner Event</controllingFieldValues>
+                <controllingFieldValues>Round table meetings</controllingFieldValues>
+                <controllingFieldValues>Scholarships</controllingFieldValues>
+                <controllingFieldValues>Seasonal Greeting</controllingFieldValues>
+                <controllingFieldValues>Street Marketing</controllingFieldValues>
+                <controllingFieldValues>Weekly Blast</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>British Council</fullName>
+                <controllingFieldValues>121</controllingFieldValues>
+                <controllingFieldValues>Deadline Reminder</controllingFieldValues>
+                <controllingFieldValues>Email Invitations</controllingFieldValues>
+                <controllingFieldValues>Executive Speaker</controllingFieldValues>
+                <controllingFieldValues>Experience Hult</controllingFieldValues>
+                <controllingFieldValues>Experience Session</controllingFieldValues>
+                <controllingFieldValues>Facebook</controllingFieldValues>
+                <controllingFieldValues>Fairs</controllingFieldValues>
+                <controllingFieldValues>Global Announcement</controllingFieldValues>
+                <controllingFieldValues>Google AdWords</controllingFieldValues>
+                <controllingFieldValues>Info Session</controllingFieldValues>
+                <controllingFieldValues>Infosession</controllingFieldValues>
+                <controllingFieldValues>LinkedIn</controllingFieldValues>
+                <controllingFieldValues>Master class</controllingFieldValues>
+                <controllingFieldValues>Meet and Greet</controllingFieldValues>
+                <controllingFieldValues>Monthly Newsletter</controllingFieldValues>
+                <controllingFieldValues>Networking Event</controllingFieldValues>
+                <controllingFieldValues>Open House</controllingFieldValues>
+                <controllingFieldValues>Other Email</controllingFieldValues>
+                <controllingFieldValues>Other Event</controllingFieldValues>
+                <controllingFieldValues>Other Paid Online</controllingFieldValues>
+                <controllingFieldValues>Partner Event</controllingFieldValues>
+                <controllingFieldValues>Round table meetings</controllingFieldValues>
+                <controllingFieldValues>Scholarships</controllingFieldValues>
+                <controllingFieldValues>Seasonal Greeting</controllingFieldValues>
+                <controllingFieldValues>Street Marketing</controllingFieldValues>
+                <controllingFieldValues>Weekly Blast</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Program__c</fullName>
+        <externalId>false</externalId>
+        <label>Program</label>
+        <picklist>
+            <picklistValues>
+                <fullName>EMBA</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MBA</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MA</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>BIBA</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>MultiselectPicklist</type>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Region__c</fullName>
+        <externalId>false</externalId>
+        <label>Region</label>
+        <picklist>
+            <picklistValues>
+                <fullName>EU</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MEA</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Asia</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>NA</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>LA</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>MultiselectPicklist</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Status</fullName>
+        <picklist>
+            <picklistValues>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Completed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Aborted</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Planned</fullName>
+                <default>true</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>TOEFL_Score__c</fullName>
+        <externalId>false</externalId>
+        <label>TOEFL Score</label>
+        <length>60</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Type</fullName>
+        <picklist>
+            <picklistValues>
+                <fullName>Direct Mail</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Events</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Paid Online</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Telesales</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Agents</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Central Email</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Regional Email</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Work_Experience_Months__c</fullName>
+        <externalId>false</externalId>
+        <label>Work Experience (Months)</label>
+        <length>2</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Work_Experience_Years__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Number of years of work experience to determine the correct program for the contact/applicant.</inlineHelpText>
+        <label>Work Experience (Years)</label>
+        <length>4</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Work_Load__c</fullName>
+        <externalId>false</externalId>
+        <label>Work Load</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Did Not Respond</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Executive MBA Student</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Full-time Student</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Part-time Student</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Undecided</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <listViews>
+        <fullName>ASIA_Events</fullName>
+        <columns>CAMPAIGN.NAME</columns>
+        <columns>CAMPAIGN.START_DATE</columns>
+        <columns>CAMPAIGN.END_DATE</columns>
+        <columns>CAMPAIGN.CAMPAIGN_TYPE</columns>
+        <columns>CAMPAIGN.STATUS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CAMPAIGN.NAME</field>
+            <operation>startsWith</operation>
+            <value>Asia</value>
+        </filters>
+        <filters>
+            <field>CAMPAIGN.CAMPAIGN_TYPE</field>
+            <operation>equals</operation>
+            <value>Events</value>
+        </filters>
+        <label>ASIA Events</label>
+        <sharedTo>
+            <groups>Asia Marketing Users</groups>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>CAMPAIGN.ID</columns>
+        <columns>CAMPAIGN.NAME</columns>
+        <columns>PARENT_NAME</columns>
+        <columns>Marketing_Source__c</columns>
+        <columns>Region__c</columns>
+        <columns>Program__c</columns>
+        <columns>CAMPAIGN.NUM_LEADS</columns>
+        <columns>CAMPAIGN.NUM_CONTACTS</columns>
+        <columns>CAMPAIGN.START_DATE</columns>
+        <columns>CAMPAIGN.END_DATE</columns>
+        <columns>CAMPAIGN.CAMPAIGN_TYPE</columns>
+        <columns>CAMPAIGN.STATUS</columns>
+        <columns>CAMPAIGN.ACTIVE</columns>
+        <columns>Age_Range__c</columns>
+        <columns>Degree_Objective__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>AllActiveCampaigns</fullName>
+        <columns>CAMPAIGN.ID</columns>
+        <columns>CAMPAIGN.NAME</columns>
+        <columns>PARENT_NAME</columns>
+        <columns>Marketing_Source__c</columns>
+        <columns>Region__c</columns>
+        <columns>Program__c</columns>
+        <columns>CAMPAIGN.NUM_LEADS</columns>
+        <columns>CAMPAIGN.NUM_CONTACTS</columns>
+        <columns>CAMPAIGN.START_DATE</columns>
+        <columns>CAMPAIGN.END_DATE</columns>
+        <columns>CAMPAIGN.CAMPAIGN_TYPE</columns>
+        <columns>CAMPAIGN.STATUS</columns>
+        <columns>CAMPAIGN.ACTIVE</columns>
+        <columns>Age_Range__c</columns>
+        <columns>Degree_Objective__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All Active Campaigns</label>
+    </listViews>
+    <listViews>
+        <fullName>Asia_EMBA_campaigns</fullName>
+        <columns>CAMPAIGN.NAME</columns>
+        <columns>CAMPAIGN.START_DATE</columns>
+        <columns>CAMPAIGN.END_DATE</columns>
+        <columns>CAMPAIGN.BUDGETED_COST</columns>
+        <columns>CAMPAIGN.ACTUAL_COST</columns>
+        <columns>CAMPAIGN.CAMPAIGN_TYPE</columns>
+        <columns>CAMPAIGN.STATUS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Program__c</field>
+            <operation>includes</operation>
+            <value>EMBA</value>
+        </filters>
+        <filters>
+            <field>Region__c</field>
+            <operation>equals</operation>
+            <value>Asia</value>
+        </filters>
+        <label>2012 EMBA Asia - Campaigns</label>
+        <sharedTo>
+            <roles>*Asia Product Head - EMBA</roles>
+            <roles>*Asia Recruiter - EMBA</roles>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Asia_Emails</fullName>
+        <columns>CAMPAIGN.NAME</columns>
+        <columns>CAMPAIGN.START_DATE</columns>
+        <columns>CAMPAIGN.END_DATE</columns>
+        <columns>CAMPAIGN.CAMPAIGN_TYPE</columns>
+        <columns>CAMPAIGN.STATUS</columns>
+        <columns>CAMPAIGN.NUM_CONTACTS</columns>
+        <columns>CAMPAIGN.NUM_LEADS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CAMPAIGN.NAME</field>
+            <operation>startsWith</operation>
+            <value>Asia</value>
+        </filters>
+        <filters>
+            <field>CAMPAIGN.CAMPAIGN_TYPE</field>
+            <operation>equals</operation>
+            <value>Email</value>
+        </filters>
+        <label>Asia Emails</label>
+        <sharedTo>
+            <groups>Asia Marketing Users</groups>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Asia_Marketing</fullName>
+        <columns>CAMPAIGN.NAME</columns>
+        <columns>CAMPAIGN.START_DATE</columns>
+        <columns>CAMPAIGN.END_DATE</columns>
+        <columns>CAMPAIGN.CAMPAIGN_TYPE</columns>
+        <columns>CAMPAIGN.STATUS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CAMPAIGN.NAME</field>
+            <operation>startsWith</operation>
+            <value>Asia</value>
+        </filters>
+        <filters>
+            <field>CAMPAIGN.CAMPAIGN_TYPE</field>
+            <operation>equals</operation>
+            <value>Events,Email</value>
+        </filters>
+        <label>Asia Marketing</label>
+        <sharedTo>
+            <groups>Asia Marketing Users</groups>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Europe_EMBA_campaigns</fullName>
+        <columns>CAMPAIGN.NAME</columns>
+        <columns>CAMPAIGN.START_DATE</columns>
+        <columns>CAMPAIGN.END_DATE</columns>
+        <columns>CAMPAIGN.BUDGETED_COST</columns>
+        <columns>CAMPAIGN.ACTUAL_COST</columns>
+        <columns>CAMPAIGN.CAMPAIGN_TYPE</columns>
+        <columns>CAMPAIGN.STATUS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Program__c</field>
+            <operation>includes</operation>
+            <value>EMBA</value>
+        </filters>
+        <filters>
+            <field>Region__c</field>
+            <operation>includes</operation>
+            <value>EU</value>
+        </filters>
+        <label>2012 EMBA Europe - Campaigns</label>
+        <sharedTo>
+            <roles>*Europe Product Head - EMBA</roles>
+            <roles>*Europe Product Head- MBA</roles>
+            <roles>*Europe Recruiter - EMBA</roles>
+            <roles>*Europe Recruiter MBA</roles>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Hult_Europe_Marketing_All_campaigns</fullName>
+        <columns>CAMPAIGN.NAME</columns>
+        <columns>CAMPAIGN.STATUS</columns>
+        <columns>CAMPAIGN.START_DATE</columns>
+        <columns>CAMPAIGN.END_DATE</columns>
+        <columns>CAMPAIGN.CAMPAIGN_TYPE</columns>
+        <columns>CAMPAIGN.NUM_CONTACTS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Region__c</field>
+            <operation>equals</operation>
+            <value>EU</value>
+        </filters>
+        <filters>
+            <field>CAMPAIGN.CAMPAIGN_TYPE</field>
+            <operation>equals</operation>
+            <value>Events,Other</value>
+        </filters>
+        <label>Hult Europe Marketing_All campaigns</label>
+    </listViews>
+    <listViews>
+        <fullName>LA_Campaigns_All</fullName>
+        <booleanFilter>1 or 2</booleanFilter>
+        <columns>CAMPAIGN.NAME</columns>
+        <columns>CAMPAIGN.START_DATE</columns>
+        <columns>CAMPAIGN.END_DATE</columns>
+        <columns>CAMPAIGN.CAMPAIGN_TYPE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Region__c</field>
+            <operation>equals</operation>
+            <value>LA</value>
+        </filters>
+        <filters>
+            <field>CAMPAIGN.NAME</field>
+            <operation>startsWith</operation>
+            <value>NA LA</value>
+        </filters>
+        <label>LA Campaigns_All</label>
+        <sharedTo>
+            <groups>LA MA Recruiters</groups>
+            <groups>LA MBA Recruiters</groups>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>LA_Events_View1</fullName>
+        <booleanFilter>(1 and 2) or (3 and 4)</booleanFilter>
+        <columns>CAMPAIGN.NAME</columns>
+        <columns>CAMPAIGN.START_DATE</columns>
+        <columns>CAMPAIGN.END_DATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CAMPAIGN.CAMPAIGN_TYPE</field>
+            <operation>equals</operation>
+            <value>Events</value>
+        </filters>
+        <filters>
+            <field>CAMPAIGN.NAME</field>
+            <operation>startsWith</operation>
+            <value>LA</value>
+        </filters>
+        <filters>
+            <field>CAMPAIGN.CAMPAIGN_TYPE</field>
+            <operation>equals</operation>
+            <value>Other</value>
+        </filters>
+        <filters>
+            <field>CAMPAIGN.NAME</field>
+            <operation>startsWith</operation>
+            <value>na la</value>
+        </filters>
+        <label>LA Events View</label>
+        <sharedTo>
+            <groups>LA MA Recruiters</groups>
+            <groups>LA MBA Recruiters</groups>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>MEA_EMBA_campaigns2</fullName>
+        <columns>CAMPAIGN.NAME</columns>
+        <columns>CAMPAIGN.START_DATE</columns>
+        <columns>CAMPAIGN.END_DATE</columns>
+        <columns>CAMPAIGN.BUDGETED_COST</columns>
+        <columns>CAMPAIGN.ACTUAL_COST</columns>
+        <columns>CAMPAIGN.CAMPAIGN_TYPE</columns>
+        <columns>CAMPAIGN.STATUS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Program__c</field>
+            <operation>includes</operation>
+            <value>EMBA</value>
+        </filters>
+        <filters>
+            <field>Region__c</field>
+            <operation>equals</operation>
+            <value>MEA</value>
+        </filters>
+        <label>2012 EMBA MEA - Campaigns</label>
+        <sharedTo>
+            <roles>*MEA Product Head - EMBA</roles>
+            <roles>*MEA Recruiter - EMBA</roles>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>MyActiveCampaigns</fullName>
+        <columns>CAMPAIGN.NAME</columns>
+        <columns>CAMPAIGN.START_DATE</columns>
+        <columns>CAMPAIGN.END_DATE</columns>
+        <columns>CAMPAIGN.CAMPAIGN_TYPE</columns>
+        <columns>CAMPAIGN.STATUS</columns>
+        <filterScope>Mine</filterScope>
+        <filters>
+            <field>CAMPAIGN.ACTIVE</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <label>My Active Campaigns</label>
+    </listViews>
+    <listViews>
+        <fullName>NA_Campaigns_All</fullName>
+        <columns>CAMPAIGN.NAME</columns>
+        <columns>CAMPAIGN.START_DATE</columns>
+        <columns>CAMPAIGN.END_DATE</columns>
+        <columns>CAMPAIGN.CAMPAIGN_TYPE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Region__c</field>
+            <operation>equals</operation>
+            <value>NA</value>
+        </filters>
+        <label>NA Campaigns_All</label>
+        <sharedTo>
+            <groups>NA MA Recruiters</groups>
+            <groups>NA MBA East Recruiters</groups>
+            <groups>NA MBA West Recruiters</groups>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>NA_Events_View</fullName>
+        <booleanFilter>(1 and 2) or (3 and 4)</booleanFilter>
+        <columns>CAMPAIGN.NAME</columns>
+        <columns>CAMPAIGN.START_DATE</columns>
+        <columns>CAMPAIGN.END_DATE</columns>
+        <columns>CAMPAIGN.CAMPAIGN_TYPE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CAMPAIGN.CAMPAIGN_TYPE</field>
+            <operation>equals</operation>
+            <value>Events</value>
+        </filters>
+        <filters>
+            <field>CAMPAIGN.NAME</field>
+            <operation>startsWith</operation>
+            <value>NA</value>
+        </filters>
+        <filters>
+            <field>CAMPAIGN.CAMPAIGN_TYPE</field>
+            <operation>equals</operation>
+            <value>Other</value>
+        </filters>
+        <filters>
+            <field>CAMPAIGN.NAME</field>
+            <operation>startsWith</operation>
+            <value>na la</value>
+        </filters>
+        <label>NA Events View</label>
+        <sharedTo>
+            <groups>NA MA Recruiters</groups>
+            <groups>NA MBA East Recruiters</groups>
+            <groups>NA MBA West Recruiters</groups>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>NA_LA_Campaigns_All</fullName>
+        <booleanFilter>1 and 2 and 3</booleanFilter>
+        <columns>CAMPAIGN.NAME</columns>
+        <columns>CAMPAIGN.START_DATE</columns>
+        <columns>CAMPAIGN.END_DATE</columns>
+        <columns>CAMPAIGN.CAMPAIGN_TYPE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Region__c</field>
+            <operation>includes</operation>
+            <value>NA,LA</value>
+        </filters>
+        <filters>
+            <field>Region__c</field>
+            <operation>excludes</operation>
+            <value>Asia,EU,MEA</value>
+        </filters>
+        <filters>
+            <field>Region__c</field>
+            <operation>notEqual</operation>
+        </filters>
+        <label>NA LA Campaigns_All</label>
+        <sharedTo>
+            <groups>LA MA Recruiters</groups>
+            <groups>LA MBA Recruiters</groups>
+            <groups>NA MA Recruiters</groups>
+            <groups>NA MBA East Recruiters</groups>
+            <groups>NA MBA West Recruiters</groups>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>NA_LA_Events_View</fullName>
+        <booleanFilter>(1 and 2) or (3 and 4)</booleanFilter>
+        <columns>CAMPAIGN.NAME</columns>
+        <columns>CAMPAIGN.START_DATE</columns>
+        <columns>CAMPAIGN.END_DATE</columns>
+        <columns>CAMPAIGN.BUDGETED_COST</columns>
+        <columns>CAMPAIGN.ACTUAL_COST</columns>
+        <columns>CAMPAIGN.CAMPAIGN_TYPE</columns>
+        <columns>CAMPAIGN.STATUS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CAMPAIGN.NAME</field>
+            <operation>startsWith</operation>
+            <value>na,la</value>
+        </filters>
+        <filters>
+            <field>CAMPAIGN.CAMPAIGN_TYPE</field>
+            <operation>equals</operation>
+            <value>Events</value>
+        </filters>
+        <filters>
+            <field>CAMPAIGN.CAMPAIGN_TYPE</field>
+            <operation>equals</operation>
+            <value>Other</value>
+        </filters>
+        <filters>
+            <field>CAMPAIGN.NAME</field>
+            <operation>startsWith</operation>
+            <value>na la</value>
+        </filters>
+        <label>NA LA Events View</label>
+        <sharedTo>
+            <groups>LA MA Recruiters</groups>
+            <groups>LA MBA Recruiters</groups>
+            <groups>NA MA Recruiters</groups>
+            <groups>NA MBA East Recruiters</groups>
+            <groups>NA MBA West Recruiters</groups>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>X2012_EMBA_Global_Online_campaigns</fullName>
+        <columns>CAMPAIGN.NAME</columns>
+        <columns>CAMPAIGN.NUM_LEADS</columns>
+        <columns>CAMPAIGN.START_DATE</columns>
+        <columns>CAMPAIGN.NUM_CONVERTED_LEADS</columns>
+        <columns>PARENT_NAME</columns>
+        <columns>CAMPAIGN.END_DATE</columns>
+        <columns>CAMPAIGN.CAMPAIGN_TYPE</columns>
+        <columns>CAMPAIGN.STATUS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Program__c</field>
+            <operation>equals</operation>
+            <value>EMBA</value>
+        </filters>
+        <filters>
+            <field>CAMPAIGN.CAMPAIGN_TYPE</field>
+            <operation>equals</operation>
+            <value>Paid Online</value>
+        </filters>
+        <label>2012 EMBA Global - Paid online campaigns</label>
+        <sharedTo>
+            <roles>*MEA Region Head</roles>
+            <roles>*MEA Telesales Manager</roles>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>X2012_Global_Paid_online_campaigns</fullName>
+        <columns>CAMPAIGN.NAME</columns>
+        <columns>CAMPAIGN.NUM_LEADS</columns>
+        <columns>CAMPAIGN.START_DATE</columns>
+        <columns>CAMPAIGN.NUM_CONVERTED_LEADS</columns>
+        <columns>PARENT_NAME</columns>
+        <columns>CAMPAIGN.END_DATE</columns>
+        <columns>CAMPAIGN.CAMPAIGN_TYPE</columns>
+        <columns>CAMPAIGN.STATUS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CAMPAIGN.CAMPAIGN_TYPE</field>
+            <operation>equals</operation>
+            <value>Paid Online</value>
+        </filters>
+        <label>2012 Global - Paid online campaigns</label>
+        <sharedTo>
+            <roles>*MEA Region Head</roles>
+            <roles>*MEA Telesales Manager</roles>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>X2012_MBA_Asia_Campaigns</fullName>
+        <columns>CAMPAIGN.NAME</columns>
+        <columns>CAMPAIGN.CAMPAIGN_TYPE</columns>
+        <columns>CAMPAIGN.START_DATE</columns>
+        <columns>CAMPAIGN.END_DATE</columns>
+        <columns>CAMPAIGN.BUDGETED_COST</columns>
+        <columns>CAMPAIGN.ACTUAL_COST</columns>
+        <columns>CAMPAIGN.STATUS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Region__c</field>
+            <operation>equals</operation>
+            <value>Asia</value>
+        </filters>
+        <filters>
+            <field>Program__c</field>
+            <operation>equals</operation>
+            <value>MBA</value>
+        </filters>
+        <label>2012 MBA Asia - Campaigns</label>
+        <sharedTo>
+            <roles>*Asia Product Head- MBA</roles>
+            <roles>*Asia Recruiter - MBA</roles>
+            <roles>*Global Product Head- MBA</roles>
+            <roles>CEO/Pres, COO, Dean, CIO, CFO</roles>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>X2012_MBA_Global_Campaigns</fullName>
+        <columns>CAMPAIGN.NAME</columns>
+        <columns>CAMPAIGN.CAMPAIGN_TYPE</columns>
+        <columns>CAMPAIGN.START_DATE</columns>
+        <columns>CAMPAIGN.END_DATE</columns>
+        <columns>CAMPAIGN.BUDGETED_COST</columns>
+        <columns>CAMPAIGN.ACTUAL_COST</columns>
+        <columns>CAMPAIGN.STATUS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Program__c</field>
+            <operation>equals</operation>
+            <value>MBA</value>
+        </filters>
+        <label>2012 MBA Global - Campaigns</label>
+        <sharedTo>
+            <roles>CEO/Pres, COO, Dean, CIO, CFO</roles>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>X2012_MBA_MEA_Campaigns</fullName>
+        <columns>CAMPAIGN.NAME</columns>
+        <columns>CAMPAIGN.CAMPAIGN_TYPE</columns>
+        <columns>CAMPAIGN.START_DATE</columns>
+        <columns>CAMPAIGN.END_DATE</columns>
+        <columns>CAMPAIGN.BUDGETED_COST</columns>
+        <columns>CAMPAIGN.ACTUAL_COST</columns>
+        <columns>CAMPAIGN.STATUS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Region__c</field>
+            <operation>equals</operation>
+            <value>MEA</value>
+        </filters>
+        <filters>
+            <field>Program__c</field>
+            <operation>equals</operation>
+            <value>MBA</value>
+        </filters>
+        <label>2012 MBA MEA - Campaigns</label>
+        <sharedTo>
+            <roles>*Global Product Head- MBA</roles>
+            <roles>*MEA Product Head - MBA</roles>
+            <roles>*MEA Recruiter - MBA</roles>
+            <roles>CEO/Pres, COO, Dean, CIO, CFO</roles>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>X2012_MEA_EMBA_TS_Campaigns</fullName>
+        <columns>CAMPAIGN.NAME</columns>
+        <columns>CAMPAIGN.NUM_LEADS</columns>
+        <columns>CAMPAIGN.START_DATE</columns>
+        <columns>CAMPAIGN.NUM_CONVERTED_LEADS</columns>
+        <columns>PARENT_NAME</columns>
+        <columns>CAMPAIGN.END_DATE</columns>
+        <columns>CAMPAIGN.CAMPAIGN_TYPE</columns>
+        <columns>CAMPAIGN.STATUS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Program__c</field>
+            <operation>equals</operation>
+            <value>EMBA</value>
+        </filters>
+        <filters>
+            <field>CAMPAIGN.CAMPAIGN_TYPE</field>
+            <operation>equals</operation>
+            <value>Telesales</value>
+        </filters>
+        <label>2012 EMBA Global - TS Campaigns</label>
+        <sharedTo>
+            <roles>*MEA Region Head</roles>
+            <roles>*MEA Telesales Manager</roles>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>X2012_MEA_MBA_TS_Campaigns</fullName>
+        <columns>CAMPAIGN.NAME</columns>
+        <columns>CAMPAIGN.NUM_LEADS</columns>
+        <columns>CAMPAIGN.START_DATE</columns>
+        <columns>CAMPAIGN.NUM_CONVERTED_LEADS</columns>
+        <columns>PARENT_NAME</columns>
+        <columns>CAMPAIGN.END_DATE</columns>
+        <columns>CAMPAIGN.CAMPAIGN_TYPE</columns>
+        <columns>CAMPAIGN.STATUS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Region__c</field>
+            <operation>equals</operation>
+            <value>MEA</value>
+        </filters>
+        <label>2012 MEA All Campaigns</label>
+        <sharedTo>
+            <roles>*MEA Region Head</roles>
+            <roles>*MEA Telesales Manager</roles>
+        </sharedTo>
+    </listViews>
+    <webLinks>
+        <fullName>SendExactTargetEmail</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>Send ExactTarget Email</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <url>https://members.s4.exacttarget.com/Integration/SalesforceUI/EmailSend.aspx?sendtype=Campaign&amp;sfid={!Campaign.Id}&amp;sessid={!API.Session_ID}&amp;sessurl={!API.Partner_Server_URL_60}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>ViewAllCampaignMembers</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>500</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>View All Campaign Members</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>/camp/rptcmpgncalldown.jsp?scope=1&amp;scopeid={!Campaign_Name}</url>
+        <width>500</width>
+    </webLinks>
+    <webLinks>
+        <fullName>ViewCampaignInfluenceReport</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>500</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>View Campaign Influence Report</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>/00O?rt=117&amp;break0=CAN&amp;scope=1&amp;scopeid_lkid={!Campaign.Id}&amp;scopeid={!Campaign_Name}&amp;c=CAN&amp;c=MR&amp;c=PCS&amp;c=CFN&amp;c=RN&amp;c=ON&amp;c=OA&amp;c=OS&amp;c=OCD&amp;c=AN&amp;s=OA&amp;duel0=CAN%2CMR%2CCFN%2CRN%2CAN%2CON%2CPCS%2COS%2COCD%2COA&amp;details=yes&amp;format=t</url>
+        <width>500</width>
+    </webLinks>
+</CustomObject>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Routing_Table__c$Name</field>
+    </columns>
+    <columns>
+        <field>Routing_Table__c$Department__c</field>
+    </columns>
+    <columns>
+        <field>Routing_Table__c$Region__c</field>
+    </columns>
+    <columns>
+        <field>Routing_Table__c$Country__c</field>
+    </columns>
+    <columns>
+        <field>Routing_Table__c$Routed_To__c</field>
+    </columns>
+    <currency>USD</currency>
+    <filter>
+        <criteriaItems>
+            <column>Routing_Table__c$Department__c</column>
+            <operator>contains</operator>
+            <value>emba</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Routing_Table__c$Region__c</column>
+            <operator>equals</operator>
+            <value>Europe</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>EMBA Europe Routing Rules</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Routing_Rules_and_IDs__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <sortColumn>Routing_Table__c$Country__c</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>Routing_Table__c$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

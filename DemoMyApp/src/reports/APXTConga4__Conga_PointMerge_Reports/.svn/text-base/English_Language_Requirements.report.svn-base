@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Exam__c.Exam_Type__c</field>
+    </columns>
+    <columns>
+        <field>Exam__c.Exam_Score__c</field>
+    </columns>
+    <columns>
+        <field>Exam__c.Exam_Writing__c</field>
+    </columns>
+    <columns>
+        <field>Exam__c.Exam_Listening__c</field>
+    </columns>
+    <columns>
+        <field>Exam__c.Exam_Speaking__c</field>
+    </columns>
+    <columns>
+        <field>Exam__c.Exam_Reading__c</field>
+    </columns>
+    <columns>
+        <field>Exam__c.Exam_Date__c</field>
+    </columns>
+    <currency>USD</currency>
+    <description>for AAM conga merge</description>
+    <filter>
+        <criteriaItems>
+            <column>Exam__c.Exam_Type__c</column>
+            <operator>equals</operator>
+            <value>IELTS,Pearson/PTE,TOEFL,TOEIC,TOEFL or Equivalent</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>FK_$Opportunity.App_ID__c</column>
+            <operator>equals</operator>
+            <value>133294</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>English Language Requirements</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$Exam__c@Exam__c.Application__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Exam__c.Exam_Date__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

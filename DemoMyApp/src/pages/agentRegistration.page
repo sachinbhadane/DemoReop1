@@ -1,0 +1,172 @@
+<apex:page showHeader="false" sidebar="false" 
+    controller="ApplicantRegistrationLoginController" action="{!agentPage}">
+    
+    <table class="innertable" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+            <td><c:Header_Outter /></td>
+        </tr>
+        <tr>
+            <td height="30px"><apex:pageMessages /></td>
+        </tr>
+        <tr>
+            <td valign="top">
+            <table width="100%" cellspacing="0">
+                <tr>
+                    <td style="padding-left: 57px;">
+                    
+                    <!-- Registration Form -->
+                    <apex:form id="frm" forceSSL="true">
+                        
+                        
+                        
+                        <apex:panelGrid columns="1">
+                         
+                       <apex:panelGroup styleClass="formheader1">
+                           Register to Apply
+                       </apex:panelGroup>
+                   
+                          
+                        <apex:outputText styleClass="content"  style="padding-right: 10px;">
+                        
+                        Please
+                                complete the registration form to begin your online application
+                                process. <br />
+                                Once registered, you may re-access the online application at any
+                                time by using the log In form to the right.
+                                
+                                <p>
+                                <b>Note:</b> 
+                                Applicants who created applications in our old application system will need to Register to Apply to create a user account.
+                                  &nbsp; <apex:outputLink value="http://www.hult.edu/landing/topapply/" >Find out more</apex:outputLink>
+                                </p>
+                        </apex:outputText>
+                        
+                        <apex:panelGroup styleClass="formtable">First Name<span class="error_star">*</span></apex:panelGroup>
+                       <apex:inputText maxlength="40" value="{!fname}"
+                                    id="fname1" styleClass="form-text-box" />
+                        
+                         <apex:panelGroup styleClass="formtable">Last Name<span class="error_star">*</span></apex:panelGroup>
+                        <apex:inputText maxlength="60" value="{!lname}"
+                                    id="lname1" styleClass="form-text-box" />
+                                  
+                           <apex:panelGroup styleClass="formtable">Country of Residence<span class="error_star">*</span></apex:panelGroup>  
+                            <apex:panelGroup >
+                            
+                            
+                            <apex:selectList value="{!con.Country_Of_Residence__c}"
+                                    styleClass="form-selectList" size="1">
+                                    <apex:selectOptions value="{!clist}" />
+                                    
+                                    <apex:actionSupport event="onchange" rerender="StateList, stateLabel"/>
+                                </apex:selectList>  
+                                
+                            </apex:panelGroup>
+                            
+                            <apex:panelGroup styleClass="formtable" id="stateLabel" >
+                            <apex:outputLabel rendered="{!statesList.size>1}">
+                            State/Province<span class="error_star">*</span>
+                            </apex:outputLabel>
+                            </apex:panelGroup>  
+                            
+                            <apex:panelGroup >
+                            
+                           <apex:outputPanel id="StateList">
+                                <apex:selectList value="{!con.MailingState}"  rendered="{!statesList.size>1}" required="true"
+                                    styleClass="form-selectList" size="1">
+                                    <apex:selectOptions value="{!StatesList}"  />
+                                </apex:selectList>
+                                     </apex:outputPanel>
+                                
+                            </apex:panelGroup>
+                            
+                          
+                             <apex:panelGroup styleClass="formtable">Email Address<span class="error_star">*</span>
+                             
+                            
+                             </apex:panelGroup> 
+                                  
+                            <apex:inputText maxlength="80" value="{!email}"
+                                    id="email1" styleClass="form-text-box" />
+                            <apex:panelGroup styleClass="formtable">Agent Email Address<span class="error_star">*</span>
+                             
+                            
+                             </apex:panelGroup> 
+                                  
+                            <apex:inputText maxlength="80" value="{!agentEmail}"
+                                    id="agentEmail" styleClass="form-text-box" />        
+                                     
+                                     
+                            <apex:panelGroup styleClass="formtable">Password<span class="error_star">*</span></apex:panelGroup> 
+                        
+                        <apex:panelGroup > 
+                        <apex:inputSecret value="{!password}"
+                                    id="passwordA1" styleClass="form-text-box" />
+                                  <br/> <i style="font-size:80%">Password needs to be at least 8 characters and include letters and numbers.  </i>
+                                   </apex:panelGroup>   
+                                    
+                             <apex:panelGroup styleClass="formtable">Re-enter Password<span class="error_star">*</span></apex:panelGroup>           
+                               <apex:inputSecret value="{!confirmPassword}"
+                                    id="passwordB1" styleClass="form-text-box" /> 
+                                
+                               <apex:commandButton id="step1" action="{!step1}"
+                                    style="bgcolor:white;background-image:url({!URLFOR($Resource.Images, 'new-images/continue.jpg')});height:38px;width:88px;border-width:0px;background-repeat:no-repeat;cursor:pointer;" />   
+                        </apex:panelGrid>
+                    </apex:form>
+                  
+                  
+                  <!-- End Registration Form -->
+                    
+                    
+                  </td>
+                    <td valign="top" style="padding-right: 57px;"><apex:form forceSSL="true">
+                        <table border="0" cellspacing="0" cellpadding="0"
+                            class="leftborder">
+                            <tr>
+                                <td class="formheader2" style="padding-left: 10px;">Registered
+                                Already?</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td class="formlable" style="padding-left: 10px;">User Name (Email
+                                Address)<span class="error_star">*</span></td>
+                            </tr>
+                            <tr>
+                                <td style="padding-left: 10px;"><apex:inputText value="{!email1}" styleClass="form-text-box" /></td>
+                            </tr>
+                            <tr>
+                                <td class="formlable" style="padding-left: 10px;">Password<span
+                                    class="error_star">*</span></td>
+                            </tr>
+                            <tr>
+                                <td style="padding-left: 10px;"><apex:inputSecret value="{!password1}" styleClass="form-text-box" /></td>
+                            </tr>
+                            <tr>
+                                <td style="padding-left: 10px;"><apex:commandButton id="cbtneditlogin" action="{!login}"
+                                    style="bgcolor:white;background-image:url({!URLFOR($Resource.Images, 'new-images/login.jpg')});height:37px;width:79px;border-width:0px;background-repeat:no-repeat;cursor:pointer;" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="formlable" style="padding-left: 10px;"><apex:outputLink value="/ApplicantForgottenPassword"> Forgot your password?</apex:outputLink>
+                                </td>
+                            </tr>
+
+                        </table>
+                    </apex:form></td>
+                </tr>
+            </table>
+            </td>
+        </tr>
+        <tr>
+            <td height="50px"></td>
+        </tr>
+    </table>
+    {!UserType}
+    
+    <site:previewAsAdmin />
+     <site:googleAnalyticsTracking ></site:googleAnalyticsTracking>
+</apex:page>

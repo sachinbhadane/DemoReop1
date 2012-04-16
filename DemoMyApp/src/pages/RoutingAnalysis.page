@@ -1,0 +1,253 @@
+<apex:page controller="RoutingAnalysis" action="{!initialize}">
+    <apex:includeScript value="http://maps.google.com/maps/api/js?sensor=false" />
+    <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js" />
+    <apex:sectionHeader title="Routing Analysis" />
+
+    <apex:form id="pForm">
+        <apex:pageMessages />
+
+        <apex:pageBlock mode="edit">
+            <apex:pageBlockButtons location="top">
+                <apex:commandButton value="Analyze" action="{!analyzeByPostalCode}" rerender="pForm" status="pFormStatus" rendered="{!isPostalCode}" />
+                <apex:commandButton value="Analyze" action="{!analyzeByProximity}" rerender="pForm" status="pFormStatus" rendered="{!isProximity}" />
+                <apex:commandButton value="Analyze" action="{!analyzeByRecruiting}" rerender="pForm" status="pFormStatus" rendered="{!isRecruiting}" />
+                <apex:commandButton value="Back to Lead" action="/{!lead.Id}/d" rendered="{!NOT(ISBLANK(lead.Id))}" />
+
+                <apex:actionStatus id="pFormStatus">
+                    <apex:facet name="start">
+                        <apex:image value="/img/loading.gif" style="vertical-align: middle;" />
+                    </apex:facet>
+                </apex:actionStatus>
+
+                <apex:outputText value="Searching {0,number,0} Active / {1,number,0} Total Routing Rules" style="display: block; float: right; padding: 0.5em 1em;">
+                    <apex:param value="{!routingTotalActiveCount}" />
+                    <apex:param value="{!routingTotalCount}" />
+                </apex:outputText>
+            </apex:pageBlockButtons>
+
+            <apex:pageBlockSection title="Search Values" columns="1" collapsible="false">
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Lead/Contact" />
+                    <apex:selectList size="1" value="{!routingObjectType}">
+                        <apex:selectOption itemValue="" itemLabel="--Please Select--" />
+                        <apex:selectOption itemValue="Lead" />
+                        <apex:selectOption itemValue="Contact" />
+                        <apex:actionSupport event="onchange" rerender="pForm" status="pFormStatus" />
+                    </apex:selectList>
+                </apex:pageBlockSectionItem>
+
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="{!$ObjectType.Routing_Table__c.Fields.Routing_Type__c.Label}" />
+                    <apex:selectList size="1" value="{!routingType}">
+                        <apex:selectOption itemValue="" itemLabel="--Please Select--" />
+                        <apex:selectOption itemValue="Zip/Postal Code" />
+                        <apex:selectOption itemValue="Proximity" />
+                        <apex:selectOption itemValue="Recruiting" />
+                        <apex:actionSupport event="onchange" rerender="pForm" status="pFormStatus" />
+                    </apex:selectList>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+            
+            <!-- These fields get rendered for contacts -->
+            <apex:pageBlockSection columns="1" collapsible="false" rendered="{!isContact}">
+                <apex:inputField value="{!contact.Country_Of_Residence__c}" required="false" rendered="{!isPostalCode || isRecruiting}" />
+                <apex:inputField value="{!contact.MailingState}" required="false" rendered="{!isRecruiting}" />
+                <apex:inputField value="{!contact.MailingPostalCode}" required="false" rendered="{!isPostalCode}" />
+
+                <apex:inputField value="{!contact.Program_Primary__c}" required="false" rendered="{!isRecruiting}" />
+                <apex:inputField value="{!contact.Program_Secondary__c}" required="false" rendered="{!isRecruiting}" />
+                <apex:inputField value="{!contact.Program_third__c}" required="false" rendered="{!isRecruiting}" />
+                <apex:inputField value="{!contact.Age_Range__c}" required="false" rendered="{!isRecruiting}" />
+                <apex:inputField value="{!contact.Work_Load__c}" required="false" rendered="{!isRecruiting}" />
+            </apex:pageBlockSection>
+
+            <!-- These fields get rendered for leads -->
+            <apex:pageBlockSection columns="1" collapsible="false" rendered="{!isLead}">
+                <apex:inputField value="{!lead.Country_Of_Residence__c}" required="false" rendered="{!isPostalCode || isRecruiting}" />
+                <apex:inputField value="{!lead.State}" required="false" rendered="{!isRecruiting}" />
+                <apex:inputField value="{!lead.PostalCode}" required="false" rendered="{!isPostalCode}" />
+
+                <apex:inputField value="{!lead.Program_Primary__c}" required="false" rendered="{!isRecruiting}" />
+                <apex:inputField value="{!lead.Program_Secondary__c}" required="false" rendered="{!isRecruiting}" />
+                <apex:inputField value="{!lead.Program_third__c}" required="false" rendered="{!isRecruiting}" />
+                <apex:inputField value="{!lead.Age_Range__c}" required="false" rendered="{!isRecruiting}" />
+                <apex:inputField value="{!lead.Work_Load__c}" required="false" rendered="{!isRecruiting}" />
+
+                <apex:inputField styleClass="lat" value="{!lead.Lat__c}" required="false" rendered="{!isProximity}" />
+                <apex:inputField styleClass="lon" value="{!lead.Lon__c}" required="false" rendered="{!isProximity}" />
+
+                <apex:inputField value="{!lead.LeadSource}" required="false" rendered="{!NOT(ISBLANK(routingType))}" />
+                <apex:inputField value="{!lead.Status}" required="false" rendered="{!NOT(ISBLANK(routingType))}" />
+            </apex:pageBlockSection>
+
+            <apex:pageBlockSection title="Geocode an Address" columns="1" collapsible="false" rendered="{!isProximity}">
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Address" />
+                    <input type="text" id="geocoderAddress" style="width: 70%;" />
+                </apex:pageBlockSectionItem>
+
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel />
+                    <apex:commandButton value="Geocode" onclick="executeGeocoder(); return false;" />
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+
+            <script type="text/javascript">
+                                                    var geocoder = new google.maps.Geocoder();
+
+                                                    function executeGeocoder() {
+                                                        var address = document.getElementById('geocoderAddress').value;
+
+                                                        geocoder.geocode({
+                                                            'address' : address
+                                                        }, function(results, status) {
+                                                            if (status == google.maps.GeocoderStatus.OK) {
+                                                                $('input.lat').val(results[0].geometry.location.lat());
+                                                                $('input.lon').val(results[0].geometry.location.lng());
+                                                            } else {
+                                                                alert("Geocode was not successful for the following reason: " + status);
+                                                            }
+                                                        });
+                                                    }
+                                                </script>
+
+            <apex:pageBlockSection title="Matching Routing Table Entries" columns="1" collapsible="false">
+                <apex:pageMessage severity="Info" strength="1" summary="When there are multiple matching entries, the first one on the list will be assigned as the Lead Owner." rendered="{!routingList.size >= 2}" />
+
+                <!-- rendered for the postal code routing type -->
+                <apex:pageBlockTable var="routing" value="{!routingList}" rendered="{!AND(routingList.size != 0,isPostalCode)}">
+                    <apex:column value="{!routing.Priority__c}" />
+                    <apex:column headerValue="{!$ObjectType.Routing_Table__c.Fields.Name.Label}">
+                        <apex:outputLink value="/{!routing.Id}">
+                            <apex:outputText value="{!routing.Name}" />
+                        </apex:outputLink>
+                    </apex:column>
+
+                    <apex:column value="{!routing.Routed_By__c}" />
+                    <apex:column value="{!routing.Routed_To__c}" />
+                    <apex:column value="{!routing.Lead_Source__c}" />
+                    <apex:column value="{!routing.Lead_Status__c}" />
+                </apex:pageBlockTable>
+
+                <!-- rendered for the proximity routing type -->
+                <apex:pageBlockTable var="proximity" value="{!proximityList}" rendered="{!AND(routingList.size != 0,isProximity)}">
+                    <apex:column headerValue="Distance (km)">
+                        <apex:outputLink value="/{!proximity.routing.Id}">
+                            <apex:outputText value="{0,number,0.00}">
+                                <apex:param value="{!proximity.distance}" />
+                            </apex:outputText>
+                        </apex:outputLink>
+
+                    </apex:column>
+
+                    <apex:column value="{!proximity.routing.Lat__c}" />
+                    <apex:column value="{!proximity.routing.Lon__c}" />
+                    <apex:column value="{!proximity.routing.Routed_By__c}" />
+                    <apex:column value="{!proximity.routing.Routed_To__c}" />
+                    <apex:column value="{!proximity.routing.Lead_Source__c}" />
+                    <apex:column value="{!proximity.routing.Lead_Status__c}" />
+                </apex:pageBlockTable>
+
+                <!-- rendered for the recruiting routing type -->
+                <apex:pageBlockTable var="routing" value="{!routingList}" rendered="{!AND(routingList.size != 0,isRecruiting)}">
+                    <apex:column value="{!routing.Priority__c}" />
+                    <apex:column headerValue="{!$ObjectType.Routing_Table__c.Fields.Name.Label}">
+                        <apex:outputLink value="/{!routing.Id}">
+                            <apex:outputText value="{!routing.Name}" />
+                        </apex:outputLink>
+                    </apex:column>
+
+                    <apex:column value="{!routing.Priority__c}" />
+                    <apex:column value="{!routing.Region__c}" />
+                    <apex:column value="{!routing.Country__c}" />
+                    <apex:column value="{!routing.State__c}" />
+                    <apex:column value="{!routing.Age_Range__c}" />
+                    <apex:column value="{!routing.Work_Load__c}" />
+                    <apex:column value="{!routing.Department__c}" />
+                    <apex:column value="{!routing.Routed_By__c}" />
+                    <apex:column value="{!routing.Routed_To__c}" />
+                    <apex:column value="{!routing.Comment__c}" />
+                    <apex:column value="{!routing.Granularity__c}" />
+                </apex:pageBlockTable>
+
+                <apex:outputText value="{0,number,0} total" rendered="{!routingList.size != 1}">
+                    <apex:param value="{!routingList.size}" />
+                </apex:outputText>
+
+                <apex:outputText value="{0,number,0} total" rendered="{!routingList.size == 1}">
+                    <apex:param value="{!routingList.size}" />
+                </apex:outputText>
+            </apex:pageBlockSection>
+
+            <!-- 
+            <apex:pageBlockSection title="On the Globe" columns="1" collapsible="false" rendered="{!AND(routingList.size != 0,isProximity)}" />
+
+            <apex:outputPanel layout="none" rendered="{!AND(routingList.size != 0,isProximity)}">
+                <script type="text/javascript">
+                function initializeMap() {
+                    var mapCenter = new google.maps.LatLng($('input.lat').val(), $('input.lon').val());
+                    var mapOptions = {
+                        zoom: 14,
+                        mapTypeId: google.maps.MapTypeId.ROADMAP,
+                        center: mapCenter
+                    };
+                    var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+                    var mapBounds;
+                    
+                    // Add the center point
+                    var marker = new google.maps.Marker({
+                      position: mapCenter,
+                      map: map,
+                      icon: 'http://chart.apis.google.com/chart?chst=d_map_pin_icon&chld=cafe|996600'
+                    });
+                    
+                    <apex:repeat var="proximity" value="{!proximityList}">
+                    var mapPoint = new google.maps.LatLng({!proximity.routing.Lat__c}, {!proximity.routing.Lon__c});
+                    
+                    if (mapBounds == null) {
+                        mapBounds = new google.maps.LatLngBounds(mapPoint, mapPoint);
+                    } else {
+                        mapBounds.extend(mapPoint);
+                    }
+                    
+                    var marker = new google.maps.Marker({
+                      position: mapPoint,
+                      map: map,
+                      title: '{!proximity.routing.Routed_By__c}: {!proximity.routing.Routed_To__c}'
+                    });
+                    
+                    // Add great circle
+                    var mapOverlay = new google.maps.Polyline({
+                        path: [mapPoint, mapCenter],
+                        strokeColor: '#FF0000',
+                        strokeOpacity: 1.0,
+                        strokeWeight: 2
+                    });
+                    //map.addOverlay(mapOverlay);
+                    
+                    // end of loop
+                    </apex:repeat>
+                    
+                    // fit the map
+                    map.fitBounds(mapBounds);
+                    
+                }
+                
+                initializeMap();
+                </script>
+            </apex:outputPanel>
+            
+             -->
+        </apex:pageBlock>
+
+    </apex:form>
+    <!-- 
+    <div id="map" style="width: 100%; height: 800px;"></div>
+     -->
+
+    <style type="text/css">
+.labelCol {
+    vertical-align: middle !important;
+}
+</style>
+</apex:page>

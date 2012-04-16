@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>ACCOUNT_ID</field>
+    </columns>
+    <columns>
+        <field>Opportunity.Percent_Complete__c</field>
+    </columns>
+    <columns>
+        <field>CREATED_DATE</field>
+    </columns>
+    <columns>
+        <field>Opportunity.Application_Substage__c</field>
+    </columns>
+    <columns>
+        <field>Opportunity.Application_Fee_Complete__c</field>
+    </columns>
+    <columns>
+        <field>Opportunity.Contact__c</field>
+    </columns>
+    <columns>
+        <field>PHONE1</field>
+    </columns>
+    <columns>
+        <field>CON.PHONE</field>
+    </columns>
+    <columns>
+        <field>Opportunity.Applicant_Email__c</field>
+    </columns>
+    <columns>
+        <field>ACCOUNT_NAME</field>
+    </columns>
+    <columns>
+        <field>Opportunity.Country_Of_Residence__c</field>
+    </columns>
+    <columns>
+        <field>CON.ADDRESS2_CITY</field>
+    </columns>
+    <columns>
+        <field>CON.ADDRESS2_ZIP</field>
+    </columns>
+    <columns>
+        <field>LEAD_SOURCE</field>
+    </columns>
+    <columns>
+        <field>STAGE_NAME</field>
+    </columns>
+    <currency>USD</currency>
+    <description>Ordered by Last Login - Dashboard</description>
+    <filter>
+        <booleanFilter>((((1 OR 2 OR 3 OR 4 OR 7)) AND 5) AND 6)</booleanFilter>
+        <criteriaItems>
+            <column>FULL_NAME</column>
+            <operator>equals</operator>
+            <value>David Dand,German Fernandez,Inga Jasulaityte,Heather Mancini,Adriana Lloan,Lina Rojdmark</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>FULL_NAME</column>
+            <operator>equals</operator>
+            <value>Tate Jones,Chris Smart</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>FULL_NAME</column>
+            <operator>equals</operator>
+            <value>Par Ekstrom,Annie Romero,Lavinia Yang,Greta Rossi,Katja Gomer,Antonije Radovic,Amy Cullen,Oxana Fedorova</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>FULL_NAME</column>
+            <operator>equals</operator>
+            <value>Andrea Barsk,Susie Buczko,Peter Mangel,Veronica De Armas</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Opportunity.Start_Term__c</column>
+            <operator>equals</operator>
+            <value>January 2012,September 2012,January 2013</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>STAGE_NAME</column>
+            <operator>equals</operator>
+            <value>Qualified Lead,In Progress</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>FULL_NAME</column>
+            <operator>equals</operator>
+            <value>Danny Goh,Valeria Droge,Asija Safigulina</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Opportunity.Last_Log_In1__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>0-Europe IP TREND - DASHBOARD</name>
+    <params>
+        <name>open</name>
+        <value>all</value>
+    </params>
+    <params>
+        <name>probability</name>
+        <value>&gt;0</value>
+    </params>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Opportunity</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Opportunity.Last_Log_In1__c</dateColumn>
+        <interval>INTERVAL_LAST30</interval>
+    </timeFrameFilter>
+</Report>

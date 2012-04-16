@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <currency>USD</currency>
+    <filter>
+        <booleanFilter>((1 AND 2 AND 3) AND (4 OR 5)) AND 6</booleanFilter>
+        <criteriaItems>
+            <column>Opportunity.Region__c</column>
+            <operator>equals</operator>
+            <value>europe,eurasia</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Opportunity.Start_Term__c</column>
+            <operator>equals</operator>
+            <value>January 2012,September 2012</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>FULL_NAME</column>
+            <operator>equals</operator>
+            <value>danny goh,valeria droge,asija safigulina</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Opportunity.Last_Log_In1__c</column>
+            <operator>greaterThan</operator>
+            <value>8/1/2011 12:00 AM</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Opportunity.In_Progress_Date__c</column>
+            <operator>greaterThan</operator>
+            <value>8/1/2011</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>STAGE_NAME</column>
+            <operator>equals</operator>
+            <value>Qualified Lead,In Progress</value>
+        </criteriaItems>
+    </filter>
+    <format>Matrix</format>
+    <groupingsAcross>
+        <dateGranularity>Day</dateGranularity>
+        <field>FULL_NAME</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsAcross>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Opportunity.Application_Substage__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Eurasia team statistics</name>
+    <params>
+        <name>open</name>
+        <value>all</value>
+    </params>
+    <params>
+        <name>probability</name>
+        <value>&gt;0</value>
+    </params>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Opportunity</reportType>
+    <scope>organization</scope>
+    <showDetails>false</showDetails>
+    <timeFrameFilter>
+        <dateColumn>CREATED_DATE</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

@@ -1,0 +1,165 @@
+<apex:page showHeader="false" action="{!createFinaceRecord}" controller="ApplicantPaymentController" id="tncp">
+ <form name="Form1" method="post"  id="Form1">
+<script>
+function noPostBack(sNewFormAction) {
+        //alert(document.forms[0].dd.value);
+            if(!document.forms[0].dd.checked){
+                alert("Please check I attest that the information I have provided to Hult International Business School is true, that I understand and agree to the terms and conditions and hereby apply for admission.");
+                return false;
+            }
+        
+        
+        sNewFormAction = sNewFormAction + document.forms[0].security_emerchant_id.value;
+        if (document.layers) //The browser is Netscape 4
+        {
+            document.layers['Content'].document.forms[0].__VIEWSTATE.name =
+                                                           'NOVIEWSTATE';
+            document.layers['Content'].document.forms[0].action =
+                                                     sNewFormAction;
+        }
+        else //It is some other browser that understands the DOM
+        {
+            document.forms[0].action = sNewFormAction;
+            document.forms[0].__VIEWSTATE.name = 'NOVIEWSTATE';
+        }
+        
+    }
+</script>
+<table class="innertable" border="0" cellpadding="0" cellspacing="0">
+<tr><td colspan="2"><c:Header /></td></tr>
+<tr>
+     
+<td>
+
+
+
+    <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
+        <tr>
+            <td><c:ApplicantHeader /></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+           
+            <table width="100%" class="innerpadding"  border="0" cellpadding="0" cellspacing="0"><tr><td>
+        <tr>
+            <td colspan="2" class="formheader">Payment</td>
+        </tr>
+        
+        <tr>
+            <td height="19" background="{!URLFOR($Resource.Images, 'new-images/line.jpg')}" style="background-repeat:repeat-x;">&nbsp;</td>
+        </tr>
+        <apex:outputPanel rendered="{!tab2}">
+        <tr style="text-align:left"><td colspan="2" class="formlable">
+        <b>Prior to making your payment, you may want to contact your bank or credit card company in order to authorize international transactions on your card. If after contacting your financial institution your payment is declined then, please contact your recruiter.</b>
+        <br />
+        <b><p>
+        Once you have paid the application fee, you will have to log back in to submit your application to Hult Admissions for review.
+        </p>
+        </b>
+<apex:pageMessages escape="false" showDetail="false"  />
+</td></tr>
+        <tr>
+            <td valign="top">
+               <!-- Add code here -->
+              
+<table align="center" border="0" width="100%">
+                
+                <input type="hidden" name="security_emerchant_id" value="{!Merchant_ID_c}" />
+                <input type="hidden" name="security_validation_code" value="{!Validation_Code_c}" />
+                <input type="hidden" name="service_action" value="pay" />
+                <input type="hidden" name="trx_amount_value" value="{!amount}" />
+                <input type="hidden" name="trx_amount_currency_code" value="USD" />
+                <!-- input type="hidden" name="trx_amount_currency_code" value="EUR" / -->
+                <input type="hidden" size="70" name="post_success" value="{!url}SixCardSuccess" />
+                <input type="hidden" size="70" name="post_failure" value="{!url}SixCardFailure"  />
+                <input type="hidden" name="trx_is_keyed" value="True" />
+                <!-- input type="hidden" name="trx_merchant_reference" value="{!appid}" / -->
+                <input type="hidden" name="trx_merchant_reference_2" value="Application Fee" />
+                <input type="hidden" name="trx_merchant_reference" value="{!financeID}" />
+                 <tr>
+            <td class="formlable" width="202" align="right">Program</td>
+            <td class="formlable" align="left">{!Program_c}</td>
+
+          </tr>
+                 <tr>
+                    <td class="formlable" align="right">Amount</td>
+                    <td class="formlable" align="left">USD {!amount1}0
+                    </td>
+                </tr>               
+                <tr>
+                    <td class="formlable" align="right"></td>
+                    <td class="formlable" align="left">
+                    <apex:outputPanel id="tnc">
+                        <apex:outputText rendered="{!I_agree_to_Terms_Cond_for_App_Fee_c}">
+                        <input name="dd" type="checkbox" value="true" onclick="methodOneInJavascript('false')" id="tnctrue" />
+                        </apex:outputText>
+                        <apex:outputText rendered="{! NOT I_agree_to_Terms_Cond_for_App_Fee_c}">
+                        <input name="dd" type="checkbox" value="false" onclick="methodOneInJavascript('true')" id="tncfalse" />
+                        </apex:outputText>
+                    </apex:outputPanel>                        
+                       I attest that the information I have provided to Hult International Business School is true, that I understand and agree to the&nbsp;<apex:outputLink target="blank" value="{!applicationtncURL}">terms and conditions</apex:outputLink>&nbsp;and hereby apply for admission.                        
+                    </td>
+                </tr>
+            </table>
+
+</td></tr>
+<tr><td >&nbsp;</td></tr>
+          <tr>
+<td background="{!URLFOR($Resource.Images, 'new-images/line.jpg')}" style="background-repeat:repeat-x;">&nbsp;</td>
+</tr>
+<tr><td style="padding-left:20px;padding-right:20px;vertical-align:text-bottom">
+<table width="100%" cellpadding="0" cellspacing="0"><tr>
+<td align="center">
+<apex:outputPanel rendered="{!if((Paid_Application_Fee_c==false && isfinanceRecord == true),true,false)}" >
+<style>
+.button {     
+
+background: url("{!URLFOR($Resource.Images, 'new-images/pay-now.jpg')}") no-repeat scroll 0 0 transparent;   
+color: #000000;   
+cursor: pointer;   
+font-weight: bold;   
+height: 36px;   
+padding-bottom: 2px;   
+width: 110px;
+border: none;
+}
+</style>
+<input class="button" title="Pay Now" type="submit" name="SubmitTop" onclick="Javascript:noPostBack('{!txnUrl}');" value=" "  id="SubmitTop" />
+
+<!-- input class="button" title="PayToStudy" type="submit" name="PayToStudy" onclick="sub();" value="PayToStudy"  id="PayToStudy" / -->
+
+
+</apex:outputPanel>
+</td></tr><!--
+<tr>
+<td><span style="float:right;vertical-align:bottom"><apex:outputLink value="#"><apex:image url="{!URLFOR($Resource.Images, 'new-images/topimage.jpg')}"  />&nbsp;<b>back to top</b></apex:outputLink> </span></td>
+</tr>
+-->
+</table>
+</td></tr></apex:outputPanel>
+<apex:outputPanel rendered="{!!tab2}" >
+<tr><td class="uncompetetab_msg" align="center" height="200" valign="top">
+You must complete Program &amp; Location tab before Payment tab 
+</td></tr>
+</apex:outputPanel></td></tr></table></td>
+</tr></table>
+<script>
+document.getElementById('Payment').style.backgroundImage="url('{!URLFOR($Resource.Images, 'new-images/tabwhiteimage.jpg')}')";
+document.getElementById('Payment').style.backgroundPosition="center";
+document.getElementById('Payment1').className="headertabonload";
+</script>
+
+</td></tr></table>
+ </form>
+<apex:form >
+<apex:outputPanel id="tnca"> 
+ <apex:actionFunction action="{!applicationTerm}" name="methodOneInJavascript" rerender="tnc,tnca">
+        <apex:param name="termtype" assignTo="{!termtypev}" value="" />
+</apex:actionFunction>
+ <script>     
+     document.getElementById('tnctrue').checked={!I_agree_to_Terms_Cond_for_App_Fee_c};     
+ </script>
+ </apex:outputPanel>
+</apex:form>
+
+ </apex:page>

@@ -1,0 +1,185 @@
+<apex:page showHeader="false" controller="ApplicantSponsorshipController">
+<apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js" />
+<table class="innertable" border="0" cellpadding="0" cellspacing="0">
+<tr><td colspan="2"><c:Header /></td></tr>
+<tr>
+     
+<td>
+
+<apex:form >
+    <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
+        <tr>
+            <td><c:ApplicantHeader /></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+           
+            <table width="100%" class="innerpadding" border="0" cellpadding="0" cellspacing="0"><tr><td>
+        <tr>
+            <td colspan="2" class="formheader">Sponsorship</td>
+        </tr>
+        
+        <tr>
+            <td height="19" background="{!URLFOR($Resource.Images, 'new-images/line.jpg')}" style="background-repeat:repeat-x;">&nbsp;</td>
+        </tr>
+        <apex:outputPanel rendered="{!tab2}">
+        <tr style="text-align:left"><td colspan="2" >
+<apex:pageMessages escape="false" showDetail="false"  />
+</td></tr>
+        <tr>
+            <td valign="top" align="Center">
+                <table width="100%"  border="0" cellpadding="0" cellspacing="0">
+              
+              <tr>
+                        <td class="formlable" align="right" width="202" >Who will sponsor/fund your education?<span class="error_star">*</span></td>
+                          <td class="formlable" align="left">
+                          <!-- <apex:inputField rendered="{!!finalsubmit}" value="{!req.Sponser__c}" styleClass="form-selectList" > -->
+                          <!-- </apex:inputField>-->
+                          <apex:selectList value="{!Sponser_c}" disabled="{!finalsubmit}" styleClass="form-selectList" size="1">
+                          <apex:selectOptions value="{!items}"/>
+                          <apex:actionSupport status="iself" action="{!issetself}" reRender="javascript" event="onchange"/>
+                          </apex:selectList>
+                          
+                          
+                          <apex:actionStatus id="iself" startStyleClass="wait" stopText="" />
+                          <apex:selectList disabled="{!finalsubmit}" rendered="{!finalsubmit}" styleClass="form-selectList">
+                          <apex:selectOption itemLabel="{!req.Sponser__c}" itemValue="{!req.Sponser__c}"></apex:selectOption>
+
+</apex:selectList>
+</td>
+                     </tr>
+                  
+                    
+                       <tr class="self_hide self_hide1">
+                        <td class="formlable" align="right" >Family Sponsor<span class="error_star">*</span></td>
+                          <td align="left">
+                          <apex:inputField rendered="{!!finalsubmit}" value="{!req.Family_Sponsor__c}" styleClass="form-selectList"  />
+                          <apex:selectList disabled="{!finalsubmit}" rendered="{!finalsubmit}" styleClass="form-selectList">
+<apex:selectOption itemLabel="{!req.Sponser__c}" itemValue="{!req.Family_Sponsor__c}"></apex:selectOption>
+</apex:selectList>
+</td>
+                     </tr>
+
+                     <tr class="self_hide">
+                        <td class="formlable" align="right" >Employer or Organization </td>
+                        <td class="formlable" align="left"><apex:inputField rendered="{!!finalsubmit}" value="{!req.Employee__c}"  styleClass="form-text-box" /><apex:inputText rendered="{!finalsubmit}" disabled="{!finalsubmit}" value="{!req.Employee__c}" styleClass="form-text-box"/></td>
+                     </tr>
+                   
+                     <tr class="self_hide">
+                        <td class="formlable" align="right" >Contact Person</td>
+                          <td  align="left"><apex:inputField rendered="{!!finalsubmit}" value="{!req.ContactPerson__c}"  styleClass="form-text-box" /><apex:inputText rendered="{!finalsubmit}" disabled="{!finalsubmit}" value="{!req.ContactPerson__c}" styleClass="form-text-box"/></td>
+                     </tr>
+              
+                     <tr class="self_hide">
+                        <td class="formlable" align="right" >Title</td>
+                          <td  align="left"><apex:inputField rendered="{!!finalsubmit}" value="{!req.Title__c}"  styleClass="form-text-box" /><apex:inputText rendered="{!finalsubmit}" disabled="{!finalsubmit}" value="{!req.Title__c}" styleClass="form-text-box"/></td>
+                     </tr>
+              
+                     <tr class="self_hide">
+                        <td class="formlable" align="right" >Address</td>
+                        <td  align="left"><apex:inputField rendered="{!!finalsubmit}" value="{!req.SponsorerAddress__c}"  styleClass="form-TextArea1" /><apex:inputtextarea rendered="{!finalsubmit}" disabled="{!finalsubmit}" value="{!req.Title__c}" styleClass="form-TextArea1"/></td>
+                     </tr><tr class="self_hide"><td colsapn="2" height="7"></td></tr>
+                    
+                                <tr class="self_hide">
+                                    <td class="formheader"  colspan="2">Sponsor Telephone Number</td>
+                                </tr>
+                                <tr class="self_hide">
+            <td height="19" colspan="2" background="{!URLFOR($Resource.Images, 'new-images/line.jpg')}" style="background-repeat:repeat-x">&nbsp;</td>
+        </tr>
+                                <tr class="self_hide">
+                                        <td class="formlable" align="right">Country</td><td align="left">
+<apex:selectList value="{!req.Phone_Country_Code__c}" disabled="{!finalsubmit}"  styleClass="form-selectList" multiselect="false" size="1">
+<apex:selectOptions Value="{!countryCode}" />
+</apex:selectList></td>
+                          </tr><tr class="self_hide">
+                                       <td class="formlable" align="right">Main Number</td><td align="left"><apex:inputField rendered="{!!finalsubmit}" value="{!req.PhoneNo__c}"  styleClass="form-text-box" />
+
+<apex:inputText rendered="{!finalsubmit}" disabled="{!finalsubmit}" value="{!req.PhoneNo__c}" styleClass="form-text-box"/></td>
+                                    </tr>
+                               <tr class="self_hide"><td colsapn="2" height="30">&nbsp;</td></tr>
+                                <tr class="self_hide">
+                                    <td class="formheader" colspan="2">Sponsor Fax Number</td>
+                                </tr>
+                                
+                                <tr class="self_hide">
+            <td height="19" colspan="2" background="{!URLFOR($Resource.Images, 'new-images/line.jpg')}" style="background-repeat:repeat-x">&nbsp;</td>
+        </tr>
+                                    <tr class="self_hide">
+                                        <td class="formlable" align="right">Country</td>  <td align="left">
+                                        
+                                        <apex:selectList value="{!req.Fax_CountryCode__c}" disabled="{!finalsubmit}"  styleClass="form-selectList" multiselect="false" size="1">
+<apex:selectOptions Value="{!countryCode}" />
+</apex:selectList>
+</td></tr>
+                              
+                                             
+                            <tr class="self_hide">      <td class="formlable" align="right">Main Number</td> 
+                             <td align="left"><apex:inputField rendered="{!!finalsubmit}"  value="{!req.FaxNo__c}" styleClass="form-text-box"/><apex:inputText rendered="{!finalsubmit}" disabled="{!finalsubmit}" value="{!req.FaxNo__c}" styleClass="form-text-box"/></td>
+                                    </tr>
+                                    
+ <tr><td colspan="2" height="30">&nbsp;</td></tr>                           
+<tr>
+            <td height="19" colspan="2" background="{!URLFOR($Resource.Images, 'new-images/line.jpg')}" style="background-repeat:repeat-x">&nbsp;</td>
+        </tr>
+</table>
+</td></tr>
+<tr><td style="padding-left:20px;padding-right:20px;vertical-align:text-bottom">
+<table width="100%" cellpadding="0" cellspacing="0"><tr>
+<td align="center">
+<apex:outputPanel rendered="{!!finalsubmit}">
+<span class="button primary">
+ <apex:commandLink rendered="{!!finalsubmit}" value="Save and Continue" title="Save and Continue"  id="cbtneditlogin" action="{!saveandcontinue}" />
+
+ </span>
+ <span class="divider">|</span>
+        <apex:commandLink value="Save and Logout"  rendered="{!NOT(finalsubmit)}" styleClass="secondary" id="step2andlogout" action="{!saveandcontinueandlogout}" />
+</apex:outputPanel>
+</td></tr>
+<tr>
+<td><span style="float:right;vertical-align:bottom"><apex:outputLink value="#"><apex:image url="{!URLFOR($Resource.Images, 'new-images/topimage.jpg')}"  />&nbsp;<b>back to top</b></apex:outputLink> </span></td>
+</tr></table>
+</td></tr></apex:outputPanel>
+<apex:outputPanel rendered="{!!tab2}" >
+<tr><td class="uncompetetab_msg" align="center" height="200" valign="top">
+You must complete Program &amp; Location tab before Sponsorship tab 
+</td></tr>
+</apex:outputPanel></td></tr></table></td>
+</tr></table>
+<script>
+document.getElementById('Sponsorship').style.backgroundImage="url('{!URLFOR($Resource.Images, 'new-images/tabwhiteimage.jpg')}')";
+document.getElementById('Sponsorship').style.backgroundPosition="center";
+document.getElementById('Sponsorship1').className="headertabonload";
+</script>
+</apex:form>
+<apex:outputPanel id="javascript">
+<script>
+function is_showhide(str) {
+if(str=='false'){
+        $('.self_hide').hide();
+        $('.self_hide select').val('');
+        $('.self_hide input').val('');
+        $('.self_hide textarea').val('');
+        }
+        else
+        {
+        $('.self_hide').show();
+        }
+    }
+function is_famaly(str){
+if(str=='Family'){
+$('.self_hide1').show();
+}
+else
+{
+$('.self_hide1').hide();
+$('.self_hide1 select').val('');
+}
+}    
+is_showhide('{!selfset}');
+is_famaly('{!Sponser_c}')
+</script>
+</apex:outputPanel>
+</td></tr></table>
+
+<site:googleAnalyticsTracking ></site:googleAnalyticsTracking>
+</apex:page>

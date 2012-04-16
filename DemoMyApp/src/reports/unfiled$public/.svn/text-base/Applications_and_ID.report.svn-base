@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Opportunity$Id</field>
+    </columns>
+    <columns>
+        <field>Opportunity$Update_Requirements__c</field>
+    </columns>
+    <currency>USD</currency>
+    <filter>
+        <criteriaItems>
+            <column>Opportunity$Program__c</column>
+            <operator>contains</operator>
+            <value>MBA</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Opportunity$Program__c</column>
+            <operator>notEqual</operator>
+            <value>EMBA</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Opportunity$Secondary_Program__c</column>
+            <operator>contains</operator>
+            <value>MBA</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Opportunity$Secondary_Program_Choice__c</column>
+            <operator>notEqual</operator>
+            <value>Executive MBA</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>Applications and ID</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Opportunities_with_IDs__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Opportunity$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+    <userFilter>jim.delaney@roundcorner.com.hult.fullqc</userFilter>
+</Report>

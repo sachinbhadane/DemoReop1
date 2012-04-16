@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ReportFolder xmlns="http://soap.sforce.com/2006/04/metadata">
+    <accessType>Shared</accessType>
+    <name>UG LATAM</name>
+    <publicFolderAccess>ReadWrite</publicFolderAccess>
+    <sharedTo>
+        <roles>EU Telesales User</roles>
+        <roles>LATINAM Telesales Manager</roles>
+        <roles>LATINAM Telesales User</roles>
+        <roles>NA Telesales Manager</roles>
+        <roles>NA Telesales User</roles>
+        <roles>NA/LATINAM Product Head - BIBA(UG)</roles>
+        <roles>NA/LATINAM Recruiter - BIBA (UG)</roles>
+    </sharedTo>
+</ReportFolder>

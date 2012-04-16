@@ -1,0 +1,81 @@
+<apex:page showHeader="false" action="{!getdetails}" wizard="true" controller="ApplicantRegistrationLoginController">
+
+<!-- Code for text box -->
+<apex:form >
+<table class="innertable" border="0" cellpadding="0" cellspacing="0">
+<tr><td colspan="2"><c:Header /></td></tr>
+<tr><td colspan="2">&nbsp;</td></tr>
+<tr><td  colspan="2" ><apex:pageMessages rendered="{!emsg}" ></apex:pageMessages></td></tr>
+  <tr>
+            <td colspan="2" class="formheader1">Register to Apply</td>
+          </tr>
+  <tr>
+            <td colspan="2" class="content">Please complete the registration form to begin your online application process. Once registered, you may <br />re-access the online application at any time by using the log In form to the right.</td>
+          </tr>
+<tr><td colspan="2">&nbsp;</td></tr>
+          <tr>
+            <td colspan="2" class="formlable">First Name<span class="error_star">*</span> </td>
+          </tr>
+          <tr>
+            <td >
+<apex:inputText disabled="true" value="{!fname}" id="fname1" styleClass="form-text-box"/></td>
+<td align="left" class="content" width="800" >
+Please enter your name using Western characters only
+</td>
+          </tr>
+          <tr>
+            <td colspan="2" class="formlable">Last Name<span class="error_star">*</span> </td>
+          </tr>
+          <tr>
+            <td ><apex:inputText disabled="true" value="{!lname}"  id="lname1" styleClass="form-text-box"/></td>
+            <td style="vertical-align:middle ">
+<span id="lname2">Please enter your name using Western characters only</span>
+</td>
+          </tr>
+          <tr>
+            <td colspan="2" class="formlable">Email Address<span class="error_star">*</span> </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+            <apex:inputText disabled="true" value="{!email}" id="email1" styleClass="form-text-box"/>            
+            
+            </td>
+            <td width="2" class="content" style="vertical-align:top">  
+
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2" class="formlable">Create Password<span class="error_star">*</span> </td>
+
+          </tr>
+          <tr>
+            <td valign="top"><apex:inputSecret value="{!password}" id="passwordA1" styleClass="form-text-box"/></td>
+            <td valign="top" class="content">
+<span id="passwordA2">8 characters or longer with at least 1 number</span>
+</td>
+          </tr>
+          <tr>
+            <td colspan="2" class="formlable">Confirm Password<span class="error_star">*</span> </td>
+            
+          </tr>
+          <tr>
+            <td ><apex:inputSecret value="{!confirmPassword}" id="passwordB1" styleClass="form-text-box"/></td>
+        <td class="content" style="vertical-align:top"> </td>
+          </tr>
+          <tr>
+            <td colspan="2" >
+           
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">          
+            <apex:commandButton id="step1" action="{!step1}" style="bgcolor:white;background-image:url({!URLFOR($Resource.Images, 'new-images/continue.jpg')});height:38px;width:88px;border-width:0px;background-repeat:no-repeat;cursor:pointer;">
+            <apex:param name="oldcontact" value="{!oldcontact}"/>
+            </apex:commandButton>
+            <!--input type="image" onClick="return allchk();" src="{!URLFOR($Resource.Images, 'new-images/continue.jpg')}" /--> </td>
+          </tr>
+        </table>
+
+</apex:form>
+
+</apex:page>

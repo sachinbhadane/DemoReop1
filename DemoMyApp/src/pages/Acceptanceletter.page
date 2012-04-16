@@ -1,0 +1,75 @@
+<apex:page showHeader="false" controller="AcceptanceletterController">
+ <form name="Form1" method="post"  id="Form1">
+<table class="innertable" border="0" cellpadding="0" cellspacing="0">
+<tr><td colspan="2"><c:onlineHeader /></td></tr>
+<tr>
+     
+<td>
+
+
+
+    <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
+        <tr>
+            <td><c:OnlineAccountHeader /></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+           
+            <table width="100%" class="innerpadding"  border="0" cellpadding="0" cellspacing="0"><tr><td>
+        <tr>
+            <td colspan="2" class="formheader">Admission letters </td>
+        </tr>
+        
+        <tr>
+            <td height="19" background="{!URLFOR($Resource.Images, 'new-images/line.jpg')}" style="background-repeat:repeat-x;">&nbsp;</td>
+        </tr>
+        <apex:outputPanel >
+        <tr style="text-align:left"><td colspan="2" >
+        <apex:pageMessages escape="false" showDetail="false"  />
+</td></tr>
+        <tr>
+            <td valign="top">
+               <!-- Add code here -->
+               <table width="100%">
+                   <tr>
+                       <td align="center" class="formlableheader">
+                       <!-- apex:outputLink value="/servlet/servlet.FileDownload?file={!attId}" value="{!letterName}"/ -->
+                         <apex:dataTable cellpadding="3px;" headerClass="hclass"
+                                                    value="{!wrapList}" var="e"
+                                                    style="width:100%; bgcolor:#FFFFFF"> 
+                       <apex:column >
+                       <apex:outputLink target="blank"
+                                value="/servlet/servlet.FileDownload?file={!e.attID}">
+                                <apex:outputText value="{!e.Letter_Title_c}" />
+                            </apex:outputLink>
+                        </apex:column>
+                        </apex:dataTable>                                                                                      
+                       </td>
+                   </tr>
+                   
+               </table>
+
+</td></tr>
+<tr><td >&nbsp;</td></tr>
+          <tr>
+<td background="{!URLFOR($Resource.Images, 'new-images/line.jpg')}" style="background-repeat:repeat-x;">&nbsp;</td>
+</tr></apex:outputPanel>
+<tr>
+    <td align="center">
+    <apex:outputLink value="/secur/logout.jsp" styleClass="secondary" >
+    Logout
+    </apex:outputLink>
+    </td>
+</tr>
+</td></tr></table></td>
+</tr></table>
+<script>
+document.getElementById('Acceptanceletter').style.backgroundImage="url('{!URLFOR($Resource.Images, 'new-images/tabwhiteimage.jpg')}')";
+document.getElementById('Acceptanceletter').style.backgroundPosition="center";
+document.getElementById('Acceptanceletter1').className="headertabonload";
+</script>
+
+
+</td></tr></table>
+</form>
+</apex:page>

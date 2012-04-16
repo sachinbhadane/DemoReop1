@@ -1,0 +1,134 @@
+<apex:page controller="ASPIRAX.AspiraController">
+	<apex:sectionHeader title="Aspira XObject" subtitle="Cross Object Relations"/>
+	<apex:form >
+		<apex:pageBlock helpTitle="About Aspira XObject tool" helpUrl="{!URLFOR($Page.ASPIRAX__About)}">
+			<apex:outputPanel >
+				<ul>
+					<li>
+						Be sure to read the&nbsp;<apex:outputLink value="{!URLFOR($Page.ASPIRAX__About)}" target="_blank">help</apex:outputLink> page for this app before using this tool, for important instructions.
+					</li>
+					<li>
+						<apex:outputText value="You can create up to {!IF(isFreeEdition, 10, 20)} relations within this {!IF(isFreeEdition, 'free', 'extended')} app."/>
+					</li>
+					<li>
+						Be sure to enter a valid Apex Trigger name (no spaces, no underscores etc.) in the “Trigger Name” field.
+					</li>
+					<li>
+						Please be patient when you see the "loading, please wait..." message and do not manually refresh the page.
+					</li>
+				</ul>
+			</apex:outputPanel>
+			<apex:pageMessages id="messages"/>
+			<br/>
+			<apex:outputPanel >
+				<apex:inputCheckbox value="{!alwaysUseManualStrategy}" id="alwaysUseManualStrategy"/>
+				<apex:outputLabel for="alwaysUseManualStrategy" value="Always Use Manual Method"/>
+			</apex:outputPanel>
+			<br/>
+			<apex:actionStatus id="loading">
+				<apex:facet name="start">
+					<span style="color:#6262C4;">loading, please wait...</span>
+				</apex:facet>
+				<apex:facet name="stop">
+					<span>&nbsp;</span>
+				</apex:facet>
+			</apex:actionStatus>
+			<apex:pageBlockSection title="Cross Object Relations (use the last line to add a new relation)" columns="1" id="relations" collapsible="false">
+				<apex:pageBlockTable value="{!relations}" var="relation">
+					<apex:column headerValue="Action" width="60px">
+						<apex:commandLink action="{!deleteRelation}" value="Del" rerender="relations, messages" status="loading">
+							<apex:param name="relationToDelete" assignTo="{!relationToDelete}" value="{!relation.Id}"/>
+						</apex:commandLink>
+						<apex:facet name="footer">
+							<apex:commandLink onclick="compilePartially(); return false;" value="Add" rendered="{!IF(lookupField != null, true, false)}"/>
+						</apex:facet>
+					</apex:column>
+					
+					<apex:column headerValue="Affected/Workflow Object" value="{!relation.ASPIRAX__Listener__c}">
+						<apex:facet name="footer">
+							<apex:selectList value="{!listener}" size="1" multiselect="false" onchange="relationChanged();" rendered="{!NOT(isLimitReached)}">
+								<apex:selectOptions value="{!availableObjects}"/>
+							</apex:selectList>
+						</apex:facet>
+					</apex:column>
+					
+					<apex:column headerValue="Lookup Type" value="{!relation.ASPIRAX__Lookup_Type__c}">
+						<apex:facet name="footer">
+							<apex:selectList value="{!lookupType}" size="1" multiselect="false" onchange="relationChanged();" rendered="{!IF(listener != null, true, false)}">
+								<apex:selectOption itemValue="Outgoing" itemLabel="Outgoing"/>
+								<apex:selectOption itemValue="Incoming" itemLabel="Incoming"/>
+							</apex:selectList>
+						</apex:facet>
+					</apex:column>
+					
+					<apex:column headerValue="Lookup Field To Use" value="{!relation.ASPIRAX__Lookup_Field__c}">
+						<apex:facet name="footer">
+							<apex:selectList value="{!lookupField}" size="1" multiselect="false" onchange="relationChanged();" rendered="{!IF(listener != null, true, false)}">
+								<apex:selectOptions value="{!availableLookups}"/>
+							</apex:selectList>
+						</apex:facet>
+					</apex:column>
+					
+					<apex:column headerValue="Object To Watch" value="{!relation.ASPIRAX__Dispatcher__c}">
+						<apex:facet name="footer">
+							<apex:selectList value="{!dispatcher}" size="1" multiselect="false" rendered="{!IF(lookupField != null, true, false)}">
+								<apex:selectOptions value="{!availableDispatchers}"/>
+							</apex:selectList>
+							<!-- <apex:outputText value="{!dispatcherLabel}"/> -->
+						</apex:facet>
+					</apex:column>
+					
+					<apex:column headerValue="Trigger Name">
+						<apex:outputLink value="{!URLFOR('/' & relation.ASPIRAX__Trigger_ID__c)}">{!relation.ASPIRAX__Trigger_Name__c}</apex:outputLink>
+						<apex:facet name="footer">
+							<apex:inputText value="{!triggerName}" rendered="{!IF(lookupField != null, true, false)}"/>
+						</apex:facet>
+					</apex:column>
+					
+				</apex:pageBlockTable>
+			</apex:pageBlockSection>
+		</apex:pageBlock>
+		
+		<apex:actionFunction name="relationChanged" action="{!rerender}" rerender="messages, relations" status="loading"/>
+		<apex:actionFunction name="addRelation" action="{!addRelation}" rerender="messages, relations" status="loading">
+			<apex:param name="enterpriseURL" assignTo="{!enterpriseURL}" value="{!$Api.Enterprise_Server_URL_160}"/>
+		</apex:actionFunction>
+		<apex:actionFunction name="compilePartially" action="{!addRelation}" oncomplete="onCompilePartiallyComplete({!compileSucceeded});" rerender="messages, relations" status="loading">
+			<apex:param name="compilingStrategy" assignTo="{!compilingStrategy}" value="partial"/>
+			<apex:param name="enterpriseURL" assignTo="{!enterpriseURL}" value="{!$Api.Enterprise_Server_URL_160}"/>
+		</apex:actionFunction>
+		<apex:actionFunction name="compileAll" action="{!addRelation}" oncomplete="onCompileAllComplete({!compileSucceeded});" rerender="messages, relations" status="loading">
+			<apex:param name="compilingStrategy" assignTo="{!compilingStrategy}" value="all"/>
+			<apex:param name="enterpriseURL" assignTo="{!enterpriseURL}" value="{!$Api.Enterprise_Server_URL_160}"/>
+		</apex:actionFunction>
+		<apex:actionFunction name="compileManually" action="{!addRelation}" rerender="messages, relations" status="loading">
+			<apex:param name="compilingStrategy" assignTo="{!compilingStrategy}" value="manual"/>
+			<apex:param name="enterpriseURL" assignTo="{!enterpriseURL}" value="{!$Api.Enterprise_Server_URL_160}"/>
+		</apex:actionFunction>
+	</apex:form>
+	<script language="javascript">
+		function onCompilePartiallyComplete(succeeded)
+		{
+			if (succeeded)
+			{
+				return;
+			}
+			
+			alert("Unfortunately, the first attempt to process your request has failed, likely due to issues with other apex code written in your org. The application will proceed with a second attempt to automatically create the needed triggers and classes for you, but you should note that it may take up to a minute to process.");
+			compileAll();
+		}
+		
+		function onCompileAllComplete(succeeded)
+		{
+			if (succeeded)
+			{
+				return;
+			}
+			
+			if (confirm("The application is unable to automatically produce needed triggers and classes in your org due to the apex code written in your org. Please click 'OK' and proceed to the manual solution that uses the Force.com IDE, instructions for which are found in the Help/About page."))
+			{
+				compileManually();
+			}
+		}
+	</script>
+</apex:page>

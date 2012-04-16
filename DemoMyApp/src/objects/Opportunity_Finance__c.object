@@ -1,0 +1,3705 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>true</enableActivities>
+    <enableFeeds>true</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>Activity_Fee__c</fullName>
+        <externalId>false</externalId>
+        <label>Activity Fee</label>
+        <precision>8</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Adjustment_Amount__c</fullName>
+        <externalId>false</externalId>
+        <label>Adjustment Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Aetna_Insurance_Price__c</fullName>
+        <externalId>false</externalId>
+        <label>Aetna Insurance Price</label>
+        <precision>6</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Aetna_Insurance__c</fullName>
+        <externalId>false</externalId>
+        <label>Aetna Insurance</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Single</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Single 6 months (visiting)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Single &amp; Spouse</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Single &amp; Spouse &amp; Child</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Single &amp; Spouse &amp; 2 Child</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Single &amp; Child</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Single &amp; 2 Child</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Waived</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Amount_Due_Now__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF  (Opportunity__r.Confirmation_Deadline__c  &lt;=  TODAY() , Course_Deposit_Amount__c ,0) + 
+IF( Payment_Due_Date_1st__c &lt;=  TODAY() ,  Payment_Amount_1st__c  ,0) +
+IF( Payment_Due_Date_2nd__c &lt;=  TODAY() ,  Payment_Amount_2nd__c,0  )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Amount Due Now</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Annual_Accommodation_Fee__c</fullName>
+        <externalId>false</externalId>
+        <label>Housing Fee</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>App_ID__c</fullName>
+        <caseSensitive>true</caseSensitive>
+        <externalId>true</externalId>
+        <label>App ID</label>
+        <length>6</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Application_Fee_Paid_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Application Fee Paid Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Application_Fee_Paid__c</fullName>
+        <externalId>false</externalId>
+        <label>Application Fee Paid</label>
+        <summarizedField>Finance_Transactions__c.Amount_Received_New__c</summarizedField>
+        <summaryFilterItems>
+            <field>Finance_Transactions__c.Transaction_Type__c</field>
+            <operation>equals</operation>
+            <value>Application Fee</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Finance_Transactions__c.Transaction_Status__c</field>
+            <operation>equals</operation>
+            <value>Success, Manually Processed</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Finance_Transactions__c.Finance__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Application_Fee__c</fullName>
+        <externalId>false</externalId>
+        <label>Application Fee</label>
+        <precision>10</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Bertil_Hult_Scholarship_Amount_FS__c</fullName>
+        <externalId>false</externalId>
+        <formula>Bertil_Hult_Scholarship_Amount__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Bertil Hult Scholarship Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Bertil_Hult_Scholarship_Amount__c</fullName>
+        <externalId>false</externalId>
+        <label>Bertil Hult Scholarship Amount</label>
+        <precision>8</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>CC_Forms_and_Checks_Date_Last_Changed__c</fullName>
+        <externalId>false</externalId>
+        <label>CC Forms and Checks Date Last Changed</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>CC_Forms_and_Checks_Set_By__c</fullName>
+        <externalId>false</externalId>
+        <label>CC Forms and Checks Set By</label>
+        <length>50</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Confirm_Adjustment_for_Change_of_Country__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Confirm Adjustment for Change of Country</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Confirm_Adjustment_on_Program_Change__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Confirm Adjustment on Program Change</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Confirmation_Deposit_Mode_of_Payment__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASE( OP_Depost_Paid_Method_Index__c ,1, &quot;CC Charged Via Salesforce&quot;, 2, &quot;CC Charged via HK&quot;, 3,&quot;Wire Transfer&quot;,4, &quot;Manual Credit Card&quot;,&quot;&quot;)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Confirmation Deposit Mode of Payment</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Confirmation_Deposit_Paid__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Confirmation Deposit Paid?</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Confirmation_Deposit__c</fullName>
+        <externalId>false</externalId>
+        <label>Confirmation Deposit</label>
+        <precision>12</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Country__c</fullName>
+        <externalId>false</externalId>
+        <label>Country</label>
+        <length>50</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Course_Deposit_Amount__c</fullName>
+        <externalId>false</externalId>
+        <label>Course Deposit Amount</label>
+        <precision>8</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Course_Deposit_Paid__c</fullName>
+        <externalId>false</externalId>
+        <label>Course Deposit Paid</label>
+        <summarizedField>Finance_Transactions__c.Amount_Received_New__c</summarizedField>
+        <summaryFilterItems>
+            <field>Finance_Transactions__c.Transaction_Type__c</field>
+            <operation>equals</operation>
+            <value>Confirmation Deposit</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Finance_Transactions__c.Transaction_Status__c</field>
+            <operation>equals</operation>
+            <value>Success, Manually Processed</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Finance_Transactions__c.Finance__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Currency_Mismatch__c</fullName>
+        <description>TEXT(Opportunity__r.Program__r.CurrencyIsoCode) != TEXT(CurrencyIsoCode)</description>
+        <externalId>false</externalId>
+        <formula>If (TEXT(Opportunity__r.Program__r.CurrencyIsoCode) != TEXT(CurrencyIsoCode), 1,0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Currency Mismatch</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Current_Balance_Due_Portal__c</fullName>
+        <externalId>false</externalId>
+        <formula>Tuition_Fees_Balance_Due__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Current Balance Due</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Data_is_from_Top_Apply__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>The checkbox is used to indicate that the data has come from Top Apply and is for the Applications that were in the Partial Status when the Salesforce System went live.  The Applications from Top Apply use the older pricing model.</description>
+        <externalId>false</externalId>
+        <label>Data is from Top Apply?</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Date_Installment_Plan_Accepted__c</fullName>
+        <externalId>false</externalId>
+        <label>Date Installment Plan Accepted</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Date_Student_Fin_Info_Unlocked__c</fullName>
+        <externalId>false</externalId>
+        <label>Date Student Fin Info Unlocked</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Dean_Scholarship_Amount_FS__c</fullName>
+        <externalId>false</externalId>
+        <formula>Dean_Scholarship_Amount__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Dean Scholarship Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Dean_Scholarship_Amount__c</fullName>
+        <externalId>false</externalId>
+        <label>Dean Scholarship Amount</label>
+        <precision>14</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Deposit_Amount_Due2_FS__c</fullName>
+        <externalId>false</externalId>
+        <formula>OP_Confirmation_Deposit__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Deposit Amount Due</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Deposit_Amount_Due_FS__c</fullName>
+        <externalId>false</externalId>
+        <label>Deposit Amount Due</label>
+        <precision>6</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Deposit_Balance__c</fullName>
+        <externalId>false</externalId>
+        <formula>Total_Balance_Due_FS__c   -  Deposit_Paid_FS__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Balance After Deposit</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Deposit_Date_Paid__c</fullName>
+        <externalId>false</externalId>
+        <label>Deposit Date Paid</label>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Deposit_Paid_FS__c</fullName>
+        <externalId>false</externalId>
+        <formula>Course_Deposit_Paid__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Deposit Paid</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Deposit_Paid__c</fullName>
+        <externalId>false</externalId>
+        <label>Deposit Paid</label>
+        <precision>8</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Desires_Diploma_in_MDM_or_MFIN__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Desires Diploma in MDM or MFIN</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Desires_Installment_Plan__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Desires Installment Plan</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Desires_Rotation__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Desires Rotation</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Desires_Specialization_in_MDM_or_MFIN__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Desires Specialization in MDM or MFIN</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Desires_UG_Analyst_Certificate__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Desires UG Analyst Certificate</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Diploma_in_MDM_or_MFIN__c</fullName>
+        <externalId>false</externalId>
+        <label>Diploma in MDM or MFIN</label>
+        <precision>12</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Dubai_Housing_Bursary_Amount__c</fullName>
+        <externalId>false</externalId>
+        <label>Dubai Housing Bursary Amount</label>
+        <precision>8</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Dubai_Housing_Fee__c</fullName>
+        <externalId>false</externalId>
+        <label>Dubai Housing Fee</label>
+        <precision>8</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Dubai_Visa_Cost__c</fullName>
+        <externalId>false</externalId>
+        <label>Dubai Visa Cost</label>
+        <precision>8</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Dubai_Visa_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Dubai Visa Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Single Standard All Countries</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Single Express 33 Countries</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Single Express Other Countries</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Standard Single &amp; Spouse</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Standard Single &amp; Spouse &amp; Child</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Standard Single &amp; Spouse &amp; 2 Child</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>EF_Partner_Programs__c</fullName>
+        <externalId>false</externalId>
+        <label>EF Partner Programs</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Select</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>IEMBA Program (6 months)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>IEMBA Program (3 months)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Early_Bird_Deadline_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Early Bird Deadline Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Early_Bird_Scholarship_Amount_FS__c</fullName>
+        <externalId>false</externalId>
+        <formula>Early_Bird_Scholarship_Amount__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Early Bird Scholarship Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Early_Bird_Scholarship_Amount__c</fullName>
+        <externalId>false</externalId>
+        <label>Early Bird Scholarship Amount</label>
+        <precision>8</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Erika_Insurance_Price__c</fullName>
+        <externalId>false</externalId>
+        <label>Erika Insurance Price</label>
+        <precision>8</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Erika_Insurance__c</fullName>
+        <externalId>false</externalId>
+        <label>Erika Insurance</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Single</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Single 6 months (visiting)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Single &amp; Spouse</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Single &amp; Spouse &amp; Child</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Single &amp; Spouse &amp; 2 Child</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Single &amp; Child</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Single &amp; 2 Child</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Waived</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>External_Financing_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>External Financing Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Applied</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>External_Financing_Subtotal__c</fullName>
+        <externalId>false</externalId>
+        <formula>Go_Ed_MEFA_Replacement_Loan_Amount__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>External Financing Subtotal</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>External_Financing__c</fullName>
+        <externalId>false</externalId>
+        <label>External Financing</label>
+        <picklist>
+            <picklistValues>
+                <fullName>MEFA</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CADIVI</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Government Loan</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Personal/Family Bank Loan</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Title IV</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Financial_Aid_Approval_Reason__c</fullName>
+        <externalId>false</externalId>
+        <label>Financial Aid Approval Reason</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Student Profile</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Campus Capacity</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Gmat Level</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Tactical</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Financial_Aid_Approved_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Financial Aid Approved Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Financial_Aid_Approver__c</fullName>
+        <externalId>false</externalId>
+        <label>Above Limit Financial Aid Approver</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Finances1</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Financial_Aid_Percent_of_Tuition_Fee__c</fullName>
+        <externalId>false</externalId>
+        <formula>Total_Financial_Aid_FS__c  /   Tuition_Fee__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Financial Aid Percent of Tuition Fee</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Financial_Aid_Percent_of_Tuition_Fees_FS__c</fullName>
+        <externalId>false</externalId>
+        <formula>Total_Financial_Aid_FS__c /  Tuition_Fee__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Financial Aid Percent of Tuition Fee</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>GoEd_Financing_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>GoEd Financing Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>In progress</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Evaluation pending</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Complete application submitted</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Not Started</fullName>
+                <default>true</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Go_Ed_Loan_Amount_FS__c</fullName>
+        <externalId>false</externalId>
+        <formula>Go_Ed_Loan_Amount__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Go Ed Loan Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Go_Ed_Loan_Amount__c</fullName>
+        <externalId>false</externalId>
+        <label>Go Ed Loan Amount</label>
+        <precision>6</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Go_Ed_Loan_Note_FS__c</fullName>
+        <externalId>false</externalId>
+        <formula>If  (Go_Ed_Loan_Amount__c &gt;0 &amp;&amp; CONTAINS(Text(GoEd_Financing_Status__c) ,&quot;Complete application submitted&quot;), &quot;The Go Ed Financing Amount is included in the Total Financial Aid Calculation&quot;,&quot;The Go Ed Financing is not approved yet.  The Go Ed Loan Amount in not currently Included in the Total Financial Aid Calculation.&quot;)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Go Ed Loan Note</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Go_Ed_Loan_Note__c</fullName>
+        <externalId>false</externalId>
+        <formula>If  (Go_Ed_Loan_Amount__c &gt;0 &amp;&amp; CONTAINS(Text(GoEd_Financing_Status__c) ,&quot;Complete application submitted&quot;), &quot;The Go Ed Financing Amount is included in the Total Financial Aid Calculation&quot;,&quot;The Go Ed Financing is not approved yet.  The Go Ed Loan Amount in not currently Included in the Total Financial Aid Calculation.&quot;)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Go Ed Loan Note</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Go_Ed_MEFA_Replacement_Loan_Amount__c</fullName>
+        <externalId>false</externalId>
+        <label>Loan Amount</label>
+        <precision>8</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Housing_Accommodation__c</fullName>
+        <externalId>false</externalId>
+        <label>Housing Accommodation</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Dubai Housing Bursary</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Shanghai - Single Room (1 Person) - 8 Months - Free</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No accommodation</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>EMBA Hotel</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Housing_Fee_FS__c</fullName>
+        <externalId>false</externalId>
+        <formula>Annual_Accommodation_Fee__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Housing Fee</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IEBA_IEMS_Program_Fee_FS__c</fullName>
+        <externalId>false</externalId>
+        <formula>Partner_Program_Fee__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>IEMBA Program Fee</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>I_agree_to_Hult_Terms_and_Conditions__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>I agree to Hult Terms and Conditions</label>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>I_agree_to_Terms_Cond_for_App_Fee__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>I agree to Terms &amp; Cond for App Fee</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Installment_Plan_FS__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT(Installment_Plan__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Installment Plan</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Installment_Plan_Fee_FS__c</fullName>
+        <externalId>false</externalId>
+        <formula>Installment_Plan_Fee__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Installment Plan Fee</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Installment_Plan_Fee__c</fullName>
+        <externalId>false</externalId>
+        <label>Installment Plan Fee</label>
+        <precision>12</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Installment_Plan__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>All students need to pay the first invoice 60 days before the program starts. Students on installment plan pay the 2nd invoice in January 2013, all others pay 2nd invoice 30 days before the program starts.</inlineHelpText>
+        <label>Installment Plan</label>
+        <picklist>
+            <picklistValues>
+                <fullName>No Installment Plan</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Installment Plan</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>FlexiPlan</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No FlexiPlan</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Insurance_Company_FS__c</fullName>
+        <externalId>false</externalId>
+        <formula>Insurance_Provider__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Insurance Company</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Insurance_Fee_FS__c</fullName>
+        <externalId>false</externalId>
+        <label>Insurance Fee</label>
+        <precision>6</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Insurance_Fee__c</fullName>
+        <externalId>false</externalId>
+        <formula>Insurance_Price__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Insurance Fee</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Insurance_Price__c</fullName>
+        <externalId>false</externalId>
+        <label>Insurance Price</label>
+        <precision>6</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Insurance_Provider__c</fullName>
+        <externalId>false</externalId>
+        <label>Provider</label>
+        <length>20</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Insurance_Type_FS__c</fullName>
+        <externalId>false</externalId>
+        <formula>Text(Insurance__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Insurance Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Insurance__c</fullName>
+        <externalId>false</externalId>
+        <label>Insurance</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Single</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Single 6 months (visiting)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Single &amp; Spouse</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Single &amp; Spouse &amp; Child</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Single &amp; Spouse &amp; 2+ Child</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Single &amp; Child</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Single &amp; 2+ Child</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Waived</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Single &amp; Spouse &amp; 2 Child</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Single &amp; 2 Child</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Select</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Net_Amount_Due__c</fullName>
+        <externalId>false</externalId>
+        <formula>Total_Tuition_Amount__c - Deposit_Balance__c - Total_Financial_Aid_Amount__c- External_Financing_Subtotal__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Net Amount Due</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Net_Balance_Due__c</fullName>
+        <externalId>false</externalId>
+        <formula>Total_Due_Amount__c  - Total_Payments_Made__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Net Balance Due</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Nido_Confirmed_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Nido Confirmed Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Nido_Payment_Deadline__c</fullName>
+        <externalId>false</externalId>
+        <label>Nido Payment Deadline</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>No_Financial_Aid_Awarded__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>No Financial Aid Awarded</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>No_Financial_Aid_Status__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>No Financial Aid Status</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>OP_1st_Payment_Amount_Paid__c</fullName>
+        <externalId>false</externalId>
+        <label>OP:1st Payment Amount Paid</label>
+        <summarizedField>Finance_Transactions__c.Amount_Received__c</summarizedField>
+        <summaryFilterItems>
+            <field>Finance_Transactions__c.Transaction_Type__c</field>
+            <operation>equals</operation>
+            <value>1st Payment</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Finance_Transactions__c.Finance__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>OP_2nd_Payment_Amount_Paid__c</fullName>
+        <externalId>false</externalId>
+        <label>OP:2nd Payment Amount Paid</label>
+        <summarizedField>Finance_Transactions__c.Amount_Received__c</summarizedField>
+        <summaryFilterItems>
+            <field>Finance_Transactions__c.Transaction_Type__c</field>
+            <operation>equals</operation>
+            <value>2nd Payment</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Finance_Transactions__c.Finance__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>OP_Activity_Fee__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity__r.Program__r.Student_Resources_Activities__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>OP:Activity Fee</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>OP_App_Fee_Lookup__c</fullName>
+        <externalId>false</externalId>
+        <label>OP:App Fee Lookup</label>
+        <referenceTo>Application_Fee_Merchant_Services__c</referenceTo>
+        <relationshipLabel>Finances</relationshipLabel>
+        <relationshipName>Finances</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>OP_App_ID__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity__r.App_ID__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>OP:App ID</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OP_Application_Fee__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity__r.Program__r.Application_Fee__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>OP:Application Fee</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>OP_Campus__c</fullName>
+        <externalId>false</externalId>
+        <formula>text(Opportunity__r.Primary_Campus__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>OP: Campus</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OP_Confirmation_Deposit_Amount_Paid__c</fullName>
+        <externalId>false</externalId>
+        <label>OP:Confirmation Deposit Amount Paid</label>
+        <summarizedField>Finance_Transactions__c.Amount_Received__c</summarizedField>
+        <summaryFilterItems>
+            <field>Finance_Transactions__c.Transaction_Type__c</field>
+            <operation>equals</operation>
+            <value>Confirmation Deposit</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Finance_Transactions__c.Finance__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>OP_Confirmation_Deposit__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity__r.Program__r.Confirmation_Deposit__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>OP:Confirmation Deposit</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>OP_Country__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity__r.Country_Of_Residence__c</formula>
+        <label>OP:Country</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OP_Depost_Paid_Method_Index__c</fullName>
+        <externalId>false</externalId>
+        <label>OP:Depost Paid Method Index</label>
+        <summarizedField>Finance_Transactions__c.OP_Transaction_Method_Index__c</summarizedField>
+        <summaryFilterItems>
+            <field>Finance_Transactions__c.Transaction_Type__c</field>
+            <operation>equals</operation>
+            <value>Confirmation Deposit</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Finance_Transactions__c.Finance__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>OP_Diploma_in_MDM_or_MFIN__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity__r.Program__r.Diploma_in_MDM_or_MFIN__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>OP:Diploma in MDM or MFIN</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>OP_Installment_Plan_Fee__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity__r.Program__r.Installment_Plan_Fee__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>OP:Installment Plan Fee</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>OP_Insurance_Provider__c</fullName>
+        <externalId>false</externalId>
+        <formula>if( OP_Campus__c = &quot;San Francisco&quot;,if( Opportunity__r.Country_Of_Residence__c =&quot;United States&quot;,&quot;Aetna&quot;,&quot;Erika&quot;),if(OP_Campus__c = &quot;Boston&quot;, &quot;Aetna&quot;,&quot;Erika&quot;))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>OP:Insurance Provider</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OP_MIB_Project_Management_Specialization__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity__r.Program__r.MIB_Project_Management_Specialization__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>OP:MIB-Project Management Specialization</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>OP_MIM_Digital_Marketing_Specialization__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity__r.Program__r.MIM_Digital_Marketing_Specialization__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>OP:MIM-Digital Marketing Specialization</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>OP_Pre_Master_Program_6_mos__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity__r.Program__r.Pre_Master_Program_6_mos__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>OP:Pre-Master Program (6 mos)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>OP_Pre_Master_Program_9_months__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity__r.Program__r.Pre_Master_Program_3_months__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>OP:Pre-Master Program (9 months)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>OP_Previous_Program__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity__r.Previous_Program__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>OP_Previous_Program</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OP_Program__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity__r.Program__r.Name</formula>
+        <label>OP:Program</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OP_Rotation_Deposit__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity__r.Program__r.Rotation_Deposit__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>OP:Rotation Deposit</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>OP_Shared_Double__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity__r.Program__r.Shared_Twin_Annual__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>OP:Shared/Twin</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>OP_Single_6_months_visiting__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity__r.Program__r.Single_6_months_visiting_Insurance__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>OP:Single 6 months (visiting)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>OP_Single_Child__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity__r.Program__r.Single_Child_Insurance__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>OP:Single &amp; Child</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>OP_Single_Spouse_2_Child__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity__r.Program__r.Single_Spouse_2_Child_Insurance__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>OP:Single &amp; Spouse &amp; 2 Child</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>OP_Single_Spouse_Child__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity__r.Program__r.Single_Spouse_Child_Insurance__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>OP:Single &amp; Spouse &amp; Child</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>OP_Single_Spouse_Insurance__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity__r.Program__r.Single_Spouse_Insurance__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>OP:Single &amp; Spouse Insurance</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>OP_Single__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity__r.Program__r.Single_Insurance__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>OP:Single</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>OP_Specialization_in_MDM_or_MFIN__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity__r.Program__r.Specialization_in_MDM_or_MFIN__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>OP:Specialization in MDM or MFIN</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>OP_TA_Data_Lock__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>This field ensures that once the data is moved from Top Apply, that as long as this field is true,  the workflow rule will never again fire and wipe out the data moved from Top apply.</description>
+        <externalId>false</externalId>
+        <label>OP:TA Data Lock</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>OP_Tool_Box_Case_Study_Amount__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity__r.Program__r.Toolbox_Case_Study_Pack__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>OP:Tool Box &amp; Case Study Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>OP_Tuition_Fee__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity__r.Program__r.Tuition_Fee__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>OP:Tuition Fee</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>OP_UG_Analyst_Certificate__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity__r.Program__r.UG_Analyst_Certificate__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>OP:UG Analyst Certificate</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Opportunity__c</fullName>
+        <externalId>false</externalId>
+        <label>Application</label>
+        <referenceTo>Opportunity</referenceTo>
+        <relationshipLabel>Finances</relationshipLabel>
+        <relationshipName>Opportunity_Finances</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Partner_Program_Fee__c</fullName>
+        <externalId>false</externalId>
+        <label>Partner Program Fee</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Partner_Program_Insurance_Fee_FS__c</fullName>
+        <externalId>false</externalId>
+        <formula>Partner_Program_Insurance_Fee__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Partner Program Insurance Fee</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Partner_Program_Insurance_Fee__c</fullName>
+        <externalId>false</externalId>
+        <label>Partner Program Insurance Fee</label>
+        <precision>10</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Payment_Amount_1st__c</fullName>
+        <externalId>false</externalId>
+        <label>1st Payment Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Payment_Amount_2nd__c</fullName>
+        <externalId>false</externalId>
+        <label>2nd Payment Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Payment_Amount_3rd__c</fullName>
+        <externalId>false</externalId>
+        <label>3rd Payment Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Payment_Amount_4th__c</fullName>
+        <externalId>false</externalId>
+        <label>4th Payment Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Payment_Amount_5th__c</fullName>
+        <externalId>false</externalId>
+        <label>5th Payment Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Payment_Amount_6th__c</fullName>
+        <externalId>false</externalId>
+        <label>6th Payment Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Payment_Amount_7th__c</fullName>
+        <externalId>false</externalId>
+        <label>7th Payment Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Payment_Amount_8th__c</fullName>
+        <externalId>false</externalId>
+        <label>8th Payment Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Payment_Due_Date_1st__c</fullName>
+        <externalId>false</externalId>
+        <label>1st Payment Due Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Payment_Due_Date_2nd__c</fullName>
+        <externalId>false</externalId>
+        <label>2nd Payment Due Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Payment_Due_Date_3rd__c</fullName>
+        <externalId>false</externalId>
+        <label>3rd Payment Due Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Payment_Due_Date_4th__c</fullName>
+        <externalId>false</externalId>
+        <label>4th Payment Due Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Payment_Due_Date_5th__c</fullName>
+        <externalId>false</externalId>
+        <label>5th Payment Due Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Payment_Due_Date_6th__c</fullName>
+        <externalId>false</externalId>
+        <label>6th Payment Due Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Payment_Due_Date_7th__c</fullName>
+        <externalId>false</externalId>
+        <label>7th Payment Due Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Payment_Due_Date_8th__c</fullName>
+        <externalId>false</externalId>
+        <label>8th Payment Due Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Payment_Plan__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>All students need to pay the first invoice 60 days before the program starts. Students on installment plan pay the 2nd invoice in January 2013, all others pay 2nd invoice 30 days before the program starts</inlineHelpText>
+        <label>Payment Plan</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Regular</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Installment</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Single</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Program_Currency__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT(Opportunity__r.Program__r.CurrencyIsoCode)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Program Currency</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Program__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunity__r.Program__r.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Program</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Refund_Approved_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Refund Approved Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Refund_Approved_by__c</fullName>
+        <externalId>false</externalId>
+        <label>Refund Approved by</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Finances</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Refund_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Refund Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Refund_Paid_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Refund Paid Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Refund_Paid__c</fullName>
+        <externalId>false</externalId>
+        <label>Refund Paid</label>
+        <precision>6</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Refund_Request_Amount__c</fullName>
+        <externalId>false</externalId>
+        <label>Refund Request Amount</label>
+        <precision>6</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Refund__c</fullName>
+        <externalId>false</externalId>
+        <label>Refund</label>
+        <summarizedField>Finance_Transactions__c.Amount_Received_New__c</summarizedField>
+        <summaryFilterItems>
+            <field>Finance_Transactions__c.Transaction_Type__c</field>
+            <operation>equals</operation>
+            <value>Refund</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Finance_Transactions__c.Finance__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Relocation_Guarantee__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Relocation Guarantee (MIB)</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Relocation_Scholarship_Amount_FS__c</fullName>
+        <externalId>false</externalId>
+        <formula>Relocation_Scholarship_Amount__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Relocation  Scholarship Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Relocation_Scholarship_Amount__c</fullName>
+        <externalId>false</externalId>
+        <label>Relocation Scholarship Amount</label>
+        <precision>8</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Rotation_Deposit__c</fullName>
+        <externalId>false</externalId>
+        <label>Rotation Deposit</label>
+        <precision>12</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Scholarship_Amount_FS__c</fullName>
+        <externalId>false</externalId>
+        <formula>Scholarship_Amount__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Scholarship Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Scholarship_Amount__c</fullName>
+        <externalId>false</externalId>
+        <label>Scholarship Amount</label>
+        <precision>8</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Specialization_Fee_FS__c</fullName>
+        <externalId>false</externalId>
+        <label>Specialization Fee OLD FS</label>
+        <precision>12</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Specialization_Fee_FS_new__c</fullName>
+        <externalId>false</externalId>
+        <formula>Specialization_Fee_preFS__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Specialization Fee</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Specialization_Fee__c</fullName>
+        <externalId>false</externalId>
+        <label>Specialization Fee OLD</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Specialization_Fee_preFS__c</fullName>
+        <externalId>false</externalId>
+        <formula>if( Specialization__c = &quot;Not Taken&quot;, 0,if( Specialization__c = &quot;Digital Marketing&quot;, Opportunity__r.Program__r.MIM_Digital_Marketing_Specialization__c,Opportunity__r.Program__r.MIB_Project_Management_Specialization__c))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Specialization Fee Pre-FS</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Specialization__c</fullName>
+        <externalId>false</externalId>
+        <formula>if( Opportunity__r.Specialization_Taken__c =true, Opportunity__r.Specialization_Name__c,&quot;Not Taken&quot;)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Specialization</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Specialization_in_MDM_or_MFIN__c</fullName>
+        <externalId>false</externalId>
+        <label>Specialization in MDM or MFIN</label>
+        <precision>12</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Specializations__c</fullName>
+        <externalId>false</externalId>
+        <label>Specializations</label>
+        <picklist>
+            <picklistValues>
+                <fullName>MIM-Digital Marketing Specialization</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MIB-Project Management Specialization</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Select</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MM-Digital Marketing Specialization</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Student_ID__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <externalId>true</externalId>
+        <label>Student ID</label>
+        <length>6</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Student_Resources_Activities__c</fullName>
+        <externalId>false</externalId>
+        <label>Student Resources &amp; Activities</label>
+        <precision>12</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>TA_Deposit_Paid__c</fullName>
+        <externalId>false</externalId>
+        <label>TA Deposit Paid</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>TA_First_Payment_Amount_Paid__c</fullName>
+        <externalId>false</externalId>
+        <label>TA First Payment Amount Paid</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>TA_Total_Financial_Aid_Amount__c</fullName>
+        <externalId>false</externalId>
+        <label>TA Total Financial Aid Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>TA_Total_Tuition_Amount__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>This value is the sum of Tuition_Fee__c  + Toolbox_Case_Study_Pack__c +  Student_Resources_Activities__c as they had been stored in Top Apply</inlineHelpText>
+        <label>TA Total Tuition Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>TC_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>T/C Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Test_finaid__c</fullName>
+        <externalId>false</externalId>
+        <formula>(BLANKVALUE( Total_Financial_Aid_Amount__c , 0) * 0.5) + 
+(BLANKVALUE( External_Financing_Subtotal__c , 0) * 0.5)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Test finaid</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Toolbox_Case_Study_Pack__c</fullName>
+        <externalId>false</externalId>
+        <label>Toolbox &amp; Case Study Pack</label>
+        <precision>8</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_Balance_Due_FS__c</fullName>
+        <externalId>false</externalId>
+        <formula>Total_Fees_Due_FS__c - Total_Financial_Aid_FS__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Total Balance Due</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Total_Due_Amount__c</fullName>
+        <externalId>false</externalId>
+        <formula>Total_Tuition_Amount__c  -  Deposit_Balance__c - Total_Financial_Aid_Amount__c - External_Financing_Subtotal__c- Adjustment_Amount__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Total Due Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_Fees_Due_FS__c</fullName>
+        <externalId>false</externalId>
+        <formula>Total_Tuition_Amount__c + Insurance_Fee__c + Visa_Fee__c+   Specialization_Fee_FS_new__c+ Partner_Program_Fee__c + Partner_Program_Insurance_Fee__c + Installment_Plan_Fee__c - Adjustment_Amount__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Total Tuition &amp; Fees Due:</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Total_Financial_Aid_Amount__c</fullName>
+        <externalId>false</externalId>
+        <formula>Scholarship_Amount__c + (If (CONTAINS(TEXT(GoEd_Financing_Status__c) , &quot;Complete application submitted&quot;), Go_Ed_Loan_Amount__c,0)) +  Dean_Scholarship_Amount__c +  Relocation_Scholarship_Amount__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Total Financial Aid Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_Financial_Aid_FS__c</fullName>
+        <externalId>false</externalId>
+        <formula>Scholarship_Amount_FS__c + (If  (CONTAINS(TEXT(GoEd_Financing_Status__c) , &quot;Complete application submitted&quot;), Go_Ed_Loan_Amount__c,0)) +   Dean_Scholarship_Amount__c +   Relocation_Scholarship_Amount__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Total Financial Aid</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_Financial_Aid__c</fullName>
+        <externalId>false</externalId>
+        <label>Total Financial Aid</label>
+        <precision>14</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_Payments_Made__c</fullName>
+        <externalId>false</externalId>
+        <formula>X1st_Payment_Amount_Paid__c + X2nd_Payment_Amount_Paid__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Total Payments Made</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_Tuition_Amount__c</fullName>
+        <externalId>false</externalId>
+        <formula>OP_Tuition_Fee__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Tuition Fee</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Total_Tuition_Fees_Amount_Paid__c</fullName>
+        <externalId>false</externalId>
+        <label>Total Tuition &amp; Fees Amount Paid</label>
+        <summarizedField>Finance_Transactions__c.Amount_Received_New__c</summarizedField>
+        <summaryFilterItems>
+            <field>Finance_Transactions__c.Transaction_Type__c</field>
+            <operation>equals</operation>
+            <value>Tuition Fee Payment, PtS 1st Payment, PtS 2nd Payment</value>
+        </summaryFilterItems>
+        <summaryFilterItems>
+            <field>Finance_Transactions__c.Transaction_Status__c</field>
+            <operation>equals</operation>
+            <value>Success, Manually Processed</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Finance_Transactions__c.Finance__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Tuition_Balance_Due__c</fullName>
+        <externalId>false</externalId>
+        <label>Tuition Balance Due</label>
+        <precision>14</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Tuition_FeeB__c</fullName>
+        <externalId>false</externalId>
+        <label>Tuition FeeB</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Tuition_Fee__c</fullName>
+        <externalId>false</externalId>
+        <label>Tuition Fee</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Tuition_Fees_Balance_Due__c</fullName>
+        <externalId>false</externalId>
+        <formula>Deposit_Balance__c - (Total_Tuition_Fees_Amount_Paid__c+ Write_Off__c )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Tuition &amp; Fees Balance Due</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Tuition_Fees_Bank_Wire_Receipt__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Tuition &amp; Fees Bank Wire Receipt?</label>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Tuition_Year__c</fullName>
+        <externalId>false</externalId>
+        <label>Tuition Year</label>
+        <picklist>
+            <picklistValues>
+                <fullName>1st Year</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2nd Year</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>3rd Year</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>UG_Analyst_Certificate__c</fullName>
+        <externalId>false</externalId>
+        <label>UG Analyst Certificate</label>
+        <precision>12</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>UG_Duration_of_Stay__c</fullName>
+        <externalId>false</externalId>
+        <label>UG Duration of Stay</label>
+        <picklist>
+            <picklistValues>
+                <fullName>25</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>42</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>UG_Housing_Amount_Received__c</fullName>
+        <externalId>false</externalId>
+        <label>UG Housing Amount Received</label>
+        <precision>8</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>UG_Housing_Deadline__c</fullName>
+        <externalId>false</externalId>
+        <label>UG Housing Deadline</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>UG_Housing_Deposit_Paid_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>UG Housing Deposit Paid Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>UG_Housing_Due__c</fullName>
+        <externalId>false</externalId>
+        <label>UG Housing Due</label>
+        <precision>8</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>UG_Room_Confirmed__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>UG Room Confirmed?</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>UG_Room_Request__c</fullName>
+        <externalId>false</externalId>
+        <label>UG Room Request</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Single</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Double</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Unlock_Student_Financial_Information__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Checking this allows the student to see their financial information on their account.</inlineHelpText>
+        <label>Unlock Student Financial Information?</label>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Upload_Payment_Forms__c</fullName>
+        <externalId>false</externalId>
+        <label>CC Forms and Checks Collected</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Year 1 Cheques Collected</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Year 1 CC Form Collected</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Visa_Fee__c</fullName>
+        <externalId>false</externalId>
+        <label>Visa Fee</label>
+        <precision>6</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Visa_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Visa Type</label>
+        <referenceTo>Visa_Fees__c</referenceTo>
+        <relationshipLabel>Finances</relationshipLabel>
+        <relationshipName>Finances</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Write_Off_Approved_By__c</fullName>
+        <externalId>false</externalId>
+        <label>Write Off Approved By</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Write_Off_Approver</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Write_Off_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Write Off Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Write_Off__c</fullName>
+        <externalId>false</externalId>
+        <label>Write-Off</label>
+        <summarizedField>Finance_Transactions__c.Amount_Received_New__c</summarizedField>
+        <summaryFilterItems>
+            <field>Finance_Transactions__c.Transaction_Type__c</field>
+            <operation>equals</operation>
+            <value>Writeoff</value>
+        </summaryFilterItems>
+        <summaryForeignKey>Finance_Transactions__c.Finance__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>X1st_Payment_Amount_Paid__c</fullName>
+        <externalId>false</externalId>
+        <label>1st Payment Amount Paid</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>X1st_Payment_Pd_Date__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Date first payment was paid</inlineHelpText>
+        <label>1st Payment Pd Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>X2nd_Payment_Amount_Paid__c</fullName>
+        <externalId>false</externalId>
+        <label>2nd Payment Amount Paid</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>X2nd_Payment_Pd_Date__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Date 2nd payment was paid</inlineHelpText>
+        <label>2nd Payment Pd Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>p1__c</fullName>
+        <externalId>false</externalId>
+        <formula>if(AND( if(text(Installment_Plan__c) &lt;&gt;&quot;FlexiPlan&quot;,true,false) ,  if(text(Installment_Plan__c) &lt;&gt;&quot;No FlexiPlan&quot;,true,false))=TRUE,1,0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>p1</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <label>Finance</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>OBJECT_ID</columns>
+        <columns>Opportunity__c</columns>
+        <columns>Total_Tuition_Amount__c</columns>
+        <columns>CURRENCY_ISO_CODE</columns>
+        <columns>Payment_Plan__c</columns>
+        <columns>Tuition_Fee__c</columns>
+        <columns>Toolbox_Case_Study_Pack__c</columns>
+        <columns>Application_Fee__c</columns>
+        <columns>Payment_Amount_1st__c</columns>
+        <columns>Payment_Due_Date_1st__c</columns>
+        <columns>X1st_Payment_Pd_Date__c</columns>
+        <columns>Payment_Amount_2nd__c</columns>
+        <columns>Payment_Due_Date_2nd__c</columns>
+        <columns>X2nd_Payment_Pd_Date__c</columns>
+        <columns>Deposit_Date_Paid__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>All1</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <listViews>
+        <fullName>Portal_Web_Finance</fullName>
+        <columns>NAME</columns>
+        <columns>Opportunity__c</columns>
+        <columns>Scholarship_Amount__c</columns>
+        <columns>Application_Fee__c</columns>
+        <columns>Deposit_Paid__c</columns>
+        <columns>Desires_Installment_Plan__c</columns>
+        <columns>Desires_Rotation__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>notEqual</operation>
+            <value>Opportunity_Finance__c.Top_Apply_Finance</value>
+        </filters>
+        <label>Portal /Web Finance Records</label>
+    </listViews>
+    <listViews>
+        <fullName>Top_Apply_Finance_Records</fullName>
+        <columns>NAME</columns>
+        <columns>Opportunity__c</columns>
+        <columns>Scholarship_Amount__c</columns>
+        <columns>Confirmation_Deposit__c</columns>
+        <columns>Deposit_Balance__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Opportunity_Finance__c.Top_Apply_Finance</value>
+        </filters>
+        <label>Top Apply Finance Records</label>
+    </listViews>
+    <nameField>
+        <displayFormat>{00000000}</displayFormat>
+        <label>Reference #</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Finances</pluralLabel>
+    <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
+    <recordTypes>
+        <fullName>Portal_Web_Finance</fullName>
+        <active>true</active>
+        <label>Portal/Web Finance</label>
+        <picklistValues>
+            <picklist>Aetna_Insurance__c</picklist>
+            <values>
+                <fullName>Single</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single %26 2 Child</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single %26 Child</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single %26 Spouse</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single %26 Spouse %26 2 Child</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single %26 Spouse %26 Child</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single 6 months %28visiting%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Waived</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Dubai_Visa_Type__c</picklist>
+            <values>
+                <fullName>Single Express 33 Countries</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single Express Other Countries</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single Standard All Countries</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Standard Single %26 Spouse</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Standard Single %26 Spouse %26 2 Child</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Standard Single %26 Spouse %26 Child</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>EF_Partner_Programs__c</picklist>
+            <values>
+                <fullName>IEMBA Program %283 months%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IEMBA Program %286 months%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Select</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Erika_Insurance__c</picklist>
+            <values>
+                <fullName>Single</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single %26 2 Child</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single %26 Child</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single %26 Spouse</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single %26 Spouse %26 2 Child</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single %26 Spouse %26 Child</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single 6 months %28visiting%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Waived</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>External_Financing_Status__c</picklist>
+            <values>
+                <fullName>Applied</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>External_Financing__c</picklist>
+            <values>
+                <fullName>CADIVI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Government Loan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MEFA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Personal%2FFamily Bank Loan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Title IV</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Financial_Aid_Approval_Reason__c</picklist>
+            <values>
+                <fullName>Campus Capacity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gmat Level</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Student Profile</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tactical</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>GoEd_Financing_Status__c</picklist>
+            <values>
+                <fullName>Complete application submitted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Evaluation pending</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Started</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Housing_Accommodation__c</picklist>
+            <values>
+                <fullName>Dubai Housing Bursary</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>EMBA Hotel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No accommodation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Shanghai - Single Room %281 Person%29 - 8 Months - Free</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Installment_Plan__c</picklist>
+            <values>
+                <fullName>FlexiPlan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Installment Plan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No FlexiPlan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Installment Plan</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Insurance__c</picklist>
+            <values>
+                <fullName>Select</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Single</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single %26 2 Child</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single %26 Child</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single %26 Spouse</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single %26 Spouse %26 2 Child</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single %26 Spouse %26 Child</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single 6 months %28visiting%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Waived</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Payment_Plan__c</picklist>
+            <values>
+                <fullName>Installment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Regular</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Specializations__c</picklist>
+            <values>
+                <fullName>MIB-Project Management Specialization</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MIM-Digital Marketing Specialization</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Select</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Tuition_Year__c</picklist>
+            <values>
+                <fullName>1st Year</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2nd Year</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3rd Year</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>UG_Duration_of_Stay__c</picklist>
+            <values>
+                <fullName>25</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>42</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>UG_Room_Request__c</picklist>
+            <values>
+                <fullName>Double</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Upload_Payment_Forms__c</picklist>
+            <values>
+                <fullName>Year 1 CC Form Collected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Year 1 Cheques Collected</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Top_Apply_Finance</fullName>
+        <active>true</active>
+        <description>This record type is used for the Finance Records that have come over from Top Apply</description>
+        <label>Top Apply Finance</label>
+        <picklistValues>
+            <picklist>Aetna_Insurance__c</picklist>
+            <values>
+                <fullName>Single</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single %26 2 Child</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single %26 Child</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single %26 Spouse</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single %26 Spouse %26 2 Child</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single %26 Spouse %26 Child</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single 6 months %28visiting%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Waived</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Dubai_Visa_Type__c</picklist>
+            <values>
+                <fullName>Single Express 33 Countries</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single Express Other Countries</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single Standard All Countries</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Standard Single %26 Spouse</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Standard Single %26 Spouse %26 2 Child</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Standard Single %26 Spouse %26 Child</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>EF_Partner_Programs__c</picklist>
+            <values>
+                <fullName>IEMBA Program %283 months%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IEMBA Program %286 months%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Select</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Erika_Insurance__c</picklist>
+            <values>
+                <fullName>Single</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single %26 2 Child</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single %26 Child</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single %26 Spouse</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single %26 Spouse %26 2 Child</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single %26 Spouse %26 Child</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single 6 months %28visiting%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Waived</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>External_Financing_Status__c</picklist>
+            <values>
+                <fullName>Applied</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>External_Financing__c</picklist>
+            <values>
+                <fullName>CADIVI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Government Loan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MEFA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Personal%2FFamily Bank Loan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Title IV</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Financial_Aid_Approval_Reason__c</picklist>
+            <values>
+                <fullName>Campus Capacity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gmat Level</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Student Profile</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tactical</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>GoEd_Financing_Status__c</picklist>
+            <values>
+                <fullName>Complete application submitted</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Evaluation pending</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Started</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Housing_Accommodation__c</picklist>
+            <values>
+                <fullName>Dubai Housing Bursary</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>EMBA Hotel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No accommodation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Shanghai - Single Room %281 Person%29 - 8 Months - Free</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Installment_Plan__c</picklist>
+            <values>
+                <fullName>FlexiPlan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Installment Plan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No FlexiPlan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Installment Plan</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Insurance__c</picklist>
+            <values>
+                <fullName>Select</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Single %26 2 Child</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single %26 2%2B Child</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single %26 Child</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single %26 Spouse</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single %26 Spouse %26 2 Child</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single %26 Spouse %26 2%2B Child</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single %26 Spouse %26 Child</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single 6 months %28visiting%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Waived</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Payment_Plan__c</picklist>
+            <values>
+                <fullName>Installment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Regular</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Single</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Specializations__c</picklist>
+            <values>
+                <fullName>MIB-Project Management Specialization</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MIM-Digital Marketing Specialization</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Select</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Tuition_Year__c</picklist>
+            <values>
+                <fullName>1st Year</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>2nd Year</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>3rd Year</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>UG_Duration_of_Stay__c</picklist>
+            <values>
+                <fullName>25</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>42</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>UG_Room_Request__c</picklist>
+            <values>
+                <fullName>Double</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Upload_Payment_Forms__c</picklist>
+            <values>
+                <fullName>Year 1 CC Form Collected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Year 1 Cheques Collected</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <searchLayouts>
+        <customTabListAdditionalFields>Payment_Amount_1st__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Payment_Due_Date_1st__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Payment_Amount_2nd__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Payment_Due_Date_2nd__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Confirmation_Deposit__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Course_Deposit_Amount__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Deposit_Date_Paid__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>CURRENCY_ISO_CODE</customTabListAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchResultsAdditionalFields>Student_ID__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Application_Fee_Paid__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Application_Fee_Paid_Date__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Course_Deposit_Paid__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Deposit_Date_Paid__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Confirmation_Deposit_Mode_of_Payment__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+    <validationRules>
+        <fullName>Confirm_Adjustment_on_change_Country</fullName>
+        <active>true</active>
+        <errorConditionFormula>ISCHANGED(OP_Country__c )&amp;&amp; Confirm_Adjustment_for_Change_of_Country__c != TRUE</errorConditionFormula>
+        <errorMessage>Please confirm that you have adjusted the Scholarship Amounts below after the Country has changed</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Digital_Marketing_Campuses</fullName>
+        <active>false</active>
+        <description>This validation rule will ensure that the Digital Marketing Specialization is only selected for MIM Programs on campuses where it is offered.</description>
+        <errorConditionFormula>AND (
+     CONTAINS(TEXT(Specializations__c),&apos;MIM-Digital Marketing Specialization&apos;),  
+     OP_Program__c !=&apos;MIM-US-San Francisco&apos;,
+     OP_Program__c !=&apos;MIM-UK-London&apos;
+   )</errorConditionFormula>
+        <errorMessage>The Digital Marketing Specialization is only offered with MIM Programs in San Francisco and London</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Dubai_Housing_Bursary_only_MBA</fullName>
+        <active>true</active>
+        <description>Only MBA-UAE-Dubai can choose the option &quot;Dubai Housing Bursary&quot; on Housing Accomodation</description>
+        <errorConditionFormula>Program__c&lt;&gt; &quot;MBA-UAE-Dubai&quot; &amp;&amp;   text(Housing_Accommodation__c) =&quot;Dubai Housing Bursary&quot;</errorConditionFormula>
+        <errorDisplayField>Housing_Accommodation__c</errorDisplayField>
+        <errorMessage>&quot;Dubai Housing Bursary&quot; Housing Accomodation is only available to MBA-UAE-Dubai program</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>EMBA_Hotel_only_EMBA</fullName>
+        <active>true</active>
+        <description>&quot;EMBA Hotel&quot; Housing Accomodation is only available to EMBA programs</description>
+        <errorConditionFormula>not(contains(Program__c, &quot;EMBA&quot;)) &amp;&amp;   text(Housing_Accommodation__c) =&quot;EMBA Hotel&quot;</errorConditionFormula>
+        <errorDisplayField>Housing_Accommodation__c</errorDisplayField>
+        <errorMessage>&quot;EMBA Hotel&quot; Housing Accomodation is only available to EMBA programs</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>External_Financing_Status_validation</fullName>
+        <active>true</active>
+        <description>Recruiters can only change this to &apos;Applied&apos; and Finance can also pick &apos;Approved&apos; and &apos;Rejected &apos;</description>
+        <errorConditionFormula>if ((ispickval(External_Financing_Status__c,&quot;Approved&quot;)  || ispickval(External_Financing_Status__c,&quot;Rejected&quot;)) &amp;&amp; $Profile.Name = &quot;1.2SU Hult Recruiter&quot;,TRUE,FALSE)</errorConditionFormula>
+        <errorDisplayField>External_Financing_Status__c</errorDisplayField>
+        <errorMessage>Recruiters can only set this field to the value: &quot;Applied&quot;</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>FlexiPlan_only_for_EMBA</fullName>
+        <active>false</active>
+        <description>Users can only select FlexiPlan or No FlexiPlan when the program is EMBA</description>
+        <errorConditionFormula>if ((ispickval(Installment_Plan__c,&quot;No Installment Plan&quot;) || ispickval(Installment_Plan__c,&quot;Installment Plan&quot;)) &amp;&amp; CONTAINS( Program__c ,&apos;EMBA&apos;) , TRUE, FALSE)</errorConditionFormula>
+        <errorDisplayField>Installment_Plan__c</errorDisplayField>
+        <errorMessage>Installment Plan only applies to non EMBA programs</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Housing_Not_Available_for_this_Program</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(Program__c&lt;&gt; &quot;MBA-China-Shanghai&quot;, Program__c&lt;&gt; &quot;Masters-China-Shanghai&quot;) &amp;&amp;   text(Housing_Accommodation__c) =&quot;Shanghai - Single Room (1 Person) - 8 Months - Free&quot;</errorConditionFormula>
+        <errorDisplayField>Housing_Accommodation__c</errorDisplayField>
+        <errorMessage>Housing Accomodations are not available for this Program or Campus  Please Clear the Housing Accomodation Field and Save Again.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Installment_Plan_only_for_non_EMBA</fullName>
+        <active>true</active>
+        <description>Users can only select Installment Plan or No Installment Plan when the program is not EMBA</description>
+        <errorConditionFormula>if ((ispickval(Installment_Plan__c,&quot;No FlexiPlan&quot;) || ispickval(Installment_Plan__c,&quot;FlexiPlan&quot;)) &amp;&amp; FIND(&quot;EMBA&quot;,Program__c,0)=0 &amp;&amp;  $Profile.Name &lt;&gt; &quot;System Administrator&quot;, TRUE, FALSE)</errorConditionFormula>
+        <errorDisplayField>Installment_Plan__c</errorDisplayField>
+        <errorMessage>FlexiPlan only applies to EMBA programs</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Must_Be_Blank_Dubai_Housing_Fee</fullName>
+        <active>true</active>
+        <errorConditionFormula>&apos;United Arab Emirates&apos; != Country__c &amp;&amp; NOT(ISBLANK(Dubai_Housing_Fee__c))</errorConditionFormula>
+        <errorDisplayField>Dubai_Housing_Fee__c</errorDisplayField>
+        <errorMessage>Only applies to the United Arab Emirates.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Must_Match_Program_Currency</fullName>
+        <active>true</active>
+        <errorConditionFormula>TEXT(Opportunity__r.Program__r.CurrencyIsoCode) != TEXT(CurrencyIsoCode)</errorConditionFormula>
+        <errorDisplayField>CurrencyIsoCode</errorDisplayField>
+        <errorMessage>The finance currency must match the related program&apos;s currency.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Option_Not_Currrently_Available</fullName>
+        <active>false</active>
+        <description>The Insurance Option you have chosen is not currenlty available.  Please select another</description>
+        <errorConditionFormula>AND(!ISPICKVAL(Insurance__c, &quot;Waived&quot;),!ISPICKVAL(Insurance__c, &quot;Single&quot;) )</errorConditionFormula>
+        <errorDisplayField>Insurance__c</errorDisplayField>
+        <errorMessage>The Insurance Option you have chosen is not currenlty available.  Please select another</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Partner_Program_Not_Available</fullName>
+        <active>true</active>
+        <description>Partner Programs are only available at certain locations and in conjunction with Master Programs.</description>
+        <errorConditionFormula>AND(
+    NOT (
+         ISBLANK(
+              TEXT(EF_Partner_Programs__c )
+                          )
+              ),
+     TEXT(Opportunity__r.Primary_Campus__c) !=&apos;London&apos;,
+     TEXT(Opportunity__r.Primary_Campus__c) !=&apos;Boston&apos;,
+       !CONTAINS(OP_Program__c,&apos;MFIN&apos;),
+       !CONTAINS(OP_Program__c,&apos;MIB&apos;),
+       !CONTAINS(OP_Program__c,&apos;MSE&apos;),
+       !CONTAINS(OP_Program__c,&apos;MIM&apos;)
+
+)</errorConditionFormula>
+        <errorMessage>The IEMA Program is only available with Master Programs at Particular Campuses</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Relocation_Guarantee</fullName>
+        <active>true</active>
+        <description>Only editable when program is changed from MIM-Dubai(a0JU00000009JmF) orMFIN-Shanghai (a0JU00000009JmI) to MIB-Any</description>
+        <errorConditionFormula>if(  (AND(OP_Previous_Program__c&lt;&gt; &quot;a0JU00000009JmF&quot;,
+OP_Previous_Program__c&lt;&gt; &quot;a0JU00000009JmI&quot;)   ||  MID(Program__c,1,3) &lt;&gt; &quot;MIB&quot;) &amp;&amp;  Relocation_Guarantee__c=TRUE, true, false)</errorConditionFormula>
+        <errorDisplayField>Relocation_Guarantee__c</errorDisplayField>
+        <errorMessage>Rebooking Guarantee (MIB) is only available on MIM-UAE-Dubai or MFIN-China-Shanghai being changed to any MIB program. 
+
+If your intention is to make a program change, please go to the finance object and untick the checkbox [Rebooking Guarantee (MIB)]</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Restrict_Erika_To_CN_UAE_UK</fullName>
+        <active>false</active>
+        <errorConditionFormula>Opportunity__r.Program__r.Country__r.Alpha_3__c != &apos;UAE&apos; &amp;&amp; Opportunity__r.Program__r.Country__r.Alpha_2__c != &apos;CN&apos; &amp;&amp;
+Opportunity__r.Program__r.Country__r.Alpha_2__c != &apos;UK&apos; &amp;&amp; 
+Insurance_Provider__c=&apos;Erika&apos;</errorConditionFormula>
+        <errorDisplayField>Erika_Insurance__c</errorDisplayField>
+        <errorMessage>Erika Insurance only applies to programs in the either China, the United Arab Emirates, or the United Kingdom.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Visa_Fee_only_for_Dubai</fullName>
+        <active>true</active>
+        <errorConditionFormula>((NOT(ISBLANK( Visa_Type__c ) )) || Contains(Visa_Type__c, &apos;None&apos;)) &amp;&amp; OP_Country__c !=&apos;United Arab Emirates&apos;</errorConditionFormula>
+        <errorMessage>Visa Fee only required for Dubai</errorMessage>
+    </validationRules>
+    <webLinks>
+        <fullName>Create_PDF</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Create PDF</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>/apex/FinanceStatementPDF?contactid={!Contact.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Create_new_Finance</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>url</linkType>
+        <masterLabel>Create new Finance</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>https://na12.salesforce.com/a0X/e?CurrencyIsoCode={!Opportunity.Program_Currency__c}&amp;CF00NU0000000Mh2l={!Opportunity.Name}&amp;CF00NU0000000Mh2l_lkid={!Opportunity.Id}&amp;retURL=%2{!Opportunity.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>PtS_AED_Server</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>PtS AED Server</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>https://hult-aed.studentfees.com</url>
+    </webLinks>
+    <webLinks>
+        <fullName>PtS_CNY_Server</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>PtS CNY Server</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>https://hult-cny.studentfees.com</url>
+    </webLinks>
+    <webLinks>
+        <fullName>PtS_GBP_Server</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>PtS GBP Server</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>https://hult-usd.studentfees.com</url>
+    </webLinks>
+    <webLinks>
+        <fullName>PtS_USD_Server</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>PtS USD Server</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>https://hult-usd.studentfees.com</url>
+    </webLinks>
+</CustomObject>

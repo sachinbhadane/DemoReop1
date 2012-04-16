@@ -1,0 +1,77 @@
+<apex:page showHeader="false" controller="ApplicantFinalController">
+<table class="innertable" border="0" cellpadding="0" cellspacing="0">
+<tr><td colspan="2"><c:Header /></td></tr>
+<tr>    
+<td>
+<apex:form >
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" >
+<tr><td><c:ApplicantHeader /> </td></tr>
+<tr><td colspan="2"><table width="100%" class="innerpadding"  border="0" cellpadding="0" cellspacing="0"><tr><td>
+<tr><td colspan="2" class="formheader">Final Submission</td></tr>
+<tr>
+<td background="{!URLFOR($Resource.Images, 'new-images/line.jpg')}" style="background-repeat:repeat-x">&nbsp;</td>
+</tr><apex:outputPanel rendered="{!tab2}">
+<tr><td valign="top">
+<table width="100%"  border="0">
+
+
+  <tr style="text-align:left"><td colspan="2" >
+<apex:pageMessages escape="false" showDetail="false"  />
+</td></tr>
+  <tr>
+      <td class="formlable"><apex:outputText escape="false" value="Upon submitting your application several sections such as the Program &amp; Location section, the Personal Information section, and the Education section will be locked for editing. You will have to contact your recruiter in order to make changes or updates to such sections." /></td>
+  </tr>  
+  <tr>
+    <td class="formlableheader"  align="left">Confirmation<span class="error_star">*</span></td>
+  </tr>
+  <tr>
+    <td class="formlable" align="left">I attest that the information I have provided to Hult Business School is true and hereby apply for admission to the school.</td>
+  </tr>
+  <tr>
+    <td class="formlable" align="left">
+    <apex:selectList disabled="{!finalsubmit}" styleClass="form-selectList" value="{!Applicant_Confirmation_c}" multiselect="false" size="1">
+            <apex:selectOptions value="{!items}"/>
+        </apex:selectList></td>
+  </tr>
+
+</table>
+</td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr>
+<td background="{!URLFOR($Resource.Images, 'new-images/line.jpg')}" style="background-repeat:repeat-x">&nbsp;</td>
+</tr>
+<tr><td style="padding-left:20px;padding-right:20px;vertical-align:text-bottom">
+<table width="100%"><tr>
+<td align="center">
+<apex:outputPanel rendered="{!!finalsubmit}">
+<span class="button primary">
+ <apex:commandLink rendered="{!!finalsubmit}" value="Save and Continue" title="Save and Continue"  id="cbtneditlogin" action="{!finalsaveandcontinue}"/>
+
+ </span>
+ <span class="divider">|</span>
+        <apex:commandLink value="Save and Logout"  rendered="{!NOT(finalsubmit)}" styleClass="secondary" id="saveandcontinueandlogout" action="{!finalsaveandcontinueandlogout}"/>
+</apex:outputPanel>
+</td>
+</tr></table>
+</td></tr></apex:outputPanel>
+<apex:outputPanel rendered="{!!tab2}">
+<tr><td class="uncompetetab_msg" align="center" height="200" valign="top">
+You must complete Program &amp; Location tab before Final Submission tab 
+</td></tr>
+</apex:outputPanel>
+</td></tr></table></td></tr>
+<tr><td>&nbsp;</td></tr>
+</table>
+<script>
+document.getElementById('Final').style.backgroundImage="url('{!URLFOR($Resource.Images, 'new-images/tabwhiteimage.jpg')}')";
+document.getElementById('Final').style.backgroundPosition="center";
+document.getElementById('Final1').className="headertabonload";
+
+</script>
+</apex:form>
+</td>
+</tr>
+</table>
+<site:googleAnalyticsTracking ></site:googleAnalyticsTracking>
+
+</apex:page>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>OWNER</field>
+    </columns>
+    <columns>
+        <field>FIRST_NAME</field>
+    </columns>
+    <columns>
+        <field>PHONE</field>
+    </columns>
+    <columns>
+        <field>COUNTRY</field>
+    </columns>
+    <columns>
+        <field>LAST_NAME</field>
+    </columns>
+    <columns>
+        <field>TITLE</field>
+    </columns>
+    <columns>
+        <field>COMPANY</field>
+    </columns>
+    <columns>
+        <field>LEAD_SOURCE</field>
+    </columns>
+    <columns>
+        <field>RATING</field>
+    </columns>
+    <columns>
+        <field>STREET</field>
+    </columns>
+    <columns>
+        <field>EMAIL</field>
+    </columns>
+    <currency>USD</currency>
+    <filter>
+        <criteriaItems>
+            <column>Lead.Lead_Stage__c</column>
+            <operator>notContain</operator>
+            <value>Not Interested,Emailed,Unreachble Call 1,Lack of Funds,Unreachble Call 3,Unreachble Call 2,Non Qualified,Strongly Interested,Qualified for other program,Interview Request (EF AMS TS),Interested Future Intake</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>COUNTRY</column>
+            <operator>equals</operator>
+            <value>Albania,Armenia,Austria,Azerbaijan,Belarus Bosnia and Herzegovina,Bulgaria,Croatia,Cyprus,Czech Republic,Denmark,Estonia,Finland,France,Georgia,Germany,Greece,Hungary,Iceland,Ireland,Israel,Italy,Kazakhstan,Kyrgyzstan,Latvia,Lichtenstein,Lithuania,Luxemburg,Malta,Moldova,Netherlands,Norway,Poland,Portugal,Romania,Russian Federation,Serbia,Slovakia,Slovenia,Spain,Sweden,Switzerland,Turkey,Ukraine,United Kingdom,Uzbekistan,Belgium,Russia,Luxembourg,Montenegro</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>TEST - Leads for TS Europe</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>LeadList</reportType>
+    <scope>org</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>CREATED_DATE</dateColumn>
+        <endDate>2011-09-11</endDate>
+        <interval>INTERVAL_CUSTOM</interval>
+        <startDate>2011-09-05</startDate>
+    </timeFrameFilter>
+</Report>

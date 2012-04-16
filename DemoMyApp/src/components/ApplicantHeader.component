@@ -1,0 +1,58 @@
+<apex:component controller="StudentFinancialInformationController" >
+<table width="100%" height="78" border="0" cellpadding="0" cellspacing="0" style="margin-top:-3px;">
+  <tr>
+    <td align="center" width="88" id="Program" style="background-image:url({!URLFOR($Resource.Images, 'new-images/tabimage.jpg')}) ;;background-repeat:no-repeat" class="headertab">
+    <apex:outputLink styleClass="customlink" value="/ApplicantProgramLocation"><span id="Program1">Program <br />&amp; Location</span></apex:outputLink></td>    
+    <td align="center" width="88" id="Personal" style="background-image:url({!URLFOR($Resource.Images, 'new-images/tabimage.jpg')});background-repeat:no-repeat ; " class="headertab">
+    <apex:outputLink styleclass="customlink"  value="/ApplicantPersonalInformation"><span id="Personal1">Personal <br />Information</span></apex:outputLink></td>    
+    <td align="center" width="88" id="Education" style="background-image:url({!URLFOR($Resource.Images, 'new-images/tabimage.jpg')});background-repeat:no-repeat" class="headertab">
+    <apex:outputLink styleclass="customlink"  value="/ApplicantEducation"><span id="Education1">Education</span></apex:outputLink></td>
+    
+    <apex:outputPanel rendered="{!if((proname=='Bachelor of International Business Administration-UK-London'),'false','true')}">
+        <td align="center" valign="center" width="88" id="Employment" style="background-image:url({!URLFOR($Resource.Images, 'new-images/tabimage.jpg')}) ;background-repeat:no-repeat" class="headertab">
+        <apex:outputLink styleClass="customlink" value="/ApplicantEmployment"><span id="Employment1">Employment <br />History</span></apex:outputLink></td>
+    </apex:outputPanel>
+    
+    <td align="center" width="88" id="Exam" style="background-image:url({!URLFOR($Resource.Images, 'new-images/tabimage.jpg')});background-repeat:no-repeat" class="headertab">
+    <apex:outputLink styleClass="customlink" value="/ApplicantExamInfo"><span id="Exam1">Exam <br />Information</span></apex:outputLink></td>
+    <td align="center" width="88" id="Sponsorship" style="background-image:url({!URLFOR($Resource.Images, 'new-images/tabimage.jpg')});background-repeat:no-repeat" class="headertab">
+    <apex:outputLink styleClass="customlink" value="/ApplicantSponsorship"><span id="Sponsorship1">Sponsorship</span></apex:outputLink></td>   
+    <td align="center" width="88" id="personalstatement" style="background-image:url({!URLFOR($Resource.Images, 'new-images/tabimage.jpg')});background-repeat:no-repeat" class="headertab">
+    <apex:outputLink styleClass="customlink" value="/ApplicantPersonalStatement"><span id="personalstatement1">Personal Statement</span></apex:outputLink></td>   
+    
+    <!--
+    <td align="center" width="88" id="Reference" style="background-image:url({!URLFOR($Resource.Images, 'new-images/tabimage.jpg')});background-repeat:no-repeat" class="headertab">
+    <apex:outputLink styleClass="customlink" value="/ApplicantReferenceDetail"><span id="Reference1">Reference  <br />Details</span></apex:outputLink></td>
+    <td align="center" width="88" id="Attach" style="background-image:url({!URLFOR($Resource.Images, 'new-images/tabimage.jpg')});background-repeat:no-repeat" class="headertab">
+    <apex:outputLink styleClass="customlink" value="/ApplicantDocuments"><span id="Attach1">Attach  <br />Documents</span></apex:outputLink></td>
+    -->
+    
+    <apex:outputPanel rendered="{!NOT Paid_Application_Fee_c}">
+    <td align="center" valign="center" width="88" id="Payment" style="background-image:url({!URLFOR($Resource.Images, 'new-images/tabimage.jpg')});background-repeat:no-repeat" class="headertab">
+    <apex:outputLink styleClass="customlink" value="/ApplicantPayment"><span id="Payment1">Payment &amp; Submission</span></apex:outputLink></td> 
+    </apex:outputPanel>
+    
+    <!--
+    <apex:outputPanel rendered="{!Unlock_Student_Financial_Information_c}">
+    <td align="center" valign="center" width="88" id="candidate" style="background-image:url({!URLFOR($Resource.Images, 'new-images/tabimage.jpg')});background-repeat:no-repeat" class="headertab">
+    <apex:outputLink styleClass="customlink" value="/CandidateStatement"><span id="candidate1">Financial <br />Statement</span></apex:outputLink></td>
+     
+    <td align="center" valign="center" width="88" id="online" style="background-image:url({!URLFOR($Resource.Images, 'new-images/tabimage.jpg')});background-repeat:no-repeat" class="headertab">
+    <apex:outputLink styleClass="customlink" value="/CandidateOnlineAccount"><span id="online1">Admission <br/> Status</span></apex:outputLink></td>
+    </apex:outputPanel>
+    -->
+    
+    <apex:outputPanel rendered="{!Paid_Application_Fee_c}">
+    <td align="center" valign="center" width="88" id="Final" style="background-image:url({!URLFOR($Resource.Images, 'new-images/tabimage.jpg')});background-repeat:no-repeat" class="headertab">
+    <apex:outputLink styleClass="customlink" value="/ApplicantFinal"><span id="Final1">Final  <br />Submission</span></apex:outputLink></td>
+    </apex:outputPanel>   
+    <td width="120">
+    </td>
+  </tr>
+</table>
+
+<apex:outputPanel layout="block" rendered="{!$CurrentPage.parameters.p2 == 'true'}">
+    <apex:image value="/img/samples/color_green.gif" height="10" width="{!Percent_Complete_c * 0.8}%" />
+    <apex:outputText style="padding-left: 1em;" value="{!Percent_Complete_c}% complete" />
+</apex:outputPanel>
+</apex:component>

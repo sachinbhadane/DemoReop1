@@ -1,0 +1,25 @@
+<apex:component >
+<apex:stylesheet value="{!$Resource.style}" />
+<TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">  
+<tr><td colspan="2">&nbsp;</td></tr>
+<tr><td colspan="2">&nbsp;</td></tr>
+  <tr>
+        <td class="formheader">&nbsp;</td>
+        <td style="text-align:right; padding-right:10px">             
+            <apex:outputLink rendered="{!if(($User.FirstName=='Applicant Portal' && $CurrentPage.name=='Registration'),'true','false')}" value="/agentRegistration">
+                Agent Proxy Registration 
+            </apex:outputLink>
+            <apex:outputLink rendered="{!if(($User.FirstName=='Applicant Portal' && $CurrentPage.name=='agentRegistration'),'true','false')}" value="/">
+                Student Registration 
+            </apex:outputLink>        
+        <apex:outputPanel rendered="{!if(($User.FirstName!='Applicant Portal'),'true','false')}">
+        {!$User.FirstName} {!$User.LastName}&nbsp; | &nbsp;
+    <apex:outputLink styleClass="formlable" value="/secur/logout.jsp">Logout</apex:outputLink></apex:outputPanel></td>
+      </tr>  
+    <TR>
+        <TD colspan="2">           
+            <apex:image url="{!URLFOR($Resource.Images, 'new-images/header.jpg')}" width="960" height="290" />
+        </TD>
+    </TR>
+</table>
+</apex:component>

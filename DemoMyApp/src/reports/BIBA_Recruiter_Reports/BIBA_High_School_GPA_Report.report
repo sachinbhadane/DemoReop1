@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>FK_$Opportunity.Region__c</field>
+    </columns>
+    <columns>
+        <field>FK_NAME</field>
+    </columns>
+    <columns>
+        <field>FK_OPP_STAGE_NAME</field>
+    </columns>
+    <columns>
+        <field>FK_$Opportunity.Start_Term__c</field>
+    </columns>
+    <columns>
+        <field>FK_$Opportunity.Program__c</field>
+    </columns>
+    <columns>
+        <field>Education__c.High_School_Attended__c</field>
+    </columns>
+    <columns>
+        <field>Education__c.School_attended_for_Highest_Degree__c</field>
+    </columns>
+    <columns>
+        <field>Education__c.High_School_Grade_Point_Average__c</field>
+    </columns>
+    <columns>
+        <field>Education__c.High_School_SAT_ACT__c</field>
+    </columns>
+    <currency>USD</currency>
+    <filter>
+        <criteriaItems>
+            <column>FK_$Opportunity.Program__c</column>
+            <operator>startsWith</operator>
+            <value>bach</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>FK_OPP_STAGE_NAME</column>
+            <operator>equals</operator>
+            <value>Partial Application,Waiting for Review,Accepted,Conditionally Accepted,Admissions Endorsed,Rejected,Withdrawn,Confirmed,Conditionally Confirmed,Admissions Endorsed Confirmed,Waitlisted Confirmed,Cancellation,Deferral,Enrolled</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>BIBA High School &amp; GPA Report</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$Education__c@Education__c.Application__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Education__c.GraduateDateFrom__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

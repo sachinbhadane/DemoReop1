@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ReportFolder xmlns="http://soap.sforce.com/2006/04/metadata">
+    <accessType>Shared</accessType>
+    <name>Management Reporting</name>
+    <publicFolderAccess>ReadWrite</publicFolderAccess>
+    <sharedTo>
+        <roles>ASIA Regional Marketing Manager</roles>
+        <roles>ASIA Telesales Manager</roles>
+        <roles>CEO/Pres, COO, Dean, CIO, CFO</roles>
+        <roles>EU Regional Marketing Manager</roles>
+        <roles>EU Telesales Manager</roles>
+        <roles>MEA Regional Marketing Manager</roles>
+        <roles>MEA Telesales Manager</roles>
+        <roles>NA Telesales Manager</roles>
+        <roles>NA/LATINAM Regional Marketing Manager</roles>
+    </sharedTo>
+</ReportFolder>

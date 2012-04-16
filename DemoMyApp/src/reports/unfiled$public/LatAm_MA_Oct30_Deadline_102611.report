@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Account.Contacts$Id</field>
+    </columns>
+    <columns>
+        <field>Account.Contacts$Name</field>
+    </columns>
+    <columns>
+        <field>Account.Contacts$Program_Primary__c</field>
+    </columns>
+    <columns>
+        <field>Account.Contacts$Region__c</field>
+    </columns>
+    <currency>USD</currency>
+    <description>Qualified Leads and In Progress</description>
+    <filter>
+        <criteriaItems>
+            <column>Account.Contacts.OpportunityContactRoles$StageName</column>
+            <operator>equals</operator>
+            <value>Qualified Lead,In Progress</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account.Contacts$Program_Primary__c</column>
+            <operator>startsWith</operator>
+            <value>m</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account.Contacts.OpportunityContactRoles*Opportunity$Application_Status__c</column>
+            <operator>equals</operator>
+            <value>Active</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account.Contacts.OpportunityContactRoles*Opportunity$Paid_Application_Fee__c</column>
+            <operator>notEqual</operator>
+            <value>1</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account.Contacts$Region__c</column>
+            <operator>equals</operator>
+            <value>Lat Am</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account.Contacts$Program_Primary__c</column>
+            <operator>notContain</operator>
+            <value>MBA</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>LatAm MA Oct30 Deadline 102611</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Applicants_and_Applications__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Account$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

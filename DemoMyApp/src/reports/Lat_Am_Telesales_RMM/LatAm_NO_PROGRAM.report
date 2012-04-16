@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Contact$Name</field>
+    </columns>
+    <columns>
+        <field>Contact$MailingState</field>
+    </columns>
+    <columns>
+        <field>Contact$Account</field>
+    </columns>
+    <columns>
+        <field>Contact$Program_Primary__c</field>
+    </columns>
+    <columns>
+        <field>Contact$Country_Of_Residence__c</field>
+    </columns>
+    <currency>USD</currency>
+    <filter>
+        <criteriaItems>
+            <column>Contact$Program_Primary__c</column>
+            <operator>equals</operator>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Contact$Country_Of_Residence__c</column>
+            <operator>equals</operator>
+            <value>Anguilla,Antigua and Barbuda,Argentina,Bahamas,Barbados,Bermuda,Bolivia,Brazil,British Virgin Islands,Cayman Islands,Chile,Cocos (Keeling) Islands,Colombia,Costa Rica,Cuba,Curacao,Dominican Republic,Dominica,Ecuador,French Guiana,El Salvador,Falkland Islands,Grenada,Guadeloupe,Guam,Guatemala,Guyana,Haiti,Honduras,Jamaica,Mexico,Netherlands Antilles,Nicaragua,Panama,Paraguay,Peru,Puerto Rico,Saint Lucia,Saint Vin. And the Grenadines,Suriname,Trinidad and Tobago,Turks and Caicos Islands,Uruguay,US Minor Outlying Islands,Venezuela,Virgin Islands (USA),Aruba,Belize</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>LatAm_NO PROGRAM</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Contact_Report__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Contact$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

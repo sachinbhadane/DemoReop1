@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>FK_NAME</field>
+    </columns>
+    <columns>
+        <field>CC_Transaction_Results__c.Error_Text__c</field>
+    </columns>
+    <currency>USD</currency>
+    <filter>
+        <criteriaItems>
+            <column>FK_$Opportunity.Program__c</column>
+            <operator>startsWith</operator>
+            <value>MBA</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>CC_Transaction_Results__c.Error_Text__c</column>
+            <operator>equals</operator>
+            <value>APPROVED</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>MBA - cc results</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$CC_Transaction_Results__c@CC_Transaction_Results__c.Application__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>CUST_CREATED_DATE</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

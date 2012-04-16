@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Opportunity.App_ID__c</field>
+    </columns>
+    <columns>
+        <field>FIRST_NAME</field>
+    </columns>
+    <columns>
+        <field>LAST_NAME</field>
+    </columns>
+    <columns>
+        <field>Opportunity.Start_Term__c</field>
+    </columns>
+    <columns>
+        <field>STAGE_NAME</field>
+    </columns>
+    <columns>
+        <field>Opportunity.Notified_Date__c</field>
+    </columns>
+    <columns>
+        <field>Opportunity.Send_Magic_Pack__c</field>
+    </columns>
+    <columns>
+        <field>Opportunity.Magic_Pack_Send_Date__c</field>
+    </columns>
+    <columns>
+        <field>Opportunity.Magic_Pack_Status__c</field>
+    </columns>
+    <currency>USD</currency>
+    <filter>
+        <criteriaItems>
+            <column>Opportunity.Start_Term__c</column>
+            <operator>equals</operator>
+            <value>January 2012,September 2012</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>STAGE_NAME</column>
+            <operator>equals</operator>
+            <value>Accepted,Conditionally Accepted,Admissions Endorsed,Confirmed,Conditionally Confirmed,Admissions Endorsed Confirmed</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Opportunity.Magic_Pack_Status__c</column>
+            <operator>equals</operator>
+            <value>With Shipper,Shipped</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Opportunity.Program__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Magic Pack Statuses - Summary</name>
+    <params>
+        <name>include</name>
+        <value>open</value>
+    </params>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>OpportunityContact</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>CLOSE_DATE</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

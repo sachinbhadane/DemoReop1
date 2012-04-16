@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>FK_$Opportunity.Region__c</field>
+    </columns>
+    <columns>
+        <field>FK_$Opportunity.Last_Log_In1__c</field>
+    </columns>
+    <columns>
+        <field>FK_OPP_STAGE_NAME</field>
+    </columns>
+    <columns>
+        <field>FK_$Opportunity.Application_Substage__c</field>
+    </columns>
+    <columns>
+        <field>FK_$Opportunity.Percent_Complete__c</field>
+    </columns>
+    <columns>
+        <field>FK_NAME</field>
+    </columns>
+    <columns>
+        <field>FK_$Opportunity.Start_Term__c</field>
+    </columns>
+    <columns>
+        <field>FK_$Opportunity.Program__c</field>
+    </columns>
+    <columns>
+        <field>Education__c.High_School_Attended__c</field>
+    </columns>
+    <columns>
+        <field>Education__c.School_attended_for_Highest_Degree__c</field>
+    </columns>
+    <columns>
+        <field>Education__c.High_School_Grade_Point_Average__c</field>
+    </columns>
+    <columns>
+        <field>Education__c.High_School_SAT_ACT__c</field>
+    </columns>
+    <currency>USD</currency>
+    <filter>
+        <criteriaItems>
+            <column>FK_$Opportunity.Program__c</column>
+            <operator>startsWith</operator>
+            <value>bach</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>FK_OPP_OWNER_NAME</column>
+            <operator>contains</operator>
+            <value>Gibran Garcia</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>FK_$Opportunity.Start_Term__c</column>
+            <operator>equals</operator>
+            <value>January 2012,September 2012</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>FK_OPP_STAGE_NAME</column>
+            <operator>equals</operator>
+            <value>Partial Application,Waiting for Review,Accepted,Conditionally Accepted,Admissions Endorsed,Rejected,Withdrawn,Confirmed,Conditionally Confirmed,Waitlisted Confirmed,Cancellation,Deferral,Enrolled,In Progress</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>FK_$Opportunity.Application_Substage__c</column>
+            <operator>notEqual</operator>
+            <value>Employment/Career,Fraudulent document,GMAT low,GPA low,Interested Next Year,Invalid document,Lack of Funds,Low Exam/Test Results,No Longer Interested,Not Completing App,Not Responding,Personal Reasons,Rebooking Loss,Unqualified,Unsuitable,Work Experience low,Not Interested</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>Gibran - IP&amp;Beyond - School Info</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$Education__c@Education__c.Application__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <sortColumn>FK_$Opportunity.Last_Log_In1__c</sortColumn>
+    <sortOrder>Desc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>Education__c.GraduateDateFrom__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

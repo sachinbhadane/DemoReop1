@@ -1,0 +1,187 @@
+<apex:page showHeader="false" controller="ApplicantReferenceController">
+<apex:outputPanel id="apref">
+
+<table class="innertable" border="0" cellpadding="0" cellspacing="0">
+<tr><td colspan="2"><c:onlineHeader /></td></tr>
+<tr>
+
+    <td>
+        <apex:form >
+        <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
+        <tr><td><c:OnlineAccountHeader /> </td></tr>
+        <tr><td colspan="2"><table width="100%" class="innerpadding"  border="0" cellpadding="0" cellspacing="0" ><tr><td>
+        <tr><td colspan="2" class="formheader">Reference Details</td></tr>
+        
+        <tr>
+        <td background="{!URLFOR($Resource.Images, 'new-images/line.jpg')}" style="background-repeat:repeat-x">&nbsp;</td>
+</tr>
+<tr style="text-align:left"><td colspan="2" >
+<apex:pageMessages escape="false" showDetail="false"  />
+Please note that once you completed and saved the reference details your referee will automatically receive an email from the Hult Admissions team. 
+Your referee will be asked to evaluate your qualifications through an online form and may be called to discuss your qualifications further.
+</td></tr>
+<apex:outputPanel rendered="{!tab2}">
+<tr><td valign="top" >
+<table width="100%"  border="0">
+<tr>
+    <td class="formlable" align="right">&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+<apex:outputText rendered="{!if((Recom1==true && Recom2==true),'true','false')}">
+<tr><td colspan="2" class="formheader">Reference One
+<!--
+<span style="float:right; margin-top:15px;" class="formlable">
+<apex:outputLink target="blank" rendered="{!if(refurl1!=null,true,false)}" value="{!refurl1}">View Reference</apex:outputLink></span>
+-->
+</td></tr>
+        <tr>
+        <td colspan="2" background="{!URLFOR($Resource.Images, 'new-images/line.jpg')}" style="background-repeat:repeat-x">&nbsp;</td>
+</tr>
+</apex:outputText>
+<apex:outputText rendered="{!Recom1}">
+  <tr>
+    <td class="formlable" align="right" width="202">First Name<span class="error_star">*</span></td>
+    <td><apex:inputText maxlength="40" id="fornameA1" value="{!forname1}" styleClass="form-text-box" /></td>
+  </tr>
+  <tr>
+    <td class="formlable" align="right">Last Name<span class="error_star">*</span></td>
+    <td><apex:inputText maxlength="80" id="surnameB1" value="{!surname1}"  styleClass="form-text-box" /></td>
+  </tr>
+
+  <tr>
+    <td class="formlable" align="right">Company Name</td>
+    <td><apex:inputText maxlength="50" id="comnameA1"  value="{!comname1}"  styleClass="form-text-box" /></td>
+  </tr>
+  <tr>
+    <td class="formlable" align="right">Position</td>
+    <td><apex:inputText maxlength="75" id="positionA1" value="{!position1}"  styleClass="form-text-box" /></td>
+  </tr>
+  <tr>
+    <td class="formlable" align="right">Email Address<span class="error_star">*</span></td>
+    <td><apex:inputText maxlength="80" id="emailA1" value="{!email1}" styleClass="form-text-box"/>
+    <apex:inputHidden id="oldemailA1" value="{!oldemail1}" />
+    </td>
+  </tr>
+  <tr>
+    <td class="formlable" align="right">Confirm Email Address<span class="error_star">*</span></td>
+    <td><apex:inputText maxlength="80" id="cemailB1" value="{!cemail1}" styleClass="form-text-box" /></td>
+  </tr>
+  <tr>
+    <td class="formlable" align="right"></td>
+    <td></td>
+  </tr>
+    <apex:outputPanel rendered="{!if(email1!='',true,false)}">
+  <tr>
+  <td>&nbsp;</td>
+    <td class="formlable" align="left">
+  <span class="button primary">
+ <apex:commandLink value="Resend Mail" title="Resend Mail"  id="send" action="{!emailSend}" >
+     <apex:param name="mailrefID" value="{!recList[0].id}"/>
+ </apex:commandLink>
+ </span>
+ </td>
+  </tr>
+    </apex:outputPanel>
+  </apex:outputText>
+  <apex:outputText rendered="{!Recom2}">
+  <tr>
+    <td colspan="2" class="formheader">Reference Two
+    <!--
+    <span style="float:right; margin-top:15px;" class="formlable">
+    <apex:outputLink rendered="{!if(refurl2!=null,true,false)}" target="blank" value="{!refurl2}">View Reference</apex:outputLink></span>
+    -->
+    </td>
+  </tr>
+  <tr>
+        <td colspan="2" background="{!URLFOR($Resource.Images, 'new-images/line.jpg')}" style="background-repeat:repeat-x">&nbsp;</td>
+   </tr>
+  <tr>
+    <td class="formlable" align="right" width="202">First Name</td>
+    <td><apex:inputText maxlength="40" id="fornameA2" value="{!forname2}" styleClass="form-text-box" /></td>
+  </tr>
+  <tr>
+    <td class="formlable" align="right">Last Name</td>
+    <td><apex:inputText maxlength="80" id="surnameB2" value="{!surname2}"  styleClass="form-text-box" /></td>
+  </tr>
+
+  <tr>
+    <td class="formlable" align="right">Company Name</td>
+    <td><apex:inputText maxlength="50" id="comnameA2"  value="{!comname2}"  styleClass="form-text-box" /></td>
+  </tr>
+  <tr>
+    <td class="formlable" align="right">Position</td>
+    <td><apex:inputText maxlength="75" id="positionA2" value="{!position2}"  styleClass="form-text-box" /></td>
+  </tr>
+  <tr>
+    <td class="formlable" align="right">Email Address</td>
+    <td>
+    <apex:inputText maxlength="80" id="emailA2" value="{!email2}" styleClass="form-text-box"/>
+    <apex:inputHidden id="oldemailA2" value="{!oldemail2}" />
+    
+    </td>
+  </tr>
+  <tr>
+    <td class="formlable" align="right">Confirm Email Address</td>
+    <td><apex:inputText maxlength="80" id="cemailB2" value="{!cemail2}" styleClass="form-text-box" /></td>
+  </tr>
+  <tr>
+    <td class="formlable" align="right"></td>
+    <td></td>
+  </tr>
+  <apex:outputPanel rendered="{!if(email2!='',true,false)}">
+  <tr>
+  <td>&nbsp;</td>
+    <td class="formlable" align="left">
+  <span class="button primary">
+ <apex:commandLink value="Resend Mail" title="Resend Mail"  id="sends" action="{!emailSend}">
+ <apex:param name="mailrefID" value="{!recList[1].id}"/>
+ </apex:commandLink>
+ </span>
+ </td>
+  </tr>
+  </apex:outputPanel>
+</apex:outputText>
+  
+</table>
+</td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr>
+        <td background="{!URLFOR($Resource.Images, 'new-images/line.jpg')}" style="background-repeat:repeat-x">&nbsp;</td>
+</tr>
+<tr><td align="center" colspan="2">
+<apex:outputPanel >
+
+<span class="button primary">
+ <apex:commandLink value="Save and Continue" title="Save and Continue"  id="cbtneditlogin" action="{!CheckReverencessaveandcontinue}" />
+
+ </span>
+ <span class="divider">|</span>
+        <apex:commandLink value="Save and Logout"  styleClass="secondary" id="saveandcontinueandlogout" action="{!saveandcontinueandlogout}" />
+</apex:outputPanel>
+</td></tr>
+<tr>
+<td style="padding-right:20px">
+<span style="float:right;vertical-align:bottom"><apex:outputLink value="#"><apex:image url="{!URLFOR($Resource.Images, 'new-images/topimage.jpg')}"  />&nbsp;<b>back to top</b></apex:outputLink> </span></td>
+</tr></apex:outputPanel>
+<apex:outputPanel rendered="{!!tab2}">
+<tr><td class="uncompetetab_msg" align="center" height="200" valign="top">
+You must complete Program &amp; Location tab before Reference Details tab 
+</td></tr>
+</apex:outputPanel>
+</td></tr></table></td></tr>
+
+</table>
+<script>
+document.getElementById('CheckReverences').style.backgroundImage="url('{!URLFOR($Resource.Images, 'new-images/tabwhiteimage.jpg')}')";
+document.getElementById('CheckReverences').style.backgroundPosition="center";
+document.getElementById('CheckReverences1').className="headertabonload";
+
+</script>
+</apex:form>
+</td>
+</tr>
+
+</table>
+
+</apex:outputPanel>
+</apex:page>

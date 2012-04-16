@@ -1,0 +1,936 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>true</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>Activation_Date__c</fullName>
+        <description>Date that the program became or will become active.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Date that the program became or will become active.</inlineHelpText>
+        <label>Activation Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Active__c</fullName>
+        <defaultValue>true</defaultValue>
+        <externalId>false</externalId>
+        <label>Active?</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Advisor__c</fullName>
+        <externalId>false</externalId>
+        <label>Advisor</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Programs_By_Advisor</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Application_Allowed__c</fullName>
+        <defaultValue>true</defaultValue>
+        <externalId>false</externalId>
+        <label>Application Allowed?</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Application_Fee_Lookup__c</fullName>
+        <externalId>false</externalId>
+        <label>Application Fee Lookup</label>
+        <referenceTo>Application_Fee_Merchant_Services__c</referenceTo>
+        <relationshipLabel>Program Names</relationshipLabel>
+        <relationshipName>Program_Names</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Application_Fee__c</fullName>
+        <externalId>false</externalId>
+        <formula>ROUND( Application_Fee_Lookup__r.Application_Fee__c,0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Application Fee (in local currency</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>4</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Application_Initial_Review_Required__c</fullName>
+        <defaultValue>true</defaultValue>
+        <description>Whether an initial review by an enrollment coach is required for applications to this program. If an initial review is not required, then the application should automatically be accepted upon receipt and verification of proper applicant history and credentials by operations.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Whether an initial review by an enrollment coach is required for applications to this program. If an initial review is not required, then the application should automatically be accepted upon receipt and verification of proper applicant history.</inlineHelpText>
+        <label>Application: Initial Review Required?</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Application_Initial_Reviewer__c</fullName>
+        <externalId>false</externalId>
+        <label>Application: Initial Reviewer</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Programs_By_Application_Initial_Reviewer</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Application_Initial_Screening_Required__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Application: Initial Screening Required?</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Application_Second_Review_Required__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Whether applicants to this program require that their applications undergo secondary review.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Whether applicants to this program require that their applications undergo secondary review.</inlineHelpText>
+        <label>Application: Second Review Required?</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Application_Second_Reviewer__c</fullName>
+        <externalId>false</externalId>
+        <label>Application: Second Reviewer</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Programs_By_Application_Second_Reviewer</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Campus__c</fullName>
+        <externalId>false</externalId>
+        <label>Campus</label>
+        <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Certificate__c</fullName>
+        <description>Exam Fee Only</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Exam Fee Only</inlineHelpText>
+        <label>Certificate</label>
+        <precision>12</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Concentration__c</fullName>
+        <description>Descriptive name of the program concentration, if applicable.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Descriptive name of the program concentration, if applicable.</inlineHelpText>
+        <label>Concentration</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Confirmation_Deposit__c</fullName>
+        <externalId>false</externalId>
+        <label>Confirmation Deposit</label>
+        <precision>12</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Cost_Per_Credit_Hour__c</fullName>
+        <defaultValue>0</defaultValue>
+        <externalId>false</externalId>
+        <label>Cost Per Credit Hour</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Country__c</fullName>
+        <externalId>false</externalId>
+        <label>Country</label>
+        <referenceTo>Country__c</referenceTo>
+        <relationshipLabel>Programs</relationshipLabel>
+        <relationshipName>Programs</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Credit_Hours_Required__c</fullName>
+        <defaultValue>0</defaultValue>
+        <externalId>false</externalId>
+        <label>Credit Hours Required</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Credit_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Credit Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Quarter Hours</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Semester Hours</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Deactivation_Date__c</fullName>
+        <description>Date at which the program is no longer active.</description>
+        <externalId>false</externalId>
+        <label>Deactivation Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Degree__c</fullName>
+        <externalId>false</externalId>
+        <label>Degree</label>
+        <picklist>
+            <picklistValues>
+                <fullName>BA</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>BS</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>JD</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MBA</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MEng</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MS</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>PhD</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Department__c</fullName>
+        <externalId>false</externalId>
+        <label>Department</label>
+        <referenceTo>Department__c</referenceTo>
+        <relationshipLabel>Programs</relationshipLabel>
+        <relationshipName>Programs</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Description__c</fullName>
+        <description>Rich text long description used by Enrollment Counselors and Admissions Users in discussions with prospective students.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Rich text long description used by Enrollment Counselors and Admissions Users in discussions with prospective students.</inlineHelpText>
+        <label>Description</label>
+        <length>32000</length>
+        <trackHistory>true</trackHistory>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Diploma_in_MDM_or_MFIN__c</fullName>
+        <externalId>false</externalId>
+        <label>Diploma in MDM or MFIN</label>
+        <precision>12</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Enrollment_Confirmation_Required__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Enrollment Confirmation Required?</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Enrollment_Counselor__c</fullName>
+        <externalId>false</externalId>
+        <label>Enrollment Counselor</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Programs_By_Enrollment_Counselor</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Entry_Point__c</fullName>
+        <externalId>false</externalId>
+        <label>Entry Point</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Fall Quarter</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Winter Quarter</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Spring Quarter</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Summer Quarter</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fall Semester</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Spring Semester</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Summer Semester</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Estimated_Tuition__c</fullName>
+        <externalId>false</externalId>
+        <formula>Cost_Per_Credit_Hour__c * Credit_Hours_Required__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Estimated Tuition</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Expected_Years_To_Completion_FT__c</fullName>
+        <externalId>false</externalId>
+        <label>Expected Years To Completion (FT)</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Expected_Years_To_Completion_PT__c</fullName>
+        <externalId>false</externalId>
+        <label>Expected Years To Completion (PT)</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Friendly_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Friendly Name</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Fulfillment_Code__c</fullName>
+        <description>Code to identify package that needs to go out for prospect fulfillment.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Code to identify package that needs to go out for prospect fulfillment.</inlineHelpText>
+        <label>Fulfillment Code</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Fully_Online__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Fully Online?</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>I_20_Compliant__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Whether the program is legally considered I-20 compliant.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Whether the program is legally considered I-20 compliant.</inlineHelpText>
+        <label>I-20 Compliant?</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Installment_Plan_Fee__c</fullName>
+        <externalId>false</externalId>
+        <label>Installment Plan Fee</label>
+        <precision>10</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>true</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Insurance_IEMBA_3m__c</fullName>
+        <externalId>false</externalId>
+        <label>Insurance IEMBA 3m</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Insurance_IEMBA_6m__c</fullName>
+        <externalId>false</externalId>
+        <label>Insurance IEMBA 6m</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Integration_Id__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <externalId>true</externalId>
+        <label>Integration ID</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>January_2013_Start_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>January 2013 Start Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>January_2014_Start_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>January 2014 Start Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Level__c</fullName>
+        <externalId>false</externalId>
+        <label>Level</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Undergraduate</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Graduate</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Doctoral</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Loan_Allowed__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Loan Allowed?</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Loan_Reviewer__c</fullName>
+        <externalId>false</externalId>
+        <label>Loan: Reviewer</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Programs_By_Loan_Reviewer</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>MIB_Project_Management_Specialization__c</fullName>
+        <externalId>false</externalId>
+        <label>MIB-Project Management Specialization</label>
+        <precision>12</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>true</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>MIM_Digital_Marketing_Specialization__c</fullName>
+        <externalId>false</externalId>
+        <label>MIM-Digital Marketing Specialization</label>
+        <precision>12</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Major__c</fullName>
+        <externalId>false</externalId>
+        <label>Major</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Number_of_Months_Shanghai_Only__c</fullName>
+        <externalId>false</externalId>
+        <label>Number of Months (Shanghai Only)</label>
+        <precision>16</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Parent_Program__c</fullName>
+        <externalId>false</externalId>
+        <label>Parent Program</label>
+        <referenceTo>Program__c</referenceTo>
+        <relationshipLabel>Sub-Programs</relationshipLabel>
+        <relationshipName>Programs</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Pre_Master_Program_3_months__c</fullName>
+        <externalId>false</externalId>
+        <label>Pre-Master Program (3 months)</label>
+        <precision>16</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Pre_Master_Program_6_mos__c</fullName>
+        <externalId>false</externalId>
+        <label>Pre-Master Program (6 mos)</label>
+        <precision>16</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Pre_Master_Program_9_months__c</fullName>
+        <externalId>false</externalId>
+        <label>Pre-Master Program (9 months)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Provider__c</fullName>
+        <externalId>false</externalId>
+        <label>Provider</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Aetna</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Erika</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Public_Url__c</fullName>
+        <externalId>false</externalId>
+        <label>Public Url</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>Recruitment_Priority__c</fullName>
+        <description>Priority of the program for consideration in the admissions process. Lower numbers indicate higher priority (i.e., 0 = highest priority, 999 = lowest priority).</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Priority of the program for consideration in the admissions process. Lower numbers indicate higher priority (i.e., 0 = highest priority, 999 = lowest priority).</inlineHelpText>
+        <label>Recruitment Priority</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Rotation_Deposit__c</fullName>
+        <externalId>false</externalId>
+        <label>Rotation Deposit</label>
+        <precision>10</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Scholarship_Allowed__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Scholarship Allowed?</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Scholarship_Reviewer__c</fullName>
+        <externalId>false</externalId>
+        <label>Scholarship: Reviewer</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Programs_By_Scholarship_Reviewer</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>September_2012_Start_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>September 2012 Start Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>September_2013_Start_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>September 2013 Start Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>September_2014_Start_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>September 2014 Start Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Shared_Twin_Annual__c</fullName>
+        <externalId>false</externalId>
+        <label>Shared Twin (Annual)</label>
+        <precision>16</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Shared_Twin_Monthly_Fee_Shanghai_Only__c</fullName>
+        <externalId>false</externalId>
+        <label>Shared Twin Monthly Fee (Shanghai Only)</label>
+        <precision>16</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Single_6_months_visiting_Insurance__c</fullName>
+        <externalId>false</externalId>
+        <label>Single 6 months (visiting)</label>
+        <precision>16</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Single_Annual__c</fullName>
+        <externalId>false</externalId>
+        <label>Single (Annual)</label>
+        <precision>16</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Single_Child_Insurance__c</fullName>
+        <externalId>false</externalId>
+        <label>Single &amp; Child</label>
+        <precision>16</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Single_Insurance__c</fullName>
+        <externalId>false</externalId>
+        <label>Single</label>
+        <precision>16</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Single_Monthly_Fee_Shanghai_Only__c</fullName>
+        <externalId>false</externalId>
+        <label>Single Monthly Fee (Shanghai Only)</label>
+        <precision>16</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Single_Spouse_2_Child_Insurance__c</fullName>
+        <externalId>false</externalId>
+        <label>Single &amp; Spouse &amp; 2 Child</label>
+        <precision>16</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Single_Spouse_Child_Insurance__c</fullName>
+        <externalId>false</externalId>
+        <label>Single &amp; Spouse &amp; Child</label>
+        <precision>16</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Single_Spouse_Insurance__c</fullName>
+        <externalId>false</externalId>
+        <label>Single &amp; Spouse Insurance</label>
+        <precision>16</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Six_Cards_App_Fee_Merchant_Id__c</fullName>
+        <externalId>false</externalId>
+        <label>Six Cards App Fee Merchant Id</label>
+        <length>8</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Six_Cards_Merchant_ID__c</fullName>
+        <externalId>false</externalId>
+        <label>Six Cards Merchant ID</label>
+        <length>8</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Six_Cards_Validation_Code__c</fullName>
+        <externalId>false</externalId>
+        <label>Six Cards Validation Code</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Specialization_in_MDM_or_MFIN__c</fullName>
+        <externalId>false</externalId>
+        <label>Specialization in MDM or MFIN</label>
+        <precision>10</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Student_Resources_Activities__c</fullName>
+        <externalId>false</externalId>
+        <label>Student Resources &amp; Activities</label>
+        <precision>12</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Toolbox_Case_Study_Pack__c</fullName>
+        <externalId>false</externalId>
+        <label>Toolbox &amp; Case Study Pack</label>
+        <precision>12</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Tuition_Fee__c</fullName>
+        <externalId>false</externalId>
+        <label>Tuition Fee</label>
+        <precision>10</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>UG_Analyst_Certificate__c</fullName>
+        <externalId>false</externalId>
+        <label>UG Analyst Certificate</label>
+        <precision>12</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <label>Program Name</label>
+    <listViews>
+        <fullName>All_Programs</fullName>
+        <columns>NAME</columns>
+        <columns>Friendly_Name__c</columns>
+        <columns>Campus__c</columns>
+        <columns>Pre_Master_Program_3_months__c</columns>
+        <columns>Pre_Master_Program_6_mos__c</columns>
+        <columns>Insurance_IEMBA_3m__c</columns>
+        <columns>Insurance_IEMBA_6m__c</columns>
+        <columns>Department__c</columns>
+        <columns>OWNER.ALIAS</columns>
+        <columns>CREATEDBY_USER</columns>
+        <columns>OWNER.FIRST_NAME</columns>
+        <columns>OWNER.LAST_NAME</columns>
+        <columns>Confirmation_Deposit__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All Programs</label>
+        <sharedTo>
+            <groups>Round Corner</groups>
+        </sharedTo>
+    </listViews>
+    <nameField>
+        <label>Program Name</label>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Program Names</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>Private</sharingModel>
+</CustomObject>

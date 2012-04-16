@@ -1,0 +1,59 @@
+<apex:page controller="PaytoStudyContactSearch" sidebar="true">
+<apex:stylesheet value="{!$Resource.style}" />
+<style>
+.hclass {
+    background-color: #E2E2E2;
+}
+</style>
+<apex:form >
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+            <tr>
+                <td colspan="3">
+                    <apex:messages />
+                </td>    
+            </tr>
+            <tr>
+                <td class="formlable" width="150"><b>Name</b></td>
+                <td class="formlable" width="150"><b>Student ID</b></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><apex:inputText value="{!name}"/></td>
+                <td><apex:inputText value="{!id}"/></td>
+                <td><apex:commandButton value="Search" action="{!contactSearch}"/> </td>
+            </tr>
+        <tr>
+            <td colspan="3">
+                <apex:dataTable value="{!contactListnew}" var="c" width="100%" cellpadding="2" cellspacing="5"   style="width:100%; bgcolor:#FFFFFF" headerClass="hclass" >
+                    <apex:column >
+                        <apex:facet name="header">First Name</apex:facet>
+                        <apex:outputText value="{!c.firstname}"/>
+                    </apex:column>
+                    <apex:column >
+                        <apex:facet name="header">Last Name</apex:facet>
+                        <apex:outputText value="{!c.lastname}"/>
+                    </apex:column>
+                    <apex:column >
+                        <apex:facet name="header">Student ID</apex:facet>
+                        <apex:outputText value="{!c.Student_ID__c}"/>
+                    </apex:column>
+                    <apex:column >
+                        <apex:facet name="header">Passport Document </apex:facet>
+                        <apex:outputLink rendered="{!if((c.Web_Campaign_Source__c!=null),true,false)}" target="blank" value="/servlet/servlet.FileDownload?file={!c.Web_Campaign_Source__c}">
+                                View Passport Document
+                            </apex:outputLink>
+                    </apex:column>
+                    <apex:column >
+                        <apex:facet name="header">Financial Statement PDF </apex:facet>
+                            <apex:outputLink target="blank" value="FinanceStatementPDF?contactid={!c.id}">
+                                View PDF
+                            </apex:outputLink>
+                    </apex:column>
+                </apex:dataTable>
+            </td>
+        </tr>
+        </table>
+        
+        
+</apex:form>
+</apex:page>

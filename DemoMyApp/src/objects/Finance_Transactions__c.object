@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>Action_Code__c</fullName>
+        <externalId>false</externalId>
+        <label>Action Code</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Amount_Received_New__c</fullName>
+        <externalId>false</externalId>
+        <label>Amount Received New</label>
+        <precision>16</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Amount_Received__c</fullName>
+        <externalId>false</externalId>
+        <label>Amount Received</label>
+        <precision>10</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>true</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Card_Last_4__c</fullName>
+        <externalId>false</externalId>
+        <label>Card Last 4</label>
+        <length>4</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Card_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Card Type</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Error_Code__c</fullName>
+        <externalId>false</externalId>
+        <label>Error Code</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Error_Text__c</fullName>
+        <externalId>false</externalId>
+        <label>Error Text</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Expiry_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Expiry Date</label>
+        <length>25</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Finance__c</fullName>
+        <externalId>false</externalId>
+        <label>Finance</label>
+        <referenceTo>Opportunity_Finance__c</referenceTo>
+        <relationshipLabel>Finance Transactions</relationshipLabel>
+        <relationshipName>Finance_Transactions</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <trackHistory>false</trackHistory>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Notes_or_Comments__c</fullName>
+        <externalId>false</externalId>
+        <label>Notes or Comments</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OP_Applicant_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>Finance__r.Opportunity__r.Contact__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>OP:Applicant Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OP_Application_Fee_Due__c</fullName>
+        <externalId>false</externalId>
+        <formula>Finance__r.Opportunity__r.Program__r.Application_Fee_Lookup__r.Application_Fee__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>OP:Application Fee Due</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>OP_Deposit_Amount_Du__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( ISPICKVAL(Transaction_Type__c,&quot;Confirmation Deposit&quot;),  Finance__r.Opportunity__r.Program__r.Confirmation_Deposit__c ,0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>OP:Deposit Amount Due</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>OP_Transaction_Method_Index__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(  
+   (Text(Transaction_Status__c) = &quot;Success&quot;||Text(Transaction_Status__c) = &quot;Manually Processed&quot;), 
+   (CASE( 
+        Transaction_Method__c , &quot;CC Charged Via Salesforce&quot;, 1, &quot;CC Charged via HK&quot;, 2,&quot;Wire Transfer&quot;,3,&quot;Manual Credit Card&quot;,4,0)),0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>OP:Transaction Method Index</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Student_ID__c</fullName>
+        <externalId>false</externalId>
+        <formula>Finance__r.Student_ID__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Student ID</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Transaction_Date_Time__c</fullName>
+        <defaultValue>Now()</defaultValue>
+        <externalId>false</externalId>
+        <label>Transaction Date/Time</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Transaction_ID__c</fullName>
+        <externalId>false</externalId>
+        <label>Transaction ID</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Transaction_Method__c</fullName>
+        <externalId>false</externalId>
+        <label>Transaction Method</label>
+        <picklist>
+            <picklistValues>
+                <fullName>CC Charged Via Salesforce</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CC Charged via HK</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Wire Transfer</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Manual Credit Card</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>From Top Apply</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Manual Transaction</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>PaytoStudy</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>true</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Transaction_Performed_By__c</fullName>
+        <externalId>false</externalId>
+        <formula>CreatedBy.Username</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Transaction Performed By</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Transaction_State__c</fullName>
+        <externalId>false</externalId>
+        <label>Transaction State</label>
+        <length>25</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Transaction_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Transaction Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Pending</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Success</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Decline</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Error</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Manually Processed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Transaction Timed Out</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>true</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Transaction_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Transaction Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Confirmation Deposit</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Tuition Fee Payment</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Application Fee</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Refund</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Writeoff</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>PtS 1st Payment</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>PtS 2nd Payment</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>true</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <label>Finance Transaction</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>CREATEDBY_USER</columns>
+        <columns>Amount_Received__c</columns>
+        <columns>Transaction_Method__c</columns>
+        <columns>Transaction_Status__c</columns>
+        <columns>Transaction_Type__c</columns>
+        <columns>CURRENCY_ISO_CODE</columns>
+        <columns>Finance__c</columns>
+        <columns>Transaction_ID__c</columns>
+        <columns>Transaction_Date_Time__c</columns>
+        <columns>Error_Text__c</columns>
+        <columns>NAME</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>OBJECT_ID</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>FTN-{000000}</displayFormat>
+        <label>Finance Transactions Name</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Finance Transactions</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Transaction_Date_Time__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Amount_Received__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Transaction_Method__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Transaction_Status__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Transaction_Type__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>CURRENCY_ISO_CODE</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Finance__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Transaction_ID__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Error_Text__c</customTabListAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+</CustomObject>

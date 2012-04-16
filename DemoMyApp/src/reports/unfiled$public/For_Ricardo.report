@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Campaign$Name</field>
+    </columns>
+    <columns>
+        <field>Campaign.CampaignMembers$Name</field>
+    </columns>
+    <columns>
+        <field>Campaign.CampaignMembers.OpportunityContactRoles$Name</field>
+    </columns>
+    <columns>
+        <field>Campaign.CampaignMembers.OpportunityContactRoles.Activities$Subject</field>
+    </columns>
+    <columns>
+        <field>Campaign.CampaignMembers$Outsource_Telemarketer_Company__c</field>
+    </columns>
+    <columns>
+        <field>Campaign.CampaignMembers$Outsource_Telemarketer__c</field>
+    </columns>
+    <currency>USD</currency>
+    <format>Tabular</format>
+    <name>For Ricardo</name>
+    <params>
+        <name>scopeid</name>
+        <value></value>
+    </params>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Campaigns_with_Applicant_Application_Activity__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Campaign$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

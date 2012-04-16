@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ReportFolder xmlns="http://soap.sforce.com/2006/04/metadata">
+    <accessType>Shared</accessType>
+    <name>Routing Rules by Region &amp; Product</name>
+    <publicFolderAccess>ReadOnly</publicFolderAccess>
+    <sharedTo>
+        <roles>ASIA Product Head- MA</roles>
+        <roles>ASIA Product Head- MBA</roles>
+        <roles>Asia Product Head - Biba</roles>
+        <roles>Asia Product Head - EMBA</roles>
+        <roles>CEO/Pres, COO, Dean, CIO, CFO</roles>
+        <roles>EU Product Head - BIBA (UG)</roles>
+        <roles>EU Product Head - EMBA</roles>
+        <roles>EU Product Head- MA</roles>
+        <roles>EU Product Head- MBA</roles>
+        <roles>Global Product Head - BIBA (UG)</roles>
+        <roles>Global Product Head - EMBA</roles>
+        <roles>Global Product Head - MA</roles>
+        <roles>Global Product Head- MBA</roles>
+        <roles>LATINAM Product Head - MA</roles>
+        <roles>LATINAM Product Head - MBA</roles>
+        <roles>MEA Product Head - BIBA (UG)</roles>
+        <roles>MEA Product Head - EMBA</roles>
+        <roles>MEA Product Head - MA</roles>
+        <roles>MEA Product Head - MBA</roles>
+        <roles>NA Product Head - MA</roles>
+        <roles>NA Product Head - MBA</roles>
+        <roles>NA/LATINAM Product Head - BIBA(UG)</roles>
+        <roles>System Administrator</roles>
+    </sharedTo>
+</ReportFolder>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ReportFolder xmlns="http://soap.sforce.com/2006/04/metadata">
+    <accessType>Shared</accessType>
+    <name>MBA Reports - Recruiters</name>
+    <publicFolderAccess>ReadOnly</publicFolderAccess>
+    <sharedTo>
+        <roles>ASIA Product Head- MBA</roles>
+        <roles>ASIA Recruiter - MBA</roles>
+        <roles>CEO/Pres, COO, Dean, CIO, CFO</roles>
+        <roles>EU Product Head- MBA</roles>
+        <roles>EU Recruiter MBA</roles>
+        <roles>Global Product Head- MBA</roles>
+        <roles>LATINAM Product Head - MBA</roles>
+        <roles>LATINAM Recruiter - MBA</roles>
+        <roles>MEA Product Head - MBA</roles>
+        <roles>MEA Recruiter - MBA</roles>
+        <roles>NA Product Head - MBA</roles>
+        <roles>NA Recruiter - MBA</roles>
+    </sharedTo>
+</ReportFolder>

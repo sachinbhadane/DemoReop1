@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ReportFolder xmlns="http://soap.sforce.com/2006/04/metadata">
+    <accessType>Shared</accessType>
+    <name>Asia Telesales/RMM</name>
+    <publicFolderAccess>ReadOnly</publicFolderAccess>
+    <sharedTo>
+        <roles>ASIA Conversion Manager</roles>
+        <roles>ASIA Conversion User</roles>
+        <roles>ASIA Marketing User</roles>
+        <roles>ASIA Product Head- MA</roles>
+        <roles>ASIA Product Head- MBA</roles>
+        <roles>ASIA Recruiter - MA</roles>
+        <roles>ASIA Recruiter - MBA</roles>
+        <roles>ASIA Regional Marketing Manager</roles>
+        <roles>ASIA Telesales Manager</roles>
+        <roles>ASIA Telesales User</roles>
+        <roles>Asia Product Head - Biba</roles>
+        <roles>Asia Product Head - EMBA</roles>
+        <roles>Asia Recruiter - Biba</roles>
+        <roles>Asia Recruiter - EMBA</roles>
+    </sharedTo>
+</ReportFolder>

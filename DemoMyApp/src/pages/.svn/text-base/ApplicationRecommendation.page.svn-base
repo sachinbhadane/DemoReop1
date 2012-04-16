@@ -1,0 +1,228 @@
+<apex:page showHeader="false"
+    controller="ApplicationRecommendationController">
+    <table width="1066" border="0" align="center" CELLPADDING="0"
+        CELLSPACING="0"
+        background="{!URLFOR($Resource.Images, 'new-images/register02_02.jpg')}">
+        <tr>
+            <td><apex:stylesheet value="{!$Resource.style}" />
+            <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
+                <TR>
+                    <TD><apex:image url="{!URLFOR($Resource.Images, 'new-images/register02_01.jpg')}"
+                        width="1066" height="74" usemap="#planetmap" /></TD>
+                </TR>
+            </table>
+            </td>
+        </tr>
+        <tr>
+            <td style="padding-left: 75px; padding-right: 75px;" valign="top">
+            <!-- Code for text box --> <apex:form >
+                <apex:includeScript value="{!$Resource.RegistrationJavascript}" />
+                <apex:outputPanel rendered="{!!invaliduser}">
+                    <table width="100%" border="0">
+                        <tr>
+                            <td><apex:pageMessages />&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td class="formlable">This applicant has applied for
+                            admission to Hult International Business School. The purpose of
+                            this program is to provide an opportunity for participants to
+                            develop knowledge, abilities, attitudes, and understanding that
+                            will constitute a foundation for their growth. Please assist the
+                            Admissions Committee in assessing the applicant's qualifications
+                            by completing the questions that follow. This form, however, is
+                            provided for your convenience. We welcome your comments in
+                            whatever form you find suitable.</td>
+                        </tr>
+                        <tr>
+                            <td
+                                background="{!URLFOR($Resource.Images, 'new-images/line.jpg')}"
+                                style="background-repeat: repeat-x">&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td align="left">
+                            <table border="0" width="100%">
+                                <tr>
+                                    <td width="12%" align="right" class="formlable">Applicant
+                                    Name:</td>
+                                    <td width="88%" class="formlable"><apex:outputText styleClass="form-text-box formlable"
+                                        value="{!firstname} {!lastname}" /></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td class="formlable" align="right">Program:</td>
+                                    <td class="formlable"><apex:selectList disabled="true"
+                                        styleClass="form-selectList">
+                                        <apex:selectOption itemLabel="{!Primary_Program_Choice_c}"
+                                            itemValue="{!Primary_Program_Choice_c}"></apex:selectOption>
+                                    </apex:selectList></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" class="formlable">How long have you known
+                                    the applicant and in what context?<span class="error_star">*</span></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2"><apex:inputTextarea disabled="{!submitted}" styleClass="textarea"
+                                        value="{!req.Recommendation_Background__c}" /></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">&nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" class="formlable">What do you consider the
+                                    Applicant's strength and weaknesses?<span class="error_star">*</span></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2"><apex:inputTextarea disabled="{!submitted}" styleClass="textarea"
+                                        value="{!req.Recommendation_SWOT__c}" /></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">&nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" class="formlable">In your opinion, how
+                                    would the applicant benefit from the program?<span
+                                        class="error_star">*</span></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2"><apex:inputTextarea disabled="{!submitted}" styleClass="textarea"
+                                        value="{!req.Recommendation_Level_Of_Planning__c}" /></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">&nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" class="formlable">This program is very
+                                    intensive and students often feel highly pressured. Do you
+                                    think the <br />
+                                    Applicant will be successful under these conditions?<span
+                                        class="error_star">*</span></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2"><apex:inputTextarea disabled="{!submitted}" styleClass="textarea"
+                                        value="{!req.Recommendation_Stress_Management__c}" /></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">&nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" class="formlable">Please give us your
+                                    appraisal of the Applicant in terms of the qualities listed.<br />
+                                    Rate the Applicant in comparison with other school applicants
+                                    whom you have known.
+                                    <p />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="formlable"
+                                        style="white-space: nowrap; text-align: right">1. Work
+                                    experience related <br />
+                                    to general management<span class="error_star">*</span></td>
+                                    <td><apex:inputField rendered="{!!submitted}"
+                                        styleClass="form-selectList"
+                                        value="{!req.Recommendation_Work_Experience__c}" /> <apex:selectList rendered="{!submitted}" disabled="{!submitted}"
+                                        styleClass="form-selectList">
+                                        <apex:selectOption itemLabel="{!req.Recommendation_Work_Experience__c}"
+                                            itemValue="{!req.Recommendation_Work_Experience__c}"></apex:selectOption>
+                                    </apex:selectList></td>
+                                </tr>
+                                <tr>
+                                    <td class="formlable"
+                                        style="white-space: nowrap; text-align: right">2.
+                                    Personal Motivation<span class="error_star">*</span></td>
+                                    <td><apex:inputField rendered="{!!submitted}"
+                                        styleClass="form-selectList"
+                                        value="{!req.Recommendation_Personal_Motivation__c}" /> <apex:selectList rendered="{!submitted}" disabled="{!submitted}"
+                                        styleClass="form-selectList">
+                                        <apex:selectOption itemLabel="{!req.Recommendation_Personal_Motivation__c}"
+                                            itemValue="{!req.Recommendation_Personal_Motivation__c}"></apex:selectOption>
+                                    </apex:selectList></td>
+                                </tr>
+                                <tr>
+                                    <td class="formlable"
+                                        style="white-space: nowrap; text-align: right">3.
+                                    Potential for Growth<span class="error_star">*</span></td>
+                                    <td><apex:inputField rendered="{!!submitted}"
+                                        styleClass="form-selectList"
+                                        value="{!req.Recommendation_Potential_For_Growth__c}" /> <apex:selectList rendered="{!submitted}" disabled="{!submitted}"
+                                        styleClass="form-selectList">
+                                        <apex:selectOption itemLabel="{!req.Recommendation_Potential_For_Growth__c}"
+                                            itemValue="{!req.Recommendation_Potential_For_Growth__c}"></apex:selectOption>
+                                    </apex:selectList></td>
+                                </tr>
+                                <tr>
+                                    <td class="formlable"
+                                        style="white-space: nowrap; text-align: right">4.
+                                    Analytical Ability<span class="error_star">*</span></td>
+                                    <td width="500"><apex:inputField rendered="{!!submitted}"
+                                        styleClass="form-selectList"
+                                        value="{!req.Recommendation_Analytical_Ability__c}" /> <apex:selectList rendered="{!submitted}" disabled="{!submitted}"
+                                        styleClass="form-selectList">
+                                        <apex:selectOption itemLabel="{!req.Recommendation_Analytical_Ability__c}"
+                                            itemValue="{!req.Recommendation_Analytical_Ability__c}"></apex:selectOption>
+                                    </apex:selectList></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">&nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" class="formlable">Please comment on the
+                                    Applicant as to relevant intellectual and administrative
+                                    competence, ability to work with others, capacity in oral
+                                    expression, imagination and probable creativity and other
+                                    personal qualities that you believe would be helpful to the
+                                    Admissions Committee in considering this individual's
+                                    application.<span class="error_star">*</span></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2"><apex:inputTextarea disabled="{!submitted}" styleClass="textarea"
+                                        value="{!req.Recommendation_Comments__c}" /></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">&nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" class="formlable">Please provide your
+                                    appraisal of the Applicant's ability to read, write,
+                                    understand, and speak English.<span class="error_star">*</span></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2"><apex:inputTextarea disabled="{!submitted}" styleClass="textarea"
+                                        value="{!req.Recommendation_English_Ability__c}" /></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">&nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2"><apex:outputPanel rendered="{!!submitted}">
+                                        <span class="button primary"> <apex:commandLink rendered="{!!submitted}" value="Submit" title="Submit"
+                                            id="cbtneditlogin" action="{!saveandcontinue}" /> </span>
+                                    </apex:outputPanel></td>
+                                </tr>
+                            </table>
+                            </td>
+                        </tr>
+                    </table>
+                </apex:outputPanel>
+                <apex:outputPanel rendered="{!invaliduser}">
+                    <table align="center" height="400">
+                        <tr>
+                            <td class="error_msg" align="center">Invalid access</td>
+                        </tr>
+                    </table>
+                </apex:outputPanel>
+            </apex:form> <!-- end code  --></td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+        </tr>
+    </table>
+</apex:page>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Contact.Student_ID__c</field>
+    </columns>
+    <columns>
+        <field>CONTACT_ID</field>
+    </columns>
+    <currency>USD</currency>
+    <description>To see if App ID is not completed.</description>
+    <filter>
+        <criteriaItems>
+            <column>Contact.Student_ID__c</column>
+            <operator>equals</operator>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>App ID is Blank</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>ContactList</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>CREATED_DATE</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

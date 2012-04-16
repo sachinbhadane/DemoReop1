@@ -1,0 +1,194 @@
+<apex:page showHeader="false" controller="CandidateOnlineAccountController">
+<apex:outputPanel id="apref">
+<table class="innertable" border="0" cellpadding="0" cellspacing="0">
+<tr><td colspan="2"><c:Header /></td></tr>
+<tr>
+
+    <td>
+        <apex:form >
+        <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center" >
+        <tr><td colspan="2"><c:ApplicantHeader /> </td></tr>
+        <tr><td colspan="2"><table width="100%" class="innerpadding"   border="0" cellpadding="0" cellspacing="0"><tr><td>
+        <tr><td colspan="2" class="formheader">Welcome Back</td></tr>
+             <tr>
+                <tr><td colspan="2" background="{!URLFOR($Resource.Images, 'new-images/line.jpg')}" style="background-repeat:repeat-x">&nbsp;</td></tr>
+                   <tr><td colspan="2"><apex:pageMessages /></td></tr>
+        <td ><table width="100%"  border="0">
+          <tr>
+            <td width="30%" valign="top" align="left"><table width="60%"  border="0">
+              <tr>
+                <td class="formlableheader">Insurance Information </td>
+              </tr>
+              <tr>
+                <td class="formlable"><apex:outputLink value="#" target="blank">Erika Letter and FAQ</apex:outputLink></td>
+              </tr>
+              <tr>
+                <td class="formlable"><apex:outputLink value="#" target="blank">Erika Policy</apex:outputLink></td>
+              </tr>
+              <tr>
+                <td class="formlable"><apex:outputLink value="#" target="blank">Erika Waiver Form</apex:outputLink></td>
+              </tr>
+              <tr><td>&nbsp;</td></tr>
+              <tr>
+                <td background="{!URLFOR($Resource.Images, 'new-images/line.jpg')}" style="background-repeat:repeat-x">&nbsp;</td>
+              </tr>
+              <tr>
+                <td class="formlableheader">Go Ed Loan</td>
+              </tr>
+              <tr>
+                <td class="formlable">Go to &nbsp;<apex:outputLink value="http://www.goed.com" target="blank">www.goed.com</apex:outputLink> <br />to complete your application </td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+              </tr>
+            </table></td>
+            <td width="70%" class="formlable">Your seat for the {!Program_c} with Hult is confirmed<br /><br />
+
+Please find your ‘hult Payment Statue’ area along with your full statement below.<br /><br />
+
+Tuition and Fees payment must be made via Bank Wire/Transfer only, bank details are supplied below.<br />
+
+You can download the instruction on how to pay after you complete step 2 in you ‘Hult Payment Status’ area below. Please make sure to cover all transaction fees. In the event that Hult does not receive payment according to the due dates below we are reserve the right to apply late fees as well as release your space in the class. If you have any other questions about your statement or how to pay please contact me directly.<br /><br />
+
+As indicated in our Hult general conditions, you will find the insurance fee added to your invoice confirming that you will be covered from the beginning to the end of your Hult program. If you already have worldwide coverage, that is equivalent to the policy, please follow the steps as indicated in the letter and FAQ that you will find on the left side of the homepage<br /><br />
+
+Again, if you have any question about your statement or how to pay please contact me directly.<br /><br />
+I look forward to welcoming you to Hult International Business School in September.<br /><br />
+
+Kind regards,<br /><br />
+
+{!user.contact.firstname} {!user.contact.lastname}<br /><br />
+</td>
+          </tr>
+        </table></td>
+</tr>
+<tr><td  background="{!URLFOR($Resource.Images, 'new-images/line.jpg')}" style="background-repeat:repeat-x">&nbsp;</td></tr>
+<tr><td valign="top" ><table width="100%"  border="0">
+  <tr>
+    <td colspan="4">&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="formlable">Applicant Name</td>
+    <td class="formcontent">{!user.contact.firstname} {!user.contact.lastname}</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="formlable">Course</td>
+    <td class="formcontent">{!Program_c}</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="formlable">Admission Status </td>
+    <td class="formcontent">{!stage}</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="formlable">1st  Tution and Fees Paymant</td>
+    <td><apex:inputText disabled="true" styleClass="form-text-box" value="{!Payment_Amount_1st_c}"/></td>
+    <td class="formlable">1st Paymant Due Date</td>
+    <td><apex:inputText disabled="true" styleClass="form-text-box" value="{!Payment_Due_Date_1st_c}"/></td>
+  </tr>
+  <tr>
+    <td class="formlable">2nd  Tution and Fees Paymant</td>
+    <td><apex:inputText disabled="true" styleClass="form-text-box" value="{!Payment_Amount_2nd_c}"/></td>
+    <td class="formlable">2nd Paymant Due Date</td>
+    <td><apex:inputText disabled="true" styleClass="form-text-box" value="{!Payment_Due_Date_2nd_c}"/></td>
+  </tr>
+</table>
+</td>
+</tr>
+<tr><td colspan="2">&nbsp;</td></tr>
+<tr><td  background="{!URLFOR($Resource.Images, 'new-images/line.jpg')}" style="background-repeat:repeat-x">&nbsp;</td></tr>
+<tr><td  ><table width="100%"  border="0">
+  <tr>
+    <td colspan="2" class="formlableheader">Step 1: Tuition and Fees Installment Plan </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="formlable"><div class="color"><br />
+    &nbsp;&nbsp;&nbsp;Payment under the installment plan are due as follows:<br /><br />
+
+&nbsp;&nbsp;&nbsp;-   50% due 60 days before the start of class<br />
+&nbsp;&nbsp;&nbsp;-   Remaining balance id due by Month, Day, Year<br /><br />
+
+&nbsp;&nbsp;&nbsp;Installment Plane Fees: There is an additional fee of 1,200 USD(if home campus are Boston, San Francisco and Dubai) or 750 GBP (if home campus is London)<br />
+<br />
+</div>
+</td>
+  </tr>
+  <tr>
+    <td class="formlable" >Installment Decision</td>
+    <td><apex:selectList styleClass="selectList" value="{!Payment_Plan_c}" multiselect="false" size="1">
+            <apex:selectOptions value="{!Planitems}"/>
+        </apex:selectList></td>
+  </tr>
+  <tr>
+    <td colspan="2" class="formlableheader">Step 2: Proceed to make a payment and download instructions</td>
+  </tr>
+  <tr>
+    <td colspan="2" class="formlable"><apex:inputCheckbox value="{!I_agree_to_Hult_Terms_and_Conditions_c}"/> I agree to Hult International School Terms and Conditions</td>
+  </tr>
+  <tr>
+    <td colspan="2" class="formlable" style="padding-left:25px"><apex:outputLink value="#">Download</apex:outputLink></td>
+  </tr>
+  <tr>
+    <td colspan="2">&nbsp;</td>
+  </tr>
+                  <tr><td colspan="2" background="{!URLFOR($Resource.Images, 'new-images/line.jpg')}" style="background-repeat:repeat-x">&nbsp;</td></tr>
+  <tr><td align="center" colspan="2">
+<span class="button primary">
+<apex:commandLink id="cbtneditlogin" action="{!saveandcontinue}" value="Save and Continue" >
+<apex:param name="id" value="{!id}"/>
+</apex:commandLink>
+</span>
+
+ <span class="divider">|</span>
+        <apex:commandLink value="Save and Logout"  styleClass="secondary" id="step2andlogout" action="{!saveandcontinueandlogout}" />
+
+</td></tr>
+<tr>
+    <td colspan="2">&nbsp;</td>
+  </tr>
+</table></td></tr>
+<tr><td  background="{!URLFOR($Resource.Images, 'new-images/line.jpg')}" style="background-repeat:repeat-x">&nbsp;</td></tr>
+<tr><td><table width="100%"  border="0">
+  <tr>
+    <td class="formlableheader">How to pay via Bank Transfer/Wire </td>
+  </tr>
+  <tr>
+    <td class="formlable">Please download there instruction and read carefully</td>
+  </tr>
+  <tr>
+    <td class="formlable"><apex:outputLink value="#">Download Instructions</apex:outputLink>  </td>
+  </tr>
+  <tr>
+    <td class="formlable">Once you have made the wire/transfer, please login to your Hult account and attach the bank wire/transfer receipt using the ‘Attachment Tab’</td>
+  </tr>
+</table></td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr>
+<td style="padding-right:20px">
+<span style="float:right;vertical-align:bottom"><apex:outputLink value="#"><apex:image url="{!URLFOR($Resource.Images, 'new-images/topimage.jpg')}"  />&nbsp;<b>back to top</b></apex:outputLink> </span></td>
+</tr>
+</td></tr></table></td></tr>
+
+</table>
+<script>
+document.getElementById('online').style.backgroundImage="url('{!URLFOR($Resource.Images, 'new-images/tabwhiteimage.jpg')}')";
+document.getElementById('online').style.backgroundPosition="center";
+document.getElementById('online1').className="headertabonload";
+
+</script>
+</apex:form>
+</td>
+</tr>
+
+</table>
+</apex:outputPanel>
+</apex:page>

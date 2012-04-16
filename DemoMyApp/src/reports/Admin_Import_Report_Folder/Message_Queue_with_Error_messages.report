@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>rC_Core__Message__c$Convert_Now_Lead__c</field>
+    </columns>
+    <columns>
+        <field>rC_Core__Message__c$Name</field>
+    </columns>
+    <columns>
+        <field>rC_Core__Message__c.rC_Core__Message_Errors__r$Name</field>
+    </columns>
+    <columns>
+        <field>rC_Core__Message__c$rC_Core__Data__c</field>
+    </columns>
+    <columns>
+        <field>rC_Core__Message__c.rC_Core__Message_Errors__r$rC_Core__Description__c</field>
+    </columns>
+    <currency>USD</currency>
+    <filter>
+        <criteriaItems>
+            <column>rC_Core__Message__c$rC_Core__Errors__c</column>
+            <operator>equals</operator>
+            <value>1</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <name>Message Queue with Error messages</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Messages_with_errors__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <sortColumn>rC_Core__Message__c$Convert_Now_Lead__c</sortColumn>
+    <sortOrder>Desc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>rC_Core__Message__c.rC_Core__Message_Errors__r$CreatedDate</dateColumn>
+        <interval>INTERVAL_LASTTHISMONTH</interval>
+    </timeFrameFilter>
+</Report>

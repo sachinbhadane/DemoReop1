@@ -1,0 +1,17 @@
+<apex:component controller="headerController">
+<apex:stylesheet value="{!$Resource.style}" />
+<TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">  
+  <tr height="45" valign="center">
+        <td >&nbsp;</td>
+        <td style="text-align:right; padding-right:10px" class="formlable">
+        <apex:outputPanel rendered="{!if(($User.FirstName!='Applicant Portal'),'true','false')}">
+        {!$User.FirstName} {!$User.LastName}<apex:outputText rendered="{!if(App_ID_c!=null,true,false)}" escape="false" value="&nbsp;(Student ID {!App_ID_c})" /><span class="divider">|</span>
+    <apex:outputLink styleClass="logout" value="/secur/logout.jsp">Logout</apex:outputLink></apex:outputPanel></td>
+          </tr>  
+    <TR>
+        <TD colspan="2">           
+            <apex:image url="{!URLFOR($Resource.Images, 'new-images/onlineAccount.jpg')}" width="960" height="144" />
+        </TD>
+    </TR>
+</table>
+</apex:component>

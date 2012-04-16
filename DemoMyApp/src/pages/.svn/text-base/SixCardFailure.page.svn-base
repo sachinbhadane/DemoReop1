@@ -1,0 +1,128 @@
+<apex:page action="{!PaymentFailure}" showHeader="false" controller="SixCardPaymentController">
+<center>
+<table width="40%">
+    <tr>
+        <td align="center" colspan="2" style="padding-top:40xp;padding-bottom:20px;">
+         <apex:pageMessages ></apex:pageMessages>
+        </td>
+    </tr>
+    <tr>
+        <td align="center" colspan="2" style="padding-top:40xp;padding-bottom:20px;">
+            <apex:outputText value="Payment Failure Page" />
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <apex:outputText value="Txn ID: " />
+        </td>
+        <td align="left">
+            <apex:outputText value="{!TxnID}" />
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <apex:outputText value="Txn Type: " />
+        </td>
+        <td align="left">
+            <apex:outputText value="{!TxnType}" />}
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <apex:outputText value="Card Last Four: " />
+        </td>
+        <td align="left">
+            <apex:outputText value="{!Card_4Digit}" />
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <apex:outputText value="Txn State: " />
+        </td>
+        <td align="left">
+            <apex:outputText value="{!TxnState}" />
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <apex:outputText value="Action Code: " />
+        </td>
+        <td align="left">
+            <apex:outputText value="{!ActionCode}" />
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <apex:outputText value="Action Message: " />
+        </td>
+        <td align="left">
+            <apex:outputText value="{!ActionMsg}" />
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <apex:outputText value="Auth Code: " />
+        </td>
+        <td align="left">
+            <apex:outputText value="{!AuthCode}" />
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <apex:outputText value="Error Code: " />
+        </td>
+        <td align="left">
+            <apex:outputText value="{!Error_Code}" />
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <apex:outputText value="Error Text: " />
+        </td>
+        <td align="left">
+            <apex:outputText value="{!Error_Text}" />
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <apex:outputText value="Merchant Ref: " />
+        </td>
+        <td align="left">
+            <apex:outputText value="{!MerchantRef}" />
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <apex:outputText value="Merchant Ref2: " />
+        </td>
+        <td align="left">
+            <apex:outputText value="{!financeID}" />
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <apex:outputText value="Card Type: " />
+        </td>
+        <td align="left">
+            <apex:outputText value="{!Card_Type}" />
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <apex:outputText value="Card 4Digit: " />
+        </td>
+        <td align="left">
+            <apex:outputText value="{!Card_4Digit}" />
+        </td>
+    </tr>
+    <tr>
+        <td align="right">
+            <apex:outputText value="Card Expiry: " />
+        </td>
+        <td align="left">
+            <apex:outputText value="{!Card_Expiry}" />
+        </td>
+    </tr>
+</table>
+</center>
+</apex:page>

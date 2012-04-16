@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Contact$Name</field>
+    </columns>
+    <columns>
+        <field>Contact$Email</field>
+    </columns>
+    <columns>
+        <field>Contact$Program_Primary__c</field>
+    </columns>
+    <columns>
+        <field>Contact$Account</field>
+    </columns>
+    <currency>USD</currency>
+    <filter>
+        <criteriaItems>
+            <column>Contact$LeadSource</column>
+            <operator>equals</operator>
+            <value>Cappex</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Contact$Program_Primary__c</column>
+            <operator>notContain</operator>
+            <value>bachelor,biba</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>CAPPEX_For Priscilla2</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Contact_Report__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Contact$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+        <startDate>2011-11-01</startDate>
+    </timeFrameFilter>
+</Report>

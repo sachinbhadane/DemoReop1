@@ -1,0 +1,157 @@
+<apex:page showHeader="false" controller="ApplicantPaymentController">
+ <form name="Form1" method="post"  id="Form1">
+<script>
+function noPostBack(sNewFormAction) {
+        //alert();
+        //document.getElementById('SubmitTop').style.display='none';
+        sNewFormAction = sNewFormAction + document.forms[0].security_emerchant_id.value;
+        if (document.layers) //The browser is Netscape 4
+        {
+            document.layers['Content'].document.forms[0].__VIEWSTATE.name =
+                                                           'NOVIEWSTATE';
+            document.layers['Content'].document.forms[0].action =
+                                                     sNewFormAction;
+        }
+        else //It is some other browser that understands the DOM
+        {
+            document.forms[0].action = sNewFormAction;
+            document.forms[0].__VIEWSTATE.name = 'NOVIEWSTATE';
+        }
+        
+        
+    }
+</script>
+<table class="innertable" border="0" cellpadding="0" cellspacing="0">
+<tr><td colspan="2"><c:onlineHeader /></td></tr>
+<tr>
+     
+<td>
+
+
+
+    <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
+        <tr>
+            <td><c:OnlineAccountHeader /></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+           
+            <table width="100%" class="innerpadding"  border="0" cellpadding="0" cellspacing="0"><tr><td>
+        <tr>
+            <td colspan="2" class="formheader">Confirmation Deposit</td>
+        </tr>
+        
+        <tr>
+            <td height="19" background="{!URLFOR($Resource.Images, 'new-images/line.jpg')}" style="background-repeat:repeat-x;">&nbsp;</td>
+        </tr>
+        <apex:outputPanel rendered="{!tab2}">
+        <tr style="text-align:left"><td colspan="2" >
+        <b><p>
+        <!-- Once you have paid the application fee, you will have to log back in to submit your application to Hult Admissions for review.-->
+        </p>
+        </b>
+<apex:pageMessages escape="false" showDetail="false"  />
+</td></tr>
+        <tr>
+            <td valign="top">
+               <!-- Add code here -->
+              
+<table align="center" border="0" width="100%">
+                
+                <input type="hidden" name="security_emerchant_id" value="{!Merchant_ID_c}" />
+                <input type="hidden" name="security_validation_code" value="{!Validation_Code_c}" />
+                <input type="hidden" name="service_action" value="pay" />
+                <!--
+                <input type="hidden" name="trx_amount_value" value="100" />
+                <input type="hidden" name="trx_amount_currency_code" value="EUR" />
+                -->
+                <input type="hidden" name="trx_amount_value" value="{!txnAmount/paymentType}" />                
+                <input type="hidden" name="trx_amount_currency_code" value="{!ccode}" /> 
+                <input type="hidden" size="70" name="post_success" value="{!url}SixCardSuccess" />
+                <input type="hidden" size="70" name="post_failure" value="{!url}SixCardFailure"  />
+                <input type="hidden" name="trx_is_keyed" value="True" />
+                <!-- input type="hidden" name="trx_merchant_reference" value="{!appid}" / -->
+                <input type="hidden" name="trx_merchant_reference_2" value="Confirmation Deposit" />
+                <input type="hidden" name="trx_merchant_reference" value="{!ftname}" />
+                 <tr>
+            <td class="formlable" width="250" align="right">Program</td>
+            <td class="formlable" align="left">{!Program_c}</td>
+
+          </tr>
+                
+                 <tr>
+                    <td class="formlable" align="right">Total Confirmation Deposit Amount</td>
+                    <td class="formlable" align="left">{!ccode}
+                    <apex:outputText value="{0, number, .00}">
+                       <apex:param value="{!txnAmount1}" />
+                     </apex:outputText>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="formlable" align="right">Total Confirmation Deposit Amount to be paid</td>
+                    <td class="formlable" align="left">{!ccode}
+                    <apex:outputText value="{0, number, .00}">
+                       <apex:param value="{!txnAmount1/paymentType}" />
+                     </apex:outputText>
+
+                    </td>
+                </tr>             
+                
+               
+                
+            </table>
+
+</td></tr>
+<tr><td >&nbsp;</td></tr>
+          <tr>
+<td background="{!URLFOR($Resource.Images, 'new-images/line.jpg')}" style="background-repeat:repeat-x;">&nbsp;</td>
+</tr>
+<tr><td style="padding-left:20px;padding-right:20px;vertical-align:text-bottom">
+<table width="100%" cellpadding="0" cellspacing="0"><tr>
+<td align="center">
+<apex:outputPanel rendered="{!if((isfinanceRecord==true && Confirmation_Deposit_Paid_c==false),true,false)}" >
+<style>
+.button {     
+
+background: url("{!URLFOR($Resource.Images, 'new-images/pay-now.jpg')}") no-repeat scroll 0 0 transparent;   
+color: #000000;   
+cursor: pointer;   
+font-weight: bold;   
+height: 36px;   
+padding-bottom: 2px;   
+width: 110px;
+border: none;
+} 
+</style>
+
+
+
+<input class="button" title="Pay Now" type="submit" name="SubmitTop" onclick="Javascript:noPostBack('{!txnUrl}');" value=" "  id="SubmitTop" />
+
+
+
+</apex:outputPanel>
+</td></tr><!--
+<tr>
+<td><span style="float:right;vertical-align:bottom"><apex:outputLink value="#"><apex:image url="{!URLFOR($Resource.Images, 'new-images/topimage.jpg')}"  />&nbsp;<b>back to top</b></apex:outputLink> </span></td>
+</tr>
+-->
+</table>
+</td></tr></apex:outputPanel>
+<apex:outputPanel rendered="{!!tab2}" >
+<tr><td class="uncompetetab_msg" align="center" height="200" valign="top">
+You must complete Program &amp; Location tab before Payment tab 
+</td></tr>
+</apex:outputPanel></td></tr></table></td>
+</tr></table>
+<script>
+document.getElementById('PayConfirmationDeposit').style.backgroundImage="url('{!URLFOR($Resource.Images, 'new-images/tabwhiteimage.jpg')}')";
+document.getElementById('PayConfirmationDeposit').style.backgroundPosition="center";
+document.getElementById('PayConfirmationDeposit1').className="headertabonload";
+</script>
+
+
+</td></tr></table>
+</form>
+</apex:page>

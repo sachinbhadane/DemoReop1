@@ -1,0 +1,294 @@
+<apex:page showHeader="false" controller="ApplicantEducationController">
+    <apex:includeScript value="{!$Resource.RegistrationJavascript}" />
+    <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js" />
+    <table class="innertable" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+            <td colspan="2"><c:Header /></td>
+        </tr>
+        <tr>
+            <td><apex:form >
+                <table width="100%" border="0" cellpadding="0" cellspacing="0"
+                    align="center">
+                    <tr>
+                        <td><c:ApplicantHeader /></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                        <table width="100%" class="innerpadding" border="0"
+                            cellpadding="0" cellspacing="0">
+                            <tr>
+                                <td>
+                                <tr>
+                                    <td colspan="2" class="formheader">Education</td>
+                                </tr>
+
+                                <tr>
+                                    <td
+                                        background="{!URLFOR($Resource.Images, 'new-images/line.jpg')}"
+                                        style="background-repeat: repeat-x">&nbsp;</td>
+                                </tr>
+                                <apex:outputPanel rendered="{!tab2}">
+                                    <tr style="text-align: left">
+                                        <td colspan="2"><apex:pageMessages escape="false"
+                                            showDetail="false" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td valign="top">
+
+                                        <table width="100%" align="center" cellpadding="0"
+                                            cellspacing="0" border="0">
+
+                                            <tr>
+                                                <td colspan="2" height="6"></td>
+                                            </tr>
+
+                                            <tr>
+                                                <td class="formlable" align="right" width="202">Degree
+                                                Attained<span class="error_star">*</span></td>
+                                                <td class="formlable" align="left"><apex:selectList multiselect="false" onchange="show_highSchool(this.value)"
+                                                    size="1" disabled="{!finalsubmit}"
+                                                    value="{!Undergraduate.Highest_Degree_Attained__c}"
+                                                    styleClass="form-selectList">
+                                                    <apex:selectOptions value="{!Items}" />
+                                                </apex:selectList></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="formlable" align="right" width="202">School
+                                                attended<span class="error_star">*</span></td>
+                                                <td class="formlable" align="left"><apex:inputField rendered="{!!finalsubmit}"
+                                                    value="{!Undergraduate.Undergraduate_School_Attended__c}"
+                                                    styleClass="form-text-box" /> <apex:inputText disabled="{!finalsubmit}" rendered="{!finalsubmit}"
+                                                    value="{!Undergraduate.Undergraduate_School_Attended__c}"
+                                                    styleClass="form-text-box" /></td>
+                                            </tr>
+                                            <tr>
+
+                                                <td class="formlable" align="right">Date attended from
+                                                (dd/mm/yyyy)<span class="error_star">*</span></td>
+                                                <td class="formlable" align="left"><apex:inputText disabled="{!finalsubmit}" styleClass="form-text-box"
+                                                    style="width:30px" maxlength="2"
+                                                    value="{!GraduateDateFrom_day}" /> -&nbsp; <apex:inputText disabled="{!finalsubmit}" styleClass="form-text-box"
+                                                    style="width:30px" maxlength="2"
+                                                    value="{!GraduateDateFrom_month}" /> -&nbsp; <apex:inputText disabled="{!finalsubmit}" styleClass="form-text-box"
+                                                    style="width:50px" maxlength="4"
+                                                    value="{!GraduateDateFrom_year}" /></td>
+
+                                            </tr>
+
+                                            <tr>
+                                                <td class="formlable" align="right">Date attended to
+                                                (dd/mm/yyyy)<span class="error_star">*</span></td>
+                                                <td class="formlable" align="left"><apex:inputText disabled="{!finalsubmit}" styleClass="form-text-box"
+                                                    style="width:30px" maxlength="2"
+                                                    value="{!GraduateDateTo_day}" /> -&nbsp; <apex:inputText disabled="{!finalsubmit}" styleClass="form-text-box"
+                                                    style="width:30px" maxlength="2"
+                                                    value="{!GraduateDateTo_month}" /> -&nbsp; <apex:inputText disabled="{!finalsubmit}" styleClass="form-text-box"
+                                                    style="width:50px" maxlength="4"
+                                                    value="{!GraduateDateTo_year}" /></td>
+                                            </tr>
+
+                                            <tr class="notHighSchool">
+                                                <td class="formlable" align="right">Major and/or
+                                                Speciality<span class="error_star">*</span></td>
+                                                <td class="formlable" align="left"><apex:inputField rendered="{!!finalsubmit}"
+                                                    value="{!Undergraduate.EducationSpeciality__c}"
+                                                    styleClass="form-text-box" /> <apex:inputText disabled="{!finalsubmit}" rendered="{!finalsubmit}"
+                                                    value="{!Undergraduate.EducationSpeciality__c}"
+                                                    styleClass="form-text-box" /></td>
+                                            </tr>
+                                            <tr class="HighSchool" id="GPA">
+                                                <td class="formlable" align="right">Grade
+                                                Point Average (GPA)</td>
+                                                <td class="formlable" align="left" valign="top"><apex:inputField rendered="{!!finalsubmit}"
+                                                    value="{!Undergraduate.High_School_Grade_Point_Average__c}"
+                                                    styleClass="form-text-box" /> <apex:inputText disabled="{!finalsubmit}" rendered="{!finalsubmit}"
+                                                    value="{!Undergraduate.High_School_Grade_Point_Average__c}"
+                                                    styleClass="form-text-box" /></td>
+                                            </tr>
+                                            <tr class="HighSchool">
+                                                <td class="formlable" align="right">High School SAT/ACT
+                                                <br />
+                                                (if applicable)</td>
+                                                <td class="formlable" align="left" valign="top"><apex:inputField rendered="{!!finalsubmit}"
+                                                    value="{!Undergraduate.High_School_SAT_ACT__c}"
+                                                    styleClass="form-text-box" /> <apex:inputText disabled="{!finalsubmit}" rendered="{!finalsubmit}"
+                                                    value="{!Undergraduate.High_School_SAT_ACT__c}"
+                                                    styleClass="form-text-box" /></td>
+                                            </tr>
+                                            <tr class="HighSchool">
+                                                <td class="formlable" align="right">International
+                                                Baccalaureate Score (if applicable)</td>
+                                                <td class="formlable" align="left"><apex:inputField rendered="{!!finalsubmit}"
+                                                    value="{!Undergraduate.International_Baccalaureate_Score__c}"
+                                                    styleClass="form-text-box" /> <apex:inputText disabled="{!finalsubmit}" rendered="{!finalsubmit}"
+                                                    value="{!Undergraduate.International_Baccalaureate_Score__c}"
+                                                    styleClass="form-text-box" /></td>
+                                            </tr>
+
+                                            <tr>
+                                                <td colspan="2">&nbsp;</td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td align="left"><apex:outputPanel rendered="{!!finalsubmit}">
+                                                    <b> Please list all institutions you have attended
+                                                    <p />
+                                                    </b>
+                                                    <span class="button primary"> <apex:commandLink rendered="{! NOT is_Edit}"
+                                                        value="Add Additional Institution"
+                                                        title="Add Additional Institution" id="Undergraduate"
+                                                        action="{!saveUndergraduate}" /> <apex:commandLink rendered="{!is_Edit}" value="Save" title="Save" id="Save"
+                                                        action="{!saveUndergraduate}" />&nbsp; </span>
+                                                    <apex:outputText rendered="{!is_Edit}">
+                                                        <span class="button primary"> <apex:commandLink rendered="{!is_Edit}" value="Cancel" title="Cancel"
+                                                            id="Cancel" action="{!is_Cancel}" /> </span>
+                                                    </apex:outputText>
+                                                </apex:outputPanel></td>
+                                            </tr>
+                                        </table>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td
+                                            style="padding-left: 20px; padding-right: 20px; vertical-align: text-bottom">
+                                        <table width="100%">
+                                            <tr>
+                                                <td colspan="2" height="9"></td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2"
+                                                    background="{!URLFOR($Resource.Images, 'new-images/line.jpg')}"
+                                                    style="background-repeat: repeat-x">&nbsp;</td>
+                                            </tr>
+                                            <tr>
+                                                <td align="center" colspan="2"><apex:outputPanel rendered="{!!finalsubmit}">
+                                                    <span class="button primary"> <apex:commandLink rendered="{!!finalsubmit}" value="Save and Continue"
+                                                        title="Save and Continue" id="cbtneditlogin"
+                                                        action="{!saveandcontinue}">
+                                                        <apex:param name="saveandc" value="saveandc" />
+                                                    </apex:commandLink> </span>
+                                                    <span class="divider">|</span>
+                                                    <apex:commandLink value="Save and Logout"
+                                                        rendered="{!NOT(finalsubmit)}" styleClass="secondary"
+                                                        action="{!saveandcontinueandlogout}">
+                                                        <apex:param name="saveandc" value="saveandc" />
+                                                    </apex:commandLink>
+                                                </apex:outputPanel></td>
+                                            </tr>
+                                        </table>
+                                        </td>
+                                    </tr>
+                                </apex:outputPanel> <apex:outputPanel rendered="{!!tab2}">
+                                    <tr>
+                                        <td class="uncompetetab_msg" align="center" height="200"
+                                            valign="top">You must complete Program &amp; Location
+                                        tab before Education tab</td>
+                                    </tr>
+                                </apex:outputPanel></td>
+                            </tr>
+                        </table>
+                        </td>
+                    </tr>
+                </table>
+                <script>
+document.getElementById('Education').style.backgroundImage="url('{!URLFOR($Resource.Images, 'new-images/tabwhiteimage.jpg')}')";
+document.getElementById('Education').style.backgroundPosition="center";
+document.getElementById('Education1').className="headertabonload";
+
+</script>
+            </apex:form></td>
+        </tr>
+        <apex:form >
+            <tr>
+                <td align="center">
+
+                <style>
+.hclass {
+    background-color: #E2E2E2;
+}
+</style>
+                <apex:dataTable rendered="{!if((elist.size==0),'false','true')}"
+                    cellpadding="5px;" headerClass="hclass" value="{!elist}" var="e"
+                    style="width:90%; bgcolor:#FFFFFF">
+                    <apex:column >
+                        <apex:facet name="header">Degree Attained</apex:facet>
+                        <apex:outputText value="{!e.Highest_Degree_Attained__c}" />
+                    </apex:column>
+                    <apex:column >
+                        <apex:facet name="header">School attended</apex:facet>
+                        <apex:outputText rendered="{!if(e.Highest_Degree_Attained__c=='High School',true,false)}" value="{!e.High_School_Attended__c}" />
+                        <apex:outputText rendered="{!if(e.Highest_Degree_Attained__c=='High School',false,true)}" value="{!e.Undergraduate_School_Attended__c}" />
+
+                    </apex:column>
+                    <apex:column >
+                        <apex:facet name="header">Date attended from<br /> (dd/mm/yyyy)</apex:facet>
+                        <apex:outputText value="{0,date,dd'/'MM'/'yyyy}">
+                            <apex:param value="{!e.GraduateDateFrom__c}" />
+                        </apex:outputText>
+                    </apex:column>
+                    <apex:column >
+                        <apex:facet name="header">Date attended to<br /> (dd/mm/yyyy)</apex:facet>
+                        <apex:outputText value="{0,date,dd'/'MM'/'yyyy}">
+                            <apex:param value="{!e.GraduateDateTo__c}" />
+                        </apex:outputText>
+                    </apex:column>
+                    <apex:column >
+                        <apex:facet name="header">Major and/or Speciality</apex:facet>
+                        <apex:outputText value="{!e.EducationSpeciality__c}" />
+                    </apex:column>
+                    <apex:column title="High School Grade Point Average (GPA) This is the average grade you have obtained at the end of your High School ">
+                        <apex:facet name="header">GPA</apex:facet>
+                        <apex:outputText value="{!e.High_School_Grade_Point_Average__c}" />
+                    </apex:column>
+                    <apex:column title="High School SAT/ACT">
+                        <apex:facet name="header">SAT/ACT</apex:facet>
+                        <apex:outputText value="{!e.High_School_SAT_ACT__c}" />
+                    </apex:column>
+                    <apex:column title="International Baccalaureate Score">
+                        <apex:facet name="header">IBS</apex:facet>
+                        <apex:outputText value="{!e.International_Baccalaureate_Score__c}" />
+                    </apex:column>
+                    <apex:column rendered="{!!finalsubmit}" style="white-space:nowrap">
+                        <apex:facet name="header">Action</apex:facet>
+                        <apex:commandLink action="{!edit}"> Edit
+                    <apex:param name="id" value="{!e.id}" />
+                        </apex:commandLink>
+                | <apex:commandLink action="{!is_delete}"
+                            onclick="return del();"> Delete
+                    <apex:param name="id" value="{!e.id}" />
+                        </apex:commandLink>
+                    </apex:column>
+                </apex:dataTable></td>
+            </tr>
+            <tr>
+                <td height="10">&nbsp;</td>
+            </tr>
+        </apex:form>
+    </table>
+    <script>
+    $(document).ready(function(){
+    
+    $('.notHighSchool').show();
+    });
+
+    function show_highSchool(str)
+    {
+    if(str=='High School')
+        {
+            $('.HighSchool').show();
+            $('.notHighSchool').hide();
+        }
+        else
+        {
+            $('.HighSchool').hide();
+            $('.HighSchool input').val('');
+        }
+     if (str=='Bachelor\'s Degree') {
+          $('#GPA').show();
+     }
+    }
+show_highSchool("{!Undergraduate.Highest_Degree_Attained__c}") ;   
+</script>
+</apex:page>

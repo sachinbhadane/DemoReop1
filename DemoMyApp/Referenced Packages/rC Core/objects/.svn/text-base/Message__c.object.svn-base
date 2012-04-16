@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>InDevelopment</deploymentStatus>
+    <deprecated>false</deprecated>
+    <enableActivities>false</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>Data__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>This is the XML payload data for each message. While this field is not required, if there is data here it must be in a valid XML document format.</inlineHelpText>
+        <label>Data</label>
+        <length>32768</length>
+        <trackHistory>true</trackHistory>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Deletable_Cache_Time__c</fullName>
+        <defaultValue>60</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>Cache time in minutes to hold a processed message in the general queue before deleting the message and any attachments permanently. Default value is 60 minutes. Please note: this is merely a recommendation. Messages could be deleted at any time.</inlineHelpText>
+        <label>Deletable Cache Time</label>
+        <precision>18</precision>
+        <required>true</required>
+        <scale>0</scale>
+        <trackHistory>true</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Deletable_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>This is the date/time that the message will be deleted.</inlineHelpText>
+        <label>Deletable Date</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Effective_Date__c</fullName>
+        <defaultValue>NOW()</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>This is the earliest date/time that the message will be processed. By default, new messages will be processed as soon as possible (generally within 1 to 5 minutes - depending on your system scheduler settings).</inlineHelpText>
+        <label>Effective Date</label>
+        <required>true</required>
+        <trackHistory>true</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Endpoint__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>This is the URL used to match messages against servicer modules.</inlineHelpText>
+        <label>Endpoint</label>
+        <length>255</length>
+        <required>true</required>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Errors__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>This flag will be set to true if processing of this message failed for any reason.</inlineHelpText>
+        <label>Errors?</label>
+        <trackHistory>true</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Processed_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>This is the actual date/time that the message was processed by a servicer module.</inlineHelpText>
+        <label>Processed Date</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <label>Message</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Endpoint__c</columns>
+        <columns>Data__c</columns>
+        <columns>Effective_Date__c</columns>
+        <columns>Processed_Date__c</columns>
+        <columns>Deletable_Date__c</columns>
+        <columns>Errors__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>{00000000}</displayFormat>
+        <label>Message ID</label>
+        <trackHistory>true</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Messages</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Endpoint__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Data__c</customTabListAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+    </searchLayouts>
+    <sharingModel>Private</sharingModel>
+    <validationRules>
+        <fullName>Deletable_Date_Before_Effective_Date</fullName>
+        <active>true</active>
+        <errorConditionFormula>NOT(ISBLANK(Deletable_Date__c)) &amp;&amp; Deletable_Date__c &lt; Effective_Date__c</errorConditionFormula>
+        <errorDisplayField>Deletable_Date__c</errorDisplayField>
+        <errorMessage>The deletable date cannot be prior to the effective date.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Processed_Date_Before_Effective_Date</fullName>
+        <active>true</active>
+        <errorConditionFormula>NOT(ISBLANK(Processed_Date__c)) &amp;&amp; Processed_Date__c &lt; Effective_Date__c</errorConditionFormula>
+        <errorDisplayField>Processed_Date__c</errorDisplayField>
+        <errorMessage>The processed date cannot be prior to the effective date.</errorMessage>
+    </validationRules>
+</CustomObject>

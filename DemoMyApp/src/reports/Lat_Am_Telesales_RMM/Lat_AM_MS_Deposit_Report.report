@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Contact$Name</field>
+    </columns>
+    <columns>
+        <field>Contact.OpportunityContactRoles$Name</field>
+    </columns>
+    <columns>
+        <field>Contact.OpportunityContactRoles.Opportunity_Finances__r$Name</field>
+    </columns>
+    <columns>
+        <field>Contact.OpportunityContactRoles.Opportunity_Finances__r$Deposit_Date_Paid__c</field>
+    </columns>
+    <currency>USD</currency>
+    <filter>
+        <criteriaItems>
+            <column>Contact$Owner</column>
+            <operator>equals</operator>
+            <value>gil matos</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Contact$Start_Term__c</column>
+            <operator>contains</operator>
+            <value>2012</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>Lat AM MS Deposit Report</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Applicant_with_Application_and_Finance_Transaction__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Contact$Birthdate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ReportFolder xmlns="http://soap.sforce.com/2006/04/metadata">
+    <accessType>Shared</accessType>
+    <name>Eurasia Report</name>
+    <publicFolderAccess>ReadWrite</publicFolderAccess>
+    <sharedTo>
+        <roles>EU Conversion Manager</roles>
+        <roles>EU Conversion User</roles>
+        <roles>EU Marketing User</roles>
+        <roles>EU Product Head - BIBA (UG)</roles>
+        <roles>EU Product Head - EMBA</roles>
+        <roles>EU Product Head- MA</roles>
+        <roles>EU Product Head- MBA</roles>
+        <roles>EU Recruiter - BIBA (UG)</roles>
+        <roles>EU Recruiter - EMBA</roles>
+        <roles>EU Recruiter - MA</roles>
+        <roles>EU Recruiter MBA</roles>
+        <roles>EU Region</roles>
+        <roles>EU Regional Marketing Manager</roles>
+        <roles>EU Telesales Manager</roles>
+        <roles>EU Telesales User</roles>
+    </sharedTo>
+</ReportFolder>

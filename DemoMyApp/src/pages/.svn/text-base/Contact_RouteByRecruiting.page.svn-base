@@ -1,0 +1,1 @@
+<apex:page standardController="Contact" extensions="Contact_RouteByRecruiting" action="{!execute}" />

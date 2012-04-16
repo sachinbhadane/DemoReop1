@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Account$Name</field>
+    </columns>
+    <columns>
+        <field>Account.Contacts$Name</field>
+    </columns>
+    <columns>
+        <field>Account.Contacts.OpportunityContactRoles$Name</field>
+    </columns>
+    <columns>
+        <field>Account.Contacts.OpportunityContactRoles*Opportunity$Application_Status__c</field>
+    </columns>
+    <currency>USD</currency>
+    <filter>
+        <criteriaItems>
+            <column>Account.Contacts.OpportunityContactRoles*Opportunity$Application_Status__c</column>
+            <operator>equals</operator>
+            <value>Deferred</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>Daniel - deferred students</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Applicants_and_Applications__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Account$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Contact$Program_Primary__c</field>
+    </columns>
+    <columns>
+        <field>Contact$Owner</field>
+    </columns>
+    <columns>
+        <field>Contact.OpportunityContactRoles*Opportunity$Contact__c</field>
+    </columns>
+    <columns>
+        <field>Contact.OpportunityContactRoles$StageName</field>
+    </columns>
+    <columns>
+        <field>Contact.OpportunityContactRoles*Opportunity$Application_Substage__c</field>
+    </columns>
+    <columns>
+        <field>Contact$MailingState</field>
+    </columns>
+    <columns>
+        <field>Contact$CreatedDate</field>
+    </columns>
+    <currency>USD</currency>
+    <filter>
+        <criteriaItems>
+            <column>Contact$Region__c</column>
+            <operator>equals</operator>
+            <value>North Am</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Contact$Program_Primary__c</column>
+            <operator>notContain</operator>
+            <value>Bachelor,Biba,MIB,MIm,MFIN,Masters,EMBA,MSE</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Contact.OpportunityContactRoles*Opportunity$Start_Term__c</column>
+            <operator>equals</operator>
+            <value>September 2012</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>Territory Data 02232012</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Application_and_Contact_Information__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Contact$Birthdate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

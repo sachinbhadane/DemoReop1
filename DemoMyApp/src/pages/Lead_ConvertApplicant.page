@@ -1,0 +1,3 @@
+<apex:page standardController="Lead" extensions="Lead_ConvertApplicant" action="{!initialize}">
+    <apex:pageMessages />
+</apex:page>

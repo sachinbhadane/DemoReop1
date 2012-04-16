@@ -1,0 +1,239 @@
+<apex:page showHeader="false" action="{!updateflag}"  controller="ApplicantDocumentsController">
+    <apex:includeScript value="{!$Resource.RegistrationJavascript}" />
+    <table class="innertable" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+            <td colspan="2"><c:onlineHeader /></td>
+        </tr>
+        <tr>
+
+            <td><apex:form >
+                <table width="100%" border="0" cellpadding="0" cellspacing="0"
+                    align="center">
+                    <tr>
+                        <td><c:OnlineAccountHeader /></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                        <table width="100%" class="innerpadding" border="0"
+                            cellpadding="0" cellspacing="0">
+                            <tr>
+                                <td>
+                                <tr>
+                                    <td colspan="2" class="formheader">Attach Documents</td>
+                                </tr>
+
+                                <tr>
+                                    <td
+                                        background="{!URLFOR($Resource.Images, 'new-images/line.jpg')}"
+                                        style="background-repeat: repeat-x">&nbsp;</td>
+                                </tr>
+
+                                <tr>
+                                    <td class="formlable">Please follow these instructions
+                                    when uploading documents to your application: <br />
+                                    Step 1: Please select Admissions from the drop down under ‘Document Type’.<br />
+                                    Step 2: Select what type of document you are uploading: Current
+                                    CV/Resume, Undergraduate Transcript, etc.<br />
+                                    Step 3: Add document description, if applicable.<br />
+                                    Step 4: Browse for the file you want to upload. <br />
+                                    Step 5: Click the attach button to upload your documents. <br />
+                                    <p>You will continue these steps until you have uploaded
+                                    all the documents necessary. Note that all documents must be in
+                                    English or translated to English by official translator.</p>
+                                    <p>It may look like your information has disappeared. It
+                                    has not, you will see it if you scroll to the bottom of the
+                                    screen. Once you have uploaded your last document, you can
+                                    select the Save and Continue button to continue to the Payment
+                                    and Submission page.</p>
+
+                                    </td>
+                                </tr>
+                                <apex:outputPanel rendered="{!tab2}">
+                                    <tr style="text-align: left">
+                                        <td colspan="2"><apex:pageMessages escape="false"
+                                            showDetail="false" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td valign="top">
+                                        <table width="100%" border="0">
+                                            <!--tr>
+    <td class="formlableheader" align="right" width="202">Attach Documents</td>
+    <td>
+
+        </td>
+  </tr -->
+
+                                            <tr>
+                                                <p />
+                                                <td class="formlable" align="right">Document Type<span
+                                                    class="error_star">*</span></td>
+                                                <td><apex:selectList value="{!reqtype}"
+                                                    style="width:450px" styleClass="form-selectList" size="1"
+                                                    multiselect="false">
+                                                    <apex:selectOption itemLabel="-Select-" itemValue="" />
+                                                    <apex:selectOption itemLabel="Admissions"
+                                                        itemValue="Admissions" />
+                                                    <apex:selectOption itemLabel="Visa" itemValue="Visa" />
+                                                    <apex:actionSupport event="onchange"
+                                                        action="{!getexamtype}" />
+                                                </apex:selectList></td>
+                                            </tr>
+                                            <apex:outputPanel id="panelreq">
+                                                <tr>
+                                                    <td class="formlable" align="right">List of Documents<span
+                                                        class="error_star">*</span></td>
+                                                    <td><apex:selectList id="reqid" value="{!hist.name}"
+                                                        style="width:450px" styleClass="form-selectList" size="1"
+                                                        multiselect="false">
+
+                                                        <apex:selectOptions value="{!options}" />
+                                                    </apex:selectList></td>
+                                                </tr>
+                                            </apex:outputPanel>
+                                            <apex:outputPanel id="doc1" rendered="{!!isdoc}">
+                                                <tr>
+                                                    <td class="formlable" align="right">Description</td>
+                                                    <td><apex:inputField styleClass="form-TextArea1"
+                                                        value="{!attach.description}" /></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="formlable" align="right">File<span
+                                                        class="error_star">*</span></td>
+                                                    <td><apex:inputfile id="infile" value="{!attach.body}"
+                                                        styleClass="form-selectList" filename="{!attach.Name}" />
+                                                    </td>
+                                                </tr>
+                                            </apex:outputPanel>
+                                            <tr>
+                                                <td colspan="2"
+                                                    background="{!URLFOR($Resource.Images, 'new-images/line.jpg')}"
+                                                    style="background-repeat: repeat-x"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="formlable" align="right"></td>
+                                                <td><span class="button primary"> <apex:commandLink value="Attach" title="Attach" id="attach"
+                                                    action="{!attachdocssaveand}" /> </span> <span class="button primary">
+                                                <apex:commandLink value="Save and Continue"
+                                                    title="Save and Continue" id="edit"
+                                                    action="{!attachdocsaveandcontinue}">
+                                                    <apex:param name="saveandc" value="saveandc" />
+                                                </apex:commandLink> </span> <span class="divider">|</span> <apex:commandLink value="Save and Logout" styleClass="secondary"
+                                                    id="saveandcontinueandlogout"
+                                                    action="{!saveandcontinueandlogout}">
+                                                    <apex:param name="saveandc" value="saveandc" />
+                                                </apex:commandLink></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="formheader">Attachments</td>
+                                                <td></td>
+                                            </tr>
+                                        </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td
+                                            background="{!URLFOR($Resource.Images, 'new-images/line.jpg')}"
+                                            style="background-repeat: repeat-x"></td>
+
+                                    </tr>
+
+                                    <tr>
+                                        <td
+                                            style="padding-left: 20px; padding-right: 20px; vertical-align: text-bottom">
+                                        <table width="100%" border="0">
+                                            <!--tr>
+<td align="center">
+<apex:commandLink  ><apex:image url="{!URLFOR($Resource.Images, 'new-images/saveandcontinue.jpg')}"  /></apex:commandLink>
+
+</td>
+</tr-->
+                                            <tr>
+                                                <td>
+                                                <style>
+.hclass {
+    background-color: #E2E2E2;
+}
+</style>
+
+
+                                                <apex:dataTable cellpadding="3px;" headerClass="hclass"
+                                                    value="{!hisList}" var="e"
+                                                    style="width:100%; bgcolor:#FFFFFF">
+                                                    <apex:column >
+                                                        <apex:facet name="header">File Name</apex:facet>
+                                                        <apex:outputField value="{!e.name}" />
+                                                    </apex:column>
+                                                    <apex:column >
+                                                        <apex:facet name="header">
+                                                            <table width="100%" border="0">
+                                                                <tr>
+                                                                    <td>Description</td>
+                                                                    <td width="300">Requirements Type</td>
+                                                                    <td width="50">Action</td>
+                                                                </tr>
+                                                            </table>
+
+                                                        </apex:facet>
+
+
+                                                        <table width="100%">
+                                                            <tr>
+                                                                <td><apex:dataTable cellpadding="3px;"
+                                                                    style="width:100%" value="{!e.attachments}" var="att">
+                                                                    <apex:column >                                                                        
+                                                                       <apex:outputField value="{!att.description}" />
+                                                                    </apex:column>
+                                                                    <apex:column width="300">
+
+                                                                        <apex:outputLabel value="{!if((e.recordtype.name=='Visa'),'Visa','Admissions')}"></apex:outputLabel>
+                                                                    </apex:column>
+                                                                    <apex:column width="75">
+                                                                        <apex:outputLink target="blank"
+                                                                            value="/servlet/servlet.FileDownload?file={!att.id}">
+                                                                            <apex:outputText value="[View]" />
+                                                                        </apex:outputLink>
+                                                                        <apex:commandLink rendered="{! NOT finalsubmit}"  action="{!attachdocsdelattachment}"
+                                                                            onclick="return del();">
+                                                                            <span style="float: right">Delete</span>
+                                                                            <apex:param name="att" value="{!att.id}" />
+                                                                            <apex:param name="rid" value="{!e.id}" />
+                                                                        </apex:commandLink>
+                                                                    </apex:column>
+                                                                </apex:dataTable></td>
+                                                            </tr>
+                                                        </table>
+                                                    </apex:column>
+                                                </apex:dataTable></td>
+                                            </tr>
+
+                                            <tr>
+                                                <td><span style="float: right; vertical-align: bottom"><apex:outputLink value="#">
+                                                    <apex:image url="{!URLFOR($Resource.Images, 'new-images/topimage.jpg')}" />
+                                                    <b>back to top</b>
+                                                </apex:outputLink> </span></td>
+                                            </tr>
+                                        </table>
+                                        </td>
+                                    </tr>
+                                </apex:outputPanel> <apex:outputPanel rendered="{!!tab2}">
+                                    <tr>
+                                        <td class="uncompetetab_msg" align="center" height="200"
+                                            valign="top">You must complete Program &amp; Location
+                                        tab before Attach Documents tab</td>
+                                    </tr>
+                                </apex:outputPanel></td>
+                            </tr>
+                        </table>
+                        </td>
+                    </tr>
+                </table>
+                <script>
+document.getElementById('Attach').style.backgroundImage="url('{!URLFOR($Resource.Images, 'new-images/tabwhiteimage.jpg')}')";
+document.getElementById('Attach').style.backgroundPosition="center";
+document.getElementById('Attach1').className="headertabonload";
+
+</script>
+            </apex:form></td>
+        </tr>
+    </table>
+</apex:page>

@@ -1,0 +1,396 @@
+<apex:page showHeader="false" controller="ApplicantEmploymentController">
+    <table class="innertable" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+            <td colspan="2"><c:Header /></td>
+        </tr>
+        <tr>
+
+            <td><apex:form >
+                <table width="100%" border="0" cellpadding="0" cellspacing="0"
+                    align="center">
+                    <tr>
+                        <td><c:ApplicantHeader /></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                        <table class="innerpadding" border="0" cellpadding="0"
+                            cellspacing="0">
+                            <tr>
+                                <td>
+                                <tr>
+                                    <td colspan="2" class="formheader">Employment History</td>
+                                </tr>
+                                <tr>
+                                    <td
+                                        background="{!URLFOR($Resource.Images, 'new-images/line.jpg')}"
+                                        style="background-repeat: repeat-x">&nbsp;</td>
+                                </tr>
+                                <apex:outputPanel rendered="{!tab3}">
+                                    <tr style="text-align: left">
+                                        <td colspan="2"><apex:pageMessages escape="false"
+                                            showDetail="false" /></td>
+                                    </tr>
+                                    <tr>
+                                        <td valign="top">
+                                        <table width="100%" align="center" border="0">
+                                            <tr>
+                                                <span class="formlable"> Total full time employment
+                                                experience you will have by the time you begin the program
+                                                in September: </span>
+                                                <td class="formlable" align="center" style="width: 50%"></td>
+                                            </tr>
+                                            <tr>
+                                                <td align="right" class="formlable"></td>
+                                                
+                                                <td align="left" class="formlable"> Years<span
+                                                    class="error_star">*</span> &nbsp;
+                                                    
+                                                <apex:inputText disabled="{!finalsubmit}" value="{!empyear}"
+                                                    styleClass="form-text-box" style="width:30px" maxlength="2" />
+                                                    
+                                                Months<span class="error_star">*</span> &nbsp; <apex:inputText disabled="{!finalsubmit}" value="{!empmonth}"
+                                                    styleClass="form-text-box" style="width:30px" maxlength="2" />
+
+                                                </td>
+                                                <td align="left" class="formlable"></td>
+                                                <td align="left" class="formlable"></td>
+
+                                            </tr>
+                                            <tr>
+
+
+
+
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2"
+                                                    background="{!URLFOR($Resource.Images, 'new-images/line.jpg')}"
+                                                    style="background-repeat: repeat-x">&nbsp;</td>
+                                            </tr>
+                                            <tr>
+                                                <td align="right" class="formlable">Employer<span
+                                                    class="error_star">*</span></td>
+
+
+                                                <td class="formlable" align="left"><apex:inputField rendered="{!!finalsubmit}" value="{!hist1.Name__c}"
+                                                    styleClass="form-text-box" /> <apex:inputText rendered="{!finalsubmit}" disabled="{!finalsubmit}"
+                                                    value="{!hist1.Name__c}" styleClass="form-text-box" /></td>
+
+                                            </tr>
+                                            <tr>
+                                                <td align="right" class="formlable">City<span
+                                                    class="error_star">*</span></td>
+
+                                                <td align="left" class="formlable"><apex:inputField rendered="{!!finalsubmit}" value="{!hist1.City__c}"
+                                                    styleClass="form-text-box" /><apex:inputText rendered="{!finalsubmit}" disabled="{!finalsubmit}"
+                                                    value="{!hist1.City__c}" styleClass="form-text-box" /></td>
+
+
+                                            </tr>
+                                            <tr>
+                                                <td align="right" class="formlable">Street Address<span
+                                                    class="error_star">*</span></td>
+
+                                                <td align="left" class="formlable"><apex:inputField rendered="{!!finalsubmit}" value="{!hist1.Address__c}"
+                                                    styleClass="form-text-box" /><apex:inputText rendered="{!finalsubmit}" disabled="{!finalsubmit}"
+                                                    value="{!hist1.Address__c}" styleClass="form-text-box" /></td>
+
+                                            </tr>
+                                            <tr>
+                                                <td align="right" class="formlable">Country<span
+                                                    class="error_star">*</span></td>
+
+                                                <td align="left" class="formlable"><apex:selectList disabled="{!finalsubmit}" value="{!hist1.Country__c}"
+                                                    styleClass="form-selectList" multiselect="false" size="1">
+                                                    <apex:selectOptions value="{!clist}" />
+                                                </apex:selectList></td>
+
+                                            </tr>
+
+                                            <tr>
+                                                <td align="right" class="formlable">Zip/Postcode<span
+                                                    class="error_star">*</span></td>
+
+
+                                                <td align="left" class="formlable"><apex:inputField rendered="{!!finalsubmit}" value="{!hist1.ZipCode__c}"
+                                                    styleClass="form-text-box" /><apex:inputText rendered="{!finalsubmit}" disabled="{!finalsubmit}"
+                                                    value="{!hist1.ZipCode__c}" styleClass="form-text-box" /></td>
+
+
+                                            </tr>
+
+                                            <tr>
+                                                <td align="right" class="formlable">Type of Employment<span
+                                                    class="error_star">*</span></td>
+
+
+                                                <td align="left" class="formlable"><apex:inputField rendered="{!!finalsubmit}"
+                                                    value="{!hist1.EmploymentType__c}"
+                                                    styleClass="form-selectList" /> <apex:selectList disabled="{!finalsubmit}" rendered="{!finalsubmit}"
+                                                    styleClass="form-selectList">
+                                                    <apex:selectOption itemLabel="{!hist1.EmploymentType__c}"
+                                                        itemValue="{!hist1.EmploymentType__c}"></apex:selectOption>
+                                                </apex:selectList></td>
+                                            </tr>
+
+                                            <tr>
+                                                <td align="right" class="formlable">Position/Job Title<span
+                                                    class="error_star">*</span></td>
+                                                <td align="left" class="formlable"><apex:inputField rendered="{!!finalsubmit}" value="{!hist1.Position__c}"
+                                                    styleClass="form-text-box" /><apex:inputText rendered="{!finalsubmit}" disabled="{!finalsubmit}"
+                                                    value="{!hist1.Position__c}" styleClass="form-text-box" /></td>
+
+                                            </tr>
+
+                                            <tr>
+                                                <td align="right" class="formlable">Annual Salary in
+                                                USD $<span class="error_star">*</span></td>
+
+                                                <td align="left" class="formlable"><apex:inputField rendered="{!!finalsubmit}"
+                                                    value="{!hist1.Annual_Salary_In_USD__c}"
+                                                    styleClass="form-text-box" /><apex:inputText rendered="{!finalsubmit}" disabled="{!finalsubmit}"
+                                                    value="{!hist1.Annual_Salary_In_USD__c}"
+                                                    styleClass="form-text-box" /></td>
+
+                                            </tr>
+
+                                            <tr>
+                                                <td align="right" class="formlable">Summarize the
+                                                overall responsibilities<br />
+                                                and nature of the job<span class="error_star">*</span></td>
+                                                <td align="left" class="formlable"><apex:inputField rendered="{!!finalsubmit}"
+                                                    value="{!hist1.ResponsibilitesOfJob__c}"
+                                                    styleClass="form-TextArea1" /><apex:inputtextarea rendered="{!finalsubmit}" disabled="{!finalsubmit}"
+                                                    value="{!hist1.ResponsibilitesOfJob__c}"
+                                                    styleClass="form-TextArea1" /></td>
+
+
+                                            </tr>
+
+                                            <tr>
+                                                <td align="right" class="formlable">Company Size<span
+                                                    class="error_star">*</span></td>
+                                                <td align="left" class="formlable"><apex:inputField rendered="{!!finalsubmit}" value="{!hist1.Company_Size__c}"
+                                                    styleClass="form-selectList" /> <apex:selectList disabled="{!finalsubmit}" rendered="{!finalsubmit}"
+                                                    styleClass="form-selectList">
+                                                    <apex:selectOption itemLabel="{!hist1.Company_Size__c}"
+                                                        itemValue="{!hist1.Company_Size__c}"></apex:selectOption>
+                                                </apex:selectList></td>
+
+                                            </tr>
+
+                                            <tr>
+                                                <td align="right" class="formlable">Date Employed From
+                                                (Month and Year)<span class="error_star">*</span></td>
+
+                                                <td align="left" class="formlable"><apex:inputText disabled="{!finalsubmit}" styleClass="form-text-box"
+                                                    style="width:30px" maxlength="2" value="{!DateFrom_month}" />
+                                                -&nbsp; <apex:inputText disabled="{!finalsubmit}"
+                                                    styleClass="form-text-box" style="width:50px" maxlength="4"
+                                                    value="{!DateFrom_year}" /></td>
+
+                                            </tr>
+
+                                            <tr>
+                                                <td align="right" class="formlable">Date Employed To
+                                                (Month and Year)<span class="error_star">*</span></td>
+
+                                                <td align="left" class="formlable"><apex:inputText disabled="{!finalsubmit}" styleClass="form-text-box"
+                                                    style="width:30px" maxlength="2" value="{!DateTo_month}" />
+                                                -&nbsp; <apex:inputText disabled="{!finalsubmit}"
+                                                    styleClass="form-text-box" style="width:50px" maxlength="4"
+                                                    value="{!DateTo_year}" /></td>
+
+                                            </tr>
+                                            
+                                            
+                                            <tr>
+                                                <td align="right" class="formlable">If this is your current employer check the box</td>
+
+                                                <td align="left" class="formlable"><apex:inputCheckbox disabled="{!finalsubmit}" styleClass="form-text-box"
+                                                    style="width:30px"  value="{!hist1.isCurrent_Employer__c}" />
+                                                </td>
+
+                                            </tr>
+
+
+
+                                            <tr>
+                                                <td align="right" class="formlable">Industry Sector<span
+                                                    class="error_star">*</span></td>
+                                                <td align="left" class="formlable"><apex:inputField rendered="{!!finalsubmit}"
+                                                    value="{!hist1.Industry_Sector__c }"
+                                                    styleClass="form-selectList" /> <apex:selectList disabled="{!finalsubmit}" rendered="{!finalsubmit}"
+                                                    styleClass="form-selectList">
+                                                    <apex:selectOption itemLabel="{!hist1.Industry_Sector__c }"
+                                                        itemValue="{!hist1.Industry_Sector__c }"></apex:selectOption>
+                                                </apex:selectList></td>
+
+                                            </tr>
+
+
+                                            <!-- End code for Second most recent employer-->
+                                            <tr>
+                                                <td colspan="2">&nbsp;</td>
+                                            </tr>
+
+                                        </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td
+                                            background="{!URLFOR($Resource.Images, 'new-images/line.jpg')}"
+                                            style="background-repeat: repeat-x">&nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="vertical-align: text-bottom">
+                                        <table width="100%">
+                                            <tr>
+                                                <td align="center" style="white-space: nowrap"><apex:outputPanel rendered="{!!finalsubmit}">
+                                                    <apex:outputPanel rendered="{!!isedit}">
+
+                                                        <span class="button primary"> <apex:commandLink value="Add Another Employer" title="Add Another Employer"
+                                                            id="save" action="{!saveandsave}" /> </span>
+
+
+                                                        <span class="button primary"> <apex:commandLink rendered="{!!finalsubmit}" value="Save and Continue"
+                                                            title="Save and Continue" id="cbtneditlogin"
+                                                            action="{!saveandcontinue}" /> </span>
+                                                        <span class="divider">|</span>
+                                                        <apex:commandLink value="Save and Logout"
+                                                            rendered="{!NOT(finalsubmit)}" styleClass="secondary"
+                                                            action="{!saveandlogout}" />
+                                                    </apex:outputPanel>
+                                                    <apex:outputPanel rendered="{!isedit}">
+                                                        <span class="button primary"> <apex:commandLink rendered="{!!finalsubmit}" id="edit"
+                                                            action="{!saveandedit}" value="Update" title="Update" />
+                                                        </span>
+                                                        <span class="button primary"> <apex:commandLink rendered="{!!finalsubmit}" value="Cancel" title="Cancel"
+                                                            id="cancel" action="{!cancel}" /> </span>
+                                                    </apex:outputPanel>
+                                                </apex:outputPanel></td>
+                                            </tr>
+                                            <tr>
+                                                <td>&nbsp;</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>
+                                                <table width="100%" align="center" border="0">
+                                                    <tr>
+                                                        <td>
+                                                        <style>
+.hclass {
+    background-color: #E2E2E2;
+}
+</style>
+                                                        <apex:dataTable cellpadding="5px;" headerClass="hclass"
+                                                            value="{!elist}" var="e"
+                                                            style="width:100%; bgcolor:#FFFFFF">
+
+                                                            <apex:column >
+                                                                <apex:facet name="header">Employer Name</apex:facet>
+                                                                <apex:outputText value="{!e.Name__c}" />
+                                                            </apex:column>
+                                                            <!-- 
+                                                            
+                                                            <apex:column >
+                                                                <apex:facet name="header">Current Employer</apex:facet>
+                                                                <apex:outputField value="{!e.isCurrent_Employer__c}" />
+                                                            </apex:column>
+                                                             -->
+                                                            
+                                                            
+                                                            <apex:column >
+                                                                <apex:facet name="header">City</apex:facet>
+                                                                <apex:outputText value="{!e.City__c}">
+
+                                                                </apex:outputText>
+
+                                                            </apex:column>
+                                                            <apex:column >
+                                                                <apex:facet name="header">Country</apex:facet>
+                                                                <apex:outputLabel value="{!e.Country__r.name}" />
+
+                                                            </apex:column>
+                                                            <apex:column >
+                                                                <apex:facet name="header">Street Address</apex:facet>
+                                                                <apex:outputText value="{!e.Address__c}" />
+                                                            </apex:column>
+                                                            <apex:column >
+                                                                <apex:facet name="header">Date Employed From</apex:facet>
+                                                                <apex:outputText value="{0,date,MM'/'yyyy}">
+                                                                    <apex:param value="{!e.DateFrom__c}" />
+                                                                </apex:outputText>
+
+                                                            </apex:column>
+                                                            <apex:column >
+                                                                <apex:facet name="header">Date Employed To</apex:facet>
+
+                                                                <apex:outputText value="{0,date,MM'/'yyyy}" rendered="{!!e.isCurrent_Employer__c}">
+                                                                    <apex:param value="{!e.DateTo__c}" />
+                                                                </apex:outputText>
+                                                                
+                                                                <apex:outputText rendered="{!e.isCurrent_Employer__c}">Current Employer</apex:outputText>
+                                                            </apex:column>
+                                                            <apex:column rendered="{!!finalsubmit}">
+                                                                <apex:facet name="header">Action</apex:facet>
+                                                                <apex:commandLink onclick="return del();" value="Delete"
+                                                                    action="{!isDelete}">
+                                                                    <apex:param name="id" value="{!e.id}" />
+                                                                </apex:commandLink>&nbsp;|&nbsp;<apex:commandLink value="Edit"
+                                                                    action="{!edit}">
+                                                                    <apex:param name="id" value="{!e.id}" />
+                                                                </apex:commandLink>
+                                                            </apex:column>
+                                                        </apex:dataTable> <script>
+                                                    function del(){
+                                                    if(confirm("Are you sure, to delete record?"))
+                                                    {
+                                                    return true;
+                                                    }
+                                                   
+                                                    else
+                                                    {
+                                                    return false;
+                                                    }
+                                                    }
+                                                     </script></td>
+                                                    </tr>
+                                                </table>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><span style="float: right; vertical-align: bottom"><apex:outputLink value="#">
+                                                    <apex:image url="{!URLFOR($Resource.Images, 'new-images/topimage.jpg')}" />&nbsp;<b>back
+                                                    to top</b>
+                                                </apex:outputLink> </span></td>
+                                            </tr>
+                                        </table>
+                                        </td>
+                                    </tr>
+                                </apex:outputPanel> <apex:outputPanel rendered="{!!tab3}">
+                                    <tr>
+                                        <td class="uncompetetab_msg" align="center" height="200"
+                                            valign="top">You must complete Program &amp; Location
+                                        tab before Employment History tab</td>
+                                    </tr>
+                                </apex:outputPanel></td>
+                            </tr>
+                        </table>
+                        </td>
+                    </tr>
+                </table>
+                <script>
+document.getElementById('Employment').style.backgroundImage="url('{!URLFOR($Resource.Images, 'new-images/tabwhiteimage.jpg')}')";
+document.getElementById('Employment').style.backgroundPosition="center";
+document.getElementById('Employment1').className="headertabonload";
+
+</script>
+            </apex:form></td>
+        </tr>
+
+    </table>
+
+<site:googleAnalyticsTracking ></site:googleAnalyticsTracking>
+</apex:page>

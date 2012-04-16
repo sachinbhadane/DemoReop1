@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ReportFolder xmlns="http://soap.sforce.com/2006/04/metadata">
+    <accessType>Shared</accessType>
+    <name>North AM Conversion Report Folder</name>
+    <publicFolderAccess>ReadWrite</publicFolderAccess>
+    <sharedTo>
+        <roles>NA Product Head - MA</roles>
+        <roles>NA Product Head - MBA</roles>
+        <roles>NA Recruiter - MA</roles>
+        <roles>NA Region</roles>
+        <roles>NA Telesales Manager</roles>
+        <roles>NA Telesales User</roles>
+        <roles>NA/LATINAM Conversion Specialist</roles>
+    </sharedTo>
+</ReportFolder>

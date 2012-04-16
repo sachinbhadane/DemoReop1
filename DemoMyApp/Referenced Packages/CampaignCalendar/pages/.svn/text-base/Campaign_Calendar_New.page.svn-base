@@ -1,0 +1,69 @@
+<apex:page standardStylesheets="true" showHeader="false" sidebar="false" standardController="Campaign" extensions="BLCC.CampaignCalendarEditExtension" action="{!checkCreatePermission}" tabStyle="Campaign">
+    <apex:includeScript value="{!URLFOR($Resource.BLCC__CampaignCalendar, 'jquery/jquery-1.5.2.min.js')}" />
+    <script type="text/javascript">
+        if ({!closeDialog}) {
+            if(parent.planningViewPage == true){
+                parent.dialog.dialog('close');
+                parent.loadAndRenderWithDelay('The campaign has been created, reloading...');
+            }
+            else
+            {
+                parent.loadText = 'The campaign has been created, reloading...';
+                parent.dialog.dialog('close');
+                parent.$j('#blccCalendar').fullCalendar('refetchEvents');
+            }
+        }
+        parent.$j('.ui-dialog-content').unmask();
+    </script>
+    <!-- Page layout supports record types and field sets. Ken Hua -->
+    <div class="campaignTab" style="padding: 5px 15px 15px 15px;">
+
+   <apex:sectionHeader title="Campaign Edit" subtitle="New Campaign"/>
+
+    <apex:form rendered="{!NOT(isRecordTypeEnabled)}" target="_self"> <!-- Rendered if record types are not enabled -->
+    <apex:pageBlock title="Campaign Edit" mode="edit">
+        <apex:pageBlockButtons >
+            <apex:commandButton action="{!saveAndClose}" value="Save" />
+            <apex:commandButton action="{!cancel}" onclick="parent.dialog.dialog('close');return false;" value="Cancel"/>
+        </apex:pageBlockButtons>
+        <apex:pageBlockSection showHeader="true" title="Campaign Information" columns="2">
+            <apex:repeat value="{!$ObjectType.Campaign.FieldSets.BLCC__Campaign_Calendar}" var="f">
+                <apex:inputField value="{!myCampaign[f]}" required="{!f.Required}"/>
+            </apex:repeat>
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+    </apex:form>
+     
+    <!-- Rendered if record types are enabled -->     
+    <apex:form rendered="{!isRecordTypeEnabled}" target="_self">
+    <apex:pageBlock title="Campaign Edit" mode="edit" id="thePageBlock">
+        <apex:pageBlockButtons >
+            <apex:commandButton action="{!next}" value="Next" rendered="{!NOT(isSecondForm)}"/>
+                <apex:actionSupport event="onclick" rerender="thePageBlock"/>
+            <apex:commandButton action="{!saveAndClose}" value="Save" rendered="{!isSecondForm}"/>          
+            <apex:commandButton action="{!cancel}" onclick="parent.dialog.dialog('close');return false;" value="Cancel"/>           
+        </apex:pageBlockButtons>
+        <apex:pageBlockSection showHeader="true" title="Record Type Select" columns="1" rendered="{!NOT(isSecondForm)}">
+            <c:RecordTypeList value="{!lookupValue}" sObjectType="Campaign"></c:RecordTypeList>
+        </apex:pageBlockSection>    
+                  
+        <apex:pageBlockSection showHeader="true" title="Campaign Information" columns="1" rendered="{!NOT(isSecondForm)}">
+            <apex:inputField required="true" value="{!Campaign.Name}" />
+            <apex:inputField required="true" value="{!Campaign.StartDate}"/>
+            <apex:inputField required="true" value="{!Campaign.EndDate}"/>
+        </apex:pageBlockSection>
+        
+        <apex:pageBlockSection showHeader="true" title="Campaign Information" columns="2" rendered="{!isSecondForm}">
+            <apex:repeat value="{!$ObjectType.Campaign.FieldSets.BLCC__Campaign_Calendar}" var="f">
+               	<apex:pageBlockSectionItem >
+               		<apex:outputLabel value="{!f.label}" />
+               		<apex:inputField value="{!myCampaign[f]}" required="{!f.required}"/>
+				</apex:pageBlockSectionItem>
+            </apex:repeat>          
+        </apex:pageBlockSection>
+        
+    </apex:pageBlock>
+    </apex:form>    
+    </div>
+
+</apex:page>

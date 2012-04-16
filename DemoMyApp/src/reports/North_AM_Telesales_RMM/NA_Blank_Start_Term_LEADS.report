@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>OWNER</field>
+    </columns>
+    <columns>
+        <field>FIRST_NAME</field>
+    </columns>
+    <columns>
+        <field>LAST_NAME</field>
+    </columns>
+    <columns>
+        <field>TITLE</field>
+    </columns>
+    <columns>
+        <field>COMPANY</field>
+    </columns>
+    <columns>
+        <field>LEAD_SOURCE</field>
+    </columns>
+    <columns>
+        <field>RATING</field>
+    </columns>
+    <columns>
+        <field>STREET</field>
+    </columns>
+    <columns>
+        <field>EMAIL</field>
+    </columns>
+    <currency>USD</currency>
+    <filter>
+        <booleanFilter>(1 AND 2 AND (3 or 4) AND 5) AND 6</booleanFilter>
+        <criteriaItems>
+            <column>Lead.Region__c</column>
+            <operator>equals</operator>
+            <value>North AM,Lat Am</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Lead.Start_Term__c</column>
+            <operator>equals</operator>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Lead.TA_Date_Created__c</column>
+            <operator>greaterOrEqual</operator>
+            <value>8/1/2011</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Lead.TA_Account_ID__c</column>
+            <operator>equals</operator>
+        </criteriaItems>
+        <criteriaItems>
+            <column>CREATED_DATE</column>
+            <operator>greaterOrEqual</operator>
+            <value>8/1/2011 12:00 AM</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>CONVERTED</column>
+            <operator>equals</operator>
+            <value>0</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>NA LA Blank Start Term_LEADS</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>LeadList</reportType>
+    <scope>org</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>CREATED_DATE</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

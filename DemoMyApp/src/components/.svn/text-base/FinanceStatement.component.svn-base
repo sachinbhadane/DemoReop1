@@ -1,0 +1,535 @@
+<apex:component controller="FinanceStatementController">
+<apex:outputPanel rendered="{!Unlock_Student_Financial_Information_c}">
+<apex:pageMessages ></apex:pageMessages>
+<table width="100%" border="0" >
+    <tr>
+        <td align="center" colspan="2">             
+                <table width="100%" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td valign="top" align="left"><apex:image width="350" id="USD" value="{!URLFOR($Resource.Images, 'new-images/pdf_headerimage.jpg')}"/></td>
+                        <td valign="top" align="left" class="headerImage">
+                        <b>Hult International Business School</b><br />
+                           <apex:outputPanel rendered="{!if(CurrencyIsoCode!='GBP',true,false)}">                               
+                                2301-08, Shell Tower, Times Square<br />
+                                Causeway Bay, Hong Kong<br />
+                                Tel: + 852 2111 2399<br />
+                                Fax: + 852 3015 7899<br />
+                                www.hult.edu<br />
+                            </apex:outputPanel>
+                            <apex:outputPanel rendered="{!if(CurrencyIsoCode=='GBP',true,false)}">
+                                46-47 Russell Square<br />
+                                Bloomsbury, London WC1B 4 JP, <br />United Kingdom<br />
+                                Tel: + 44 20 7636 5667<br />
+                                Fax: +44 20 7691 9344<br />
+                            </apex:outputPanel>
+                        </td>
+                    </tr>
+                </table>
+            
+        </td>
+    </tr>
+    <tr class="desFont">
+        <td colspan="2">&nbsp;
+        </td>
+    </tr>
+    <tr>
+        <td align="center" colspan="2" class="formlableheader">
+            <font size="+1">Statement Of Account</font>
+        </td>
+    </tr>
+  <tr class="desFont">
+    <td class="formlableheader" width="30%">Full Name:</td>
+    <td width="70%" class="formlable"><apex:outputField value="{!user.contact.firstname}"/>&nbsp;<apex:outputField value="{!user.contact.lastname}"/></td>
+  </tr>
+  <tr class="desFont">
+    <td class="formlableheader">Hult ID:</td>
+    <td class="formlable"><apex:outputText value="{!App_ID_c}" /></td>
+  </tr>
+  <tr class="desFont">
+    <td class="formlableheader" valign="top">Address:</td>
+    <td class="formlable">
+    <apex:outputText rendered="{!if(user.contact.MailingStreet!=null,true,false)}" value="{!user.contact.MailingStreet}," /> <br />
+    <apex:outputText rendered="{!if(user.contact.Mailingcity!=null,true,false)}" value="{!user.contact.Mailingcity}," /> <br />
+    <apex:outputText rendered="{!if(user.contact.Mailingstate!=null,true,false)}" value="{!user.contact.Mailingstate}" /> <br />
+    <apex:outputText rendered="{!if(user.contact.mailingpostalcode!=null,true,false)}" value="{!user.contact.mailingpostalcode}" /> <br />
+    <apex:outputText rendered="{!if(user.contact.Mailing_Country__r.name!=null,true,false)}" value="{!user.contact.Mailing_Country__r.name}" /> <br />
+   </td>
+  </tr>
+  <tr class="desFont">
+    <td class="formlableheader">Date Printed</td>
+    <td class="formlable">
+        <apex:outputText value="{0,date,dd'/'MM'/'yyyy}">
+            <apex:param value="{!DatePrinted}" /> 
+        </apex:outputText>
+    </td>
+  </tr>
+  <apex:outputtext rendered="{!if((Payment_Amount_1st_c != 0),true,false)}">
+  <tr class="desFont">
+    <td class="formlableheader">1st Tuition and Fee Payment:</td>
+    <td class="formlable">{!CurrencyIsoCode}&nbsp;    
+        <apex:outputText value="{0, number, .00}">
+        <apex:param value="{!Payment_Amount_1st_c}"/>
+        </apex:outputText>
+    &nbsp;&nbsp;<apex:outputText rendered="{!if(not isnull(Payment_Due_Date_1st_c),true,false)}" value="(Due: {0,date,dd'/'MM'/'yyyy})">
+            <apex:param value="{!Payment_Due_Date_1st_c}" /> 
+        </apex:outputText></td>
+  </tr>
+  </apex:outputtext>
+  <apex:outputText rendered="{!if((Payment_Amount_2nd_c != 0),true,false)}">
+  <tr class="desFont">
+    <td class="formlableheader">2nd Tuition and Fee Payment:</td>
+    <td class="formlable">{!CurrencyIsoCode}&nbsp;
+        <apex:outputText value="{0, number, .00}">
+        <apex:param value="{!Payment_Amount_2nd_c}"/>
+        </apex:outputText>
+    &nbsp;&nbsp;<apex:outputText rendered="{!if(not isnull(Payment_Due_Date_2nd_c),true,false)}" value="(Due: {0,date,dd'/'MM'/'yyyy})">
+            <apex:param value="{!Payment_Due_Date_2nd_c}" /> 
+        </apex:outputText></td>
+  </tr>
+  </apex:outputText>
+  <!-- Code for Eight Payments---->
+  <apex:outputText rendered="{!if((Installment_Plan_c=='FlexiPlan' && Primary_Program_Choice_c=='Executive MBA'),true,false)}">
+    <tr class="desFont">
+    <td class="formlableheader">3rd Tuition and Fee Payment:</td>
+    <td class="formlable">{!CurrencyIsoCode}&nbsp;
+        <apex:outputText value="{0, number, .00}">
+        <apex:param value="{!Payment_Amount_3rd_c}"/>
+        </apex:outputText>
+    &nbsp;&nbsp;<apex:outputText rendered="{!if(not isnull(Payment_Due_Date_3rd_c),true,false)}" value="(Due: {0,date,dd'/'MM'/'yyyy})">
+            <apex:param value="{!Payment_Due_Date_3rd_c}" /> 
+        </apex:outputText></td>
+  </tr>
+  
+    <tr class="desFont">
+    <td class="formlableheader">4th Tuition and Fee Payment:</td>
+    <td class="formlable">{!CurrencyIsoCode}&nbsp;
+        <apex:outputText value="{0, number, .00}">
+        <apex:param value="{!Payment_Amount_4th_c}"/>
+        </apex:outputText>
+    &nbsp;&nbsp;<apex:outputText rendered="{!if(not isnull(Payment_Due_Date_4th_c),true,false)}" value="(Due: {0,date,dd'/'MM'/'yyyy})">
+            <apex:param value="{!Payment_Due_Date_4th_c}" /> 
+        </apex:outputText></td>
+  </tr>
+      <tr class="desFont">
+    <td class="formlableheader">5th Tuition and Fee Payment:</td>
+    <td class="formlable">{!CurrencyIsoCode}&nbsp;
+        <apex:outputText value="{0, number, .00}">
+        <apex:param value="{!Payment_Amount_5th_c}"/>
+        </apex:outputText>
+    &nbsp;&nbsp;<apex:outputText rendered="{!if(not isnull(Payment_Due_Date_5th_c),true,false)}" value="(Due: {0,date,dd'/'MM'/'yyyy})">
+            <apex:param value="{!Payment_Due_Date_5th_c}" /> 
+        </apex:outputText></td>
+  </tr>
+      <tr class="desFont">
+    <td class="formlableheader">6th Tuition and Fee Payment:</td>
+    <td class="formlable">{!CurrencyIsoCode}&nbsp;
+        <apex:outputText value="{0, number, .00}">
+        <apex:param value="{!Payment_Amount_6th_c}"/>
+        </apex:outputText>
+    &nbsp;&nbsp;<apex:outputText rendered="{!if(not isnull(Payment_Due_Date_6th_c),true,false)}" value="(Due: {0,date,dd'/'MM'/'yyyy})">
+            <apex:param value="{!Payment_Due_Date_6th_c}" /> 
+        </apex:outputText></td>
+  </tr>
+      <tr class="desFont">
+    <td class="formlableheader">7th Tuition and Fee Payment:</td>
+    <td class="formlable">{!CurrencyIsoCode}&nbsp;
+        <apex:outputText value="{0, number, .00}">
+        <apex:param value="{!Payment_Amount_7th_c}"/>
+        </apex:outputText>
+    &nbsp;&nbsp;<apex:outputText rendered="{!if(not isnull(Payment_Due_Date_7th_c),true,false)}" value="(Due: {0,date,dd'/'MM'/'yyyy})">
+            <apex:param value="{!Payment_Due_Date_7th_c}" /> 
+        </apex:outputText></td>
+  </tr>
+      <tr class="desFont">
+    <td class="formlableheader">8th Tuition and Fee Payment:</td>
+    <td class="formlable">{!CurrencyIsoCode}&nbsp;
+        <apex:outputText value="{0, number, .00}">
+        <apex:param value="{!Payment_Amount_8th_c}"/>
+        </apex:outputText>
+    &nbsp;&nbsp;<apex:outputText rendered="{!if(not isnull(Payment_Due_Date_8th_c),true,false)}" value="(Due: {0,date,dd'/'MM'/'yyyy})">
+            <apex:param value="{!Payment_Due_Date_8th_c}" /> 
+        </apex:outputText></td>
+  </tr>
+  </apex:outputText>
+  <tr>
+    <td>
+    </td>
+    <td style="font-size:8px ">
+    The above amounts for the 1st and 2nd payments due reflect the original payment plan and may differ from the current balance due on your live Hult statement below. The above amounts do not update once payment has been made but the current balance on your statement below does. You need to ensure that you have paid the amount that is due by the dates above. Please contact our finance dept if you have any questions.
+  
+    </td>  
+  </tr>
+  <tr class="desFont">
+    <td class="formlable">&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr class="desFont">
+    <td class="formlableheader" colspan="2">Program Fee</td>
+  </tr>
+  <tr class="desFont">
+     <td height="19" colspan="2" background="{!URLFOR($Resource.Images, 'new-images/line.jpg')}" style="background-repeat:repeat-x;">&nbsp;</td>
+  </tr>
+  <tr class="desFont">
+    <td class="formlableheader">Program:</td>
+    <td class="formlableheader" align="right">{!Program_c}</td>
+  </tr>
+  <apex:outputText rendered="{!if((Total_Tuition_Amount_c != 0),true,false)}">
+  <tr class="desFont">
+    <td class="formlable">Tuition Fee:</td>
+    <td class="formlableheader" align="right">{!CurrencyIsoCode}&nbsp;
+        <apex:outputText value="{0, number, .00}">
+        <apex:param value="{!Total_Tuition_Amount_c}"/>
+        </apex:outputText>
+    </td>
+  </tr>
+  </apex:outputText>
+  <apex:outputText rendered="{!if((Housing_Accommodation_c != null),true,false)}">
+  <tr class="desFont">
+    <td class="formlable">Housing Accommodation:</td>
+    <td class="formlableheader" align="right">
+        <apex:outputText value="{!Housing_Accommodation_c}">        
+        </apex:outputText>
+    </td>
+  </tr> 
+  <tr class="desFont">
+    <td class="formlable">Housing Fee:</td>
+    <td class="formlableheader" align="right">{!CurrencyIsoCode}&nbsp;
+        <apex:outputText value="{0, number, .00}">
+        <apex:param value="{!Housing_Fee_FS_c}"/>
+        </apex:outputText>
+    </td>
+  </tr>
+  </apex:outputText>
+  <!--
+  <apex:outputText rendered="{!if((Insurance_Fee_c != 0),true,false)}">
+   <tr class="desFont">
+    <td class="formlable">Insurance Fee:</td>
+    <td class="formlableheader" align="right">{!CurrencyIsoCode}&nbsp;
+        <apex:outputText value="{0, number, .00}">
+        <apex:param value="{!Insurance_Fee_c}"/>
+        </apex:outputText>
+    </td>
+   </tr>
+  </apex:outputText>
+  -->
+    <apex:outputText rendered="{!if((Insurance_Fee_c != 0),true,false)}">
+  <tr class="desFont">
+    <td class="formlable">{!Insurance_Company_FS_c}</td>
+    <td class="formlableheader" align="right">({!Insurance_Type_FS_c})&nbsp;{!CurrencyIsoCode}&nbsp;
+        <apex:outputText value="{0, number, .00}">
+        <apex:param value="{!Insurance_Fee_c}"/>
+        </apex:outputText>
+    </td>
+  </tr>
+  </apex:outputText> 
+  <apex:outputText rendered="{!if((Visa_Fee_c != 0),true,false)}">
+   <tr class="desFont">
+    <td class="formlable">Visa Fee:</td>
+    <td class="formlableheader" align="right">{!CurrencyIsoCode}&nbsp;
+        <apex:outputText value="{0, number, .00}">
+        <apex:param value="{!Visa_Fee_c}"/>
+        </apex:outputText>
+    </td>
+  </tr>
+  </apex:outputText>
+  <apex:outputText rendered="{!if((Specialization_Fee_FS_new_c != 0),true,false)}">
+   <tr class="desFont">
+    <td class="formlable">Specialization Fee:</td>
+    <td class="formlableheader" align="right">{!CurrencyIsoCode}&nbsp;
+        <apex:outputText value="{0, number, .00}">
+        <apex:param value="{!Specialization_Fee_FS_new_c}"/>
+        </apex:outputText>
+    </td>
+  </tr>
+  </apex:outputText>
+  <apex:outputText rendered="{!if((IEBA_IEMS_Program_Fee_FS_c != 0),true,false)}">
+   <tr class="desFont">
+    <td class="formlable">IEBA/IEMS Program Fee:</td>
+    <td class="formlableheader" align="right">{!CurrencyIsoCode}&nbsp;
+        <apex:outputText value="{0, number, .00}">
+        <apex:param value="{!IEBA_IEMS_Program_Fee_FS_c}"/>
+        </apex:outputText>
+    </td>
+  </tr>
+  </apex:outputText>
+  <apex:outputText rendered="{!if((Partner_Program_Insurance_Fee_FS_c != 0),true,false)}">
+   <tr class="desFont">
+    <td class="formlable">Partner Program Insurance Fee:</td>
+    <td class="formlableheader" align="right">{!CurrencyIsoCode}&nbsp;
+        <apex:outputText value="{0, number, .00}">
+        <apex:param value="{!Partner_Program_Insurance_Fee_FS_c}"/>
+        </apex:outputText>
+    </td>
+  </tr>
+  </apex:outputText>
+  <apex:outputText rendered="{!if((Installment_Plan_Fee_FS_c != 0),true,false)}">
+  <tr class="desFont">
+    <td class="formlable">Installment Plan Fee:</td>
+    <td class="formlableheader" align="right">{!CurrencyIsoCode}&nbsp;
+        <apex:outputText value="{0, number, .00}">
+        <apex:param value="{!Installment_Plan_Fee_FS_c}"/>
+        </apex:outputText>
+    </td>
+  </tr>
+  </apex:outputText>
+<!--
+  <tr>
+    <td class="formlable">Toolbox and Case Study Pack:</td>
+    <td class="formlableheader" align="right">{!CurrencyIsoCode}&nbsp;{!Toolbox_Case_Study_Pack_c}</td>
+  </tr>
+  <tr>
+    <td class="formlable">Student Resources and Activities:</td>
+    <td class="formlableheader" align="right">{!CurrencyIsoCode}&nbsp;{!Student_Resources_Activities_c}</td>
+  </tr>
+
+
+  <apex:outputText rendered="{!if((Total_Fees_Due_FS_c != 0),true,false)}">
+  <tr class="desFont">
+    <td class="formlable">Total Fee Due</td>
+    <td class="formlableheader" align="right">{!CurrencyIsoCode}&nbsp;
+        <apex:outputText value="{0, number, .00}">
+        <apex:param value="{!Total_Fees_Due_FS_c}"/>
+        </apex:outputText>
+    
+    </td>
+  </tr>
+  </apex:outputText>
+-->
+  <tr class="desFont">
+     <td height="2" colspan="2" background="{!URLFOR($Resource.Images, 'new-images/line.jpg')}" style="background-repeat:repeat-x;"></td>
+  </tr>
+  <apex:outputText rendered="{!if((Total_Fees_Due_FS_c != 0),true,false)}">
+  <tr class="desFont">
+    <td class="formlableheader">Total Tuition And Fees:</td>
+    <td class="formlableheader" align="right">{!CurrencyIsoCode}&nbsp;
+        <apex:outputText value="{0, number, .00}">
+        <apex:param value="{!Total_Fees_Due_FS_c}"/>
+        </apex:outputText>
+    </td>
+  </tr>
+  </apex:outputText>
+  <tr>
+      <td colspan="2" height="5px">
+      </td>
+  </tr>
+  <apex:outputText rendered="{!if((Deposit_Amount_Due_FS_c != 0),true,false)}">
+  <tr class="desFont">
+    <td class="formlable">Deposit Amount Due:</td>
+    <td class="formlableheader" align="right">{!CurrencyIsoCode}&nbsp;
+        <apex:outputText value="{0, number, .00}">
+        <apex:param value="{!Deposit_Amount_Due_FS_c}"/>
+        </apex:outputText>
+    </td>
+  </tr>
+  </apex:outputText>
+  <tr class="desFont">
+    <td class="formlable">&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr class="desFont">
+    <td class="formlableheader" colspan="2">Financial Aid</td>
+  </tr>
+  <tr class="desFont">
+     <td height="19" colspan="2" background="{!URLFOR($Resource.Images, 'new-images/line.jpg')}" style="background-repeat:repeat-x;">&nbsp;</td>
+  </tr>
+  <apex:outputText rendered="{!if((Scholarship_Amount_FS_c != 0),true,false)}">
+  <tr class="desFont">
+    <td class="formlable">Scholarship Amount:</td>
+    <td class="formlableheader" align="right">{!CurrencyIsoCode}&nbsp;
+        <apex:outputText value="{0, number, .00}">
+        <apex:param value="{!Scholarship_Amount_FS_c}"/>
+        </apex:outputText>
+    </td>
+  </tr>
+  </apex:outputText>
+  <apex:outputText rendered="{!if((Go_Ed_Loan_Amount_FS_c != 0),true,false)}">
+  <tr class="desFont">
+    <td class="formlable">Go Ed Loan Amount:</td>
+    <td class="formlableheader" align="right">
+    <apex:outputText rendered="{!if(Go_Ed_Loan_Amount_c!=0,true,false)}" style="font-size:8px;font-weight:normal" value="({!Go_Ed_Loan_Note_FS_c})" />       
+         {!CurrencyIsoCode}&nbsp;
+        <apex:outputText value="{0, number, .00}">
+        <apex:param value="{!Go_Ed_Loan_Amount_FS_c}"/>
+        </apex:outputText>
+    </td>
+  </tr>
+  </apex:outputText>
+
+  <apex:outputText rendered="{!if((Early_Bird_Scholarship_Amount_FS_c != 0),true,false)}">
+  <tr class="desFont">
+    <td class="formlable">Early Bird Scholarship Amount:</td>
+    <td class="formlableheader" align="right">
+        <apex:outputText value="{0, number, .00}">
+        <apex:param value="{!Early_Bird_Scholarship_Amount_FS_c}"/>
+        </apex:outputText>
+    </td>
+  </tr>
+  </apex:outputText>
+  <apex:outputText rendered="{!if((Dean_Scholarship_Amount_FS_c != 0),true,false)}">
+  <tr class="desFont">
+    <td class="formlable">Dean Scholarship Amount:</td>
+    <td class="formlableheader" align="right">{!CurrencyIsoCode}&nbsp;
+        <apex:outputText value="{0, number, .00}">
+        <apex:param value="{!Dean_Scholarship_Amount_FS_c}"/>
+        </apex:outputText>
+    </td>
+  </tr>
+  </apex:outputText>
+  <apex:outputText rendered="{!if((Bertil_Hult_Scholarship_Amount_FS_c != 0),true,false)}">
+  <tr class="desFont">
+    <td class="formlable">Bertil Hult Scholarship Amount:</td>
+    <td class="formlableheader" align="right">{!CurrencyIsoCode}&nbsp;
+        <apex:outputText value="{0, number, .00}">
+        <apex:param value="{!Bertil_Hult_Scholarship_Amount_FS_c}"/>
+        </apex:outputText>
+    </td>
+  </tr>
+  </apex:outputText>
+  <apex:outputText rendered="{!if((Relocation_Scholarship_Amount_FS_c != 0),true,false)}">
+  <tr class="desFont">
+    <td class="formlable">Relocation Scholarship Amount:</td>
+    <td class="formlableheader" align="right">{!CurrencyIsoCode}&nbsp;
+        <apex:outputText value="{0, number, .00}">
+        <apex:param value="{!Relocation_Scholarship_Amount_FS_c}"/>
+        </apex:outputText>
+    </td>
+  </tr>
+  </apex:outputText>
+    <apex:outputText rendered="{!if((Adjustment_Amount_c != 0),true,false)}">
+  <tr class="desFont">
+    <td class="formlable">Adjustment Amount:</td>
+    <td class="formlableheader" align="right">{!CurrencyIsoCode}&nbsp;
+        <apex:outputText value="{0, number, .00}">
+        <apex:param value="{!Adjustment_Amount_c}"/>
+        </apex:outputText>
+    </td>
+  </tr>
+  </apex:outputText>
+
+  <!-- 
+  <tr>
+    <td class="formlable">Should say Total Financial Aid not Total:</td>
+    <td class="formlableheader" align="right">{!CurrencyIsoCode}&nbsp;</td>
+  </tr> 
+  <tr>
+    <td class="formlable">Scholarships &amp; Loans:</td>
+    <td class="formlableheader" align="right">{!CurrencyIsoCode}&nbsp;{!Scholarship_Amount_c}</td>
+  </tr> -->
+
+  
+  <tr>
+     <td height="2" colspan="2" background="{!URLFOR($Resource.Images, 'new-images/line.jpg')}" style="background-repeat:repeat-x;"></td>
+  </tr>
+  <!--
+  <apex:outputText rendered="{!if((Total_Financial_Aid_Amount_c != 0),true,false)}">
+  <tr class="desFont">
+    <td class="formlableheader">Total Scholarships and Loans:</td>
+    <td class="formlableheader" align="right">{!CurrencyIsoCode}&nbsp;
+        <apex:outputText value="{0, number, .00}">
+        <apex:param value="{!Total_Financial_Aid_Amount_c}"/>
+        </apex:outputText>
+    </td>
+  </tr>
+  </apex:outputText>
+  <tr class="desFont">
+     <td height="19" colspan="2" background="{!URLFOR($Resource.Images, 'new-images/line.jpg')}" style="background-repeat:repeat-x;">&nbsp;</td>
+  </tr>
+  -->
+  
+  <apex:outputText rendered="{!if((Total_Financial_Aid_FS_c != 0),true,false)}">
+  <tr class="desFont">
+    <td class="formlableheader">Total Financial Aid:</td>
+    <td class="formlableheader" align="right">{!CurrencyIsoCode}&nbsp;
+        <apex:outputText value="{0, number, .00}">
+        <apex:param value="{!Total_Financial_Aid_FS_c}"/>
+        </apex:outputText>
+    </td>
+  </tr>
+  </apex:outputText>
+  
+<tr>
+    <td class="formlable" height="5px"></td>
+    <td></td>
+  </tr>
+  <apex:outputText rendered="{!if((Total_Balance_Due_FS_c != 0),true,false)}">
+  <tr class="desFont">
+    <td class="formlable">Total Balance Due:</td>
+    <td class="formlableheader" align="right">{!CurrencyIsoCode}&nbsp;
+        <apex:outputText value="{0, number, .00}">
+        <apex:param value="{!Total_Balance_Due_FS_c}"/>
+        </apex:outputText>
+    </td>
+  </tr>
+  </apex:outputText>
+    
+  <tr>
+    <td class="formlable">&nbsp;</td>
+    <td></td>
+  </tr>
+  <tr class="desFont">
+    <td class="formlableheader" colspan="2">Payments</td>
+
+  </tr>
+  <tr>
+     <td height="2" colspan="2" background="{!URLFOR($Resource.Images, 'new-images/line.jpg')}" style="background-repeat:repeat-x;"></td>
+  </tr>
+  <tr class="desFont">
+    <td colspan="2">
+         <apex:dataTable width="100%" border="0" cellpadding="1px;" headerClass="desFont" value="{!fTransactionList}" var="e" >
+            <apex:column width="35%">
+                <apex:facet name="header">Date</apex:facet>                
+                <apex:outputText value="{0,date,dd'/'MM'/'yyyy}">
+                    <apex:param value="{!e.d}" /> 
+                </apex:outputText>
+            </apex:column>
+            <apex:column width="30%">
+                <apex:facet name="header">Description</apex:facet>
+                <apex:outputText value="{!e.tType}"/>
+            </apex:column>
+            <apex:column width="35%" style="text-align:right" >
+                <apex:facet name="header"><span style="float:right">Currency &amp; Amount Applied</span></apex:facet>
+                <!-- apex:outputText value="{!e.ccode} {!e.aRec}"/ -->
+                <apex:outputText value="{!e.ccode}{0, number, .00}">
+                    <apex:param value="{!e.aRec}"/>
+                </apex:outputText>
+            </apex:column>
+        </apex:datatable>
+                                                 
+    </td>
+
+  </tr>
+  <tr>
+     <td height="2" colspan="2" background="{!URLFOR($Resource.Images, 'new-images/line.jpg')}" style="background-repeat:repeat-x;"></td>
+  </tr>
+  <apex:outputText rendered="{!if((Current_Balance_Due_Portal_c != 0),true,false)}">
+  <tr class="desFont">
+    <td class="formlableheader">Current Balance Due:</td>
+    <td class="formlableheader" align="right">{!CurrencyIsoCode}&nbsp;
+        <apex:outputText value="{0, number, .00}">
+        <apex:param value="{!Current_Balance_Due_Portal_c}"/>
+        </apex:outputText>
+    </td>
+  </tr>
+  </apex:outputText>
+
+  <apex:outputText rendered="{!if(CurrencyIsoCode=='GBP',true,false)}">
+      <tr class="desFont">
+        <td class="formlable">&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr class="formlable">
+        <td class="formlableheader" colspan="2">Remark: The Tuition Fee amount includes a portion (15%) collected on behalf of Hult International Business School Ltd. Hong Kong for services such as application processing. Career &amp; alumni services and other ancillary services as specific in the Terms &amp; Conditions Hult International Business School Limited.</td>
+      </tr>
+  </apex:outputText> 
+</table>
+</apex:outputPanel>
+<apex:outputPanel rendered="{! NOT Unlock_Student_Financial_Information_c}">
+<table width="100%">
+    <tr>
+        <td class="formlableheader" align="center">
+            Not available yet
+        </td>
+    </tr>
+</table>
+</apex:outputPanel>
+</apex:component>

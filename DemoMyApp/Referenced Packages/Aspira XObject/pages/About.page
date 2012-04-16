@@ -1,0 +1,346 @@
+<apex:page tabStyle="Aspira_XObject__tab" sidebar="false">
+    <apex:sectionHeader title="About Aspira XObject" subtitle="Aspira Cross-Object Relations Tool"/>
+    <apex:pageBlock >
+        <p>
+        <h2>About Aspira XObject</h2>
+        </p>
+        <p>
+        <b>Aspira XObject</b> allows System Administrators to create relationships between objects so 
+        that workflow rules that are “cross-object dependent” get updated without the need for users to edit both records.
+        </p>
+        
+        <p>
+        For example, a workflow field update to a field on the Contact object must be triggered by a workflow rule on the Contact object.
+        <br/>Without Aspira XObject,  if the conditions that trigger the workflow are on the Account object,
+        when the Account record is edited to meet the conditions, the workflow on the Contact will not 
+        get evaluated to trigger the field update until a user manually edits the Contact record also.
+        </p>
+        
+        <p>
+        With Aspira XObject, a Relation can be created between Contact and Account so that all workflow 
+        rules for a Contact are automatically evaluated whenever the related Account record is edited.
+        </p>
+        
+        <p>
+        The “Lookup field to use” value you supply when you create the Relation is what tells the system which 
+        Account record it should be watching to trigger workflow on the Contact. 
+        In this example you would choose the “Account ID” selection as the Lookup field to use.
+        </p>
+        
+        <p>
+        The application supports the following Standard objects within the free app:
+        <table>
+            <tbody>
+                <tr valign="top">
+                    <td>
+                        <ul>
+                            <li>Account</li>
+                            <li>Asset</li>
+                            <li>Campaign</li>
+                            <li>Campaign Member</li>
+                            <li>Case</li>
+                            <li>Case Comment</li>
+                            <li>Contact</li>
+                            <li>Contract</li>
+                            <li>Event</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                            <li>Idea</li>
+                            <li>Lead</li>
+                            <li>Opportunity</li>
+                            <li>Opportunity Product</li>
+                            <li>Product</li>
+                             <li>Quote</li>
+                            <li>Solution</li>
+                            <li>Task</li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        </p>
+        <p>
+        If you need to create Relations between Custom objects, or between Standard objects and Custom objects, 
+        please contact us at <a href="mailto:Sales@AspiraTech.net">Sales@AspiraTech.net</a> to request a price quote for that customization. 
+        <br/>Similarly, the app supports only 10 Relations, which should be sufficient for just the Standard Objects.
+        An additional 10 Relations are made available when Custom objects are added.
+        </p>
+        
+        <p>
+        <h2>Setup Instructions</h2>
+        </p>
+        <p>
+        After installing the app, you must add the Remote Site URL under Setup/ Administration Setup/ Security Controls/ Remote Site Settings/ New Remote Site (button). 
+        The easiest way to do this is to try to create a Relation without it, then copy and paste from the error message you will receive to 
+        create the Remote Site URL. Though the text you copy and paste will be slightly longer, after you save it it you will see something like the following:
+        <br/>     <br/><center><a href="https://x-api.salesforce.com/">https://x-api.salesforce.com/</a></center><br/>
+        <br/>Where "x" is the server your SFDC instance is on. For example, if urls for your org all start with “na7,” as in 
+        <a href="https://na7.salesforce.com/">https://na7.salesforce.com/</a>, the remote site url you would use would be: 
+        <br/>     <br/>
+        <center><a href="https://na7-api.salesforce.com/">https://na7-api.salesforce.com/</a></center>
+        <br/>The tool will not work until this is done.
+        </p>
+        <p>Alternatively, you can go to create the Remote Site URL directly before creating your first trigger and use the above guidelines for composing the URL.</p>
+        <p>
+        <h1>General Usage Instructions</h1>
+        </p>
+        <p>
+        For most orgs, only these General Usage Instructions will be needed to use the app.  Before 
+        creating Relations with Aspira Xobject, please create your workflow rules and confirm 
+        that they are working as intended whenever you manually edit the Affected object after the 
+        rule’s conditions are met on the object being watched. If the rule does not work when you 
+        click “Edit” then “Save” (without making any changes to the record), it will still not work 
+        once you are using Aspira XObject. The tool only duplicates the action of clicking “Edit” then 
+        “Save” on the appropriate record, so that the user doesn’t have to know that the rule evaluated 
+        as true then navigate to the record and manually trigger the update with their actions.
+        </p>
+        <p>
+        Once your workflow rules are working as intended with manual edits, go to the Relations tab 
+        to create needed cross-object Relations. Use one line for each Relation you want between different objects. 
+        </p>
+        
+        <p>
+        <i>Fields to Complete when creating a Relation:</i>
+        </p>
+        <p>
+            <table border="1" cellspacing="0" cellpadding="5">
+                <thead>
+                    <tr>
+                        <th>Field</th>
+                        <th>Usage</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Affected Object</td>
+                        <td>The object that has the workflow rule(s) on it.</td>
+                    </tr>
+                    <tr>
+                        <td>Lookup Type</td>
+                        <td>Always use the default of “Outgoing” to create a Relation – see details in the FAQ below for the usage of the “Incoming” option.</td>
+                    </tr>
+                    <tr>
+                        <td>Lookup Field To Use</td>
+                        <td>Select the name of the Lookup field that will tell the system which object records to watch. For example, you could have several different lookups on a Contact record to other Contact records designating some of the relationships between Contacts, such as Friend, Sibling, Mentor, Referrer, etc.. But which one should the Relation be watching for changes related to your workflow rule?</td>
+                    </tr>
+                    <tr>
+                        <td>Object To Watch</td>
+                        <td>This field will default to a value based on the lookup field you choose in “Lookup Field to Use” and there will generally be only one choice. For some objects there are multiple choices, such as Task-Opportunity/AccountID, which can be Opportunity, Account, Case, Contract, and four other options.</td>
+                    </tr>
+                    <tr>
+                        <td>Trigger Name</td>
+                        <td>Give the trigger a unique name that is a valid Apex Trigger name (no spaces, no underscores etc.).</td>
+                    </tr>
+                    <tr>
+                        <td>Action</td>
+                        <td>Click “Add” after completing the other fields for the Relation, or “Del” if deleting a Relation you already created. Note that you must also delete the trigger the tool created in the setup area after deleting from the Relations page.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </p>
+        <p>
+        In the example we have been using thus far, the “Affected Object” would be Contact. 
+        The Lookup Type would be “Outgoing.” The Lookup Field to Use would be “Account ID” and 
+        the Object to Watch would be chosen for us to be the Account object. A good name for the 
+        trigger might be “ContAcctIDAcct” – no spaces or punctuation, and the two objects and lookup field abbreviated within the name.
+        </p>
+        <p>
+        
+        For most orgs, this will be all that is needed to create the Relation and the associated trigger and classes needed to make the tool work. If your org has a lot of apex code written or inadequate code test coverage, you will encounter a warning dialogue like the following whenever you try to create a Relation:</p>
+<p><i>“Unfortunately, the first attempt to process your request has failed, likely due to issues with other apex code written in your org. The application will proceed with a second attempt to automatically create the needed trigger and class for you, but you should note that it may take up to a minute to process.”</i></p>
+<p>The app will try again using a more platform intensive method. If even that method is unable to work with your existing apex code, you will see a message like the following and will then need to follow the Manual Usage instructions in the section that follows:</p>
+<p><i>“The application is unable to automatically produce related triggers and classes in your org due to the apex code written in your org. Please click 'OK' and proceed to the manual solution that uses the Force.com IDE, instructions for which are found in the Help/About page.”</i>
+        </p>
+   <p>If you are moved to the manual method each time you create a trigger, or if the tool says it created the trigger for you,
+   but when you look under Setup/Develop/Apex Triggers you do not see the trigger name you created, check the 
+       box labeled "Always Use Manual Method" so that you will be able to skip the first two attempts in the future.</p>
+        
+   <p>
+   <h1>Manual Usage Instructions</h1>
+   </p>     
+   
+   <p>
+   If you receive notification that the apex code written in your org requires you use the manual method for working with Xobject, you will complete three steps in the relation creation process: 
+   </p>
+   
+   <p><ol>
+        <li>Create the Relation on the Relations tab within the app.
+        </li>
+         <li>Copy and paste the trigger contents displayed into a new trigger on the Object to Watch.
+        </li>
+         <li>Copy and paste the class contents displayed into a new class.
+        </li>
+        </ol>
+        </p>
+        <p>
+        <u><strong>Step 1 - Creating the Relation
+        </strong></u>
+         </p>
+<p>See General Usage Instructions above.  This step is the same for both the automatic and manual methods.
+</p>
+<p>
+        <u><strong>Steps 2 and 3 - Creating the Appropriate Trigger and Class
+        </strong></u></p>
+         <p>
+         In the our example, which uses the Contact and Account objects, the messages displayed after creation of the Relation would read as follows:</p>
+
+<ul>
+<li>Relation was created successfully!</li>
+
+<li>You must now create a trigger named <em>ContAcct</em> on the Object to Watch with precisely the following content: <strong>trigger ContAcct on Account(after insert, after update){Aspira.RelationHandler.invoke();}</strong></li>
+
+<li>You must then create a class named <em>AspiraContAcctTest</em> with precisely the following content: <strong>@isTest private class AspiraContAcctTest {private static testmethod void testRelation(){try{update [select Id from Account limit 1];}catch(Exception e){System.debug(e);}}}</strong></li>
+</ul>
+<p>
+If you are working in a Developer Edition org, Sandbox, or Trial Version of Enterprise Edition, you will be able to create the Triggers and Classes directly within the user interface.  If not, you will have to use the Force.com IDE to create the triggers and classes for your Relations. </p>
+<p>Be sure to copy the exact contents (highlighted in bold above) and not to include any extra characters within the trigger you create.  Be sure to name your trigger and class as italicized above, which in our example is trigger ContAcct and class AspiraContAcctTest. (You will not see the bold or italics within the tool itself, so note the context.)</p>
+<p>When using the user interface, for creation of the trigger on standard objects, navigate to the Object to Watch’s triggers section under Setup/Customize/”Standard Object Name”/Triggers. For custom objects, the triggers seciton will be found on the object’s properties page, the same location where you create fields and page layouts. </p>
+
+<p>For instructions on installing the Force.com IDE to create triggers and classes, please visit the following page:  <a href="http://wiki.developerforce.com/index.php/Force.com_IDE_Installation_for_Eclipse_3.4.x" target="_blank">http://wiki.developerforce.com/index.php/Force.com_IDE_Installation_for_Eclipse_3.4.x</a> </p>
+<p>If you are using a PC running Vista, you probably already have Java installed, and will simply have to install Eclipse using the link found on this page. Within Eclipse you then retrieve the Force.com IDE, as shown in the instructions on the linked page above.</p>
+
+<p>
+After installing the Force.com IDE within Eclipse, you will take the following steps to create each new Relation’s trigger and test class:
+<ol>
+<li> Create a Force.com Project for your org</li>
+<li> Create the trigger by copying and pasting from the Relation’s message within SFDC</li>
+<li> Create the class by copying and pasting from the Relation’s message within SFDC</li>
+</ol>
+</p>
+<p>Step-by-step instructions for performing these three actions, including screenshots, can be found within the PDF version of the Users Guide which was emailed to you when you 
+downloaded this app. One-on-one assistance in completing this step is provided free of charge ONLY with the paid version of the app that works with custom objects. It is not possible to train Admins in the use of the Force.com IDE for use with the free app unless an hourly consulting fee is arranged.
+</p>
+   
+         <p>
+
+    <h2>Special Usage Note - Chaining</h2>
+        </p>
+        <p>
+        The tool only extends through one level of cross-object relating. For example, if 
+        you create a workflow rule that sets a field update on one Contact record when a related 
+        Contact record’s related Account record has a certain value in one of its fields, you can 
+        trigger the workflow manually by editing the target Contact record after editing the Account 
+        record to have the criteria met, but the Aspira XObject tool will not be able to trigger the 
+        workflow on the Contact object for you automatically. 
+        </p>
+        <p>
+        To create such a relationship between one Contact and another Contact’s related Account, 
+        you would need to create an intermediary field on Contact that gets updated by the change 
+        to Account, then create two workflow rules and Relations – one between the first Contact and 
+        the second one, and one between the second Contact and its related Account record. This is called
+        chaining and should be used only in moderation so as not to exceed Salesforce platform limits.
+        </p>
+        
+       
+        
+        <p>
+            <h2>FAQ – Frequently Asked Questions</h2>
+        </p>
+        <p>
+            <b>1. How do I extend Aspira XObject to custom objects?</b>
+            <ul>
+                <li>Please contact us at <a href="mailto:Sales@AspiraTech.net">Sales@AspiraTech.net</a> to request a price quote for that customization.</li>
+            </ul>
+            <b>2. Why is there a Lookup Type of “Incoming” if it can’t be used in Relations? </b>
+            <ul>
+                <li>
+                    Currently SFDC does not allow users to create workflow rules that depend on 
+                    incoming field lookups. However, it is possible to include these incoming lookups 
+                    within the tool and you may find it a helpful feature to be able to see all the 
+                    incoming lookups that have been created to a given object. It is therefore simply 
+                    a reference feature at this time. When you select “Incoming” under Lookup Type, 
+                    the “Lookup field to use” field will switch to displaying incoming lookup values. 
+                    Always use "Outgoing" when creating a Relation.
+                </li>
+            </ul>
+            <b>3. What do I do if I encounter the following error?</b>
+            <br/><i> “<span style="color:red;">Error:</span> Unauthorized endpoint, please check Setup->Security->Remote site settings. endpoint = https://<b>x</b>-api.salesforce.com/services/Soap/s/17.0”</i> - actual endpoint may vary.
+            <ul>
+                <li>Add the remote site under Setup/ Administration Setup/ Security Controls/ Remote Site Settings/ New Remote Site (button). Be sure to use your instance’s SFDC server in place of the “x.”</li>
+            </ul>
+            <b>4. Why are some Standard object lookup fields that I see in Setup/Fields not included in the lookup pick-list within the tool?</b>
+            <ul>
+                <li>
+                    There are two reasons why this may occur. One, the tool will only show fields 
+                    you have access to. For example,  on the Case object “Business Hours” is a field 
+                    that by default is not visible to any users within Field Level Security (FLS). 
+                    It will not show within Aspira XObject until you change FLS to make it visible 
+                    to your profile. Two, some fields are simply not updatable based on the Force.com platform’s configuration.
+                </li>
+            </ul>
+            <b>5. Why do I get the following error when I try to create some relations?</b>
+            <br/><i> “<span style="color:red;">Error:</span> There were a problem while generating yourTriggerName trigger: SObject type does not allow triggers: PricebookEntry</i>
+            <ul>
+                <li>
+                    Unfortunately, not every SObject is triggerable. Though we only show triggerable 
+                    objects in the “Affected Object” list, there is also the need for the trigger to 
+                    be able to “attach at the other end” to the other object. One such example of a 
+                    non-triggerable object that you might see available in a lookup, but that isn’t 
+                    really available, is the “Price Book Entry” object.
+                </li>
+            </ul>
+             <b>6. Are there any limits to how many records can be updated by the app at once?</b>
+            <ul>
+                <li>
+                   Yes, each edit of a watched object record can update between 100-500 records on affected objects. 
+                   (100 updates as a result of manual user edits to the watched object, or as many as 500 simultaneous updates if as a result of data import,
+                    such as through dataloader.) This is a good reason to be conservative in the number of Relations you create for each watched object, since for 
+                    manual user edits the 100 total simultaneous updates gets divided by the number of times the object was used as the watched object in a Relation. 
+                    So if you used the Account object as the watched object in relations to 10 different affected objects, you would only be able to use the tool to update on average 10 records
+    on each of those affected objects each time an Account record is edited (100/10=10).
+                    If you need to update larger batches of records, please contact us about the Extended Batch version of the app, which can update into the millions of records
+                    at once, but allows only 5 relations to be created per object, runs slightly slower, and does not allow chaining of multiple relations.               
+                     </li>
+            </ul>
+              <b>7. What do I do if I get an error like the following when trying to edit a record after creation of a Relation that includes that object as a Watched Object?</b>
+            <br/><i> “<span style="color:red;">Error: Invalid Data. Review all error messages below to correct your data. <br/>Apex trigger XXX caused an unexpected exception, contact your administrator: XXX: execution of AfterUpdate caused by: System.Exception: aspirax:Too many DML rows: 116: (ASPIRAX)</span> </i>
+            <ul>
+                <li>
+                    This is an indication that you need to be using the Batch version of the app. See FAQ #6 above for more details. 
+                    Please contact us to request the Batch version, which will be supplied at no additional cost to you.
+                </li>
+            </ul>
+             <b>8. What do I do if I want to uninstall the app?</b>
+                       <ul>
+                <li>  You will need to manually delete any triggers you created with the app before uninstalling it. 
+                Triggers can be deleted directly within the user interface for Developer, Trial, and Sandbox editions. 
+                All others will need to use the Force.com IDE to delete the triggers by right clicking on the trigger name then choosing ‘delete’ from the shortcut menu.
+                </li>
+                  </ul>
+             <b>9. Why are triggers not created for me automatically when I create a Relation?</b>
+                       <ul>
+                <li> Inadequate test coverage or test failures within existing apex code in your org will cause a key function within 
+                our app to fail at the point where the triggers and test classes would be made automatically by the app. Organizations that 
+                have a large number of well written classes and triggers will also not be able to use the automatic version of the app, 
+                because the run time for all classes and triggers during the functioning of our app will exceed the 60 second platform limit. 
+                If your org’s code is as such, you will be moved to attempt 3 by the app and will need to use the displayed code to manually create 
+                your triggers and classes using the Force.com IDE.  If you are moved to the manual method each time you create a trigger, 
+                or if the tool says it created the trigger for you, but when you look under Setup/Develop/Apex Triggers you do not see the trigger name you created, 
+                check the box labeled "Always Use Manual Method" so that you will be able to skip the first two attempts in the future.
+                </li>
+                  </ul>
+                    </p>
+        
+               
+        <p>
+            <h2>
+                Additional Help and Training 
+            </h2>
+        </p>
+        <p>
+            <ul>
+                <li>
+                    To learn more about using the free version of this application in your environment, 
+                    including setting up the desired workflow rules, SalesForce Administrators may 
+                    contact us at <a href="mailto:Sales@AspiraTech.net">Sales@AspiraTech.net</a> 
+                    to request customized training services. There is a fee for this service.
+                </li>
+                <li>Purchasers of the extended version of the app may receive support for installation and initial configuration of the app at no cost. For that support, please contact us at
+                <a href="mailto:Support@AspiraTech.net">Support@AspiraTech.net</a>. 
+                </li>
+            </ul>
+        </p>
+    </apex:pageBlock>
+</apex:page>

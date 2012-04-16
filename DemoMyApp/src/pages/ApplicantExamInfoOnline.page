@@ -1,0 +1,336 @@
+<apex:page showHeader="false" controller="ApplicantExamController">
+<apex:includeScript value="{!$Resource.RegistrationJavascript}"/>
+<table class="innertable" border="0" cellpadding="0" cellspacing="0">
+<tr><td colspan="2"><c:onlineHeader /></td></tr>
+<tr>
+                   
+                    <td>
+                        <apex:form >
+                            <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
+                                <tr>
+                                    <td><c:OnlineAccountHeader /></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2"></td>
+                                </tr>
+                                <tr><td colspan="2"><table width="100%" class="innerpadding"  border="0" cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <td colspan="2" class="formheader" style="text-align:left ">Add Exam Information</td>
+                                </tr>
+                              
+
+                                <tr>
+                                    <td background="{!URLFOR($Resource.Images, 'new-images/line.jpg')}" style="background-repeat:repeat-x">&nbsp;</td>
+                                </tr>  
+                                <apex:outputPanel rendered="{!tab4}">
+                                <tr style="text-align:left"><td colspan="2" >
+<apex:pageMessages escape="false" showDetail="false"  />
+</td></tr><apex:outputPanel >
+                                <tr>
+                                    <td valign="top">
+                                        <table width="100%" align="center"  border="0">
+                                            <tr>
+                                                <td colspan="2" >&nbsp;</td>
+                                            </tr>
+                                            <tr > 
+      <td  rowspan="2" align="right" class="formlable" width="202">Test<span class="error_star">*</span></td>
+                                                <td   colspan="1" rowspan="2" align="left" class="formlable">
+                                                    <apex:inputField value="{!hist.Exam_Type__c}"  styleClass="form-selectList" />
+                                                </td>
+                                                <td colspan="2" align="left" class="formlable" >
+                                               
+                                                </td>                                          
+                                            </tr>
+                                            <tr>
+<td  align="left" class="formlable" >
+                                               
+                                                </td>
+                                                <td  align="left" class="formlable" ></td>
+                                            </tr>
+                                           
+                                            <tr >
+                                                <td align="center"   class="formlable" ></td>
+  <td align="left"  class="formlable" >
+ <apex:inputCheckbox id="nexam" value="{!hist.NeedofTest__c}" onclick="show('1')"/>
+<apex:outputText value="I need to take my test "></apex:outputText>&nbsp;&nbsp;&nbsp;
+<apex:inputCheckbox id="pexam" value="{!hist.TakenTest__c}" onclick="show('2')"/>
+<apex:outputText value="I have already taken my test"></apex:outputText>
+          </td>
+                                              
+                                            </tr>
+                                            
+                                             <tr>
+                                                
+                                                   
+                                                    <td  class="formlable" align="right" ><div style="display:none" id="nexam1"  >Planned Test Date&nbsp;(dd/mm/yyyy)<span class="error_star">*</span> </div></td>
+                                                    <td class="formlable" >
+                                                        <div style="display:none" id="nexam2"  >
+                                                        <apex:inputText styleClass="form-text-box" style="width:30px" maxlength="2" value="{!Planned_Test_Date_day}"/>
+                                                 -&nbsp; <apex:inputText styleClass="form-text-box" style="width:30px" maxlength="2" value="{!Planned_Test_Date_month}"/>
+                                                 -&nbsp; <apex:inputText styleClass="form-text-box" style="width:50px" maxlength="4" value="{!Planned_Test_Date_year}"/>
+                                                
+                                                        </div>
+                                                    </td>
+                                                     <td colspan="2" class="formlable" ></td>
+                                               
+                                            </tr>
+                                            <tr>
+                                              
+                                                    
+                                                    <td  class="formlable" align="right" ><div style="display:none" id="nexam3"  >Test Location</div></td>
+                                                    <td   align="left" class="formlable"  >
+                                                        <div style="display:none" id="nexam4"  ><apex:inputField id="plocation1" value="{!hist.Planned_Test_Location__c}" styleClass="form-text-box" /></div>
+                                                    </td>
+                                                    <td colspan="2" ></td>
+                                            </tr>   
+                                                           
+                                            <tr> 
+                                                    <td  align="right" class="formlable"><div style="display:none" id="pexam1">Date Taken&nbsp;(dd/mm/yyyy)<span class="error_star">*</span></div></td>
+                                                    <td  align="left" class="formlable">
+                                                        <div style="display:none" id="pexam2">
+                                                     <apex:inputText styleClass="form-text-box" style="width:30px" maxlength="2" value="{!Exam_Date_day}"/>
+                                                 -&nbsp; <apex:inputText styleClass="form-text-box" style="width:30px" maxlength="2" value="{!Exam_Date_month}"/>
+                                                 -&nbsp; <apex:inputText styleClass="form-text-box" style="width:50px" maxlength="4" value="{!Exam_Date_year}"/>
+
+                            </div>
+                                                    </td>
+                                                    <td colspan="2" ></td>
+                                              
+                                            </tr>
+                                            <tr >
+                                               
+                                                    
+                                                    <td  align="right" class="formlable"><div style="display:none" id="pexam3">Test Location</div></td>
+                                                    <td align="left">
+                                                        <div style="display:none" id="pexam4"><apex:inputField id="pexamlocation2" value="{!hist.Exam_Location__c}"  styleClass="form-text-box" /></div>
+                                                    </td>
+                                                    <td colspan="2" ></td>
+                                              
+                                            </tr>
+                                            <tr >
+                                             
+                                                    
+                                                    <td  align="right" class="formlable"><div style="display:none" id="pexam5">Test Score<span class="error_star">*</span></div></td>
+                                                    <td align="left" >
+                                                   
+                                                    <div style="display:none" id="pexam6"><apex:inputField id="examscore" value="{!hist.Exam_Score__c}"  styleClass="form-text-box"/></div>
+                                                    </td>
+                                                    <td colspan="2" ></td>
+                                                
+                                            </tr>
+                                            <tr><td>&nbsp;</td><td colspan="3" align="left">
+ <apex:outputPanel rendered="{!!isedit}">
+<span class="button primary">
+ <apex:commandLink value="Add Information" title="Add Information"  action="{!saveandsave}" />
+
+ </span></apex:outputPanel>
+ <apex:outputPanel rendered="{!isedit}">
+ <span class="button primary">
+ <apex:commandLink value="Update" title="Update" action="{!saveandcontinue}" />
+ </span>
+ <span class="button primary">
+ <apex:commandLink value="Cancel" title="Cancel" action="{!cancel}" />
+ </span>
+
+ </apex:outputPanel>
+                                
+                                </td></tr>
+                                <tr><td>&nbsp;</td><td colspan="3" align="left"></td></tr>
+                                        </table>
+                                        <script>
+                                            function show(str1,str2)
+                                            {
+                                                var i=0;
+                                                if(str1==1)
+                                                {
+                                                    if(document.getElementById('{!$Component.nexam}').checked)
+                                                    {
+                                                        document.getElementById('nexam1').style.display='inline';
+                                                        document.getElementById('nexam2').style.display='inline';
+                                                        document.getElementById('nexam3').style.display='inline';
+                                                        document.getElementById('nexam4').style.display='inline';
+                                                        document.getElementById('pexam1').style.display='none';
+                                                        document.getElementById('pexam2').style.display='none';
+                                                        document.getElementById('pexam3').style.display='none';
+                                                        document.getElementById('pexam4').style.display='none';
+                                                        document.getElementById('pexam5').style.display='none';
+                                                        document.getElementById('pexam6').style.display='none';
+                                                        document.getElementById('{!$Component.pexam}').checked=false;       
+                                                    }
+                                                    else
+                                                    {
+                                                        document.getElementById('nexam1').style.display='none';
+                                                        document.getElementById('nexam2').style.display='none';
+                                                        document.getElementById('nexam3').style.display='none';
+                                                        document.getElementById('nexam4').style.display='none';
+                                                        document.getElementById('pexam1').style.display='none';
+                                                        document.getElementById('pexam2').style.display='none';
+                                                        document.getElementById('pexam3').style.display='none';
+                                                        document.getElementById('pexam4').style.display='none';
+                                                        document.getElementById('pexam5').style.display='none';
+                                                        document.getElementById('pexam6').style.display='none';
+                                                        document.getElementById('{!$Component.pexam}').checked=false;
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    if(document.getElementById('{!$Component.pexam}').checked)
+                                                    {
+                                                        document.getElementById('nexam1').style.display='none';
+                                                        document.getElementById('nexam2').style.display='none';
+                                                        document.getElementById('nexam3').style.display='none';
+                                                        document.getElementById('nexam4').style.display='none';
+                                                        document.getElementById('pexam1').style.display='inline';
+                                                        document.getElementById('pexam2').style.display='inline';
+                                                        document.getElementById('pexam3').style.display='inline';
+                                                        document.getElementById('pexam4').style.display='inline';
+                                                        document.getElementById('pexam5').style.display='inline';
+                                                        document.getElementById('pexam6').style.display='inline';
+                                                        document.getElementById('{!$Component.nexam}').checked=false;
+                                                    }
+                                                    else
+                                                    {
+                                                        document.getElementById('nexam1').style.display='none';
+                                                        document.getElementById('nexam2').style.display='none';
+                                                        document.getElementById('nexam3').style.display='none';
+                                                        document.getElementById('nexam4').style.display='none';
+                                                        document.getElementById('pexam1').style.display='none';
+                                                        document.getElementById('pexam2').style.display='none';
+                                                        document.getElementById('pexam3').style.display='none';
+                                                        document.getElementById('pexam4').style.display='none';
+                                                        document.getElementById('pexam5').style.display='none';
+                                                        document.getElementById('pexam6').style.display='none';
+                                                        document.getElementById('{!$Component.nexam}').checked=false;
+                                                    }
+                                                }
+                                                if(str1==2)
+                                                {
+                                                document.getElementById('{!$Component.pdate}').value='';
+                                                document.getElementById('{!$Component.plocation1}').value='';}
+                                                else { 
+                                               // document.getElementById('{!$Component.pexamdate1}').value='';
+                                                document.getElementById('{!$Component.pexamlocation2}').value='';
+                                                document.getElementById('{!$Component.examscore}').value='';}
+                                            }
+                                        </script>
+                                        <apex:outputPanel rendered="{!hist.NeedofTest__c}">
+                                            <script>show('1');</script>
+                                        </apex:outputPanel>
+                                        <apex:outputPanel rendered="{!hist.TakenTest__c}">
+                                            <script>show('2');</script>
+                                        </apex:outputPanel>
+                                    </td>
+                                </tr>
+                                
+                                <tr>
+                                    <td background="{!URLFOR($Resource.Images, 'new-images/line.jpg')}" style="background-repeat:repeat-x">&nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding-left:20px;padding-right:20px;vertical-align:text-bottom">
+                                        <table width="100%">
+                                            <tr>
+                                                <td align="center">
+                                                    <apex:outputPanel rendered="{!!isedit}">
+                                                       <span class="button primary">
+ <apex:commandLink value="Save and Continue" title="Save and Continue"  action="{!Onlinesaveandcontinue}">
+ <apex:param name="saveandc" value="saveandc"/>
+ </apex:commandLink>
+
+ </span>
+ <span class="divider">|</span>
+        <apex:commandLink value="Save and Logout"   styleClass="secondary" action="{!saveandcontinueandlogout}">
+        <apex:param name="saveandc" value="saveandc"/>
+ </apex:commandLink>
+
+                                                    </apex:outputPanel>
+                                                    
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;</td>
+                                </tr>
+                                
+                                </apex:outputPanel>
+                                <tr>
+                                    <td>&nbsp;</td>
+                                </tr>
+                                
+                                <tr>
+                                    <td>
+                                        <table width="100%" align="center" border="0">
+                                            <tr>
+                                                <td>
+                                                    <style>
+                                                        .hclass
+                                                        {
+                                                            background-color:#E2E2E2;
+                                                        }
+                                                    </style>
+                                                    <apex:dataTable cellpadding="5px;" headerClass="hclass" value="{!elist}" var="e" style="width:100%; bgcolor:#FFFFFF">
+                                                        <apex:column >
+                                                            <apex:facet name="header">Test</apex:facet>
+                                                            <apex:outputText value="{!e.Exam_Type__c}"/>
+                                                        </apex:column>
+                                                        <apex:column >
+                                                            <apex:facet name="header">Test Date</apex:facet>
+                                                            <apex:outputText rendered="{!e.NeedofTest__c}" value="{0,date,dd'/'MM'/'yyyy}">
+                                                                <apex:param value="{!e.Planned_Test_Date__c}" /> 
+                                                            </apex:outputText>
+                                                            <apex:outputText rendered="{!e.TakenTest__c}" value="{0,date,dd'/'MM'/'yyyy}">
+                                                                <apex:param value="{!e.Exam_Date__c}" /> 
+                                                            </apex:outputText>
+                                                        </apex:column>
+                                                        <apex:column >
+                                                            <apex:facet name="header">Test Location</apex:facet>
+                                                            <apex:outputText rendered="{!e.NeedofTest__c}" value="{!e.Planned_Test_Location__c}"/>
+                                                            <apex:outputText rendered="{!e.TakenTest__c}" value="{!e.Exam_Location__c}"/>
+                                                        </apex:column>
+                                                        <apex:column >
+                                                            <apex:facet name="header">Test Score</apex:facet>
+                                                            <apex:outputText value="{!e.Exam_Score__c}"/>
+                                                        </apex:column>
+                                                        <apex:column >
+                                                            <apex:facet name="header">Planned/Taken</apex:facet>
+                                                            <apex:outputText value="{!if((e.NeedofTest__c),'Planned','Taken')}"/>
+                                                        </apex:column>
+                                                        <apex:column >
+                                                            <apex:facet name="header">Action</apex:facet>
+                                                            <apex:commandLink action="{!edit}"> Edit
+                                                                <apex:param name="hid" value="{!e.id}"/>
+                                                            </apex:commandLink>
+                                                            | <apex:commandLink action="{!hisdelete}" onclick="return del();"> Delete
+                                                                <apex:param name="hid" value="{!e.id}"/>
+                                                            </apex:commandLink>
+                                                        </apex:column>
+                                                    </apex:dataTable>
+                                                    
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <span style="float:right;;vertical-align:bottom"><apex:outputLink value="#"><apex:image url="{!URLFOR($Resource.Images, 'new-images/topimage.jpg')}"  />&nbsp;<b>back to top</b></apex:outputLink> </span>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr></apex:outputPanel><apex:outputPanel rendered="{!!tab4}">
+                               <tr><td class="uncompetetab_msg" align="center" height="200" valign="top">
+You must complete Program &amp; Location tab before Exam Information tab 
+</td></tr></apex:outputPanel></table></td></tr>
+                            </table>
+                            <script>
+                                document.getElementById('Exam').style.backgroundImage="url('{!URLFOR($Resource.Images, 'new-images/tabwhiteimage.jpg')}')";
+                                document.getElementById('Exam').style.backgroundPosition="center";
+document.getElementById('Exam1').className="headertabonload";
+
+                            </script>
+                        </apex:form>
+                    </td>
+                </tr>
+               
+            </table>
+           
+</apex:page>

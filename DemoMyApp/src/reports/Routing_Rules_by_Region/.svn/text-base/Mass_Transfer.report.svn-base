@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Contact$Id</field>
+    </columns>
+    <columns>
+        <field>Contact$Applicant_Email__c</field>
+    </columns>
+    <columns>
+        <field>Contact$Owner</field>
+    </columns>
+    <columns>
+        <field>Contact$Do_Not_Route__c</field>
+    </columns>
+    <columns>
+        <field>Contact$Program_Primary__c</field>
+    </columns>
+    <columns>
+        <field>Contact$Country_Of_Residence__c</field>
+    </columns>
+    <columns>
+        <field>Contact$MailingState</field>
+    </columns>
+    <columns>
+        <field>Contact.OpportunityContactRoles*Opportunity$Start_Term__c</field>
+    </columns>
+    <columns>
+        <field>Contact.OpportunityContactRoles$StageName</field>
+    </columns>
+    <columns>
+        <field>Contact.OpportunityContactRoles*Opportunity$Application_Substage__c</field>
+    </columns>
+    <currency>USD</currency>
+    <filter>
+        <criteriaItems>
+            <column>Contact.OpportunityContactRoles$StageName</column>
+            <operator>equals</operator>
+            <value>Qualified Lead,In Progress</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Contact$Program_Primary__c</column>
+            <operator>startsWith</operator>
+            <value>MBA,EMBA</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Contact$MailingState</column>
+            <operator>equals</operator>
+            <value>Maine,New Hampshire,Rhode Island,Vermont</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Contact.OpportunityContactRoles*Opportunity$Start_Term__c</column>
+            <operator>equals</operator>
+            <value>September 2012</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>Mass Transfer</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Application_and_Contact_Information__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Contact$Birthdate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

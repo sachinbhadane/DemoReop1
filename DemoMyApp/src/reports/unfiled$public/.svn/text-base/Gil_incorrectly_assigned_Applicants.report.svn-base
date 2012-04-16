@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Contact$Id</field>
+    </columns>
+    <columns>
+        <field>Contact$Owner</field>
+    </columns>
+    <columns>
+        <field>Contact$FirstName</field>
+    </columns>
+    <columns>
+        <field>Contact$Country_Of_Residence__c</field>
+    </columns>
+    <columns>
+        <field>Contact$Program_Primary__c</field>
+    </columns>
+    <columns>
+        <field>Contact.OpportunityContactRoles$StageName</field>
+    </columns>
+    <currency>USD</currency>
+    <filter>
+        <criteriaItems>
+            <column>Contact$Owner</column>
+            <operator>equals</operator>
+            <value>gil matos</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Contact$Program_Primary__c</column>
+            <operator>notEqual</operator>
+            <value>undecided-undecided,undecided accounts,undecided</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Contact$Country_Of_Residence__c</column>
+            <operator>notEqual</operator>
+            <value>mexico,dominican republic</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Contact$Do_Not_Route__c</column>
+            <operator>equals</operator>
+            <value>0</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Contact.OpportunityContactRoles$StageName</column>
+            <operator>equals</operator>
+            <value>Qualified Lead,In Progress</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <name>Gil incorrectly assigned Applicants</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Application_and_Contact_Information__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Contact$Birthdate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

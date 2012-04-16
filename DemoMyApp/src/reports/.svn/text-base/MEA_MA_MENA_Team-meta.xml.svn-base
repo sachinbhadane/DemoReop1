@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ReportFolder xmlns="http://soap.sforce.com/2006/04/metadata">
+    <accessType>Shared</accessType>
+    <name>MEA MA MENA Team</name>
+    <publicFolderAccess>ReadWrite</publicFolderAccess>
+    <sharedTo>
+        <roles>MEA Product Head - MA</roles>
+        <roles>MEA Recruiter - MA</roles>
+        <roles>MEA Telesales User</roles>
+    </sharedTo>
+</ReportFolder>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Contact$MailingState</field>
+    </columns>
+    <currency>USD</currency>
+    <filter>
+        <booleanFilter>(1 AND (2 or 5) and 3 AND 4) AND 6</booleanFilter>
+        <criteriaItems>
+            <column>Contact$Start_Term__c</column>
+            <operator>contains</operator>
+            <value>2012</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Contact$Region__c</column>
+            <operator>equals</operator>
+            <value>Lat Am</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Contact$Name</column>
+            <operator>notContain</operator>
+            <value>test</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Contact$Program_Primary__c</column>
+            <operator>startsWith</operator>
+            <value>m</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Contact$MailingState</column>
+            <operator>equals</operator>
+            <value>florida,fl</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Contact$Program_Primary__c</column>
+            <operator>notContain</operator>
+            <value>mba</value>
+        </criteriaItems>
+    </filter>
+    <format>Matrix</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Contact$Country_Of_Residence__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>YTD Qualified Leads_LA MA_Country Break</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Contact_Report__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Contact$CreatedDate</dateColumn>
+        <endDate>2012-07-31</endDate>
+        <interval>INTERVAL_CUSTOM</interval>
+        <startDate>2011-08-01</startDate>
+    </timeFrameFilter>
+</Report>

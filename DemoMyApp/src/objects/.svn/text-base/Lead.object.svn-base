@@ -1,0 +1,2326 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <enableFeeds>true</enableFeeds>
+    <fields>
+        <fullName>Address2__c</fullName>
+        <description>to hold address2 field for the leads we import to salesforce from the excel sheets</description>
+        <externalId>false</externalId>
+        <label>Address2</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Age_Range__c</fullName>
+        <externalId>false</externalId>
+        <label>Age Range</label>
+        <picklist>
+            <picklistValues>
+                <fullName>18-22</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>23-25</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>26-28</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>29-35</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>36+</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Alumnus__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Alumnus?</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Applicant_Email__c</fullName>
+        <externalId>false</externalId>
+        <label>Applicant Email</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Email</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Apply_Routing_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Apply Routing</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Zip/Postal Code</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Proximity</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Geocoded Proximity</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Recruiting</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Campaign_at_Lead_Import_time__c</fullName>
+        <description>To be populated at time of Lead import in the case of wanting to segment a mass email with this particular campaign as a reference.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Please use this field only if you need to mass email your Fair, for which you will have to Manage Members &gt; Add Members &gt; and then set-up a criteria where the field &apos;Campaign at Lead Import time&apos; will equal YOUR CAMPAIGN NAME</inlineHelpText>
+        <label>Campaign at Lead Import time</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Central_Email_Sent_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Last Central Email Sent Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Convert_Now__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Test- trigger on lead when Convert now field is checked.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Test- trigger on lead when Convert Now field is checked.</inlineHelpText>
+        <label>Convert Now</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Country_Of_Citizenship_Override__c</fullName>
+        <externalId>false</externalId>
+        <label>Country Of Citizenship (Override)</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Country_Of_Citizenship__c</fullName>
+        <externalId>false</externalId>
+        <label>Country Of Citizenship</label>
+        <referenceTo>Country__c</referenceTo>
+        <relationshipLabel>Leads (Country Of Citizenship)</relationshipLabel>
+        <relationshipName>Leads_Country_Of_Citizenship</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Country_Of_Origin_Override__c</fullName>
+        <externalId>false</externalId>
+        <label>Country Of Origin (Override)</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Country_Of_Origin__c</fullName>
+        <externalId>false</externalId>
+        <label>Country Of Origin</label>
+        <referenceTo>Country__c</referenceTo>
+        <relationshipLabel>Leads (Country Of Origin)</relationshipLabel>
+        <relationshipName>Leads_Country_Of_Origin</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Country_Of_Residence_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>Country_Of_Residence__r.Name</formula>
+        <label>Country Of Residence: Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Country_Of_Residence_Override__c</fullName>
+        <externalId>false</externalId>
+        <label>Country Of Residence (Override)</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Country_Of_Residence__c</fullName>
+        <externalId>false</externalId>
+        <label>Country Of Residence</label>
+        <referenceTo>Country__c</referenceTo>
+        <relationshipLabel>Leads (Country Of Residence)</relationshipLabel>
+        <relationshipName>Leads_Country_Of_Residence</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Created_Date__c</fullName>
+        <externalId>false</externalId>
+        <formula>CreatedDate</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Created Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Current_Student__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Current Student?</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Data_Quality_Description__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( Data_Quality_Score__c =100,&quot;All Lead Details Captured&quot;, &quot;Missing: &quot;&amp;IF( LEN( FirstName)=0,&quot;First Name, &quot;,&quot;&quot;)&amp;&quot;&quot;&amp;IF(LEN(LastName)=0, &quot;Last Name, &quot;,&quot;&quot;)&amp;&quot;&quot;&amp;IF( LEN(Company)=0, &quot;Company, &quot;,&quot;&quot;)&amp;&quot;&quot;&amp;IF( LEN(Phone)=0, &quot;Phone, &quot;,&quot;&quot;)&amp;&quot;&quot;&amp;IF( ISPICKVAL(Salutation,&quot;&quot;), &quot;Salutation, &quot;,&quot;&quot;)&amp;&quot;&quot;&amp;IF( ISPICKVAL(Rating,&quot;&quot;), &quot;Rating, &quot;,&quot;&quot;)&amp;&quot;&quot;&amp;IF( LEN(City)=0, &quot;Complete Address, &quot;,&quot;&quot;)&amp;&quot;&quot;&amp;IF( LEN(Email)=0, &quot;Email&quot;,&quot;&quot;))</formula>
+        <label>Data Quality Description</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Data_Quality_Score__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(LEN( FirstName ) = 0, 0,15) + IF(LEN( LastName ) = 0, 0,15) + IF(LEN( Company ) = 0, 0,15) + IF(LEN( Phone ) = 0, 0,15) + IF( ISPICKVAL( Salutation,&quot;&quot;), 0,10) + IF( ISPICKVAL(Rating,&quot;&quot;), 0,10) + IF( LEN( City ) = 0, 0,10) + IF( LEN( Email ) = 0, 0,10)</formula>
+        <label>Data Quality Score</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Date_Of_Birth__c</fullName>
+        <externalId>false</externalId>
+        <label>Date Of Birth</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Degree_Objective__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Degree objective from GMASS list, Masters; Undecided; Doctorate, Executive MBA</inlineHelpText>
+        <label>Degree Objective</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Department_Name_Primary__c</fullName>
+        <externalId>false</externalId>
+        <formula>Program_Primary__r.Department__r.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Department Name (Primary)</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Department_Name_Secondary__c</fullName>
+        <externalId>false</externalId>
+        <formula>Program_Secondary__r.Department__r.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Department Name (Secondary)</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Department_Name_Third__c</fullName>
+        <externalId>false</externalId>
+        <formula>Program_third__r.Department__r.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Department Name (Third)</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Do_Not_Route__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Do Not Route?</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Five_9_Formatted_Mobile_Phone_Number__c</fullName>
+        <externalId>false</externalId>
+        <formula>if (MID( MobilePhone,1,3) =&quot;011&quot;,
+   MobilePhone,
+     if (MobilePhone&lt;&gt; &quot;&quot;, if(Country_Of_Residence__r.Name = &quot;United States&quot;  || Country_Of_Residence__r.Name = &quot;Canada&quot;, MID(OP_Stripped_mobile_country_code__c,LEN(OP_Stripped_mobile_country_code__c)-9,LEN(OP_Stripped_mobile_country_code__c)),&quot;011&quot; + OP_Stripped_mobile_country_code__c), MobilePhone))</formula>
+        <label>Five 9 Formatted Mobile Phone Number</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Five_9_Formatted_Phone_Number__c</fullName>
+        <externalId>false</externalId>
+        <formula>if (MID( Phone,1,3) =&quot;011&quot;,
+   Phone,
+     if (Phone&lt;&gt; &quot;&quot;, if(Country_Of_Residence__r.Name = &quot;United States&quot;  || Country_Of_Residence__r.Name = &quot;Canada&quot;, MID(OP_Stripped_Phone_Number_country_code__c,LEN(OP_Stripped_Phone_Number_country_code__c)-9,LEN(OP_Stripped_Phone_Number_country_code__c)),&quot;011&quot; + OP_Stripped_Phone_Number_country_code__c), Phone))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Five 9 Formatted Phone Number</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>GMASS_Work_Experience__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>GMASS Lead List Import File for filtering</inlineHelpText>
+        <label>GMASS Work Experience</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Less than 1 year</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1 - 2 years</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>3 - 5 years</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>6 - 9 years</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>10 - 14 years</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>15 - 19 years</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>20 or more years</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>-Did Not Respond-</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>GMAT_Actual_Score__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>GMAT Score from List import</inlineHelpText>
+        <label>GMAT Actual Score</label>
+        <length>14</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>GMAT_Score_Range__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>GMAT Score Range for GMASS Lead List Imports</inlineHelpText>
+        <label>GMAT Score Range</label>
+        <picklist>
+            <picklistValues>
+                <fullName>410 - 440</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>450 - 480</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>490 - 520</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>530 - 560</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>570 - 600</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>610 - 640</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>650 - 680</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>690 - 720</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>730 - 760</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>770 - 800</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Gender__c</fullName>
+        <externalId>false</externalId>
+        <label>Gender</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Male</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Female</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Industry</fullName>
+        <picklist>
+            <picklistValues>
+                <fullName>Agriculture</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Apparel</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Banking</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Biotechnology</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Chemicals</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Communications</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Construction</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Consulting</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Education</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Electronics</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Energy</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Engineering</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Entertainment</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Environmental</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Finance</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Food &amp; Beverage</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Government</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Healthcare</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Hospitality</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Insurance</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Machinery</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Manufacturing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Media</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Not For Profit</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Recreation</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Retail</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Shipping</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Technology</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Telecommunications</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Transportation</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Utilities</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Interview_Date_Booked__c</fullName>
+        <externalId>false</externalId>
+        <label>Interview Date Booked</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Interview_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Interview Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Interview_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Interview Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Booked</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Rescheduled</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Lat__c</fullName>
+        <externalId>false</externalId>
+        <label>Latitude</label>
+        <precision>9</precision>
+        <required>false</required>
+        <scale>6</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>LeadID__c</fullName>
+        <externalId>false</externalId>
+        <formula>Id</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>LeadID</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>LeadSource</fullName>
+        <picklist>
+            <picklistValues>
+                <fullName>Access&gt;MBA</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>AccessMBAprescheduled</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Agent</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>AIESEC</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Alumni</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>B2B MEA</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>baidu.com</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Brochure</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cappex</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ChaseDream</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>contact</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>eBlast</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>eBlastEmail</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>EconomistOnlineFair</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>EF</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>EFBlast</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>EFBlasts</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>e-fellows</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Email Distribution</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ExperienceHult</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Facebook</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>fb?utm_source=Facebook</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Financial Times</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Friend</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>GETEX</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>GMASS</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>GMASS-EFAMS</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>GMAT_Masters</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>GMATCH</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Google</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>GRE</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>HultBrochurerequest</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>iChat</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>InformationSession</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>InterviewEventRegistration</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>LinkedIn</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>LinkedIn?utm_source=LinkedIn</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Local_Websites</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mailmerge</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>masterfair</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Masterstudies.com</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MBAFair</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MBAFair-Others</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Online Application</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Others-Family</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Others-Friend</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pagalguy</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>QS-EFAMS</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>QS TopMBA Scorecard</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>QS World Grad School Tour</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>QS World MBA Tour</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Recruiting</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Register for Tour/Info-session</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Register your interest</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SAT</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>School Fair</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>School Ranking</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>School visits</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Telephone</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>The MBA Tour</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>TopApply Application</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Tour India</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Twitter</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Undergraduate fair</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Unknown</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>USIEF</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Website</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Yahoo</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>YouTube</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Lead_Age_in_days__c</fullName>
+        <description>calculates the Age (in days) of the Lead record</description>
+        <externalId>false</externalId>
+        <formula>today()-  Datevalue(CreatedDate)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Lead Age in days</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Lead_Identifier__c</fullName>
+        <externalId>false</externalId>
+        <label>Lead Identifier</label>
+        <length>150</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Lead_Stage_Text__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT( Lead_Stage__c )</formula>
+        <label>Lead Stage Text</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Lead_Stage__c</fullName>
+        <externalId>false</externalId>
+        <label>Lead Stage</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Emailed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Interested</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Interested Next Year</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Interview Request</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Lack of Funds</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Non Qualified</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Not Interested</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Qualified for Other Program</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Strongly Interested</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Unreachable Call 1</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Unreachable Call 2</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Unreachable Call 3</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Answering</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Busy</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Call Back</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dial Error</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>DNC</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fax</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Left Message</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No Answer</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Not Reached</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Lead_Status_Text__c</fullName>
+        <externalId>false</externalId>
+        <formula>Text( Status )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Lead Status Text</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Leads_Counter_today__c</fullName>
+        <description>Counts today&apos;s leads</description>
+        <externalId>false</externalId>
+        <formula>if( Lead_Age_in_days__c &lt;=1,1,0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Leads Counter today</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>List_Expiration_Date__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Date that the list rental expired</inlineHelpText>
+        <label>List Expiration Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>List_Name__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Name of the List which has been imported or purchased</inlineHelpText>
+        <label>List Name</label>
+        <length>60</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Lon__c</fullName>
+        <externalId>false</externalId>
+        <label>Longitude</label>
+        <precision>9</precision>
+        <required>false</required>
+        <scale>6</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Mail_Brochure__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Send the brochure on Hult</description>
+        <externalId>false</externalId>
+        <label>Mail Brochure</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Marketing_Source__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Name of the source for the marketing lead from the campaign</inlineHelpText>
+        <label>Marketing Source</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Mobile_Phone_Country_Code__c</fullName>
+        <externalId>false</externalId>
+        <label>Mobile Phone Country Code</label>
+        <length>4</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Nationality_2__c</fullName>
+        <externalId>false</externalId>
+        <label>Nationality 2</label>
+        <length>50</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Nationality__c</fullName>
+        <externalId>false</externalId>
+        <label>Nationality</label>
+        <length>50</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Number_Central_Emails__c</fullName>
+        <defaultValue>0</defaultValue>
+        <externalId>false</externalId>
+        <label>Number Of Central Emails Sent</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Number_Regional_Emails__c</fullName>
+        <defaultValue>0</defaultValue>
+        <externalId>false</externalId>
+        <label>Number Of Regional Emails Sent</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OP_Progam_Import_Key__c</fullName>
+        <externalId>false</externalId>
+        <label>OP:Progam Import Key</label>
+        <picklist>
+            <picklistValues>
+                <fullName>EMBAw-China-Shanghai</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>EMBAm-UK-London</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>EMBAw-UK-London</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MBA-US-Boston</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MBA-US-San Francisco</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MBA-China-Shanghai</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MBA-UAE-Dubai</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MBA-UK-London</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MIB-US-San Francisco</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MIB-China-Shanghai</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MIB-UAE-Dubai</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>EMBA-China-Shanghai</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>EMBA-UAE-Dubai</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>EMBA-UK-London</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MSE-US-San Francisco</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MSE-UK-London</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Bachelor of International Business Administration-UK-London</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MIM-UAE-Dubai</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MIM-UK-London</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MIM-US-San Francisco</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MFIN-China-Shanghai</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MFIN-UK-London</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>EMBAm-China-Shanghai</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>EMBAm-UAE-Dubai</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MIB-UK-London</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>EMBAw-UAE-Dubai</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>OP_SPN__c</fullName>
+        <externalId>false</externalId>
+        <formula>TRIM(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(  Phone , &apos;(0)&apos;, &apos;&apos;), &apos; &apos;, &apos;&apos;), &apos;(&apos;, &apos;&apos;), &apos;)&apos;, &apos;&apos;),&apos;+&apos;,&apos;&apos;),&apos;-&apos;,&apos;&apos;))</formula>
+        <label>OP:Stripped Phone Number</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OP_Start_Term__c</fullName>
+        <externalId>false</externalId>
+        <formula>Text( Start_Term__c )</formula>
+        <label>OP:Start Term</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OP_Stripped_Mobile_Phone_Number__c</fullName>
+        <externalId>false</externalId>
+        <formula>TRIM(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(  OP_Text_Mobile_Phone_Number__c  , &apos;-&apos;, &apos;&apos;), &apos; &apos;, &apos;&apos;), &apos;(&apos;, &apos;&apos;), &apos;)&apos;, &apos;&apos;),&apos;+&apos;,&apos;&apos;))</formula>
+        <label>OP:Stripped Mobile Phone Number</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OP_Stripped_Phone_Number_country_code__c</fullName>
+        <externalId>false</externalId>
+        <formula>text(Country_Of_Residence__r.Calling_Code__c) &amp; Phone</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>OP:Stripped Phone Number + country code</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OP_Stripped_mobile_country_code__c</fullName>
+        <externalId>false</externalId>
+        <formula>text(Country_Of_Residence__r.Calling_Code__c) &amp; MobilePhone</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>OP: Stripped Mobile + country code</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OP_Text_Mobile_Phone_Number__c</fullName>
+        <externalId>false</externalId>
+        <formula>MobilePhone</formula>
+        <label>OP:Text Mobile Phone Number</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Outsource_Telemarketer_Company__c</fullName>
+        <externalId>false</externalId>
+        <label>Outsource Telemarketer Company</label>
+        <length>64</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Outsource_Telemarketer__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Check if this lead was qualified by an outsourced telemarketing firm.</description>
+        <externalId>false</externalId>
+        <label>Outsource Telemarketer?</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Phone_Country_Code__c</fullName>
+        <externalId>false</externalId>
+        <label>Phone Country Code</label>
+        <length>4</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Program_Parsed__c</fullName>
+        <externalId>false</externalId>
+        <formula>if(FIND( &quot;-&quot;, Program_Primary__r.Name , 1)&lt;&gt;0, MID( Program_Primary__r.Name , 1, FIND( &quot;-&quot;,Program_Primary__r.Name, 1)-1 ) ,Program_Primary__r.Name)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Program Parsed</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Program_Primary_Override__c</fullName>
+        <externalId>false</externalId>
+        <label>Program (Primary) (Override)</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Program_Primary__c</fullName>
+        <externalId>false</externalId>
+        <label>Program (Primary)</label>
+        <referenceTo>Program__c</referenceTo>
+        <relationshipLabel>Leads (Program (Primary))</relationshipLabel>
+        <relationshipName>Leads_Program_Primary</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Program_Secondary_Override__c</fullName>
+        <externalId>false</externalId>
+        <label>Program (Secondary) (Override)</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Program_Secondary__c</fullName>
+        <externalId>false</externalId>
+        <label>Program (Secondary)</label>
+        <referenceTo>Program__c</referenceTo>
+        <relationshipLabel>Leads (Program (Secondary))</relationshipLabel>
+        <relationshipName>Leads_Program_Secondary</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Program_Third_Override__c</fullName>
+        <externalId>false</externalId>
+        <label>Program (Third) (Override)</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Program_third__c</fullName>
+        <externalId>false</externalId>
+        <label>Program (third)</label>
+        <referenceTo>Program__c</referenceTo>
+        <relationshipLabel>Leads (Program (third))</relationshipLabel>
+        <relationshipName>Leads</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Rating</fullName>
+        <picklist>
+            <picklistValues>
+                <fullName>Hot</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Warm</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cold</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Region__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Region for the lead blast</inlineHelpText>
+        <label>Region</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Asia</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Europe</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Lat Am</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>North AM</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MEA</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Regional_Email_Sent_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Last Regional Email Sent Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Rescheduled_Date_Booked__c</fullName>
+        <externalId>false</externalId>
+        <label>Rescheduled Date Booked</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Rescheduled_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Rescheduled Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>SFGA__CorrelationID__c</fullName>
+        <defaultValue>&quot;none&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>The Correlation ID Field is used by Salesforce for Google AdWords for automatic correlation of web information with new leads created through a standard web-to-lead form</description>
+        <externalId>false</externalId>
+        <label>CorrelationID</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>SFGA__Correlation_Data__c</fullName>
+        <defaultValue>&quot;none&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>The Correlation Data field is designed for use by Salesforce for Google AdWords to store all relevant lead tracking information about a web generated lead</description>
+        <externalId>false</externalId>
+        <label>Correlation Data</label>
+        <length>32000</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>SFGA__Web_Source__c</fullName>
+        <defaultValue>&quot;none&quot;</defaultValue>
+        <deprecated>false</deprecated>
+        <description>This field is designed for future use by Salesforce for Google AdWords as an alternative to the Lead Source field for web generated leads.</description>
+        <externalId>false</externalId>
+        <label>Web Source</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Start_Term__c</fullName>
+        <externalId>false</externalId>
+        <label>Start Term</label>
+        <picklist>
+            <picklistValues>
+                <fullName>September 2011</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>September 2012</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>September 2013</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>September 2014</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>January 2012</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>January 2013</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>January 2014</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Status</fullName>
+        <picklist>
+            <picklistValues>
+                <fullName>Contacted</fullName>
+                <converted>false</converted>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Open</fullName>
+                <converted>false</converted>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Qualified</fullName>
+                <converted>true</converted>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Unqualified</fullName>
+                <converted>false</converted>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Duplicate</fullName>
+                <converted>false</converted>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Sub_Region__c</fullName>
+        <externalId>false</externalId>
+        <label>Sub-Region</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Florida</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>TA_Account_ID__c</fullName>
+        <externalId>true</externalId>
+        <inlineHelpText>Top Apply Account ID for migration</inlineHelpText>
+        <label>TA Account ID</label>
+        <length>16</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>TA_Date_Created__c</fullName>
+        <description>TA creation date for reporting</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This is the date that the Top Apply applicant was created for migration purposes.</inlineHelpText>
+        <label>TA Date Created</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>TOEFL_Score__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>TOEFL Score</inlineHelpText>
+        <label>TOEFL Score</label>
+        <length>60</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Telesales_Caller__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Telesales User in Salesforce</inlineHelpText>
+        <label>Telesales Caller</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Leads</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Telesales_ID__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Telesales ID from Top Apply migration</inlineHelpText>
+        <label>Telesales ID</label>
+        <length>8</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Undergraduate_Major__c</fullName>
+        <description>Field to capture the undergraduate major of the candidate.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Field to capture the undergraduate major of the candidate.</inlineHelpText>
+        <label>Undergraduate Major</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Work_Experience_Months__c</fullName>
+        <externalId>false</externalId>
+        <label>Work Experience (Months)</label>
+        <length>2</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Work_Experience_Number_of_Years__c</fullName>
+        <externalId>false</externalId>
+        <label>Work Experience (Number of Years)</label>
+        <precision>10</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Work_Experience_Years__c</fullName>
+        <externalId>false</externalId>
+        <label>Work Experience (Years)</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Work_Experience__c</fullName>
+        <description>Work Experience for lists</description>
+        <externalId>false</externalId>
+        <label>Work Experience</label>
+        <length>20</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Work_Load__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Workloads is used to split between MBA and EMBA, GMASS</inlineHelpText>
+        <label>Work Load</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Did Not Respond</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Executive MBA Student</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Full-time Student</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Part-time Student</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Undecided</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>country_code__c</fullName>
+        <externalId>false</externalId>
+        <formula>text(Country_Of_Residence__r.Calling_Code__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>country code</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>email_mirrored_flag__c</fullName>
+        <externalId>false</externalId>
+        <formula>if( Email &lt;&gt;  Applicant_Email__c ,1,0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>email mirrored flag</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>jdtest__c</fullName>
+        <externalId>false</externalId>
+        <label>jdtest</label>
+        <length>3</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <listViews>
+        <fullName>BIBA_Leads1</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.LAST_NAME</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>LEAD.CREATED_DATE</columns>
+        <columns>Region__c</columns>
+        <columns>Marketing_Source__c</columns>
+        <columns>Country_Of_Residence__c</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>CORE.USERS.LAST_NAME</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Program_Primary__c</field>
+            <operation>startsWith</operation>
+            <value>bach</value>
+        </filters>
+        <filters>
+            <field>Marketing_Source__c</field>
+            <operation>equals</operation>
+            <value>SAT</value>
+        </filters>
+        <label>BIBA SAT Leads</label>
+    </listViews>
+    <listViews>
+        <fullName>Duplicate_Lead</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.COMPANY</columns>
+        <columns>LEAD.STATE</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>LEAD.CREATED_DATE</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>LEAD.UNREAD</columns>
+        <columns>Country_Of_Citizenship__c</columns>
+        <columns>Applicant_Email__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>LEAD.STATUS</field>
+            <operation>equals</operation>
+            <value>Duplicate</value>
+        </filters>
+        <label>Duplicate Lead</label>
+    </listViews>
+    <listViews>
+        <fullName>MyUnreadLeads</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.STREET</columns>
+        <columns>LEAD.CITY</columns>
+        <columns>LEAD.ZIP</columns>
+        <columns>LEAD.STATE</columns>
+        <columns>LEAD.COUNTRY</columns>
+        <columns>LEAD.PHONE</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>Age_Range__c</columns>
+        <columns>GMAT_Score_Range__c</columns>
+        <columns>Program_Primary__c</columns>
+        <columns>Lead_Stage__c</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>Telesales_Caller__c</columns>
+        <columns>Telesales_ID__c</columns>
+        <filterScope>Mine</filterScope>
+        <filters>
+            <field>LEAD.UNREAD</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <filters>
+            <field>Start_Term__c</field>
+            <operation>equals</operation>
+            <value>September 2012</value>
+        </filters>
+        <label>My Unread Leads</label>
+    </listViews>
+    <listViews>
+        <fullName>TodaysLeads</fullName>
+        <columns>Program_Primary__c</columns>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.PHONE</columns>
+        <columns>Lead_Stage__c</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>LEAD.CREATED_DATE</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>LEAD.UNREAD</columns>
+        <columns>LEAD.COUNTRY</columns>
+        <columns>Age_Range__c</columns>
+        <columns>Five_9_Formatted_Mobile_Phone_Number__c</columns>
+        <columns>Five_9_Formatted_Phone_Number__c</columns>
+        <columns>LEAD.MOBILE_PHONE</columns>
+        <columns>Country_Of_Residence__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>LEAD.CREATED_DATE</field>
+            <operation>equals</operation>
+            <value>TODAY</value>
+        </filters>
+        <label>Today&apos;s Leads</label>
+    </listViews>
+    <validationRules>
+        <fullName>Anti_Spy_Rule</fullName>
+        <active>true</active>
+        <description>qs.com and gmac.com addresses shouldn&apos;t be allowed in our system</description>
+        <errorConditionFormula>if(OR(MID( Applicant_Email__c ,find(&quot;@&quot;,Applicant_Email__c ,2)+1,6)=&quot;qs.com&quot;,MID( Applicant_Email__c ,find(&quot;@&quot;,Applicant_Email__c ,2)+1,8)=&quot;gmac.com&quot;),true,false)</errorConditionFormula>
+        <errorMessage>This is a Spy email and it will not be accepted in the system</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Country_of_Residence_or_Country_Required</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+             ISBLANK(Country_Of_Residence__c ),
+             ISBLANK( Country_Of_Residence_Override__c )
+         )</errorConditionFormula>
+        <errorMessage>Either Country Of Residence or Country of Residence (Override) must be provided in order to save this record</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>First_and_Last_Name_must_be_Provided</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+      ISNEW() ,
+      OR(
+         ISBLANK( FirstName ),
+         ISBLANK(  LastName ),
+          ISPICKVAL( LeadSource,&quot;&quot; ) 
+        )
+)</errorConditionFormula>
+        <errorMessage>First and Last Name as well as the Lead Source must be provided</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Program_Required</fullName>
+        <active>true</active>
+        <description>Either Program (primary) or Program (Primary)(Override) have to be provided.</description>
+        <errorConditionFormula>AND(isblank( Program_Primary__c ),isblank( Program_Primary_Override__c ))</errorConditionFormula>
+        <errorMessage>Either Program (primary) or Program (Primary)(Override) have to be provided.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Use_Applicant_Email_Address</fullName>
+        <active>false</active>
+        <errorConditionFormula>AND(NOT(ISBLANK( Email )),
+         Email &lt;&gt;  Applicant_Email__c )</errorConditionFormula>
+        <errorMessage>Email Address must be mapped to Applicant Email Address for Import or Update.  You can not import data into the Standard Email Address Field.</errorMessage>
+    </validationRules>
+    <webLinks>
+        <fullName>APXTConga4__Conga_Mail_Merge</fullName>
+        <availability>online</availability>
+        <description>*** This is an example of a simple Conga Composer button. *** 
+
+Copy the URL from this button and paste it into your own custom button or link. Then add optional parameters to finely tune the button&apos;s behavior. See the Conga Configuration Guide for details.</description>
+        <displayType>button</displayType>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>false</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>450</height>
+        <isResizable>false</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Conga Composer</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>https://www.appextremes.com/apps/Conga/PointMerge.aspx
+?sessionId={!API.Session_ID}
+&amp;serverUrl={!API.Partner_Server_URL_80}
+&amp;id={!Lead.Id}</url>
+        <width>625</width>
+    </webLinks>
+    <webLinks>
+        <fullName>AltavistaNews</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <hasMenubar>true</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>true</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Altavista News</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>true</showsLocation>
+        <showsStatus>true</showsStatus>
+        <url>http://news.altavista.com/search?nc=0&amp;q={!Lead_Company}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Analyze_Routing</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>url</linkType>
+        <masterLabel>Analyze Routing</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <url>/apex/RoutingAnalysis?recordId={!Lead.Id}&amp;retURL=/{!Lead.Id}/d&amp;objectType=Lead</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Convert</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>page</linkType>
+        <masterLabel>Convert</masterLabel>
+        <openType>replace</openType>
+        <page>Lead_ConvertApplicant</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>Convert_New</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>Convert New</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <url>/apex/Lead_Convert_New?id={!Lead.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>GoogleMaps</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Google Maps</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>http://maps.google.com/maps?f=q&amp;hl=en&amp;q={!Lead_Street}+{!Lead_City}+{!Lead_State}&amp;om=1</url>
+    </webLinks>
+    <webLinks>
+        <fullName>GoogleNews</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Google News</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>http://www.google.com/news?&amp;q={!Lead_Company}&amp;btnG=Search+News</url>
+    </webLinks>
+    <webLinks>
+        <fullName>GoogleSearch</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Google Search</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>http://www.google.com/search?q={!Lead_Company}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>HooversProfile</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <hasMenubar>true</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>true</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Hoovers Profile</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>true</showsLocation>
+        <showsStatus>true</showsStatus>
+        <url>http://search.hoovers.com/cgi-bin/hol_search?which=company&amp;query_string={!Lead_Company}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Re_subscribe_in_ExactTarget</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>Re-subscribe in ExactTarget</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <url>https://members.s4.exacttarget.com/Integration/SalesforceUI/SFResubscribe.aspx?subtype=Lead&amp;sfid={!Lead.Id}&amp;sessid={!API.Session_ID}&amp;sessurl={!API.Partner_Server_URL_60}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Route_By_Postal_Code_Button</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>page</linkType>
+        <masterLabel>Route By Zip/Postal Code</masterLabel>
+        <openType>replace</openType>
+        <page>Lead_RouteByPostalCode</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>Route_By_Postal_Code_Link</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <linkType>page</linkType>
+        <masterLabel>Route By Zip/Postal Code</masterLabel>
+        <openType>replace</openType>
+        <page>Lead_RouteByPostalCode</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>Route_By_Proximity_Button</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>page</linkType>
+        <masterLabel>Route By Proximity</masterLabel>
+        <openType>replace</openType>
+        <page>Lead_RouteByProximity</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>Route_By_Proximity_Link</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <linkType>page</linkType>
+        <masterLabel>Route By Proximity</masterLabel>
+        <openType>replace</openType>
+        <page>Lead_RouteByProximity</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>Route_By_Recruiting_Button</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>page</linkType>
+        <masterLabel>Route By Recruiting</masterLabel>
+        <openType>replace</openType>
+        <page>Lead_RouteByRecruiting</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>Route_By_Recruiting_Link</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <linkType>page</linkType>
+        <masterLabel>Route By Recruiting</masterLabel>
+        <openType>replace</openType>
+        <page>Lead_RouteByRecruiting</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>SendExactTargetEmail</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>Send ExactTarget Email</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <url>https://members.4s.exacttarget.com/Integration/SalesforceUI/EmailSend.aspx?sendtype=Lead&amp;sfid={!Lead.Id}&amp;sessid={!API.Session_ID}&amp;sessurl={!API.Partner_Server_URL_60}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>SendGmail</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Send Gmail</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>https://mail.google.com/mail?view=cm&amp;tf=0&amp;to={!Lead_Email}&lt;{!Lead_LastName}, {!Lead_FirstName}&gt;&amp;tf=1</url>
+    </webLinks>
+    <webLinks>
+        <fullName>YahooMaps</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <hasMenubar>true</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>true</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Yahoo Maps</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>true</showsLocation>
+        <showsStatus>true</showsStatus>
+        <url>http://maps.yahoo.com/py/maps.py?cn={!Lead_Country}&amp;csz={!Lead_City}+{!Lead_State}+{!Lead_PostalCode}+&amp;addr={!Lead_Address}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>activities__Create_Tasks_Lead</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Create Tasks</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/20.0/connection.js&quot;)}
+var records = {!GETRECORDIDS( $ObjectType.Lead)};
+var returnURL = window.location.href;
+if(records != null &amp;&amp; records != &apos;&apos;){
+mywin = window.open(&apos;/apex/activities__createTasks?Ids=&apos;+records+&apos;&amp;retURL=&apos;+returnURL+&apos;&amp;type=whoid&apos; , &apos;_top&apos;,
+&apos;height=400,width=600,status=yes,toolbar=no,menubar=no,location=no,center=yes,resizable=no&apos;);
+mywin.focus();
+}else{
+alert(&apos;Please select atleast one record.&apos;);
+}</url>
+    </webLinks>
+</CustomObject>

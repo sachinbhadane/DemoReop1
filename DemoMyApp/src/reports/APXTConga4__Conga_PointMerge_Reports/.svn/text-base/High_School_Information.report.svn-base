@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Education__c.High_School_Attended__c</field>
+    </columns>
+    <columns>
+        <field>Education__c.GraduateDateFrom__c</field>
+    </columns>
+    <columns>
+        <field>Education__c.GraduateDateTo__c</field>
+    </columns>
+    <columns>
+        <field>Education__c.High_School_Grade_Point_Average__c</field>
+    </columns>
+    <columns>
+        <field>Education__c.High_School_SAT_ACT__c</field>
+    </columns>
+    <columns>
+        <field>Education__c.International_Baccalaureate_Score__c</field>
+    </columns>
+    <currency>USD</currency>
+    <description>for AAM conga merge</description>
+    <filter>
+        <criteriaItems>
+            <column>FK_$Opportunity.App_ID__c</column>
+            <operator>equals</operator>
+        </criteriaItems>
+        <criteriaItems>
+            <column>CUST_RECORDTYPE</column>
+            <operator>equals</operator>
+            <value>Education__c.High_School</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>High School Information</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$Education__c@Education__c.Application__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Education__c.GraduateDateFrom__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

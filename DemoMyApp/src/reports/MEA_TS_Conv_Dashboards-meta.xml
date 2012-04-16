@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ReportFolder xmlns="http://soap.sforce.com/2006/04/metadata">
+    <accessType>Shared</accessType>
+    <name>MEA Master TS/Conv. Dashboards</name>
+    <publicFolderAccess>ReadOnly</publicFolderAccess>
+    <sharedTo>
+        <roles>MEA Conversion User</roles>
+        <roles>MEA Product Head - MA</roles>
+        <roles>MEA Recruiter - MA</roles>
+        <roles>MEA Region</roles>
+        <roles>MEA Telesales Manager</roles>
+        <roles>MEA Telesales User</roles>
+    </sharedTo>
+</ReportFolder>

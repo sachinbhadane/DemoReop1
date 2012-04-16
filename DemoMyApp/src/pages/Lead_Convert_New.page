@@ -1,0 +1,9 @@
+<apex:page controller="Lead_ConvertApplicant_new" action="{!convert}">
+<apex:form >
+<table width="100%"><tr><td>
+    <apex:pageMessages />
+    </td></tr>
+    <tr><td align="center"><apex:commandButton rendered="{! NOT showbutton}" value="Back" action="{!back}"/></td></tr>
+    </table>
+    </apex:form>
+</apex:page>

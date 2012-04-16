@@ -1,0 +1,5 @@
+<apex:page controller="RouteTestController" id="RouteTestPage">
+<!-- Begin Default Content REMOVE THIS -->
+<apex:messages ></apex:messages>
+Hello
+</apex:page>

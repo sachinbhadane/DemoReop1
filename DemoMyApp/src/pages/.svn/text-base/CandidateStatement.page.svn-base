@@ -1,0 +1,234 @@
+<apex:page showHeader="false"
+	controller="CandidateOnlineAccountController">
+	<apex:outputPanel id="apref">
+		<table class="innertable" border="0" cellpadding="0" cellspacing="0">
+			<tr>
+				<td colspan="2"><c:Header /></td>
+			</tr>
+			<tr>
+
+				<td><apex:form >
+					<table width="100%" border="0" cellpadding="0" cellspacing="0"
+						align="center">
+						<tr>
+							<td><c:ApplicantHeader /></td>
+						</tr>
+						<tr>
+							<td colsapn="2">
+							<table width="100%" class="innerpadding" border="0"
+								cellpadding="0" cellspacing="0">
+								<tr>
+									<td>
+									<tr>
+										<td colspan="2" class="formheader">HULT Statement</td>
+									</tr>
+									<tr>
+										<td colspan="2"
+											background="{!URLFOR($Resource.Images, 'new-images/line.jpg')}"
+											style="background-repeat: repeat-x">&nbsp;</td>
+									</tr>
+									<tr>
+										<td colspan="2"></td>
+									</tr>
+									<tr>
+										<td><!-- Code here -->
+										<table width="100%" border="0">
+											<tr>
+												<td colspan="2">&nbsp;</td>
+											</tr>
+											<tr>
+												<td colspan="2" class="formheader">Program Fee</td>
+
+											</tr>
+											<tr>
+												<td colspan="2"
+													background="{!URLFOR($Resource.Images, 'new-images/line.jpg')}"
+													style="background-repeat: repeat-x;">&nbsp;</td>
+											</tr>
+											<tr>
+												<td class="formlable" width="202">Program</td>
+												<td class="formlable">{!Program_c}</td>
+											</tr>
+											<tr>
+												<td class="formlable">Tuition Fee</td>
+												<td><apex:inputText disabled="true"
+													value="{!Tuition_Fee_c}" styleClass="form-text-box" /></td>
+											</tr>
+											<tr>
+												<td class="formlable">Total Fees</td>
+												<td><apex:inputText disabled="true"
+													value="{!Total_Tuition_Amount_c}"
+													styleClass="form-text-box" /></td>
+											</tr>
+											<tr>
+												<td class="formlable">Deposit Amount Due</td>
+												<td><apex:inputText disabled="true"
+													value="{!Net_Amount_Due_c}" styleClass="form-text-box" /></td>
+											</tr>
+											<tr>
+												<td colspan="2">&nbsp;</td>
+											</tr>
+
+											<tr>
+												<td colspan="2">&nbsp;</td>
+											</tr>
+											<tr>
+												<td colspan="2" class="formheader">Financial Aid</td>
+
+											</tr>
+											<tr>
+												<td colspan="2"
+													background="{!URLFOR($Resource.Images, 'new-images/line.jpg')}"
+													style="background-repeat: repeat-x;">&nbsp;</td>
+											</tr>
+											<tr>
+												<td class="formlable">Scholarship</td>
+												<td><apex:inputText disabled="true"
+													value="{!Scholarship_Amount_c}" styleClass="form-text-box" /></td>
+											</tr>
+											<tr>
+												<td class="formlable">Go Ed Loan Amount</td>
+												<td><apex:inputText disabled="true"
+													value="{!Go_Ed_Loan_Amount_c}" styleClass="form-text-box" /></td>
+											</tr>
+											<tr>
+												<td class="formlable">Dubai Housing Bursary Amount</td>
+												<td><apex:inputText disabled="true"
+													value="{!Dubai_Housing_Bursary_Amount_c}"
+													styleClass="form-text-box" /></td>
+											</tr>
+											<tr>
+												<td class="formlable">Early Bird Scholarship Amount</td>
+												<td><apex:inputText disabled="true"
+													value="{!Early_Bird_Scholarship_Amount_c}"
+													styleClass="form-text-box" /></td>
+											</tr>
+											<tr>
+												<td class="formlable">Bertil Hult Scholarship Amount</td>
+												<td><apex:inputText disabled="true"
+													value="{!Bertil_Hult_Scholarship_Amount_c}"
+													styleClass="form-text-box" /></td>
+											</tr>
+											<tr>
+												<td class="formlable">Relocation Scholarship Amount</td>
+												<td><apex:inputText disabled="true"
+													value="{!Relocation_Scholarship_Amount_c}"
+													styleClass="form-text-box" /></td>
+											</tr>
+											<tr>
+												<td class="formlable">Go Ed / MEFA Replacement Loan
+												Amount</td>
+												<td><apex:inputText disabled="true"
+													value="{!Go_Ed_MEFA_Replacement_Loan_Amount_c}"
+													styleClass="form-text-box" /></td>
+											</tr>
+											<tr>
+												<td colspan="2">&nbsp;</td>
+											</tr>
+											<tr>
+												<td colspan="2"
+													background="{!URLFOR($Resource.Images, 'new-images/line.jpg')}"
+													style="background-repeat: repeat-x"></td>
+
+											</tr>
+											<tr>
+												<td colspan="2">&nbsp;</td>
+											</tr>
+											<tr>
+												<td class="formlable">Total Scholarship and Loans</td>
+												<td><apex:inputText disabled="true"
+													styleClass="form-text-box" /></td>
+											</tr>
+											<tr>
+												<td class="formlable">Total Balance Due</td>
+												<td><apex:inputText disabled="true"
+													value="{!Net_Balance_Due_c}" styleClass="form-text-box" /></td>
+											</tr>
+											<tr>
+												<td colspan="2">&nbsp;</td>
+											</tr>
+
+											<tr>
+												<td colspan="2">&nbsp;</td>
+											</tr>
+											<tr>
+												<td colspan="2">
+												<table width="100%" border="0">
+													<tr>
+														<td colspan="3" class="formheader">Payments</td>
+													</tr>
+													<tr>
+														<td colspan="3"
+															background="{!URLFOR($Resource.Images, 'new-images/line.jpg')}"
+															style="background-repeat: repeat-x;">&nbsp;</td>
+													</tr>
+													<tr>
+														<td class="formlable">Date</td>
+														<td class="formlable">Description</td>
+														<td class="formlable">Amount Applied</td>
+													</tr>
+													<tr>
+														<td><apex:inputText disabled="true"
+															style="width:200px;" value="{!Deposit_Date_Paid_c}"
+															styleClass="form-text-box" /></td>
+														<td><apex:inputText disabled="true"
+															style="width:200px;" value="{!nomap}"
+															styleClass="form-text-box" /></td>
+														<td><apex:inputText disabled="true"
+															style="width:200px;" value="{!Deposit_Paid_c}"
+															styleClass="form-text-box" /></td>
+													</tr>
+												</table>
+												</td>
+
+											</tr>
+											<tr>
+												<td class="formlable">Current Balance Due</td>
+												<td><apex:inputText disabled="true"
+													value="{!Course_Deposit_Amount_c}"
+													styleClass="form-text-box" /></td>
+											</tr>
+											<tr>
+												<td colspan="3">&nbsp;</td>
+											</tr>
+											<tr>
+												<td colspan="3"
+													background="{!URLFOR($Resource.Images, 'new-images/line.jpg')}"
+													style="background-repeat: repeat-x;">&nbsp;</td>
+											</tr>
+										</table>
+										<!-- End Code Here --></td>
+									</tr>
+									<tr>
+										<td valign="top" align="center"><span
+											class="button primary"> <apex:outputLink value="/CandidateStatementPDF" title="Create PDF"
+											target="/CandidateStatementPDF">
+										Download Financial Statement
+									</apex:outputLink> </span></td>
+									</tr>
+									<tr>
+										<td style="padding-right: 20px"><span
+											style="float: right; vertical-align: bottom"><apex:outputLink value="#">
+											<apex:image url="{!URLFOR($Resource.Images, 'new-images/topimage.jpg')}" />&nbsp;<b>back
+											to top</b>
+										</apex:outputLink> </span></td>
+									</tr>
+									</td>
+								</tr>
+							</table>
+							</td>
+						</tr>
+					</table>
+					<script>
+document.getElementById('candidate').style.backgroundImage="url('{!URLFOR($Resource.Images, 'new-images/tabwhiteimage.jpg')}')";
+document.getElementById('candidate').style.backgroundPosition="center";
+document.getElementById('candidate1').className="headertabonload";
+
+</script>
+				</apex:form></td>
+			</tr>
+
+		</table>
+
+	</apex:outputPanel>
+</apex:page>

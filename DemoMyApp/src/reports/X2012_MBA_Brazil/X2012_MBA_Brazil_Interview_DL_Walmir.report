@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <currency>USD</currency>
+    <filter>
+        <criteriaItems>
+            <column>CREATED_BY</column>
+            <operator>equals</operator>
+            <value>Walmir Carneiro</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>ASSIGNED</column>
+            <operator>equals</operator>
+            <value>David Estella</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Activity.Interview_Status__c</column>
+            <operator>equals</operator>
+            <value>Completed</value>
+        </criteriaItems>
+    </filter>
+    <format>Matrix</format>
+    <groupingsAcross>
+        <dateGranularity>Day</dateGranularity>
+        <field>Activity.Interview_Status__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsAcross>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>CONTACT</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>2012 MBA Brazil - Interview DL (Walmir)</name>
+    <params>
+        <name>closed</name>
+        <value>all</value>
+    </params>
+    <params>
+        <name>type</name>
+        <value>e</value>
+    </params>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Activity</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>DUE_DATE</dateColumn>
+        <endDate>2012-03-25</endDate>
+        <interval>INTERVAL_CUSTOM</interval>
+        <startDate>2012-02-13</startDate>
+    </timeFrameFilter>
+</Report>

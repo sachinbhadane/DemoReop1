@@ -1,0 +1,52 @@
+<apex:component controller="Five9.Five9ListManagementController" allowDML="true">
+	<apex:form id="listManagementMappingForm">
+		<apex:pageMessages >
+		</apex:pageMessages>	  
+      <apex:pageBlock title="List Management Mapping Configuration">
+        <apex:pageBlockButtons >
+			<apex:commandButton action="{!save}" value="Save" reRender="listManagementMappingForm"/>
+			<apex:commandButton action="{!addMapping}" value="Add new mapping" reRender="listManagementMappingForm"/>
+			<apex:commandButton action="{!deleteMapping}" value="Delete selected mappings" reRender="listManagementMappingForm"/>
+		</apex:pageBlockButtons>
+        <apex:pageBlockSection title="Contact fields mappings" id="contactBlock" columns="1">
+        	<apex:pageBlockTable value="{!contactMappings}" var="item" rendered="{!NOT(ISNULL(contactMappings))}">
+        	
+		        <apex:column headerValue="Salesforce Contact field" width="200">
+		 	    	<apex:selectList value="{!item.Five9__salesforce_field_name__c}" size="1" disabled="{!item.Five9__disabled__c}">
+		            	<apex:selectOptions value="{!salesforceContactFields}"/>
+		            </apex:selectList>
+		        </apex:column>
+		        
+		        <apex:column headerValue="Five9 Contact field" width="200">
+		        	<apex:inputText value="{!item.Five9__five9_field_name__c}" disabled="{!item.Five9__disabled__c}"/>
+		        </apex:column>
+		       
+		        <apex:column headerValue="Select" width="200">
+		 	    	<apex:inputCheckbox value="{!item.Five9__delete__c}" disabled="{!item.Five9__disabled__c}"/>
+		        </apex:column>
+          
+        	</apex:pageBlockTable>
+      	</apex:pageBlockSection>
+      	
+      	<apex:pageBlockSection title="Lead fields mappings" id="leadBlock" columns="1">
+        	<apex:pageBlockTable value="{!leadMappings}" var="item" rendered="{!NOT(ISNULL(leadMappings))}">
+        	
+		        <apex:column headerValue="Salesforce Lead field" width="200">
+		 	    	<apex:selectList value="{!item.Five9__salesforce_field_name__c}" size="1" disabled="{!item.Five9__disabled__c}">
+		            	<apex:selectOptions value="{!salesforceLeadFields}"/>
+		            </apex:selectList>
+		        </apex:column>
+		        
+		        <apex:column headerValue="Five9 Lead field" width="200">
+		        	<apex:inputText value="{!item.Five9__five9_field_name__c}" disabled="{!item.Five9__disabled__c}"/>
+		        </apex:column>
+		       
+		        <apex:column headerValue="Select" width="200">
+		 	    	<apex:inputCheckbox value="{!item.Five9__delete__c}" disabled="{!item.Five9__disabled__c}"/>
+		        </apex:column>
+          
+        	</apex:pageBlockTable>
+      	</apex:pageBlockSection> 
+      </apex:pageBlock>
+	</apex:form>   
+</apex:component>

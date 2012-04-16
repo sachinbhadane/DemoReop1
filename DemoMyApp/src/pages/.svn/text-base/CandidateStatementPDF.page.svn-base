@@ -1,0 +1,120 @@
+<apex:page showHeader="false" controller="CandidateOnlineAccountController" renderAs="PDF" standardStylesheets="false" >
+<table width="976" align="center">
+<apex:form >
+<tr><td><c:Header /></td></tr>
+<tr><td>
+<table width="100%"  border="0">
+          <tr><td colspan="2">&nbsp;</td></tr>
+          <tr>
+            <td colspan="2" class="formheader">Program Fee </td>
+
+          </tr>
+          <tr>
+<td colspan="2" background="{!URLFOR($Resource.Images, 'new-images/line.jpg')}" style="background-repeat:repeat-x;">&nbsp;</td>
+</tr>
+     <tr>
+            <td class="formlable" width="50%">Program</td>
+             <td class="formlable" width="50%">{!Program_c}</td>
+          </tr>
+     <tr>
+            <td class="formlable">Tuition Fee</td>
+            <td>{!Tuition_Fee_c}</td>
+          </tr>
+     <tr>
+            <td class="formlable">Total Fees</td>
+            <td>{!Total_Tuition_Amount_c}</td>
+          </tr>
+     <tr>
+            <td class="formlable">Deposit Amount Due </td>
+            <td>{!Net_Amount_Due_c}</td>
+          </tr>
+ <tr><td colspan="2">&nbsp;</td></tr>
+
+ <tr><td colspan="2">&nbsp;</td></tr>
+     <tr>
+            <td colspan="2" class="formheader">Financial Aid </td>
+
+          </tr>
+          <tr>
+<td colspan="2" background="{!URLFOR($Resource.Images, 'new-images/line.jpg')}" style="background-repeat:repeat-x;">&nbsp;</td>
+</tr>
+     <tr>
+            <td class="formlable">Scholarship </td>
+            <td>{!Scholarship_Amount_c}</td>
+          </tr>
+     <tr>
+            <td class="formlable">Go Ed Loan Amount</td>
+            <td>{!Go_Ed_Loan_Amount_c}</td>
+          </tr>
+          <tr>
+            <td class="formlable">Dubai Housing Bursary Amount</td>
+            <td>{!Dubai_Housing_Bursary_Amount_c}</td>
+          </tr>
+     <tr>
+            <td class="formlable">Early Bird Scholarship Amount</td>
+            <td>{!Early_Bird_Scholarship_Amount_c}</td>
+          </tr>
+     <tr>
+            <td class="formlable">Bertil Hult Scholarship Amount</td>
+            <td>{!Bertil_Hult_Scholarship_Amount_c}</td>
+          </tr>
+     <tr>
+            <td class="formlable">Relocation Scholarship Amount</td>
+            <td>{!Relocation_Scholarship_Amount_c}</td>
+          </tr>
+     <tr>
+            <td class="formlable">Go Ed / MEFA Replacement Loan Amount </td>
+            <td>{!Go_Ed_MEFA_Replacement_Loan_Amount_c}</td>
+          </tr>
+ <tr><td colspan="2">&nbsp;</td></tr>
+     <tr>
+            <td colspan="2" background="{!URLFOR($Resource.Images, 'new-images/line.jpg')}" style="background-repeat:repeat-x"></td>
+
+          </tr>
+ <tr><td colspan="2">&nbsp;</td></tr>
+  <tr>
+            <td class="formlable">Total Scholarship and Loans
+</td>
+            <td>&nbsp;</td>
+          </tr>
+<tr>
+            <td class="formlable">Total Balance Due</td>
+            <td>{!Net_Balance_Due_c}</td>
+          </tr>
+           <tr><td colspan="2">&nbsp;</td></tr>
+
+ <tr><td colspan="2">&nbsp;</td></tr>
+<tr>
+            <td colspan="2"><table width="100%"  border="0">
+              <tr>
+                <td colspan="3" class="formheader">Payments</td>
+              </tr>
+              <tr>
+<td colspan="3" background="{!URLFOR($Resource.Images, 'new-images/line.jpg')}" style="background-repeat:repeat-x;">&nbsp;</td>
+</tr>
+              <tr>
+                <td class="formlable">Date</td>
+                <td class="formlable">Description</td>
+                <td class="formlable">Amount Applied </td>
+              </tr>
+              <tr>
+                <td>{!Deposit_Date_Paid_c}</td>
+                <td>&nbsp;</td>
+                <td>{!Deposit_Paid_c}</td>
+              </tr>
+            </table></td>
+
+          </tr>
+<tr>
+            <td class="formlable">Current Balance Due</td>
+            <td>{!Course_Deposit_Amount_c}</td>
+          </tr>
+          <tr><td colspan="3">&nbsp;</td></tr>
+          <tr>
+<td colspan="3" background="{!URLFOR($Resource.Images, 'new-images/line.jpg')}" style="background-repeat:repeat-x;">&nbsp;</td>
+</tr>
+        </table>
+</td></tr>
+</apex:form>
+</table>
+</apex:page>

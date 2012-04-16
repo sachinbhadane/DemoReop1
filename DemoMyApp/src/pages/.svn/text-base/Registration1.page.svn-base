@@ -1,0 +1,421 @@
+<apex:page showHeader="false" action="{!oppdata}"
+	controller="ApplicantRegistrationController">
+	<apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js" />
+
+	<table class="innertable" border="0" cellpadding="0" cellspacing="0">
+		<tr>
+			<td colspan="2"><c:Header_Outter /></td>
+		</tr>
+		<tr>
+
+			<td><apex:form >
+
+				<table width="100%" border="0" cellpadding="0" cellspacing="0"
+					align="center">
+
+					<tr>
+						<td>
+						<table width="100%" class="innerpadding" border="0"
+							cellpadding="0" cellspacing="0">
+							<tr>
+								<td>
+
+								<tr>
+									<td colspan="2" class="formheader">Personal Information</td>
+								</tr>
+
+								<tr>
+									<td
+										background="{!URLFOR($Resource.Images, 'new-images/line.jpg')}"
+										style="background-repeat: repeat-x;">&nbsp;</td>
+								</tr>
+								<tr style="text-align: left">
+									<td colspan="2"><apex:pageMessages escape="false"
+										showDetail="false" /></td>
+								</tr>
+								<tr>
+									<td valign="top"><!-- Code for text box --> <apex:includeScript value="{!$Resource.RegistrationJavascript}" />
+									<table width="100%" border="0">
+
+										<tr>
+											<td align="right" class="formlable" style="width: 202px;">Title</td>
+											<td class="formlable"><apex:selectList disabled="{!finalsubmit}" value="{!user.contact.title}"
+												styleClass="form-selectList" size="1">
+												<apex:selectOptions value="{!titleitems}" />
+											</apex:selectList></td>
+										</tr>
+										<tr>
+											<td class="formlable" align="right">First Name<span
+												class="error_star">*</span></td>
+											<td><apex:inputField rendered="{!NOT(finalsubmit)}"
+												value="{!user.contact.firstname}" styleClass="form-text-box" />
+											<apex:inputText disabled="{!finalsubmit}"
+												rendered="{!finalsubmit}" value="{!user.contact.firstname}"
+												styleClass="form-text-box" /></td>
+										</tr>
+										<tr>
+											<td class="formlable" align="right">Last Name<span
+												class="error_star">*</span></td>
+											<td><!--apex:inputField rendered="{!NOT(finalsubmit)}" value="{!user.contact.lastname}" styleClass="form-text-box" /-->
+											<apex:inputText maxlength="60" disabled="{!finalsubmit}"
+												value="{!user.contact.lastname}" styleClass="form-text-box" />
+											</td>
+										</tr>
+										<tr>
+											<td class="formlable" align="right">Suffix</td>
+											<td><apex:inputField rendered="{!NOT(finalsubmit)}"
+												value="{!user.contact.Suffix__c}"
+												styleClass="form-selectList" /> <apex:selectList disabled="{!finalsubmit}" rendered="{!finalsubmit}"
+												styleClass="form-selectList">
+												<apex:selectOption itemValue="{!user.contact.Suffix__c}"
+													itemLabel="{!user.contact.Suffix__c}"></apex:selectOption>
+											</apex:selectList></td>
+										</tr>
+										<tr>
+											<td class="formlable" align="right">Gender<span
+												class="error_star">*</span></td>
+											<td><apex:inputField rendered="{!NOT(finalsubmit)}"
+												value="{!user.contact.Gender__c}"
+												styleClass="form-selectList" /> <apex:selectList disabled="{!finalsubmit}" rendered="{!finalsubmit}"
+												styleClass="form-selectList">
+												<apex:selectOption itemValue="{!user.contact.Gender__c}"
+													itemLabel="{!user.contact.Gender__c}"></apex:selectOption>
+											</apex:selectList></td>
+										</tr>
+										<tr>
+											<td class="formlable" align="right">Country of Origin<span
+												class="error_star">*</span></td>
+											<td><apex:selectList disabled="{!finalsubmit}"
+												value="{!user.contact.Country_Of_Origin__c}"
+												styleClass="form-selectList" size="1">
+												<apex:selectOptions value="{!clist}" />
+											</apex:selectList></td>
+										</tr>
+										<tr>
+											<td class="formlable" align="right">Country of Residence<span
+												class="error_star">*</span></td>
+											<td><apex:selectList disabled="{!finalsubmit}"
+												value="{!user.contact.Country_Of_Residence__c}"
+												styleClass="form-selectList" size="1">
+												<apex:selectOptions value="{!clist}" />
+											</apex:selectList></td>
+										</tr>
+										<tr>
+											<td class="formlable" align="right">Country of
+											Citizenship<span class="error_star">*</span></td>
+											<td><apex:selectList disabled="{!finalsubmit}"
+												value="{!user.contact.Country_Of_Citizenship__c}"
+												styleClass="form-selectList" size="1">
+												<apex:selectOptions value="{!clist}" />
+											</apex:selectList></td>
+										</tr>
+										<tr>
+											<td class="formlable" align="right">Birthdate
+											(dd/mm/yyyy)<span class="error_star">*</span></td>
+											<td><!--
+<apex:inputField rendered="{!NOT(finalsubmit)}" value="{!user.contact.Birthdate}" styleClass="form-text-box" />
+<apex:outputText rendered="{!finalsubmit}" value="{0,date,MM'/'dd'/'yyyy}" styleClass="form-text-box">
+<apex:param value="{!user.contact.Birthdate}"/>
+</apex:outputText>
+--> <apex:inputText disabled="{!finalsubmit}" styleClass="form-text-box"
+												style="width:30px" maxlength="2" value="{!birthday}" />
+											-&nbsp; <apex:inputText disabled="{!finalsubmit}"
+												styleClass="form-text-box" style="width:30px" maxlength="2"
+												value="{!birthmonth}" /> -&nbsp; <apex:inputText disabled="{!finalsubmit}" styleClass="form-text-box"
+												style="width:50px" maxlength="4" value="{!birthyear}" /></td>
+										</tr>
+										<tr>
+											<td class="formlable" align="right">Where did you hear
+											about us?<span class="error_star">*</span></td>
+											<td><apex:inputField rendered="{!NOT(finalsubmit)}"
+												styleClass="form-selectList"
+												value="{!user.contact.Lead_Source_User_Supplied__c}" /> <apex:selectList disabled="{!finalsubmit}" rendered="{!finalsubmit}"
+												styleClass="form-selectList">
+												<apex:selectOption itemValue="{!user.contact.Lead_Source_User_Supplied__c}"
+													itemLabel="{!user.contact.Lead_Source_User_Supplied__c}"></apex:selectOption>
+											</apex:selectList></td>
+										</tr>
+										<tr>
+											<td height="30">&nbsp;</td>
+										</tr>
+										<tr>
+											<td colspan="2" align="left" class="formheader">Permanent
+											Mailing Address</td>
+
+										</tr>
+										<tr>
+											<td colspan="2"
+												background="{!URLFOR($Resource.Images, 'new-images/line.jpg')}"
+												style="background-repeat: repeat-x">&nbsp;</td>
+										</tr>
+
+
+										<tr>
+											<td class="formlable" align="right">Street<span
+												class="error_star">*</span></td>
+											<td><apex:inputField rendered="{!NOT(finalsubmit)}"
+												value="{!user.contact.mailingstreet}"
+												styleClass="form-TextArea1" /> <apex:inputTextarea disabled="{!finalsubmit}" rendered="{!finalsubmit}"
+												value="{!user.contact.mailingstreet}"
+												styleClass="form-TextArea1" /></td>
+										</tr>
+										<tr>
+											<td class="formlable" align="right">City<span
+												class="error_star">*</span></td>
+											<td><apex:inputField rendered="{!NOT(finalsubmit)}"
+												value="{!user.contact.mailingcity}"
+												styleClass="form-text-box" /> <apex:inputText disabled="{!finalsubmit}" rendered="{!finalsubmit}"
+												value="{!user.contact.mailingcity}"
+												styleClass="form-text-box" /></td>
+										</tr>
+										<tr>
+											<td class="formlable" align="right">State/Province<span
+												class="error_star">*</span></td>
+											<td><apex:inputField rendered="{!NOT(finalsubmit)}"
+												value="{!user.contact.mailingstate}"
+												styleClass="form-text-box" /> <apex:inputText disabled="{!finalsubmit}" rendered="{!finalsubmit}"
+												value="{!user.contact.mailingstate}"
+												styleClass="form-text-box" /></td>
+										</tr>
+										<tr>
+											<td class="formlable" align="right">Zip/Postal Code<span
+												class="error_star">*</span></td>
+											<td><apex:inputField rendered="{!NOT(finalsubmit)}"
+												value="{!user.contact.mailingpostalcode}"
+												styleClass="form-text-box" /> <apex:inputText disabled="{!finalsubmit}" rendered="{!finalsubmit}"
+												value="{!user.contact.mailingpostalcode}"
+												styleClass="form-text-box" /></td>
+										</tr>
+										<tr>
+											<td class="formlable" align="right">Country<span
+												class="error_star">*</span></td>
+											<td><apex:selectList disabled="{!finalsubmit}"
+												value="{!user.contact.Mailing_Country__c}"
+												styleClass="form-selectList" size="1">
+												<apex:selectOptions value="{!clist}" />
+											</apex:selectList></td>
+										</tr>
+										<tr>
+											<td height="30">&nbsp;</td>
+										</tr>
+										<tr>
+											<td colspan="2" align="left" class="formheader">Telephone
+											Number</td>
+
+										</tr>
+										<tr>
+											<td colspan="2"
+												background="{!URLFOR($Resource.Images, 'new-images/line.jpg')}"
+												style="background-repeat: repeat-x">&nbsp;</td>
+										</tr>
+										<tr>
+											<td class="formlable" align="right">Primary Number<span
+												class="error_star">*</span></td>
+											<td><apex:selectList disabled="{!finalsubmit}"
+												styleClass="form-selectList"
+												value="{!user.contact.Home_Phone_Country_Code__c}"
+												multiselect="false" size="1">
+												<apex:selectOptions value="{!countryCode}" />
+											</apex:selectList>&nbsp; <apex:inputText maxlength="17"
+												disabled="{!finalsubmit}"
+												value="{!user.contact.Home_Phone_Main_Number__c}"
+												style="width:205px" styleClass="form-text-box" /> <br />
+											<span class="formlable" style="font-size: 11px"><i>Country
+											Code</i></span> <span class="formlable"
+												style="padding-left: 180px; font-size: 11px"><i>Main
+											Number</i></span></td>
+										</tr>
+
+										<tr>
+											<td class="formlable" align="right">Secondary Number</td>
+											<td><apex:selectList styleClass="form-selectList"
+												disabled="{!finalsubmit}"
+												value="{!user.contact.Mobile_Phone_Country_Code__c}"
+												multiselect="false" size="1">
+												<apex:selectOptions value="{!countryCode}" />
+											</apex:selectList>&nbsp; <apex:inputText maxlength="17"
+												disabled="{!finalsubmit}"
+												value="{!user.contact.Mobile_Phone_Main_Number__c}"
+												style="width:205px" styleClass="form-text-box" /> <br />
+											<span class="formlable" style="font-size: 11px"><i>Country
+											Code</i></span> <span class="formlable"
+												style="padding-left: 180px; font-size: 11px"><i>Main
+											Number</i></span></td>
+										</tr>
+
+
+
+										<tr>
+											<td height="30">&nbsp;</td>
+										</tr>
+										<tr>
+											<td colspan="2" align="left" class="formheader">Languages</td>
+
+										</tr>
+										<tr>
+											<td colspan="2"
+												background="{!URLFOR($Resource.Images, 'new-images/line.jpg')}"
+												style="background-repeat: repeat-x">&nbsp;</td>
+										</tr>
+
+										<tr>
+											<td align="right" class="formlable">&nbsp;</td>
+											<td align="left"><input type="checkbox"
+												id="is_english_native_language" />Is English your native
+											language? <apex:outputPanel rendered="{!finalsubmit}">
+												<script>document.getElementById('is_english_native_language').disabled=true;</script>
+											</apex:outputPanel></td>
+										</tr>
+										<tr class="is_english_native_language">
+											<td align="right" class="formlable">&nbsp;</td>
+											<td align="left">Please rate your proficiency in English
+											with the following:</td>
+										</tr>
+										<tr class="is_english_native_language">
+											<td align="right" class="formlable">Speaking<span
+												class="error_star" id="Speaking">{!ReqStar}</span></td>
+											<td align="left"><apex:inputField rendered="{!NOT(finalsubmit)}"
+												value="{!con.Language_English_Speaking__c}"
+												styleClass="form-selectList" /> <apex:selectList disabled="{!finalsubmit}" rendered="{!finalsubmit}"
+												styleClass="form-selectList">
+												<apex:selectOption itemValue="{!con.Language_English_Speaking__c}"
+													itemLabel="{!con.Language_English_Speaking__c}"></apex:selectOption>
+											</apex:selectList></td>
+
+										</tr>
+										<tr class="is_english_native_language">
+											<td align="right" class="formlable">Listening<span
+												class="error_star" id="Listening">{!ReqStar}</span></td>
+											<td align="left"><apex:inputField rendered="{!NOT(finalsubmit)}"
+												value="{!con.Language_English_Listening__c}"
+												styleClass="form-selectList" /> <apex:selectList disabled="{!finalsubmit}" rendered="{!finalsubmit}"
+												styleClass="form-selectList">
+												<apex:selectOption itemValue="{!con.Language_English_Listening__c}"
+													itemLabel="{!con.Language_English_Listening__c}"></apex:selectOption>
+											</apex:selectList></td>
+
+										</tr>
+										<tr class="is_english_native_language">
+											<td align="right" class="formlable">Writing<span
+												class="error_star" id="Writing">{!ReqStar}</span></td>
+											<td align="left"><apex:inputField rendered="{!NOT(finalsubmit)}"
+												value="{!con.Language_English_Writing__c}"
+												styleClass="form-selectList" /> <apex:selectList disabled="{!finalsubmit}" rendered="{!finalsubmit}"
+												styleClass="form-selectList">
+												<apex:selectOption itemValue="{!con.Language_English_Writing__c}"
+													itemLabel="{!con.Language_English_Writing__c}"></apex:selectOption>
+											</apex:selectList></td>
+
+										</tr>
+										<tr class="is_english_native_language">
+											<td align="right" class="formlable">Reading<span
+												class="error_star" id="Reading">{!ReqStar}</span></td>
+											<td align="left"><apex:inputField rendered="{!NOT(finalsubmit)}"
+												value="{!con.Language_English_Reading__c}"
+												styleClass="form-selectList" /> <apex:selectList disabled="{!finalsubmit}" rendered="{!finalsubmit}"
+												styleClass="form-selectList">
+												<apex:selectOption itemValue="{!con.Language_English_Reading__c}"
+													itemLabel="{!con.Language_English_Reading__c}"></apex:selectOption>
+											</apex:selectList></td>
+
+										</tr>
+
+										<tr class="is_english_native_language">
+											<td align="right" class="formlable">What is your Native
+											Language<span class="error_star">*</span></td>
+											<td align="left"><apex:inputField rendered="{!NOT(finalsubmit)}"
+												value="{!con.Language__c}"
+												styleClass="form-selectList Contact_Language__c" /> <apex:selectList rendered="{!AND(finalsubmit)}" disabled="{!finalsubmit}"
+												styleClass="form-selectList Contact_Language__c">
+												<apex:selectOption itemValue="{!user.contact.Language__c}"
+													itemLabel="{!con.Language__c}"></apex:selectOption>
+											</apex:selectList></td>
+
+										</tr>
+										<tr>
+											<td align="right" class="formlable">Other languages
+											spoken fluently</td>
+											<td><apex:inputField rendered="{!NOT(finalsubmit)}"
+												value="{!con.Language_Other__c}"
+												styleClass="form-text-box" /> <apex:inputText disabled="{!finalsubmit}" rendered="{!finalsubmit}"
+												value="{!con.Language_Other__c}"
+												styleClass="form-text-box" /></td>
+
+										</tr>
+
+									</table>
+									<!-- end code  --></td>
+								</tr>
+								<tr>
+									<td colsapn="2">&nbsp;</td>
+								</tr>
+								<tr>
+									<td colsapn="2">&nbsp;</td>
+								</tr>
+								<tr>
+									<td colspan="2"
+										background="{!URLFOR($Resource.Images, 'new-images/line.jpg')}"
+										style="background-repeat: repeat-x">&nbsp;</td>
+								</tr>
+
+								<tr>
+									<td
+										style="padding-left: 20px; padding-right: 20px; vertical-align: text-bottom">
+									<table width="100%">
+										<tr>
+											<td align="center"><!-- <apex:commandLink action="{!step2}" ><apex:image url="{!URLFOR($Resource.Images, 'new-images/saveandcontinue.jpg')}"  /></apex:commandLink> -->
+											<apex:outputPanel rendered="{!!finalsubmit}">
+												<span class="button primary"> <apex:commandLink rendered="{!!finalsubmit}" value="Continue"
+													title="Continue" id="cbtneditlogin" action="{!step2}" /> </span>
+											</apex:outputPanel></td>
+										</tr>
+										<tr>
+											<td><span style="float: right; vertical-align: bottom"><apex:outputLink value="#">
+												<apex:image url="{!URLFOR($Resource.Images, 'new-images/topimage.jpg')}" />&nbsp;<b>back
+												to top</b>
+											</apex:outputLink> </span></td>
+										</tr>
+									</table>
+									</td>
+								</tr>
+								</td>
+							</tr>
+						</table>
+						</td>
+					</tr>
+
+				</table>
+
+			</apex:form></td>
+		</tr>
+	</table>
+
+	<script type="text/javascript">
+    function is_english_native_language() {
+        if ($('#is_english_native_language').attr('checked') == 'checked') {
+            $('.is_english_native_language').hide();
+            $('.is_english_native_language select').val('');
+            $('.is_english_native_language select.Contact_Language__c').val('English');
+        } else {
+            $('.is_english_native_language').show();
+            $('.is_english_native_language select').val('');
+        }
+    }
+    
+    $(document).ready(function () {
+        // initialize
+        if ($('.is_english_native_language select.Contact_Language__c:first').val() == 'English')
+            $('#is_english_native_language').attr('checked', 'checked');
+        else
+            $('#is_english_native_language').removeAttr('checked');
+        
+        // update
+        is_english_native_language();
+        
+        // bind
+        $('#is_english_native_language').change(function() {
+            is_english_native_language()
+        });
+    });
+    </script>
+</apex:page>

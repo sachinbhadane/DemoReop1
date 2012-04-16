@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>OWNER_FULL_NAME</field>
+    </columns>
+    <columns>
+        <field>OPPORTUNITY_ID</field>
+    </columns>
+    <columns>
+        <field>Opportunity.Contact__c</field>
+    </columns>
+    <columns>
+        <field>FK_NAME</field>
+    </columns>
+    <columns>
+        <field>Contact.Program_Primary__c</field>
+    </columns>
+    <columns>
+        <field>Opportunity.Application_Substage__c</field>
+    </columns>
+    <currency>USD</currency>
+    <description>Leads who can be for MBA</description>
+    <filter>
+        <booleanFilter>(((1 AND 2 AND (3 OR 4))) AND 5) AND 6</booleanFilter>
+        <criteriaItems>
+            <column>Opportunity.Start_Term__c</column>
+            <operator>notContain</operator>
+            <value>2011</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>STAGE_NAME</column>
+            <operator>contains</operator>
+            <value>Qualified Lead,In Progress,Lead</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>FK_NAME</column>
+            <operator>contains</operator>
+            <value>mba</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Contact.Program_Primary__c</column>
+            <operator>contains</operator>
+            <value>MBA</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Opportunity.Region__c</column>
+            <operator>equals</operator>
+            <value>MEA</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>OWNER_FULL_NAME</column>
+            <operator>notContain</operator>
+            <value>charles adebayo,langston hughes,mariam farage,miljana jovanovic,haroon jamshed,ghada sakaan,jordana blanchet,henrik jonson,O&apos;brien,Gopikiran Gajula,Jaishree Chaturvedi,Magdalena Soszynska,Daniella Wagner,Rodaina Abou Eid</value>
+        </criteriaItems>
+    </filter>
+    <format>Matrix</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Opportunity.Region__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>STAGE_NAME</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>MBA Check</name>
+    <params>
+        <name>include</name>
+        <value>all</value>
+    </params>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>OpportunityContact@Opportunity.Program__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>CREATED_DATE</dateColumn>
+        <endDate>2012-09-30</endDate>
+        <interval>INTERVAL_CUSTOM</interval>
+        <startDate>2011-08-01</startDate>
+    </timeFrameFilter>
+</Report>

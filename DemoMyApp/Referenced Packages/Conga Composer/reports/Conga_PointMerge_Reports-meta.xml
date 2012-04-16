@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ReportFolder xmlns="http://soap.sforce.com/2006/04/metadata">
+    <accessType>Shared</accessType>
+    <name>Conga PointMerge Reports</name>
+    <publicFolderAccess>ReadWrite</publicFolderAccess>
+    <sharedTo>
+        <roles>*Asia Marketing User</roles>
+        <roles>*Asia Regional Marketing Manager</roles>
+        <roles>*Europe Marketing User</roles>
+        <roles>*Europe Regional Marketing Manager</roles>
+        <roles>*MEA Marketing User</roles>
+        <roles>*MEA Regional Marketing Manager</roles>
+        <roles>*North Am/Lat Am Marketing User</roles>
+        <roles>*North Am/Lat Am Regional Marketing Manager</roles>
+        <roles>*Regional Marketing Manager</roles>
+        <roles>System Administrator</roles>
+    </sharedTo>
+</ReportFolder>

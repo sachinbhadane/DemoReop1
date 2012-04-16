@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Contact$Name</field>
+    </columns>
+    <currency>USD</currency>
+    <filter>
+        <criteriaItems>
+            <column>Contact$Country_Of_Residence__c</column>
+            <operator>equals</operator>
+            <value>canada</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Contact$Program_Primary__c</column>
+            <operator>startsWith</operator>
+            <value>b</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Contact$Start_Term__c</column>
+            <operator>equals</operator>
+            <value>September 2012</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Contact$Name</column>
+            <operator>notContain</operator>
+            <value>test</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Contact$Email</column>
+            <operator>notContain</operator>
+            <value>@hult.edu</value>
+        </criteriaItems>
+    </filter>
+    <format>Matrix</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Contact$MailingState</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>NA BIBA Canada Provinces</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Contact_Report__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Contact$CreatedDate</dateColumn>
+        <endDate>2012-07-31</endDate>
+        <interval>INTERVAL_CUSTOM</interval>
+        <startDate>2011-08-01</startDate>
+    </timeFrameFilter>
+</Report>

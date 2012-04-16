@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<HomePageComponent xmlns="http://soap.sforce.com/2006/04/metadata">
+    <body>&lt;iframe scrollbar=&quot;no&quot; border=&quot;0&quot; src=&quot;/apexcomponent/Five9__Five9VMComponent&quot; name=&quot;test&quot; cellspacing=&quot;0&quot; scrolling=&quot;no&quot; frameborder=&quot;0&quot; height=&quot;200&quot; width=&quot;200&quot;&gt;&lt;/iframe&gt;</body>
+    <pageComponentType>htmlArea</pageComponentType>
+    <width>narrow</width>
+</HomePageComponent>

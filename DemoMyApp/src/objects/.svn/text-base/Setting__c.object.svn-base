@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>Hierarchy</customSettingsType>
+    <customSettingsVisibility>Public</customSettingsVisibility>
+    <enableEnhancedLookup>false</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>Default_XML_Namespace__c</fullName>
+        <externalId>false</externalId>
+        <label>Default XML Namespace</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Default_XML_Prefix__c</fullName>
+        <externalId>false</externalId>
+        <label>Default XML Prefix</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Is_Asynchronous__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>This will force routing table rules to be processed and applied in an asynchronous manner, ie using the @future annotation. Important note: this can conflict with other code, especially if that other code is causing a lead update to occur while already in an asynchronous context. Please see the Salesforce documentation regarding @future and asynchronous methods for more information.</description>
+        <externalId>false</externalId>
+        <label>Is Asynchronous?</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Is_Disabled_Geocoder__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Is Disabled: Geocoder?</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Is_Disabled_On_Insert__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>This will disable processing of the routing table when first inserting a new lead. Important note: if you have a workflow rule that causes a field update, the lead will go through a second pass, and could potentially be processed by as an Update. Please check the Salesforce developer documentation regarding Order of Execution: http://www.salesforce.com/us/developer/docs/apexcode/Content/apex_triggers_order_of_execution.htm</description>
+        <externalId>false</externalId>
+        <label>Is Disabled: On Insert?</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Is_Disabled_On_Update__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>This will disabled processing of the routing table rules for a lead update only.</description>
+        <externalId>false</externalId>
+        <label>Is Disabled: On Update?</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Is_Disabled_Scheduler__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Is Disabled: Scheduler?</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Is_Disabled__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>This will disable processing of the routing table rules entirely.</description>
+        <externalId>false</externalId>
+        <label>Is Disabled?</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Is_Strict__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>If this is checked, then the code will not attempt to cleanup or standardize postal codes based on best-practice formatting. For example, with strict OFF the postal code &apos;601&apos; for Puerto Rico will first be converted to &apos;00601&apos; and then the route search is done based on that. With strict ON, the search is done on the original &apos;601&apos; postal code with no cleanup performed.
+
+For Canadian postal codes, strict OFF capitalizes the postal code and split it into two groups of three characters, ie &apos;A33 B55&apos;. Strict ON will not perform any formatting.</description>
+        <externalId>false</externalId>
+        <label>Is Strict?</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Is_Validation_Disabled_Department_ID__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Is Validation Disabled: Department ID?</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Is_Validation_Disabled_Department_Name__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Is Validation Disabled: Department Name?</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Is_Validation_Disabled_Queue_ID__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Is Validation Disabled: Queue ID?</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Is_Validation_Disabled_Queue_Name__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Is Validation Disabled: Queue Name?</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Is_Validation_Disabled_User_ID__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Is Validation Disabled: User ID?</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Is_Validation_Disabled_User_Name__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Is Validation Disabled: User Name?</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Is_Validation_Disabled__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Is Validation Disabled?</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Override_Contact_Region__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Override Contact Region?</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Override_Lead_City__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Override Lead City?</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Override_Lead_Country__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Override Lead Country?</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Override_Lead_Region__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Override Lead Region?</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Override_Lead_State__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Override Lead State/Province?</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Override_When_Blank__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Override When Blank?</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Portal_Applicant_Account_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Portal Applicant Account Name</label>
+        <length>80</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Portal_Applicant_Profile_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Portal Applicant Profile Name</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Update_Coords_Topic_ARN__c</fullName>
+        <externalId>false</externalId>
+        <label>Update Coordinates: Topic ARN</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Setting: Dynamic Routing</label>
+</CustomObject>

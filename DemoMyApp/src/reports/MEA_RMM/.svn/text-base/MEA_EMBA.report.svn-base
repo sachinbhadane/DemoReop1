@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>OWNER</field>
+    </columns>
+    <columns>
+        <field>FIRST_NAME</field>
+    </columns>
+    <columns>
+        <field>LAST_NAME</field>
+    </columns>
+    <columns>
+        <field>TITLE</field>
+    </columns>
+    <columns>
+        <field>COMPANY</field>
+    </columns>
+    <columns>
+        <field>LEAD_SOURCE</field>
+    </columns>
+    <columns>
+        <field>RATING</field>
+    </columns>
+    <columns>
+        <field>STREET</field>
+    </columns>
+    <columns>
+        <field>EMAIL</field>
+    </columns>
+    <currency>USD</currency>
+    <description>ALL LEADS</description>
+    <filter>
+        <criteriaItems>
+            <column>Lead.Country_Of_Residence__c</column>
+            <operator>equals</operator>
+            <value>Algeria,Bahrain,Egypt,Iran,Iraq,Jordan,Kuwait,Lebanon,Libya,Morocco,Oman,Palestinia,Qatar,Saudi Arabia,Sudan,Syria,Tunisia,United Arab Emirates,Yemen,Afghanistan,Bangladesh,India,Maldives,Nepal,Pakistan,Sri Lanka,American Samoa,Angola,Aruba,Belize,Benin,Bhutan,Botswana,British Indian Ocean Territory,Burkina Faso,Burundi,Cameroon,Cape Verde,Central African Republic,Chad,Comoros,Congo,Côte d&apos;Ivoire,Djibouti,East Timor,Equatorial Guinea,Eritrea,Ethiopia,Gabon,Gambia,Ghana,Guinea,Guyana,Ivory Coast,Kenya,Lesotho,Liberia,Lima,Madagascar,Malawi,Mali,Mauritius,Mozambique,Myanmar,Namibia,Niger,Nigeria,Rwanda,Senegal,Seychelles,Sierra Leone,Somalia,South Africa,Suriname,Swaziland,Tanzania,Togo,Uganda,United Republic of Tanzania,Zaire,Zambia,Zimbabwe</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Lead.Program_Primary__c</column>
+            <operator>contains</operator>
+            <value>EMBA</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Lead.Start_Term__c</column>
+            <operator>contains</operator>
+            <value>2012,2013</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>LEAD_SOURCE</column>
+            <operator>notContain</operator>
+            <value>QS</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>MEA EMBA</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>LeadList</reportType>
+    <scope>org</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>CREATED_DATE</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>List</customSettingsType>
+    <customSettingsVisibility>Public</customSettingsVisibility>
+    <description>Five9 Call Center integration settings</description>
+    <enableEnhancedLookup>false</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>AdminWS_Password__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Five9 administrator account password</description>
+        <externalId>false</externalId>
+        <label>AdminWS Password</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>AdminWS_ReportEmail__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Email Five9 Admin Web Services will send reports to</description>
+        <externalId>false</externalId>
+        <label>AdminWS ReportEmail</label>
+        <required>false</required>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>AdminWS_URL__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Five9 Admin Web Services endpoint</description>
+        <externalId>false</externalId>
+        <label>AdminWS URL</label>
+        <required>false</required>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>AdminWS_Username__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Five9 Admin Web Services administrator account username</description>
+        <externalId>false</externalId>
+        <label>AdminWS Username</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Callback_CompletedStatus__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Callback_CompletedStatus</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Callback_SynchEnabled__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Callback_SynchEnabled</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Codebase__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Five9 integrations codebase</description>
+        <externalId>false</externalId>
+        <label>Codebase</label>
+        <required>false</required>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>Screenpop_ANI_Search__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Perform search by ANI during screenpop</description>
+        <externalId>false</externalId>
+        <label>Screenpop ANI Search</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Screenpop_C2D_Search__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Screenpop C2D Search</label>
+        <type>Checkbox</type>
+    </fields>
+    <label>Five9Settings</label>
+</CustomObject>

@@ -1,0 +1,157 @@
+<apex:page showHeader="false">
+<form name="Form1" method="post"  id="Form1">
+<script>
+function noPostBack(sNewFormAction) {
+        //alert();
+        sNewFormAction = sNewFormAction + document.forms[0].security_emerchant_id.value;
+        if (document.layers) //The browser is Netscape 4
+        {
+            document.layers['Content'].document.forms[0].__VIEWSTATE.name =
+                                                           'NOVIEWSTATE';
+            document.layers['Content'].document.forms[0].action =
+                                                     sNewFormAction;
+        }
+        else //It is some other browser that understands the DOM
+        {
+            document.forms[0].action = sNewFormAction;
+            document.forms[0].__VIEWSTATE.name = 'NOVIEWSTATE';
+        }
+    }
+</script>
+<table align="center" border="1" width="50%">
+                <tr>
+                    <td align="center"><b>3CIPage Test Form</b></td>
+                    <td align="right">
+                        <input type="submit" name="SubmitTop" onclick="Javascript:noPostBack('https://web2pay.3cint.com/iPage/Service/_2006_05_v1_0_1/service.aspx?emerchantid=');" value="Submit"  id="SubmitTop" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>EMerchantId*</td>
+                    <td><input type="text" name="security_emerchant_id" value="HultInternationalBusiness" /></td>
+                </tr>
+                <tr>
+                    <td>Validation Code*</td>
+                    <td><input type="text" name="security_validation_code" value="Ts6eSm22G" /></td>
+                </tr>
+                <tr>
+                    <td>Action*</td>
+                    <td><input type="text" name="service_action" value="pay" /></td>
+                </tr>
+                <tr>
+                    <td>Merchant Reference</td>
+                    <td><input type="text" name="trx_merchant_reference" value="" /></td>
+                </tr>
+                <tr>
+                    <td>Merchant Reference 2</td>
+                    <td><input type="text" name="trx_merchant_reference_2" value="" /></td>
+                </tr>
+                <tr>
+                    <td>Amount*</td>
+                    <td><input type="text" name="trx_amount_value" value="100" /></td>
+                </tr>
+                <tr>
+                    <td>Currency Code*</td>
+                    <td><input type="text" name="trx_amount_currency_code" value="USD" /></td>
+                </tr>
+                <!--<tr>
+                    <td>Success Url</td>
+                    <td><input type="text" size="70" name="post_success" value="http://hult.prerelease.cs9.force.com/portal/SixCardSuccess" /></td>
+                </tr>
+                <tr>
+                    <td>Failure Url</td>
+                    <td><input type="text" size="70" name="post_failure" value="http://hult.prerelease.cs9.force.com/portal/SixCardFailure"  /></td>
+                </tr>-->
+                <tr>
+                    <td>Card No</td>
+                    <td><input type="text" name="card_cc_no" value="" /></td>
+                </tr>
+                <tr>
+                    <td>Card Expiry Month (MM)</td>
+                    <td><input type="text" name="card_expiry_month" value="" /></td>
+                </tr>               
+                <tr>
+                    <td>Card Expiry Year (YYYY)</td>
+                    <td><input type="text" name="card_expiry_year" value="" /></td>
+                </tr>
+                <tr>
+                    <td>Cvx2</td>
+                    <td><input type="text" name="card_cvx_2" value="" /></td>
+                </tr>
+                <tr>
+                    <td>Is Keyed</td>
+                    <td><input type="text" name="trx_is_keyed" value="True" /></td>
+                </tr>
+                <tr>
+                    <td>Is Magnetic Swipe</td>
+                    <td><input type="text" name="trx_is_magnetic_swipe" value="" /></td>
+                </tr>
+                <tr>
+                    <td>Script Data 1</td>
+                    <td><input type="text" name="merchant_script_data_1" /></td>
+                </tr>
+                <tr>
+                    <td>Script Data 2</td>
+                    <td><input type="text" name="merchant_script_data_2" /></td>
+                </tr>
+                <tr>
+                    <td>Script Data 3</td>
+                    <td><input type="text" name="merchant_script_data_3" /></td>
+                </tr>
+                <tr>
+                    <td>Script Data 4</td>
+                    <td><input type="text" name="merchant_script_data_4" /></td>
+                </tr>
+                <tr>
+                    <td>Script Data 5</td>
+                    <td><input type="text" name="merchant_script_data_5" /></td>
+                </tr>
+                <tr>
+                    <td>Script Data 6</td>
+                    <td><input type="text" name="merchant_script_data_6" /></td>
+                </tr>
+                <tr>
+                    <td>Script Data 7</td>
+                    <td><input type="text" name="merchant_script_data_7" /></td>
+                </tr>
+                <tr>
+                    <td>Script Data 8</td>
+                    <td><input type="text" name="merchant_script_data_8" /></td>
+                </tr>
+                <tr>
+                    <td>Script Data 9</td>
+                    <td><input type="text" name="merchant_script_data_9" /></td>
+                </tr>
+                <tr>
+                    <td>Script Data 10</td>
+                    <td><input type="text" name="merchant_script_data_10" /></td>
+                </tr>
+                <tr>
+                    <td>Script Data 11</td>
+                    <td><input type="text" name="merchant_script_data_11" /></td>
+                </tr>
+                <tr>
+                    <td>Script Data 12</td>
+                    <td><input type="text" name="merchant_script_data_12" /></td>
+                </tr>
+                <tr>
+                    <td>Script Data 13</td>
+                    <td><input type="text" name="merchant_script_data_13" /></td>                   
+                </tr>
+                <tr>
+                    <td>Script Data 14</td>
+                    <td><input type="text" name="merchant_script_data_14" /></td>
+                </tr>
+                <tr>
+                    <td>Script Data 15</td>
+                    <td><input type="text" name="merchant_script_data_15" /></td>
+                </tr>
+                <tr>
+                    <td align="center"><b>3CIPage Test Form</b></td>
+                    <td align="right">
+                        <input type="submit" name="SubmitBottom" value="Submit" onclick="Javascript:noPostBack('https://web2pay.3cint.com/iPage/Service/_2006_05_v1_0_1/service.aspx?emerchantid=');" id="SubmitBottom" />
+                    </td>
+                </tr>
+            </table>
+</form>
+
+</apex:page>

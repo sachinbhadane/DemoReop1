@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Contact$Name</field>
+    </columns>
+    <columns>
+        <field>Contact.Opportunities__r$Name</field>
+    </columns>
+    <columns>
+        <field>Contact.Opportunities__r.Requirements__r$Name</field>
+    </columns>
+    <columns>
+        <field>Contact.Opportunities__r$SSC_Welcome_Call_Date__c</field>
+    </columns>
+    <columns>
+        <field>Contact.Opportunities__r$SSC_Welcome_Call_Completed__c</field>
+    </columns>
+    <columns>
+        <field>Contact.Opportunities__r$SSC_Email_Sent__c</field>
+    </columns>
+    <columns>
+        <field>Contact.Opportunities__r$SSC_Email_Date__c</field>
+    </columns>
+    <columns>
+        <field>Contact.Opportunities__r$SSC_Pre_Arrival_Call_Date__c</field>
+    </columns>
+    <columns>
+        <field>Contact.Opportunities__r$SSC_Pre_Arrival_Call_Completed__c</field>
+    </columns>
+    <columns>
+        <field>Contact.Opportunities__r$SSC_Comments__c</field>
+    </columns>
+    <currency>USD</currency>
+    <description>Welcome Call, Email Sent, Pre-Arrival Information</description>
+    <format>Tabular</format>
+    <name>Student Services Call Information</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Applications_with_Requirements__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Contact$CreatedDate</dateColumn>
+        <interval>INTERVAL_CURRENT</interval>
+    </timeFrameFilter>
+</Report>

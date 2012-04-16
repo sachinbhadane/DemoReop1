@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ReportFolder xmlns="http://soap.sforce.com/2006/04/metadata">
+    <accessType>Shared</accessType>
+    <name>EMBA ASIA Product Head Reports</name>
+    <publicFolderAccess>ReadOnly</publicFolderAccess>
+    <sharedTo>
+        <roles>Asia Product Head - EMBA</roles>
+        <roles>Global Product Head - EMBA</roles>
+    </sharedTo>
+</ReportFolder>

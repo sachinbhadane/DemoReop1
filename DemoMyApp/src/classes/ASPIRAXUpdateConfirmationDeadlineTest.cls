@@ -1,0 +1,1 @@
+@isTest private class ASPIRAXUpdateConfirmationDeadlineTest {private static testmethod void testRelation(){try{update [select Id from Contact limit 1];}catch(Exception e){System.debug(e);}}}

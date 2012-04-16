@@ -1,0 +1,144 @@
+<apex:page showHeader="false" action="{!createFinaceRecord}"  controller="ApplicantPaymentController">
+<apex:form >
+<table class="innertable" border="0" cellpadding="0" cellspacing="0">
+<tr><td colspan="2"><c:onlineHeader /></td></tr>
+<tr>
+     
+<td>
+
+
+
+    <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
+        <tr>
+            <td><c:OnlineAccountHeader /></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+           
+            <table width="100%" class="innerpadding"  border="0" cellpadding="0" cellspacing="0"><tr><td>
+        <tr>
+            <td colspan="2" class="formheader">Confirmation Deposit</td>
+        </tr>
+        
+        <tr>
+            <td height="19" background="{!URLFOR($Resource.Images, 'new-images/line.jpg')}" style="background-repeat:repeat-x;">&nbsp;</td>
+        </tr>
+        <apex:outputPanel rendered="{!tab2}">
+        <tr style="text-align:left"><td colspan="2"  class="formlable">
+        <b>Prior to making your payment, you may want to contact your bank or credit card company in order to authorize international transactions on your card. If after contacting your financial institution your payment is declined then, please contact your recruiter.</b>
+        <br /><br />        
+      
+<apex:pageMessages escape="false" showDetail="false"  />
+</td></tr>
+        <tr>
+            <td valign="top">
+               <!-- Add code here -->
+              
+<table align="center" border="0" width="100%">
+                
+              
+                 <tr>
+            <td class="formlable" width="202" align="right">Program</td>
+            <td class="formlable" align="left">{!Program_c}</td>
+
+          </tr>
+                 <tr>
+                    <td class="formlable" align="right">Currency</td>
+                    <td class="formlable" align="left">
+                    <apex:outputText value="{!ccode}"/>
+                    <apex:inputHidden value="{!ccode}"/>
+                    <!-- apex:selectList disabled="{!Confirmation_Deposit_Paid_c}" styleClass="form-selectList" multiselect="false" value="{!ccode}" size="1">
+                        <apex:selectOptions value="{!CurrencyIsoCode}" />
+                    </apex:selectList -->
+                    </td>
+                </tr>
+                <tr>
+                    <td class="formlable" align="right"></td>
+                    <td class="formlable" align="left">
+                        <apex:inputCheckbox rendered="{! NOT I_agree_to_Hult_Terms_and_Conditions_c}" value="{!I_agree_to_Hult_Terms_and_Conditions_c}" />
+                        <apex:outputLink rendered="{! NOT I_agree_to_Hult_Terms_and_Conditions_c}" target="blank" value="{!tncURL}">I agree to Hult Terms and Conditions</apex:outputLink>
+                    </td>
+                </tr>
+                            
+                <tr>
+                    <td class="formlable" align="right"></td>
+                    <td class="formlable" align="left">
+                        <apex:outputLink rendered="{!if(problemURL!=null,true,false)}" target="blank" value="{!problemURL}">Having problems charging your credit card via the online portal? Just click this link for alternative payment options!</apex:outputLink>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                       </td> <td align="left" class="formlable">
+                        <apex:selectRadio onclick="showh(this.value)" rendered="{!if(btnLable=='Go',true,false)}" value="{!paymentType}">
+                            <apex:selectOptions value="{!paymentValues}"/>
+                        </apex:selectRadio>
+                    </td>
+                </tr>
+               <script>
+                   function showh(str){
+                       if(str==2){
+                           alert("Please note: You will need to choose this option twice to pay your full Confirmation Deposit");
+                       
+                       } 
+                   }
+               </script>
+               
+                
+            </table>
+
+</td></tr>
+<tr><td >&nbsp;</td></tr>
+          <tr>
+<td background="{!URLFOR($Resource.Images, 'new-images/line.jpg')}" style="background-repeat:repeat-x;">&nbsp;</td>
+</tr>
+<tr><td style="padding-left:20px;padding-right:20px;vertical-align:text-bottom">
+<style>
+
+span.button.primary a {
+    background: url("{!URLFOR($Resource.buttons, 'buttons/btnRightSecondary_large.png')}") no-repeat scroll right top transparent;
+}
+
+span.button.primary a:hover {
+    background: url("{!URLFOR($Resource.buttons, 'buttons/btnRightSecondary_large.png')}") no-repeat scroll right top transparent;
+    color: #677A94;
+}
+
+</style>
+
+<table width="100%" cellpadding="0" cellspacing="0"><tr>
+<td align="center" style="white-space:nowrap">
+    <apex:outputPanel rendered="{!if((isfinanceRecord==true && Confirmation_Deposit_Paid_c==false),true,false)}" >
+        <span class="button primary"> 
+        <apex:commandLink value="{!btnLable}"  title="{!btnLable}" id="step2" action="{!createFinancetxn}" />
+        </span>
+    </apex:outputPanel>
+    <!-- span class="button primary"> 
+        <apex:commandLink value="Pay Full Confirmation Deposit"  title="Pay Full Confirmation Deposit" id="step3" action="{!createFinancetxn}">
+        <apex:param name="ptype" assignTo="payType" value="F"/>
+        <apex:commandLink/>
+        </span>
+        <span class="button primary"> 
+        <apex:commandLink value="Pay 1/2 Confirmation Deposit"  title="Pay 1/2 Confirmation Deposit" id="step4" action="{!createFinancetxn}">
+        <apex:param name="ptype" assignTo="payType" value="H"/>
+        <apex:commandLink/>
+        </span -->    
+    
+</td></tr>
+</table>
+</td></tr></apex:outputPanel>
+<apex:outputPanel rendered="{!!tab2}" >
+<tr><td class="uncompetetab_msg" align="center" height="200" valign="top">
+You must complete Program &amp; Location tab before Payment tab 
+</td></tr>
+</apex:outputPanel></td></tr></table></td>
+</tr></table>
+<script>
+document.getElementById('PayConfirmationDeposit').style.backgroundImage="url('{!URLFOR($Resource.Images, 'new-images/tabwhiteimage.jpg')}')";
+document.getElementById('PayConfirmationDeposit').style.backgroundPosition="center";
+document.getElementById('PayConfirmationDeposit1').className="headertabonload";
+</script>
+
+
+</td></tr></table>
+</apex:form>
+</apex:page>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Contact$Owner</field>
+    </columns>
+    <columns>
+        <field>Contact.Opportunities__r$Name</field>
+    </columns>
+    <columns>
+        <field>Contact$Name</field>
+    </columns>
+    <columns>
+        <field>Contact$MailingAddress</field>
+    </columns>
+    <columns>
+        <field>Contact$MailingStreet</field>
+    </columns>
+    <columns>
+        <field>Contact$MailingCity</field>
+    </columns>
+    <columns>
+        <field>Contact$MailingState</field>
+    </columns>
+    <columns>
+        <field>Contact$MailingPostalCode</field>
+    </columns>
+    <columns>
+        <field>Contact$MailingCountry</field>
+    </columns>
+    <columns>
+        <field>Contact.Opportunities__r$Send_Magic_Pack__c</field>
+    </columns>
+    <columns>
+        <field>Contact.Opportunities__r$Magic_Pack_Send_Date__c</field>
+    </columns>
+    <currency>USD</currency>
+    <description>Status of the Magic Pack</description>
+    <format>Tabular</format>
+    <name>Magic Pack Status and Sent Date</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Applications_with_Requirements__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Contact.Opportunities__r$Magic_Pack_Send_Date__c</dateColumn>
+        <interval>INTERVAL_CURRENT</interval>
+    </timeFrameFilter>
+</Report>

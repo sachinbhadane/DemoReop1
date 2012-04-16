@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>xtma_Individual_Email_Result__c.Contact__c</field>
+    </columns>
+    <columns>
+        <field>xtma_Individual_Email_Result__c.Lead__c</field>
+    </columns>
+    <columns>
+        <field>xtma_Individual_Email_Result__c.Subject_Line__c</field>
+    </columns>
+    <columns>
+        <field>xtma_Individual_Email_Result__c.Opened__c</field>
+    </columns>
+    <columns>
+        <field>xtma_Individual_Email_Result__c.Campaign__c</field>
+    </columns>
+    <columns>
+        <field>CUST_ID</field>
+    </columns>
+    <columns>
+        <field>xtma_Individual_Email_Result__c.Date_Time_Sent__c</field>
+    </columns>
+    <currency>USD</currency>
+    <description>Pre-December 2011</description>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>CUST_CREATED_DATE</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Individual Email Results for Deletion</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$xtma_Individual_Email_Result__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>xtma_Individual_Email_Result__c.Date_Time_Sent__c</dateColumn>
+        <endDate>2011-11-30</endDate>
+        <interval>INTERVAL_CUSTOM</interval>
+        <startDate>2011-01-01</startDate>
+    </timeFrameFilter>
+</Report>

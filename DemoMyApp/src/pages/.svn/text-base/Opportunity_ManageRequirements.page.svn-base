@@ -1,0 +1,88 @@
+<apex:page standardcontroller="Opportunity" extensions="Opportunity_ManageRequirements" action="{!initialize}">
+    <apex:form >
+        <apex:messages />
+        <apex:pageblock title="Requirements">
+            <apex:pageblockbuttons location="top">
+                <apex:commandbutton value="Save" action="{!save}" />
+                <apex:commandbutton value="Save & Return" action="{!saveandreturn}" />
+                <apex:commandbutton value="Cancel" action="{!cancel}" />
+            </apex:pageblockbuttons>
+            <apex:pageblocktable var="requirement" value="{!requirementList}" rendered="{!requirementlist.size !=0}" columnsWidth="*,15%,10%,10%,10%,10%">
+                <apex:column value="{!requirement.name}" headervalue="Admissions Requirements" />
+
+                <apex:column value="{!requirement.RecordType.Name}" />
+
+                <apex:column headervalue="Supplied?" headerclass=" booleanColumn" styleclass="booleanColumn">
+                    <apex:inputfield value="{!requirement.Supplied__c}" />
+                </apex:column>
+
+                <apex:column headervalue="Approved?" headerclass=" booleanColumn" styleclass="booleanColumn">
+                    <apex:inputfield value="{!requirement.Approved__c}" />
+                </apex:column>
+                <apex:column headervalue="Waived?" headerclass=" booleanColumn" styleclass="booleanColumn">
+                    <apex:inputfield value="{!requirement.Waived__c}" />
+                </apex:column>
+                <apex:column headervalue="Status">
+                    <apex:outputText value="{!requirement.Status_UI__c}" escape="false" />
+                </apex:column>
+            </apex:pageblocktable>
+            <apex:pageblocktable var="requirement" value="{!requirementVisaList}" rendered="{!requirementvisalist.size !=0}" columnsWidth="*,15%,10%,10%,10%,10%">
+                <apex:column value="{!requirement.name}" headervalue="Visa Requirements" />
+
+                <apex:column value="{!requirement.RecordType.Name}" />
+
+                <apex:column headervalue="Supplied?" headerclass=" booleanColumn" styleclass="booleanColumn">
+                    <apex:inputfield value="{!requirement.Supplied__c}" />
+                </apex:column>
+
+                <apex:column headervalue="Approved?" headerclass=" booleanColumn" styleclass="booleanColumn">
+                    <apex:inputfield value="{!requirement.Approved__c}" />
+                </apex:column>
+                <apex:column headervalue="Waived?" headerclass=" booleanColumn" styleclass="booleanColumn">
+                    <apex:inputfield value="{!requirement.Waived__c}" />
+                </apex:column>
+                <apex:column headervalue="Status">
+                    <apex:outputText value="{!requirement.Status_UI__c}" escape="false" />
+                </apex:column>
+            </apex:pageblocktable>
+        </apex:pageblock>
+        <apex:pageblock title="Requirement Attachments">
+            <apex:pageblocktable var="requirement" value="{!requirementList}" id="attdocList">
+                <apex:column value="{!requirement.name}" />
+                <apex:column headervalue="Attachments">
+                    <apex:repeat var="attachment" value="{!requirement.attachments}">
+                        <apex:outputpanel layout="block">
+                            <apex:outputlink value="/servlet/servlet.FileDownload?file={!attachment.id}">
+                                <apex:outputfield value="{!attachment.name}" />
+                            </apex:outputlink>                            
+
+                            <apex:outputText value="({0}; {1} bytes; Uploaded by: {2})" style="padding-left: 2em; font-size: 90%; color: #6a6a6a;">
+                                <apex:param value="{!attachment.ContentType}" />                                
+                                <apex:param value="{!attachment.BodyLength}" />                                
+                                <apex:param value="{!attachment.createdby.Name}" />                                
+                            </apex:outputText>
+                            <apex:commandLink action="{!delAttachment}" onclick="return del();" style="float:right" value="Del">  
+                                <apex:param name="attid" assignTo="{!attid}" value="{!attachment.id}"/>
+                            </apex:commandLink>
+                        </apex:outputpanel>
+
+                    </apex:repeat>
+                    <apex:outputtext value="There are no files uploaded for this requirement" rendered="{!requirement.attachments.size==0}" />
+                </apex:column>               
+                <apex:column >
+                    <apex:outputlink value="/p/attach/NoteAttach?pid={!requirement.id}&parentname={!requirement.name}&retURL={!$CurrentPage.url}">
+                        <apex:outputText value="Add" />
+                    </apex:outputlink>
+                </apex:column>
+            </apex:pageblocktable>            
+        </apex:pageblock>  
+        <script>
+            function del(){
+                if(confirm("Are you sure to delete?"))
+                return true;
+                else
+                return false;                
+            }
+        </script>      
+    </apex:form>
+</apex:page>

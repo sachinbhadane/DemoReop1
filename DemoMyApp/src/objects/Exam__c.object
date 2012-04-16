@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>true</enableActivities>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <fields>
+        <fullName>Account_Override__c</fullName>
+        <externalId>false</externalId>
+        <label>Account</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Account__c</fullName>
+        <externalId>false</externalId>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Exams</relationshipLabel>
+        <relationshipName>Exams</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Application__c</fullName>
+        <externalId>false</externalId>
+        <label>Application</label>
+        <referenceTo>Opportunity</referenceTo>
+        <relationshipLabel>Exams</relationshipLabel>
+        <relationshipName>Exams</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Exam_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Exam: Date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Exam_Listening__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter Listening score.</inlineHelpText>
+        <label>Exam Listening</label>
+        <length>16</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Exam_Location__c</fullName>
+        <externalId>false</externalId>
+        <label>Exam: Location</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Exam_Provider__c</fullName>
+        <externalId>false</externalId>
+        <label>Exam Provider</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Exam_Reading__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter reading score.</inlineHelpText>
+        <label>Exam Reading</label>
+        <length>16</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Exam_Score__c</fullName>
+        <externalId>false</externalId>
+        <label>Exam: Score</label>
+        <length>16</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Exam_Speaking__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter Speaking score.</inlineHelpText>
+        <label>Exam Speaking</label>
+        <length>16</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Exam_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Exam: Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Cambridge Advanced or Higher</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>GMAT</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>GRE</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>IELTS</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pearson/PTE</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>TOEFL</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>TOEIC</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>TOEFL or Equivalent</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No test required</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SHL</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Exam_Writing__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter writing score.</inlineHelpText>
+        <label>Exam Writing</label>
+        <length>16</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>GRE__c</fullName>
+        <externalId>false</externalId>
+        <label>GRE Score Type</label>
+        <picklist>
+            <controllingField>Exam_Type__c</controllingField>
+            <picklistValues>
+                <fullName>Verbal Reasoning</fullName>
+                <controllingFieldValues>GRE</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Quantitative Reasoning</fullName>
+                <controllingFieldValues>GRE</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Analytical Writing</fullName>
+                <controllingFieldValues>GRE</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>NeedofTest__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>I need to take my test</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Planned_Test_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Planned Test Date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Planned_Test_Location__c</fullName>
+        <externalId>false</externalId>
+        <label>Planned Test Location</label>
+        <length>50</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Quant__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter only for GMAT.</inlineHelpText>
+        <label>Quant</label>
+        <length>16</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>TakenTest__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>I have already taken my test</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Verbal__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Enter only for GMAT.</inlineHelpText>
+        <label>Verbal</label>
+        <length>16</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Verified_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Verified Date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Verified__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Verified?</label>
+        <type>Checkbox</type>
+    </fields>
+    <label>Exam</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>Account_Override__c</columns>
+        <columns>Account__c</columns>
+        <columns>Application__c</columns>
+        <columns>Exam_Date__c</columns>
+        <columns>Exam_Location__c</columns>
+        <columns>Exam_Score__c</columns>
+        <columns>Exam_Type__c</columns>
+        <columns>Exam_Provider__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>{00000000}</displayFormat>
+        <label>Reference #</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Exams</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Application__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Exam_Date__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Exam_Location__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Exam_Score__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Exam_Type__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>GRE__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>TakenTest__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>NeedofTest__c</customTabListAdditionalFields>
+        <searchFilterFields>NAME</searchFilterFields>
+    </searchLayouts>
+    <sharingModel>Read</sharingModel>
+    <startsWith>Vowel</startsWith>
+</CustomObject>

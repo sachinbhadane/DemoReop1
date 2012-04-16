@@ -1,0 +1,32 @@
+<apex:page showHeader="false" controller="ApplicantRegistrationController">
+<!--table width="1066" border="0" align="center" CELLPADDING="0" CELLSPACING="0" background="{!URLFOR($Resource.Images, 'new-images/register02_02.jpg')}">
+<tr><td><c:Header /></td></tr>
+<tr><td style="padding-left:75px; padding-right:75px;" valign="top"> -->
+<!-- Code for text box -->
+
+<table class="innertable"  border="0" cellpadding="0" cellspacing="0">
+<apex:form >
+<tr><td ><c:Header /></td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td  class="formheader" align="center">
+Dear {!CreatedUser.FirstName} {!CreatedUser.LastName}, <br /> 
+Thanks for registration&nbsp;</td></tr>
+  <tr>
+        <td class="content"></td>
+      </tr>
+     <tr><td align="center">
+  <apex:outputLink styleClass="formlable" value="secur/logout.jsp">
+    Goto login Page
+  </apex:outputLink>
+</td>  </tr> 
+</apex:form>
+    </table>
+
+<!-- end code  --><!--
+</td></tr>
+<tr><td><099E0000000Gnrk /></td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td></tr>
+<tr><td>&nbsp;</td></tr>
+</table> -->
+</apex:page>

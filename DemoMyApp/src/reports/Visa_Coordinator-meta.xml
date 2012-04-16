@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ReportFolder xmlns="http://soap.sforce.com/2006/04/metadata">
+    <accessType>Shared</accessType>
+    <name>Visa Coordinator</name>
+    <publicFolderAccess>ReadWrite</publicFolderAccess>
+    <sharedTo>
+        <roles>AAM</roles>
+        <roles>System Administrator</roles>
+        <roles>Visa Coordinator</roles>
+    </sharedTo>
+</ReportFolder>

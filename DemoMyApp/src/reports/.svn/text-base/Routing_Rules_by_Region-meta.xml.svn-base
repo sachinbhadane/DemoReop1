@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ReportFolder xmlns="http://soap.sforce.com/2006/04/metadata">
+    <accessType>Shared</accessType>
+    <name>Routing Rules by Region</name>
+    <publicFolderAccess>ReadOnly</publicFolderAccess>
+    <sharedTo>
+        <roles>Asia Region</roles>
+        <roles>CEO/Pres, COO, Dean, CIO, CFO</roles>
+        <roles>EU Region</roles>
+        <roles>Global Product Head - BIBA (UG)</roles>
+        <roles>Global Product Head - EMBA</roles>
+        <roles>Global Product Head - MA</roles>
+        <roles>Global Product Head- MBA</roles>
+        <roles>LATINAM Region</roles>
+        <roles>MEA Region</roles>
+        <roles>NA Region</roles>
+        <roles>System Administrator</roles>
+    </sharedTo>
+</ReportFolder>

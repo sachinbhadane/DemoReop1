@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Currencies On Demand</fullName>
+    <apiAccessLevel>Unrestricted</apiAccessLevel>
+    <description>Update static &amp; dated exchange rates from Yahoo Finance and the European Central Bank.</description>
+    <namespacePrefix>bringing</namespacePrefix>
+    <types>
+        <members>myException</members>
+        <members>rateController</members>
+        <members>trueTools</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>trueRate</members>
+        <name>ApexPage</name>
+    </types>
+    <types>
+        <members>Rates</members>
+        <name>CustomTab</name>
+    </types>
+    <types>
+        <members>bringinglogobox</members>
+        <members>trueRate</members>
+        <name>StaticResource</name>
+    </types>
+    <version>20.0</version>
+</Package>

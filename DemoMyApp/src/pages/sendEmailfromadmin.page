@@ -1,0 +1,6 @@
+<apex:page controller="ApplicantReferenceController" action="{!sendemailfromAdmin}"  >
+<apex:messages />
+<apex:form >
+<apex:commandButton action="{!isBack}" value="Back to Requirement" />
+</apex:form>
+</apex:page>

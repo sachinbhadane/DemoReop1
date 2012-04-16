@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ReportFolder xmlns="http://soap.sforce.com/2006/04/metadata">
+    <accessType>Shared</accessType>
+    <name>MASTERS Recruiter Dashboard</name>
+    <publicFolderAccess>ReadOnly</publicFolderAccess>
+    <sharedTo>
+        <roles>ASIA Product Head- MA</roles>
+        <roles>ASIA Recruiter - MA</roles>
+        <roles>EU Product Head- MA</roles>
+        <roles>EU Recruiter - MA</roles>
+        <roles>Global Product Head - MA</roles>
+        <roles>LATINAM Product Head - MA</roles>
+        <roles>LATINAM Recruiter - MA</roles>
+        <roles>MEA Product Head - MA</roles>
+        <roles>MEA Recruiter - MA</roles>
+        <roles>NA Product Head - MA</roles>
+        <roles>NA Recruiter - MA</roles>
+    </sharedTo>
+</ReportFolder>

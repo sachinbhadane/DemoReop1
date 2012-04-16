@@ -1,0 +1,305 @@
+<apex:page showHeader="false" action="{!oppdata}" controller="ApplicantRegistrationController">
+<apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js" />
+<style>
+.trhide{
+display:none;
+}
+.trunhide{
+width:202px;
+display:inline;
+
+}
+</style>
+<table class="innertable" border="0" cellpadding="0" cellspacing="0">
+<tr><td colspan="2"><c:Header /></td></tr>
+<tr>
+    
+<td>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
+<tr><td><c:ApplicantHeader /> </td></tr>
+<tr><td><table width="100%" class="innerpadding"  border="0" cellpadding="0" cellspacing="0" ><tr><td>
+
+<tr><td colspan="2" class="formheader">Program and Location</td></tr>
+
+<tr>
+<td background="{!URLFOR($Resource.Images, 'new-images/line.jpg')}" style="background-repeat:repeat-x">&nbsp;</td>
+</tr>
+<tr style="text-align:left"><td colspan="2" >
+<apex:pageMessages escape="false" showDetail="false" />
+</td></tr>
+<tr><td valign="top">
+<!--Start Code here-->
+
+<apex:form >
+<apex:outputPanel id="panel1" >
+<table width="100%"  border="0">
+  <tr id="pl1">
+    <td class="formlable" align="right" width="202">Primary Choice of Program<span class="error_star">*</span></td>
+    <td><apex:selectList disabled="{!finalsubmit}" value="{!Primary_Program_Choice_c}"  styleClass="form-selectList"  size="1">
+            <apex:selectOptions value="{!primaryProlist}" />
+            <apex:actionSupport status="pprogram1" action="{!MasterProlist1}" reRender="jscript,sp1,f1,ReqStar1,startterm,cam008,cam009,cam0010"  event="onchange"/>            
+        </apex:selectList>
+       <apex:actionStatus id="pprogram1" startStyleClass="wait" stopText="" />
+        </td>
+  </tr>
+    <tr id="pl4" class="is_primary_program showSpecific1" >
+    <td class="formlable" align="right">Specific Program<apex:outputLabel id="ReqStar1" value="{!ReqStar1}" styleClass="error_star" /></td>
+    <td><apex:selectList disabled="{!finalsubmit}" id="sp1" value="{!Masters_Program_Choice_c}"  styleClass="form-selectList"  size="1">
+            <apex:selectOptions value="{!MasterProlist}"/> 
+            <apex:actionSupport status="sprogram2" action="{!MasterProlist1}" reRender="jscript,f1,cam008,cam009,cam0010" event="onchange"/>           
+        </apex:selectList>
+        <apex:actionStatus id="sprogram2" startStyleClass="wait" stopText="" />
+        </td>
+  </tr>
+  <tr id="pl2" class="is_primary_program">
+    <td class="formlable" align="right">Choice of Campus<span class="error_star">*</span></td>
+    <td><apex:selectList disabled="{!finalsubmit}" id="f1" value="{!Primary_Campus_c}"  styleClass="form-selectList"  size="1">
+            <apex:selectOptions value="{!fcampus}"/>
+            <apex:actionSupport status="sprogram3" action="{!mibMessages}" reRender="jscript,cam008,cam009,cam0010" event="onchange"/>           
+        </apex:selectList>
+        <apex:actionStatus id="sprogram3" startStyleClass="wait" stopText="" />
+        </td>
+  </tr>  
+ 
+  <tr id="cam007" class="cam007">
+    <td class="formlable" align="right"><apex:outputText value="{!newMessage1}" id="cam008" /><br /><br /> </td>
+    <td><apex:selectRadio id="cam009" disabled="{!finalsubmit}" value="{!Specialization_Taken_c}" >
+            <apex:selectOptions value="{!yesno}"/>
+        </apex:selectRadio>
+        <i style="font-size:90%">&nbsp;&nbsp;<apex:outputText id="cam0010" value="{!newMessage2}" /></i><br /><br />           
+        </td>
+  </tr>
+
+  <tr id="pl5" class="interest">
+    <td class="formlable" align="right">Choose a second choice of program</td>
+    <td class="formlable">
+    <apex:selectRadio value="{!interestedsec}" onclick="is_secondary_program_visible(this.value);" id="is_secondary_program_visible" disabled="{!finalsubmit}">
+            <apex:selectOptions value="{!yesno}"/>
+        </apex:selectRadio>
+       
+    </td>
+  </tr>
+  <tr id="pl6">
+    <td class="formlable" align="right"></td>
+    <td></td>
+  </tr>
+  <tr id="pl7" class="is_secondary_program_visible">
+    <td class="formlable" align="right">Secondary Choice of Program</td>
+    <td><apex:selectList disabled="{!finalsubmit}" value="{!Secondary_Program_Choice_c}"  styleClass="form-selectList Secondary_Program_Choice_c"  size="1">
+            <apex:selectOptions value="{!primaryProlist}"/>
+            <apex:actionSupport status="pprogram2" reRender="jscript,sp2,f2" action="{!MasterProlist1}" event="onchange"/>
+        </apex:selectList> 
+        <apex:actionStatus id="pprogram2" startStyleClass="wait" stopText="" />
+        </td>
+  </tr>
+    <tr id="pl9" class="is_secondary_program_visible showSpecific2">
+    <td class="formlable" align="right">Specific Program</td>
+    <td><apex:selectList disabled="{!finalsubmit}" id="sp2" value="{!Secondary_Masters_Program_Choice_c}"  styleClass="form-selectList"  size="1">
+            <apex:selectOptions value="{!MasterProlistsec}"/>
+            <apex:actionSupport status="ssprogram2" reRender="jscript,f2" action="{!MasterProlist1}" event="onchange"/>            
+        </apex:selectList>
+        <apex:actionStatus id="ssprogram2" startStyleClass="wait" stopText="" />
+        
+        </td>
+  </tr>
+  <tr id="pl8" class="is_secondary_program_visible">
+    <td class="formlable" align="right">Second Choice of Campus </td>
+    <td><apex:selectList disabled="{!finalsubmit}" id="f2" value="{!Secondary_Campus_c}"  styleClass="form-selectList"  size="1">
+            <apex:selectOptions value="{!fcampusSec}"/>            
+        </apex:selectList></td>
+  </tr>
+
+    <tr id="pl3">
+    <td class="formlable" align="right">Start Term In<span class="error_star">*</span></td>
+    <td><apex:selectList id="startterm" disabled="{!finalsubmit}" value="{!Start_Term_c}"  styleClass="form-selectList"  size="1">
+            <apex:selectOptions value="{!startterm}"/>
+        </apex:selectList>
+        </td>
+  </tr>
+  <tr id="pl10" class="interest_globalUG">
+    <td class="formlable" align="right">Are you interested in the Global Rotation?<span class="error_star">*</span></td>
+    <td><apex:selectRadio disabled="{!finalsubmit}" value="{!Global_Campus_Rotation_Program_c}" onclick="syesno(this.value)" >
+            <apex:selectOptions value="{!yesno}"/>
+        </apex:selectRadio></td>
+  </tr><!--
+  <tr class="Interested_in_the_Global" id="pl11">
+    <td class="formlable" align="right">Number of Rotation?<span class="error_star">*</span></td>
+    <td><apex:selectList disabled="{!finalsubmit}" id="rg1" value="{!Number_of_Rotations_c}"  styleClass="form-selectList"  size="1">
+            <apex:selectOptions value="{!num}"/>
+        </apex:selectList></td>
+  </tr>
+  
+   -->
+   <!-- 
+   
+     <tr class="Interested_in_the_Global" id="pl12">
+    <td class="formlable" align="right">Module 1 Rotation <span class="error_star">*</span></td>
+    <td><apex:selectList disabled="{!finalsubmit}" id="rg2" value="{!Rotation_First_Choice_c}"  styleClass="form-selectList"  size="1">
+            <apex:selectOptions value="{!fcampusModule}"/>
+        </apex:selectList></td>
+  </tr>
+  <tr class="Interested_in_the_Global" id="pl13">
+    <td class="formlable" align="right">Module 2 Rotation</td>
+    <td><apex:selectList disabled="{!finalsubmit}" id="rg3" value="{!Rotation_Second_Choice_c}"  styleClass="form-selectList"  size="1">
+            <apex:selectOptions value="{!fcampusModule}"/>
+        </apex:selectList></td>
+  </tr>
+   -->
+  
+<tr><td  colspan="2">
+<table width="100%">
+<tr>
+<td background="{!URLFOR($Resource.Images, 'new-images/line.jpg')}" style="background-repeat:repeat-x">&nbsp;</td>
+</tr>
+<tr>
+<td align="center" ><apex:outputPanel rendered="{!!finalsubmit}">
+<apex:inputHidden value="{!pagename}"/>
+<span class="button primary">
+ <apex:commandLink rendered="{!!finalsubmit}" value="Save and Continue" title="Save and Continue" id="step3" action="{!step3}" />
+
+ </span>
+ <span class="divider">|</span>
+        <apex:commandLink value="Save and Logout"  rendered="{!NOT(finalsubmit)}" styleClass="secondary" action="{!step3andlogout}" />
+        </apex:outputPanel>
+ </td></tr>
+<tr>
+<td><span style="float:right;vertical-align:bottom"><apex:outputLink value="#"><apex:image url="{!URLFOR($Resource.Images, 'new-images/topimage.jpg')}"  />&nbsp;<b>back to top</b></apex:outputLink> </span></td>
+</tr></table>
+</td></tr>
+</table>
+</apex:outputPanel>
+
+<script> 
+document.getElementById('Program').style.backgroundImage="url('{!URLFOR($Resource.Images, 'new-images/tabwhiteimage.jpg')}')";
+document.getElementById('Program').style.backgroundPosition="center";
+document.getElementById('Program1').className="headertabonload";
+</script>
+
+<apex:outputPanel id="jscript">
+ 
+  <script>
+var st="{!Primary_Program_Choice_c}";
+st=st.replace("'","");
+//alert(st);  
+function isprimary(str)
+{
+    if(str!='')
+    {
+    $('.is_primary_program').show();
+    $('.interest').show();
+    $('.interest_globalUG').show();
+        if(str=='Bachelor of International Business Administration')
+        {
+            $('.interest_globalUG').hide();
+            $('.interest_globalUG select').val('false');
+            $('.Interested_in_the_Global select').val('');
+            $('.Interested_in_the_Global').hide();
+            
+        }
+    }
+    else
+    {
+    $('.is_primary_program').hide();
+    $('.interest').hide();
+    $('.interest_globalUG').hide();
+    $('.interest_globalUG select').val('false');    
+    $('.is_primary_program select').val('');
+    $('.Interested_in_the_Global').hide();
+    $('.is_secondary_program_visible').hide();
+    $('.is_secondary_program_visible select').val('');
+    $('.is_secondary_program_visible input').val('');
+    }
+}
+isprimary(st);
+// Code for Interested in the Global Campus 
+function syesno(str)
+{
+    if(str=='false')
+    {
+    $('.Interested_in_the_Global').hide();
+    $('.Interested_in_the_Global select').val('');
+    }
+    else
+    {
+    $('.Interested_in_the_Global').show();
+    
+    }
+}
+syesno('{!Global_Campus_Rotation_Program_c}');
+
+function is_secondary_program_visible(str) 
+{
+  if ('true' == str) 
+  {
+      $('.is_secondary_program_visible').show();
+  } 
+  else 
+  {
+      $('.is_secondary_program_visible').hide();
+      $('.is_secondary_program_visible select').val('');
+      $('.is_secondary_program_visible input').val('');
+  }
+}
+is_secondary_program_visible("{!interestedsec}");
+function is_showSpecific1(str)
+{
+   // alert(str);
+    if(str==false)
+    {
+        $('.showSpecific1').hide();
+        $('.showSpecific1 select').val('');
+    }
+    else
+    {
+        $('.showSpecific1').show();
+    }
+}
+is_showSpecific1({!showSpecific1})
+
+function is_showSpecific2(str)
+{
+   // alert(str);
+    if(str==false)
+    {
+        $('.showSpecific2').hide();
+        $('.showSpecific2 select').val('');
+    }
+    else
+    {
+        $('.showSpecific2').show();
+    }
+}
+is_showSpecific2({!showSpecific2})
+
+function is_newMessages(str){
+
+    if(str==false)
+    {
+   
+        $('.cam007').hide();
+       // $('.showSpecific2 select').val('');
+    }
+    else
+    {
+        $('.cam007').show();
+    }
+
+}
+is_newMessages({!isnewMessageShow})
+</script>
+</apex:outputPanel>
+</apex:form>
+<!-- End code here--> 
+</td></tr>
+<!--
+<apex:outputPanel rendered="{!!tab1}">
+<tr><td class="uncompetetab_msg" align="center" height="200" valign="top">
+You must complete Personal Information tab before Program &amp; Location tab 
+</td></tr></apex:outputPanel> -->
+</td></tr></table></td></tr>
+</table></td></tr>
+</table>
+<site:googleAnalyticsTracking ></site:googleAnalyticsTracking>
+            
+</apex:page>

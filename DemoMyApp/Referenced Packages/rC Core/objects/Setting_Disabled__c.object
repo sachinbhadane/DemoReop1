@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>Hierarchy</customSettingsType>
+    <customSettingsVisibility>Public</customSettingsVisibility>
+    <enableEnhancedLookup>false</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>MessageCalloutServicer__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>MessageCalloutServicer</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>MessageHeartbeatServicer__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>MessageHeartbeatServicer</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>MessageSobjectServicer_Delete__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>MessageSobjectServicer: Delete</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>MessageSobjectServicer_Insert__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>MessageSobjectServicer: Insert</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>MessageSobjectServicer_Update__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>MessageSobjectServicer: Update</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>MessageSobjectServicer_Upsert__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>MessageSobjectServicer: Upsert</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>MessageSobjectServicer__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>MessageSobjectServicer</label>
+        <type>Checkbox</type>
+    </fields>
+    <label>rC Core: Disabled Code</label>
+</CustomObject>

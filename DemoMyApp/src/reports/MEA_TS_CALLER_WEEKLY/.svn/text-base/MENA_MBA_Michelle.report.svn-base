@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>CREATED_DATE</field>
+    </columns>
+    <columns>
+        <field>Opportunity.Telesales_Caller__c</field>
+    </columns>
+    <columns>
+        <field>STAGE_NAME</field>
+    </columns>
+    <columns>
+        <field>Opportunity.Application_Substage__c</field>
+    </columns>
+    <columns>
+        <field>OPPORTUNITY_NAME</field>
+    </columns>
+    <columns>
+        <field>LEAD_SOURCE</field>
+    </columns>
+    <columns>
+        <field>AGE</field>
+    </columns>
+    <columns>
+        <field>FULL_NAME</field>
+    </columns>
+    <columns>
+        <field>ACCOUNT_NAME</field>
+    </columns>
+    <columns>
+        <field>Opportunity.Country_Of_Residence__c</field>
+    </columns>
+    <currency>USD</currency>
+    <description>QL Interested, Strongly Interested, Unreachable 1 and 2</description>
+    <filter>
+        <criteriaItems>
+            <column>STAGE_NAME</column>
+            <operator>equals</operator>
+            <value>Qualified Lead</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Opportunity.Program__c</column>
+            <operator>startsWith</operator>
+            <value>MBA</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Opportunity.Application_Substage__c</column>
+            <operator>equals</operator>
+            <value>Unreachable Call 1,Unreachable Call 2,Not Set,Other,Unreachable</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Opportunity.Country_Of_Residence__c</column>
+            <operator>equals</operator>
+            <value>Algeria,Bahrain,Egypt,Iran,Iraq,Jordan,Kuwait,Lebanon,Libya,Morocco,Oman,Palestine,Qatar,Saudi Arabia,Sudan,Syria,Tunisia,United Arab Emirates,Yemen</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>MENA MBA Michelle</name>
+    <params>
+        <name>open</name>
+        <value>all</value>
+    </params>
+    <params>
+        <name>probability</name>
+        <value>&gt;0</value>
+    </params>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Opportunity</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>CREATED_DATE</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+        <startDate>2012-01-01</startDate>
+    </timeFrameFilter>
+</Report>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Portal xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <admin>bryan.romas@hult.edu.fullqc</admin>
+    <description>Customer Portal</description>
+    <emailSenderAddress>admin@hult.edu</emailSenderAddress>
+    <emailSenderName>admin@hult.edu</emailSenderName>
+    <enableSelfCloseCase>false</enableSelfCloseCase>
+    <forgotPassTemplate>unfiled$public/ChangePwdEmail</forgotPassTemplate>
+    <isSelfRegistrationActivated>true</isSelfRegistrationActivated>
+    <newPassTemplate>unfiled$public/ChangePwdEmail</newPassTemplate>
+    <newUserTemplate>unfiled$public/NewUserEmail</newUserTemplate>
+    <selfRegUserDefaultProfile>applicant customer portal user</selfRegUserDefaultProfile>
+    <selfRegUserTemplate>unfiled$public/SelfRegUserEmail</selfRegUserTemplate>
+    <showActionConfirmation>false</showActionConfirmation>
+    <type>CustomerSuccess</type>
+</Portal>

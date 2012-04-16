@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ReportFolder xmlns="http://soap.sforce.com/2006/04/metadata">
+    <accessType>Shared</accessType>
+    <name>Campaign Detail Reports</name>
+    <publicFolderAccess>ReadWrite</publicFolderAccess>
+    <sharedTo>
+        <roles>ASIA Marketing User</roles>
+        <roles>ASIA Regional Marketing Manager</roles>
+        <roles>EU Marketing User</roles>
+        <roles>EU Regional Marketing Manager</roles>
+        <roles>MEA Marketing User</roles>
+        <roles>MEA Regional Marketing Manager</roles>
+        <roles>NA/LATINAM Marketing User</roles>
+        <roles>NA/LATINAM Regional Marketing Manager</roles>
+        <roles>Regional Marketing Manager</roles>
+        <roles>System Administrator</roles>
+    </sharedTo>
+</ReportFolder>

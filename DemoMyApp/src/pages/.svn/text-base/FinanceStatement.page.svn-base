@@ -1,0 +1,141 @@
+<apex:page showHeader="false" controller="FinanceStatementController">
+<apex:form >
+<table class="innertable" border="0" cellpadding="0" cellspacing="0">
+<tr><td colspan="2"><c:onlineHeader /></td></tr>
+<tr>     
+<td>
+    <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
+        <tr>
+            <td><c:OnlineAccountHeader /></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+           <apex:outputPanel rendered="{!isShow }">
+            <table width="100%" class="innerpadding"  border="0" cellpadding="0" cellspacing="0"><tr><td>
+        <tr>
+            <td colspan="2" class="formheader">Finance Statement</td>
+        </tr>
+        
+        <tr>
+            <td height="19" background="{!URLFOR($Resource.Images, 'new-images/line.jpg')}" style="background-repeat:repeat-x;">&nbsp;</td>
+        </tr>
+        <apex:outputPanel >
+        <tr style="text-align:left"><td colspan="2" >
+        <apex:pageMessages escape="false" showDetail="false"  />
+</td></tr>
+        <tr>
+            <td valign="top">
+                <table width="100%">
+                    <tr>
+                        <td class="formlable" align="right">Hult Installment Plan
+                        </td>
+                        <td>
+                        <apex:selectList value="{!Installment_Plan_c}" styleClass="form-selectList" multiselect="false" size="1">
+                            <apex:selectOptions value="{!InstallmentPlan}" />
+                        </apex:selectList>
+                        </td>
+                    </tr>
+                </table>
+</td></tr>
+<tr><td >&nbsp;</td></tr>
+          <tr>
+<td background="{!URLFOR($Resource.Images, 'new-images/line.jpg')}" style="background-repeat:repeat-x;">&nbsp;</td>
+</tr></apex:outputPanel>
+<tr>
+    <td align="center">   
+    <span class="button primary">
+<apex:commandLink action="{!isSubmit}" >
+Save
+</apex:commandLink>
+</span>    
+
+<span class="button primary">
+<apex:outputLink target="blank" title="View Statement" id="cbtneditlogin" value="/FinanceStatementPDF" >
+View Statement
+<!-- apex:param name="id" value="{!id}"/ -->
+</apex:outputLink>
+</span>
+
+ <span class="divider">|</span>
+        <apex:outputLink value="/secur/logout.jsp" styleClass="secondary" >
+    Logout
+    </apex:outputLink>
+    </td>
+</tr>
+<tr>
+    <td colspan="2">&nbsp;
+    </td>
+</tr>
+<style>
+
+span.button.primary a {
+    background: url("{!URLFOR($Resource.buttons, 'buttons/btnRightSecondary_large.png')}") no-repeat scroll right top transparent;
+}
+
+span.button.primary a:hover {
+    background: url("{!URLFOR($Resource.buttons, 'buttons/btnRightSecondary_large.png')}") no-repeat scroll right top transparent;
+    color: #677A94;
+}
+
+</style>
+<tr>
+    <td colspan="2" align="center">
+           <span class="button primary"> 
+                <apex:commandLink value="I am ready to pay the first installment"  title="I am ready to pay the first installment" id="insI" action="{!PayToStudy1}" />
+           </span> 
+           <span class="button primary"> 
+                <apex:commandLink value="I am ready to pay the second installment."  title="I am ready to pay the second installment." id="insII" action="{!PayToStudy2}" />
+           </span> 
+    </td>
+</tr>
+</td></tr></table>
+<!-- code for statement -->
+<table width="100%" border="0" style="margin-top:-30px">
+  <tr>
+    <td class="formlable" align="center" style="font-size:16px; font-weight:bold">
+        HOW TO PAY YOUR TUITION VIA THE ONLINE STUDENT PORTAL<br /><br /></td></tr>
+  <tr><td class="formlable" align="center" style="font-size:14px; font-weight:bold">      
+        HULT INTERNATIONAL BUSINESS SCHOOL ARE DELIGHTED TO INTRODUCE THE MOST MODERN, <br />COST EFFICIENT AND SAFE WAY TO MAKE PAYMENTS OVERSEAS! <br />
+        (IN PARTNERSHIP WITH PAYTOSTUDY)<br /><br />
+    </td></tr>
+    <tr><td class="formlable" style="text-align:justify">    
+        Dear Hult Student,<br /><br /><br />
+        In order to facilitate the process of paying for your tuition, Hult International Business School has entered into a partnership with PaytoStudy.<br /><br />
+        What PaytoStudy offers is a cost efficient, safe and reliable payment solution which allows you to pay your fees in your home country and in your home currency. You will be provided with a local bank account as well as the tuition amount due converted to your local currency. PaytoStudy will then facilitate the overseas transfer to Hult International Business School and handle the conversion to the appropriate currency as per your invoice statement.<br /><br /> 
+        Apart from being cost efficient and safe in comparison to regular overseas bank transfers, PaytoStudy will provide Hult International Business School with information of all students who have used their payment service. This will allow Hult to easily identify your payment, which can otherwise be difficult when making overseas payments, as details about the sender often gets lost between the banks.<br /> <br />
+        Here are a few key points which are important to keep in mind:<br /><br />
+        •&nbsp;&nbsp;<span title="(A) make your payment to will be either in the name of Educstep or Taxback Group FIND OUT EXACTLY WHAT FROM SEONA. These companies are all part of the PaytoStudy group so do not worry your funds will go to PaytoStudy and ultimately to Hult International Business School.">The local bank account you make your payment to may not necessarily contain either the name “Hult International Business School” or “PaytoStudy”, but as long as you have obtained the account details from the Hult online student portal there is no need to worry. There are many different companies within the PaytoStudy group so do not be alarmed, your funds will go to PaytoStudy and ultimately to Hult International Business School.</span><br />  <br />
+        •&nbsp;&nbsp;Due to international Anti Money Laundry (AML) regulations it is necessary for you to provide PaytoStudy with <strong><u>a scanned copy of your passport.</u></strong> If you have already provided Hult International Business School with a copy of your passport as part of the visa process Hult will automatically make your passport copy available for PaytoStudy to review. There is no need for you to re-submit your passport again if you have already submitted a scanned copy to Hult. Please also note that it is only your own passport in capacity of being a Hult student which is required for AML purposes, regardless of who is making the actual payment.<br /><br /> 
+        •&nbsp;&nbsp;If you have not provided Hult with your passport on previous occasion you can chose to do so by logging onto your online student account (<a href="http://www.hult.edu/en/apply-now" target="_blank">http://www.hult.edu/en/apply-now</a>) and go to the tab called “Attach Documents”. Under the VISA section you can chose to upload a copy of your passport. Upon doing so it will become available to PaytoStudy. You can also send a copy of your passport directly to PaytoStudy Simply send the passport to <a href="mailto:confirm@paytostudy.com">confirm@paytostudy.com</a> together with your name and Student ID number.<br /> <br />
+        •&nbsp;&nbsp;Once payment has been made (by yourself, a relative or a sponsoring company etc.) a payment receipt needs to be e-mailed to <a href="mailto:confirm@paytostudy.com">confirm@paytostudy.com</a>. If you make your payment via bank transfer in a bank branch you should receive a receipt which you can scan and send. If you make your payment via online bank transfer a print screen of the screen showing the transfer is enough if your bank’s online system does not generate receipts.<br /><br />
+        •&nbsp;&nbsp;Do not forget to include your Student ID Number when you send the receipt.<br /><br />
+        If you have any questions in regards to your payment, please do not hesitate to contact my team at <a href="mailto:hult.finance@hult.edu">hult.finance@hult.edu</a><br /><br />
+        If you have any specific questions about the PaytoStudy service please do not hesitate to contact PaytoStudy directly at <a href="mailto:info@paytostudy.com">info@paytostudy.com</a><br /><br /><br /><br />
+        I hope you will have a prosperous year with Hult International Business School!<br /><br />
+        Yours Sincerely,<br /><br />
+        Calle Toren<br />
+        Finance Manager <br />
+        Hult International Business School <br />
+    </td>
+  </tr>
+</table>
+</apex:outputPanel>
+<apex:outputPanel rendered="{! NOT isShow}">
+<table width="100%">
+    <tr>
+        <td class="formlableheader" align="center">
+            Not available yet
+        </td>
+    </tr>
+</table>
+</apex:outputPanel>
+</td>
+</tr></table>
+<script>
+document.getElementById('FinanceStatement').style.backgroundImage="url('{!URLFOR($Resource.Images, 'new-images/tabwhiteimage.jpg')}')";
+document.getElementById('FinanceStatement').style.backgroundPosition="center";
+document.getElementById('FinanceStatement1').className="headertabonload";
+</script>
+</td></tr></table>
+</apex:form>
+</apex:page>

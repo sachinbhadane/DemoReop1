@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Contact.OpportunityContactRoles*Opportunity$Contact__c</field>
+    </columns>
+    <columns>
+        <field>Contact$Owner</field>
+    </columns>
+    <columns>
+        <field>Contact.OpportunityContactRoles*Opportunity$Start_Term__c</field>
+    </columns>
+    <columns>
+        <field>Contact$Applicant_Email__c</field>
+    </columns>
+    <columns>
+        <field>Contact$Do_Not_Route__c</field>
+    </columns>
+    <columns>
+        <field>Contact$Id</field>
+    </columns>
+    <currency>USD</currency>
+    <filter>
+        <criteriaItems>
+            <column>Contact.OpportunityContactRoles$StageName</column>
+            <operator>equals</operator>
+            <value>Partial Application,Waiting for Review,Accepted,Conditionally Accepted,Admissions Endorsed,Rejected,Withdrawn,Confirmed,Conditionally Confirmed,Admissions Endorsed Confirmed,Waitlisted Confirmed,Cancellation,Deferral,Enrolled</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Contact$Owner</column>
+            <operator>equals</operator>
+            <value>Sonny Gerardi</value>
+        </criteriaItems>
+    </filter>
+    <format>Tabular</format>
+    <name>Sonny&apos;s Partials to Mark Do not route.</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Application_and_Contact_Information__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <sortColumn>Contact.OpportunityContactRoles*Opportunity$Start_Term__c</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>Contact$Birthdate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

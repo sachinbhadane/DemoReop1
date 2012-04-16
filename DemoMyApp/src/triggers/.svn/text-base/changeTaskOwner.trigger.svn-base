@@ -1,0 +1,1 @@
+trigger changeTaskOwner on Contact (after update) {}

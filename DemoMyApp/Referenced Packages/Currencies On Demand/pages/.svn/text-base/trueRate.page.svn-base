@@ -1,0 +1,206 @@
+<apex:page standardController="CurrencyType" extensions="bringing.rateController" title="FX Rates" tabStyle="rates__tab">
+
+	<style type="text/css">
+				
+		.infoTxt {
+			font-family: verdana;
+			font-size: 11px;
+		}
+		
+	</style>
+
+	<script>
+	
+	var flexApp = null;
+	var jsData = [];
+	var jsData2 = [];
+	var bGetNew = false;
+	var bFlexIsReady = false;
+
+	function getFlashMovie(movieName)
+	{
+		if (window.document[movieName]) 
+	  	{
+	    	return window.document[movieName];
+	  	}
+	  	
+	  	if (navigator.appName.indexOf("Microsoft Internet")==-1)
+	  	{
+	    	if (document.embeds && document.embeds[movieName]) {
+	      		return document.embeds[movieName]; 
+	      	}
+	  	}
+	  	else
+	  	{
+	    	return document.getElementById(movieName);
+	  	} 	
+	}			
+		
+	function jsGetRates(strSource, strAdjust) {
+	
+		bGetNew = true;
+		jsData2 = [];
+
+		// GET THE VALUE OF THE UPDATE STATIC EXCHANGE RATES CHECKBOX.
+		var bUpdatedStaticRates = flexApp.flexUpdateStaticRates();
+
+		// GET THE VALUE OF THE UPDATE DATED EXCHANGE RATES CHECKBOX.
+		var bUpdatedDatedRates = flexApp.flexUpdateDatedRates();
+		
+		// EXECUTE ACTION FUNCTION TO GET RATES.
+		AF_GetRates(strSource, bUpdatedStaticRates, bUpdatedDatedRates, strAdjust);
+	}
+
+	function jsGetLanguage() {
+		return getLang();
+	}
+
+	function flexIsReady() {
+
+		// THIS METHOD IS CALLED FROM FLEX WHEN THE PAGE IS LOADED 
+		// SO JS CAN TEST THAT FLEX IS READY TO RECEIVE DATA.		
+		bFlexIsReady = true;
+	}	
+	
+	function flexUpdateRates() {
+
+		// THIS METHOD IS CALLED WHEN THE NEW RATES HAVE BEEN RETRIEVED FROM THE SOURCE
+		// AND WE WANT TO SEND THEM TO FLEX FOR UPDATE TO THE LOCAL DB.
+  		flexApp = getFlashMovie("trueRateMovie");
+		flexApp.flexUpdateRates( jsData2 );
+	}
+		
+	</script>
+	
+	<apex:form id="form1">
+		 	
+		<apex:actionFunction action="{!GetRates}" name="AF_GetRates" rerender="NewRates,theMsgs">
+		<apex:param name="firstParam" assignTo="{!Source}" value="" />
+		<apex:param name="staticParam" assignTo="{!bUpdateStaticRates}" value="" />
+		<apex:param name="datedParam" assignTo="{!bUpdateDatedRates}" value="" />
+		<apex:param name="adjustRates" assignTo="{!adjustRates}" value="" />
+		</apex:actionFunction>
+		
+		<apex:inputHidden id="lang" value="{!UserLanguage}">
+			<script>
+			//this function has to be within the control we are trying to access. 
+			function getLang()
+			{
+				var txtLang = document.getElementById("{!$Component.lang}");
+				return (txtLang.value);		
+			}
+			</script>
+		</apex:inputHidden>
+		
+	    <apex:inputHidden id="Nothing"/>
+
+		<apex:pageBlock id="Main" mode="edit">
+
+			<apex:panelGrid width="100%" >
+	 		<apex:pageMessages id="theMsgs"/>
+	 		</apex:panelGrid>
+		
+			<apex:panelGrid columns="2">
+
+   			<apex:outputLabel id="Intro_en" styleClass="infoTxt" rendered="{!NOT(ShowIntroES)}">
+				This page allows currency exchange rates in salesforce to be updated from external sources.
+				The sources available are the European Central Bank (ECB) and Yahoo Finance. 
+				Only active currencies are shown. Choose a source and click the <b>Get Rates</b> button.
+   			</apex:outputLabel>
+   			<apex:outputLabel id="Intro_es" styleClass="infoTxt" rendered="{!ShowIntroES}">
+   				Esta página permite actualizar los tipos de cambio en salesforce desde fuentes externas. 
+				Las fuentes disponibles son el Banco Central Europeo (BCE) y Yahoo Finance. 
+				Solo divisas activas son visibles. Elige una fuente y haz clic <b>Buscar</b>.   				
+   			</apex:outputLabel>
+
+
+			<apex:image id="logobox" value="{!$Resource.bringing__bringinglogobox}" width="60" height="60"/>
+			</apex:panelGrid>
+			
+			<apex:outputPanel layout="block" style="height: 350px; width: 100%">
+
+	            <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
+	            id="trueRateMovie" width="100%" height="100%"
+	            codebase="http://fpdownload.macromedia.com/get/flashplayer/current/swflash.cab">
+	              <param name="movie" value="{!$Resource.trueRate}" />
+	              <param name="quality" value="high" />
+	              <param name="allowScriptAccess" value="always" />  <!-- CHANGE THIS TO ACCESS EXTERNAL SERVER? -->
+		          <param name="flashvars" value="session_id={!$Api.Session_ID}&server_url={!$Api.Partner_Server_URL_150}" />
+	              <param name="wmode" value="transparent" />
+	              
+	              <embed src="{!$Resource.trueRate}" quality="high"
+	              	wmode="transparent" 
+	                name="trueRateMovie" 
+	                width="100%" height="100%" align="middle"
+	                play="true"
+	                loop="false"
+	                quality="high"
+	                allowScriptAccess="always"
+	                type="application/x-shockwave-flash"
+	                pluginspage="http://www.adobe.com/go/getflashplayer"
+	                flashvars="session_id={!$Api.Session_ID}&server_url={!$Api.Partner_Server_URL_150}">
+	              </embed>
+	            </object>
+            
+            </apex:outputPanel>
+
+		</apex:pageBlock>
+
+ 	</apex:form>
+
+	<apex:outputPanel id="LocalRates">
+		<apex:repeat id="Repeat1" value="{!LocalRates}" var="rt">
+			
+			<script>			
+			if ( bGetNew == false ) {
+				
+				// BUILD THE JAVASCRIPT ARRAY OF THE LOCAL RATES.			
+				jsData.push( { IsoCode:"{!rt.IsoCode}", IsCorporate:"{!rt.IsCorporate}", Status:"{!rt.Status}", Static_Id:"{!rt.Static_Id}", Static_Rate:"{!rt.Static_Rate}", Static_LastModifiedDate:"{!rt.Static_LastModifiedDate}", Static_IsUpdated:"{!rt.Static_IsUpdated}", ACM_Id:"{!rt.ACM_Id}", ACM_Rate:"{!rt.ACM_Rate}", ACM_strStartDate:"{!rt.ACM_strStartDate}", ACM_NextStartDate:"{!rt.ACM_NextStartDate}", ACM_IsUpdated:"{!rt.ACM_IsUpdated}", ACM_bReplaceRange:"{!rt.ACM_bReplaceRange}", ACM_ISOStartDate:"{!rt.ACM_ISOStartDate}", LastUpdatedSource:"{!LastUpdatedSource}" } );
+			}						 
+			</script>
+						
+		</apex:repeat>
+		
+		<script>
+		
+			// CALLED WHEN THE JS DATA HAS BEEN LOADED.
+			checkFlexIsReady();
+			
+			// THIS METHOD LOOPS UNTIL FLEX IS READY TO RECEIVE DATA,
+			// THEN SENDS THE JS DATA TO FLEX.
+			function checkFlexIsReady() {
+			
+				if ( bFlexIsReady == true ) {
+  					flexApp = getFlashMovie("trueRateMovie");
+					flexApp.flexPopulateGrid( jsData );										
+				}
+				else {
+					setTimeout('checkFlexIsReady()', 1000);
+				}							
+			}		
+			
+		</script>
+		
+	</apex:outputPanel>
+
+	<apex:outputPanel id="NewRates">
+		<apex:repeat id="Repeat2" value="{!NewRates}" var="rt2">
+			
+			<script>
+			if ( bGetNew == true ) {
+				jsData2.push( { IsoCode:"{!rt2.IsoCode}", IsCorporate:"{!rt2.IsCorporate}", Status:"{!rt2.Status}", Static_Id:"{!rt2.Static_Id}", Static_Rate:"{!rt2.Static_Rate}", Static_LastModifiedDate:"{!rt2.Static_LastModifiedDate}", Static_IsUpdated:"{!rt2.Static_IsUpdated}", ACM_Id:"{!rt2.ACM_Id}", ACM_Rate:"{!rt2.ACM_Rate}", ACM_strStartDate:"{!rt2.ACM_strStartDate}", ACM_NextStartDate:"{!rt2.ACM_NextStartDate}", ACM_IsUpdated:"{!rt2.ACM_IsUpdated}", ACM_bReplaceRange:"{!rt2.ACM_bReplaceRange}", ACM_ISOStartDate:"{!rt2.ACM_ISOStartDate}", LastUpdatedSource:"{!LastUpdatedSource}" } );			
+			}				
+			</script>
+			
+		</apex:repeat>
+		
+		<script>		
+		// THIS CHECK IS DONE TO ENSURE WE SEND THE UPDATED DATA TO FLEX ONLY WHEN IT HAS COMPLETED.
+		if ( bGetNew == true) {
+	 		flexUpdateRates();
+		}
+		</script>
+	
+	</apex:outputPanel>		
+ 
+</apex:page>

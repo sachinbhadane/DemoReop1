@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>FK_NAME</field>
+    </columns>
+    <columns>
+        <field>Routing_Table__c.Region__c</field>
+    </columns>
+    <columns>
+        <field>Routing_Table__c.Country__c</field>
+    </columns>
+    <columns>
+        <field>Routing_Table__c.Routed_To__c</field>
+    </columns>
+    <columns>
+        <field>CUST_ID</field>
+    </columns>
+    <currency>USD</currency>
+    <description>Summarized by State/Province</description>
+    <filter>
+        <criteriaItems>
+            <column>Routing_Table__c.Is_Active__c</column>
+            <operator>equals</operator>
+            <value>1</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Routing_Table__c.Region__c</column>
+            <operator>equals</operator>
+            <value>North Am</value>
+        </criteriaItems>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Routing_Table__c.State__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Routing Rules: North Am</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$Routing_Table__c@Routing_Table__c.Department__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <sortColumn>FK_NAME</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>CUST_CREATED_DATE</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>
